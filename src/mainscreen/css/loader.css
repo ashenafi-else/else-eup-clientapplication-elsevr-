@@ -1,0 +1,17 @@
+#loader{
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: RGBA(250,250,250,0.8);
+}
+#loader .img{
+    background-image: url("../img/loader.gif");
+    background-position: center;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 100%;
+}

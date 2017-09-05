@@ -1,0 +1,1274 @@
+/* ReyRey Main screen CSS styles */
+html, body{
+    font-family: 'Lato', 'Verdana', sans-serif;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+div.header {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    box-shadow: 0 3px 8px 0 rgb(0, 0, 0), 0 1px 0 0 rgba(0, 0, 0, 0.19);
+    z-index: 999;
+}
+.header span.screen-name {
+    margin-top: 20px;
+}
+.header-start{
+    justify-content: center;
+    width: 18%;
+    display: flex;
+    font-size: 20px;
+    opacity: 0.7;
+    align-items: center;
+}
+.header-end {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+}
+.header-middle {
+    width: 64%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.header-end img{
+    max-height: 100%;
+}
+.header-end .login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-end .go-account{
+    background-image: url("../img/user.png");
+    width: 24px;
+    background-position-y: 8px;
+    margin: 0px;
+}
+.header-end .go-else video{
+    width: 50px;
+    height: 50px;
+}
+.header-middle img{
+    width: 200px;
+    height: 60px;
+}
+.vertical-line{
+    height: 50px;
+    margin: 10px 30px;
+    padding: 0 0 0 1px;
+    width: 0;
+    display: block;
+    background: #000000;
+}
+
+/* HEADER END */
+
+
+/* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN */
+.virtual-catalog {
+    flex: auto;
+    display: flex;
+    height: 93%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.virtual-catalog .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.virtual-catalog .logo-section .reyrey-logo {
+    width: 550px;
+    height: 170px;
+}
+.virtual-catalog .logo-section .logo-line {
+    content: '';
+    width: 600px;
+    margin-bottom: 20px;
+    padding: 2px 0 0 0px;
+    height: 0;
+    display: block;
+    background: #000000;
+}
+.collection-img, .element.active video {
+    margin-top: 15%;
+    display: flex;
+    height: 350px;
+    width: 550px;
+    align-self: center;
+    /* justify-content: center; */
+}
+.flat .collection-img{
+    height: 200px;
+    margin-top: 250px;
+}
+
+span.collection-heading {
+    color: #B7B7B7;
+    font-size: 1.3em;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80%;
+    min-width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+.list-items .element{
+    display: flex;
+    flex-basis: 19%;
+    height: 80%;
+    margin: 6px;
+    flex-direction: column;
+    background-color: #625c5c;
+}
+.element.Wedge {
+    background-color: #FCF9F5;
+}
+.element.Joker, .element.reyrey_12 {
+    background-color: #F8FBFF;
+}
+.element.Flat{
+    background-color: #FFFCFA;
+}
+
+.element .name, .materials .name{
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+}
+.element .name::after{
+    content: " ";
+    display: block;
+    width: 95%;
+    height: 1px;
+    background-color: #000000;
+    margin: 5px auto;
+}
+
+.list-items .element.active{
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    border-radius: 0;
+    background-color: #ccc;
+    opacity: 1;
+}
+.element.active .name{
+    color: #000;
+}
+.element.active .name::after{
+    background-color: #000;
+}
+.element .description{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+.element .description .col-83{
+    flex: 3 2 0;
+
+}
+@media (
+min-width: 1440px) {
+    .element .description .col-83{
+        margin: 75px 64px 55px 90px;
+    }
+}
+
+.element.active .description>
+ul ul.options{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    border: solid 1px #c5c5c5;
+    border-radius: 5px;
+    max-width: 40px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 3px 10px #000;
+}
+
+.element .description>
+ul ul.options{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 5px #fff;
+    border: solid 2px #fff;
+    max-height: 50px;
+    margin-top: 50px;
+}
+.element .description>
+ul ul>li{
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 21px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.element.active .description>
+ul ul>li>span{
+    padding: 5px;
+    color: #000;
+}
+
+.element .description>
+ul ul>li>span{
+    padding: 5px;
+    color: #000000;
+}
+.description
+ul.options>li::before{
+    content: " ";
+    width: 30px;
+    margin-right: 5px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: center center no-repeat;
+    background-size: contain;
+}
+ul.options>li.number-configurations::before{
+    background-image: url("./../img/cube.png");
+}
+ul.options>li.number-elements::before{
+    background-image: url("./../img/elements.png");
+}
+ul.options>li.number-materials::before{
+    background-image: url("./../img/materials.png");
+}
+ul.options>li.number-colors::before{
+    background-image: url("./../img/colors.png");
+}
+
+
+.virtual-catalog .go-else video,
+.store-password-screen .go-else video,
+.session-code-screen .go-else video{
+    position: absolute;
+    right: 48%;
+    bottom: 20px;
+    height: 70px;
+    width: 70px;
+    z-index: 1;
+}
+/* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN  END*/
+
+/* STORE SELECTION & PASSWORD & SESSION CODE SCREENS */
+.store-selection, .store-password-screen, .session-code-screen{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+}
+.store-selection .store-list{
+    height: 40%;
+}
+.store-selection .image-section{
+    height: 420px;
+}
+.store-selection .reyrey-store-image {
+    width: 100%;
+    height: 99%;
+}
+
+.store-selection .logo-section, .store-password-screen .logo-section,
+.session-code-screen .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.store-selection .logo-section .reyrey-logo,
+.store-password-screen .logo-section .reyrey-logo,
+.session-code-screen .logo-section .reyrey-logo {
+    margin-top: 30px;
+    width: 530px;
+    height: 180px;
+}
+#session-code-screen .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logo-section .logo-line{
+    content: '';
+    width: 600px;
+    margin-top: 15px;
+    padding: 2px 0 0 0px;
+    height: 0;
+    background: #000000;
+    display: block;
+}
+.store-selection .store-list {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+.store-selection .store-list a:hover {
+    color: #0064DB;
+}
+
+.store-selection .storeselect-heading{
+    font-size: 36px;
+    overflow: hidden;
+    font-family: 'Lato', Verdana, sans-serif;
+    margin-bottom: 50px;
+}
+
+.store-selection .store-list .store {
+    display: block;
+    margin: 20px 30px 0px 30px;
+    color: black;
+    text-align: center;
+}
+.store-password-screen .store-password, .session-code-screen .session-code {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.store-password-screen .store-password .password-input,
+.session-code-screen .session-code .input{
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.store-password-screen .store-password .password-input label,
+.session-code-screen .session-code .input label {
+    display: block;
+    margin-bottom: 10px;
+    height: 28px;
+    padding: 4px 10px 4px 10px;
+    color: rgba(0, 0, 0, 0.92);
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+    font-family: Lato, Verdana, sans-serif;
+}
+
+.store-password-screen .store-password .password-input input,
+.session-code-screen  .session-code .input input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid;
+    height: 60px;
+    line-height: 50px;
+    font-size: 32px;
+    padding: 0;
+    font-family: Lato, Verdana, sans-serif;
+    text-align: center;
+}
+.session-code div {
+    display: flex;
+    justify-content: center;
+}
+
+.store-password-screen .store-password .password-input span{
+    background: #F3F3F3;
+    display: block;
+    padding: 6px;
+    margin: 0 -18px -18px -18px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Lato, Verdana, sans-serif;
+    font-size: 22px;
+}
+
+.store-password-screen .store-password .password-input button,
+.session-code-screen .session-code .input button {
+    background: #000000;
+    border: none;
+    font-size: 24px;
+    padding: 10px 50px 10px 50px;
+    border-radius: 6px;
+    color: white;
+    margin-top: 25px;
+}
+
+
+
+
+/* REYREY - MAIN CONFIGURATION SCREEN */
+.main {
+    flex:2;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-start{
+    width: 25%;
+    padding: 0px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+.main-end {
+    width: 25%;
+    padding: 10px;
+    margin-top: 59px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+.main-middle {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+    flex: 1 1;
+}
+.main-end {
+    justify-content: space-between;
+    overflow: hidden;
+}
+.main-start{
+    display: flex;
+    flex-direction: column;
+}.price-block{
+     font-size: 13px;
+     position: absolute;
+     left: 20px;
+     bottom: 24px;
+     color: #696969;
+     width: 10%;
+     box-shadow: 0px 0px 10px #dddddd;
+     /* padding: 10px; */
+     outline-offset: -9px;
+     background: white;
+     /* border: white solid 8px; */
+ }
+.main-middle .product-model{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+}
+
+.product-options{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.product-options ul.options{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 0px;
+    border-radius: 5px;
+}
+.product-options ul.options li{
+    margin: 15px 8px 10px;
+}
+.product-options ul.options>li::before{
+    content: " ";
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.materials-color-block {
+    height: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    right: 50px;
+}
+.material-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    background-repeat: no-repeat;
+    margin: 10px 0;
+    text-align: center;
+    position: relative;
+}
+.material-head {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-left: -50px;
+    width: 100%;
+}
+.material-head.active{
+    /* margin-top: -25px; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin-left: -50px; */
+}
+.material-icon{
+    width: 95px;
+    height: 95px;
+}
+.mc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 300px !important;
+    justify-content: center;
+    width: 100%;
+    margin: 25px 50px 0px 0px;
+}
+.color {
+    background-position: center center;
+    background-color: #fff;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0 solid rgb(0, 255, 242);
+    width: 40px;
+    height: 40px;
+    margin: 0px -15px 10px auto;
+}
+@keyframes blink {
+    50% { border-color:  rgba(0, 255, 255, 0.5); }
+}
+.color.active {
+    border: solid #00ffff;
+    animation: blink 1s linear infinite alternate;
+}
+.material-start {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-content: center;
+    right: 0px;
+    position: absolute;
+}
+.big-active-material {
+    -webkit-mask: url(../img/material-mask.svg) no-repeat 50% 50%;
+    mask: url(../img/material-mask.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.wishlist {
+    width: 300px;
+    height: auto;
+    max-height: 30vh;
+    background-color: white;
+    box-shadow: 2px 2px 10px;
+    display: flex;
+    right: 15px;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    opacity: 0.95;
+}
+.wl-container {
+    padding: 10px;
+    overflow: auto;
+}
+.wl-title {
+    background-color: #eee;
+    color: #000;
+    width: 100%;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.model-name {
+    display: flex;
+    color: #000000;
+    font-weight: 600;
+    font-size: 120%;
+    background: #EEEEEE;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.model-name span {
+    padding-top: 10px;
+}
+.model-name::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    background: #2d2d2d;
+}
+.price-block{
+    display: flex;
+    flex-direction: column;
+    height: 37%;
+    width: 14%;
+    margin-left: auto;
+    box-shadow: 0px 2px 13px 1px #696969;
+    background-color: #fefefe;
+}
+
+.price-block .delivery-time{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.price-block .prices{
+    background-color: #fefefe;
+    padding: 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-block {
+    width: 50px;
+    height: 100px;
+}
+
+.summary-block div {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    padding: 5px;
+    color: black;
+}
+.price {
+    width: 80%;
+}
+.total-price{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.delivery-time .days{
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.price-block .prices::after, .summary-block::after{
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 0px;
+background: black;
+}
+.delivery-time .days
+span{
+    font-size: 18px;
+    padding: 0;
+    font-weight: lighter;
+}
+.price-block
+p[class$='-price']{
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    justify-content: space-between;
+}
+.delivery{
+    background:url("../img/delivery.png") center no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 85px;
+    height: 65px;
+}
+
+.product-block .product{
+    background-image: url(../img/Wedge_VC.png);
+}
+.components-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.components-block.wedge .component{
+    background: center top 14px no-repeat;
+    background-size: 70px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    float: left;
+    padding: 80px 21px 5px;
+    cursor: pointer;
+    margin: 3px 0;
+    background-color: rgba(255 ,255, 255, 0.7);
+    box-shadow: 3px 3px 10px #dddddd;
+    text-align: center;
+}
+
+
+/* product#1 joker */
+.components-block.joker .component.Upper {
+    background-image: url('../img/components/wedge/body.png');
+}
+.components-block.joker .reyrey_11_part_2 {
+    background-image: url('../img/components/wedge/heel.png');
+}
+.components-block.joker .reyrey_11_part_3 {
+    background-image: url('../img/components/wedge/lining.png');
+}
+.components-block.joker .reyrey_12_part_4 {
+    background-image: url('../img/components/wedge/insole.png');
+}
+.components-block.joker .reyrey_12_part_5 {
+    background-image: url('../img/components/wedge/sole.png');
+}
+
+/* product#2 wedge */
+.components-block.wedge .component.Upper {
+    background-image: url('../img/components/wedge/body.png');
+}
+.components-block.wedge .component.Heel {
+    background-image: url('../img/components/wedge/heel.png');
+}
+.components-block.wedge .component.Lining {
+    background-image: url('../img/components/wedge/lining.png');
+}
+.components-block.wedge .component.Insole {
+    background-image: url('../img/components/wedge/insole.png');
+}
+.components-block.wedge .component.Outsole {
+    background-image: url('../img/components/wedge/sole.png');
+}
+
+/*REYREY - PREVIEW SCREEN */
+.preview_area {
+    flex:2;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+/* cameras */
+.camera-view{
+    position: absolute;
+    background: url("../img/options/camera.png") center no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+.camera-view.active{
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    background: url("../img/options/camera_active.png") center no-repeat;
+    border: none!important;
+    background-size: 130%;
+    box-shadow: none!important;
+    border-bottom: 2px solid rgb(0, 255, 242);
+}
+.camera-view.camera-front{
+    bottom: 17%;
+    left: 49%;
+    transform: rotate(90deg);
+}
+.camera-view.camera-top{
+    top: 90%;
+    left: 49%;
+    transform: rotate(90deg);
+}
+.camera-view.camera-inside{
+    bottom: 41%;
+    left: 17%;
+    transform: scale(-1, 1);
+}
+.camera-view.camera-left{
+    bottom: 42%;
+    left: 17%;
+    transform: scale(-1,1);
+}
+.camera-view.camera-leftp{
+    bottom: 23%;
+    right: 18%;
+    transform: rotate(25deg);
+}
+.camera-view.camera-inside {
+    top: 13%;
+    left: 49%;
+    transform: rotate(-90deg);
+}
+.camera-view.camera-back{
+    top: 21%;
+    left: 49%;
+    transform: rotate(-90deg);
+}
+.camera-view.camera-right{
+    bottom: 43%;
+    right: 17%;
+}
+.camera-view.camera-rightp{
+    bottom: 23%;
+    left: 18%;
+    transform: rotate(-215deg) scale(1,-1);
+}
+
+.rotation-zoom{
+    position: absolute;
+    bottom: 10px;
+    left: 33.5%;
+    right: 33%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    text-align: center;
+}
+.rott{
+    width: 56px;
+    height: 27px;
+    cursor: pointer;
+    background: url("../img/options/360.png");
+}
+.rott.on{
+    background: url("../img/options/360_active.png");
+}
+
+
+
+/* REYREY - ORDER SCREEN */
+.order-form{
+    z-index: 99999;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1% 2%;
+}
+#product-order .shoe-block{
+    width:100%;
+}
+.order-form form {
+    position: absolute;
+    width: 18%;
+    border-radius: 10px;
+    right: 5px;
+    padding: 20px;
+    background-color: #ffffff ;
+}
+.input-label{
+    margin: 5px 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+.input-label .label{
+    font-size: 18px;
+    padding: 5px 0 0;
+    color: #696969;
+}
+
+.input-label input::-webkit-input-placeholder{
+    color: #696969 !important;
+}
+.input-label input::-moz-placeholder{
+    color: #696969 !important;
+}
+.input-label input:-moz-placeholder, .input-label input:-ms-input-placeholder {
+    color: #696969 !important;
+}
+
+.input-label input, .input-label textarea,.input-label select, .input-label select>option{
+    border: 1px solid #5c5c5c;
+    background-color: #d2d3d4;
+    color: #feffff;
+    padding: 3px 0 4px 10px;
+    font-size: 15px;
+    margin: 5px 0;
+    outline-color: #ba3f3f;
+    font-family: 'Lato','Verdana', sans-serif;;
+}
+.input-label input.active, .input-label textarea.active,.input-label select.active{
+    border: 1px solid #5c5c5c!important;
+    outline-color:#ba3f3f;
+}
+.input-label select, .input-label select>option{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+}
+.input-label select + .dropdown-btn{
+    background: url(../img/arrowdown.png) center top no-repeat;
+    background-size: 23px 18px;
+    width: 23px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    display: block;
+    opacity: 0.5;
+}
+.order-button{
+    width: 174px;
+    height: 54px;
+    margin: 30px auto 0;
+    cursor: pointer;
+    background: url(../img/else-shoes.png) center center no-repeat;
+    background-size: contain;
+}
+
+/* REYREY - BEST FIT SCREEN */
+.best-fit {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    font-size: 0.8em;
+    top: 70px;
+    left:0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 88%;
+}
+.user_profile_params,
+.user_scans,
+.left_scan,
+.right_scan {
+    display: inline-block;
+}
+.total_user_profile{
+    width: 100%;
+    height: 100%;
+}
+.total_user_profile table{
+    overflow: scroll;
+    height: 34%;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    border-bottom:none;
+}
+.total_user_profile tr th, .total_user_profile tr td{
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px;
+}
+.total_user_profile tr th{
+    background-color: black;
+    font-weight: bold;
+}
+.total_user_profile tr:nth-of-type(even){
+    background-color: #f3f3f3;
+    height: 33px;
+}
+.total_user_profile tr:nth-of-type(odd){
+    background-color: #fefefe;
+    height: 20px;
+}
+.total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
+    border-right: 1px solid #d9d9d9;
+}
+.user_profile_params{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 0 10px #777777;
+    margin: 30px 15px 30px 30px;
+    flex: 2;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+    /* width: 30%; */
+}
+.user_info{
+    margin: 35px 0px 30px 0px;
+    z-index: -1;
+}
+.user_scans{
+    box-shadow: 0 0 10px #777777;
+    margin: 30px 30px 30px 15px;
+    flex: 3;
+    /* width: 30%; */
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+}
+.left_scan, .right_scan{
+    width: 40%;
+    margin: 10px 10px 0;
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+}
+.user_info_line {
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+span.user_profile_name {
+    font-size: 24px;
+    margin: 10px;
+}
+
+.username_profile {
+    margin-bottom: 25px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.fitting>.username_profile {
+    padding: 30px 30px 30px 37px;
+}
+
+.userscans {
+    display: block!important;
+    text-align: center;
+    margin: 19px 0px 20px 0px;
+    width: 97%;
+    background-color: white;
+    padding: 15px;
+}
+
+.username_profile::after{
+    content: " ";
+    display: block;
+    width:100%;
+    height: 1px;
+    margin: 7px auto;
+    border-bottom: 1.5px dotted grey;
+}
+.personal-params{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px #777777;
+    margin: 30px 15px 30px 30px;
+    flex: 2;
+    height: 100%;
+    background-color: #fff;
+    /*padding: 16px;*/
+    z-index: -1;
+}
+.personal-params h2,.fitting h2{
+    font-size: 30px;
+    color: #696969;
+}
+.personal-params h2:after, .fitting h2:after{
+    background-color: #ADAEAE;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 10px auto;
+}
+.shoe-params{
+    margin-bottom: 30px;
+}
+.last{
+    margin: 19px 10px 20px 20px;
+    width: 94%;
+    background-color: white;
+    padding: 16px 0px 16px 16px;
+}
+.scan{
+    margin: 19px 10px 20px 20px;
+    width: 94%;
+    background-color: white;
+    padding: 16px 0px 16px 16px;
+}
+.fitting{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px #777777;
+    margin: 30px 30px 30px 15px;
+    flex: 3;
+    height: 100%;
+    background-color: #fff;
+}
+.sizes{
+    background-color: #fefefe;
+    box-sizing: border-box;
+    color: #696969;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+.sizes div div{
+    background: center center no-repeat;
+    height: 440px;
+    width: 180px;
+}
+.else-shoes{
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(../img/else-shoes.png);
+    position: absolute;
+    right: 115px;
+    bottom: 60px;
+    cursor: pointer;
+}
+footer {
+    background-color: #6c6c6c;
+    min-height: 6px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+.store-selection, .store-password-screen, .session-code-screen{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.store-selection .logo-section, .store-password-screen .logo-section,
+.session-code-screen .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.store-selection .logo-section .reyrey-logo,
+.store-password-screen .logo-section .reyrey-logo,
+.session-code-screen .logo-section .reyrey-logo {
+    width: 480px;
+    height: 160px;
+    margin-top: 20px;
+}
+
+
+.store-selection .logo-line,
+.store-password-screen  .logo-line,
+.session-code-screen .logo-line {
+    content: '';
+    width: 600px;
+    margin: 10px;
+    padding: 2px 0 0 0px;
+    height: 0;
+    display: block;
+    background: #000000;
+}
+
+.store-selection .store-list {
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.store-selection .store-list a:hover {
+    color: #0064DB;
+}
+
+.store-selection .storeselect-heading{
+    font-size: 36px;
+    /* overflow: hidden; */
+    font-family: Lato, Verdana, sans-serif;
+    margin-bottom: 50px;
+}
+
+.store-selection .store-list .store {
+    display: block;
+    margin: 20px 30px 0px 30px;
+    color: black;
+    text-align: center;
+}
+
+.virtual-catalog .go-else video,
+.store-password-screen .go-else video,
+.store-selection .go-else video,
+.session-code-screen .go-else video{
+    position: absolute;
+    right: 48%;
+    bottom: 20px;
+    height: 70px;
+    width: 70px;
+    z-index: 1;
+}

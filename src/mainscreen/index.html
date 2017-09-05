@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MainScreen</title>
+        <meta charset="UTF-8">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/loader.css" rel="stylesheet">
+        <link href="css/screens.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+
+        <style>
+            template {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="else-mainscreen-control">
+            <div id="loader" :visible="visible" v-show="visible.pending">
+                <div class="img"></div>
+            </div>
+            <header-component :visible="visible" :states="states" :active_state="active_state" v-if="visible.header" inline-template>
+                <header class="controller-header" id="header">
+                    <div class="header-content">
+                        <div class="header-left">
+                            <div class="logo"></div>
+                        </div>
+                        <div class="header-center">
+                            <span class="screen-name">{{tr(active_state)}}</span>
+                        </div>
+
+                        <div class="header-right">
+                            <div class="login">
+                                <div class="go-account" v-if="visible.header_customer_profile_button">
+                                    <span class="user-name">
+                                        {{states.customer_login_view.active_customer.firstname}}
+                                        {{states.customer_login_view.active_customer.lastname}}
+                                    </span>
+                                    <div class="user-figure"></div>
+                                </div>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </header-component>
+            <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
+                <div class="store-selection" id="stores-screen">
+                    <div class="logo-section">
+                        <img class="logo" src="./img/logo.png">
+                        <span class="logo-line"></span>
+                    </div>
+                    <div class="store-list" >
+                        <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
+                        <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
+                            <a :id="store.id">{{tr(store.name)}}</a>
+                        </div>
+                    </div>
+                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
+                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                    </video>
+                    </div>
+                </div>
+            </stores>
+            <session-code inline-template v-if="states.login_view.active">
+                <div id="session-code-screen" class="session-code-screen">
+                    <div class="logo-section">
+                        <img class="logo" src="img/logo.png">
+                        <span class="logo-line"></span>
+                    </div>
+                    <div class="session-code">
+                        <div>
+                            <span class="code">{{tr("Session code")}}:</span>
+                            <span class="code">{{session_code}}</span>
+                        </div>
+                        <img :src="qrImage"/>
+                    </div>
+                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                    </video>
+                    </div>
+                </div>
+            </session-code>
+            <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
+                <div class="content mainscreen-app virtual-catalog" id="product-start-screen">
+                    <div class="logo-section">
+                        <img class="logo" src="img/logo.png">
+                        <span class="logo-line"></span>
+                    </div>
+                    <div class="list-items" >
+                        <div class="element"
+                             :class="[collection.active?'active':'', collection.name]"
+                             :id="collection.id"
+                             v-for="collection in states.collection_view.collections">
+                            <div class="name">
+                                <span>{{collection.name}}</span>
+                            </div>
+                            <img class="collection-img" :src="collection.image">
+                            <div class="description">
+                                <ul class="col-16">
+                                    <ul id="description4" class="options">
+                                        <li class="number-configurations">2601</li>
+                                        <li class="number-elements">3</li>
+                                        <li class="number-materials">6</li>
+                                        <li class="number-colors">51</li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </product-start-screen>
+            <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
+                <div class="container" id="product-list-screen">
+                    <div class="virtual-catalog">
+                        <div class="logo-section">
+                            <img class="logo" src="./img/logo.png">
+                            <span class="logo-line"></span>
+                            <span class="collection-heading">{{getCollectionName()}}</span>
+                        </div>
+
+                        <div class="list-items">
+                            <div class="element"
+                                 :class="[product.active?'active':'', product.name]"
+                                 :id="product.id"
+                                 v-for="product in states.product_list_view.products">
+                                <div class="name">
+                                    <span>{{tr(product.name)}}</span>
+                                </div>
+                                <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name"/>
+                                <div class="description" v-if="product.configuration">
+                                    <ul class="col-16">
+                                        <ul id="description" class="options">
+                                            <li class="number-configurations">{{product.configuration.configurations_count}}</li>
+                                            <li class="number-elements">{{product.configuration.components_count}}</li>
+                                            <li class="number-materials">{{product.configuration.materials_count}}</li>
+                                            <li class="number-colors">{{product.configuration.colors_count}}</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
+                            <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+            </product-list>
+            <product-details inline-template
+                             :configuration="configuration"
+                             :states="states"
+                             :state="states.product_view"
+                             :data="api2Data"
+                             v-if="states.product_view.active">
+                <div class="content mainscreen-app" id="product-details-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span> | <span class="selectedpart">HEEL</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{getUserName()}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="main-start">
+
+                            <div class="components-block wedge">
+                                <div class="component"
+                                     :class="getPartName(part)"
+                                     :id="'component-' + part.id"
+                                     v-for="part in data.parts">
+                                    {{tr(getPartName(part))}}
+                                </div>
+                            </div>
+                            <div class="price-block">
+                                <div class="model-name"><span>{{state.active_product.name}}</span></div>
+                                <div class="product-block">
+                                    <div class="product"></div>
+                                </div>
+                                <div class="summary-block">
+                                    <div class="material-summary" v-if="data.active_material">
+                                        {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
+                                    </div>
+                                    <div class="color-summary" v-if="data.active_color">
+                                        {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
+                                    </div>
+                                    <div class="accessories-summary"></div>
+                                </div>
+                                <div class="prices">
+                                    <div class="price">
+                                        <p class="base-mod-price">
+                                            {{tr("Base model")}}: <span>{{state.active_product.price}}&#8364;</span>
+                                        </p>
+                                        <p class="extra-acc-price">
+                                            {{tr("Extra accessories")}}: <span>0,00&#8364;</span>
+                                        </p>
+                                        <p class="extra-mat-price">
+                                            {{tr("Extra materials")}}: <span>0,00&#8364;</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="delivery-time">
+                                    <div class="total-price">{{state.active_product.price}}&#8364;</div>
+                                    <div class="delivery"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-end">
+                            <div class="product-options">
+                                <ul class="options">
+                                    <li class="number-configurations">{{configuration.structure.configurations_count}}</li>
+                                    <li class="number-elements">{{configuration.structure.components_count}}</li>
+                                    <li class="number-materials">{{configuration.structure.materials_count}}</li>
+                                    <li class="number-colors">{{configuration.structure.colors_count}}</li>
+                                </ul>
+                            </div>
+                            <div class="element"
+                                 v-for="element in data.active_structure.elements">
+                                <div class="materials-color-block">
+                                    <div class="material-block" v-for="material in element.colors">
+                                        <div class="material-head"
+                                             :class="(element.active_material == material.name)?'active':''">
+                                            <div class="material-start">
+                                                <div class="material-icon big-active-material"
+                                                     :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
+                                                </div>
+                                                <div class="material-name">{{getMaterialName(material)}}</div>
+                                            </div>
+
+                                            <div class="mc">
+                                                <div class="color"
+                                                     :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     :class="(element.active_color == color.name)?'active':''"
+                                                     v-for="color in material.colors">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="else-shoes"></div>
+                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
+                    </div>
+                </div>
+            </product-details>
+            <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+                <div id="product-preview-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr('DETAIL PREVIEW')}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-area">
+                        <div class="default-cameras">
+                            <div class="camera camera-view"
+                                 :id="camera"
+                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                                 v-for="camera in states.preview_view.cameras"></div>
+                            <div class="rotation-zoom">
+                                <div class="rott"></div>
+                                <div class="zoom"></div>
+                            </div>
+                        </div>
+                        <div class="else-shoes"></div>
+                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
+                    </div>
+                </div>
+            </product-preview>
+            <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" inline-template>
+                <div id="material-preview-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("PREVIEW")}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-area on_detail">
+                         <div id="product-cameras" style="">
+                            <div class="camera camera-view"
+                                 :id="camera"
+                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                                 v-for="camera in states.preview_view.cameras"></div>
+                            <div class="rotation-zoom">
+                                <div class="rott"></div>
+                                <div class="zoom"></div>
+                            </div>
+                        </div>
+                        <div class="else-shoes"></div>
+                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
+                    </div>
+                </div>
+            </material-preview>
+            <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
+                <div id="part-preview-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("PREVIEW")}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-area on_detail">
+                         <div id="product-cameras" style="">
+                            <div class="camera camera-view"
+                                 :id="camera"
+                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                                 v-for="camera in states.preview_view.cameras"></div>
+                            <div class="rotation-zoom">
+                                <div class="rott"></div>
+                                <div class="zoom"></div>
+                            </div>
+                        </div>
+                        <div class="else-shoes"></div>
+                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
+                    </div>
+                </div>
+            </part-preview>
+            <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
+                <div class="total-look" id="total-look-screen">
+                    <div class="total-look-left">
+
+                        <div class="icon-shirt">
+                            <img src="img/jacket/total-look/prod_3_shirt.png">
+                        </div>
+                        <div class="icon-jacket">
+                            <img src="img/jacket/total-look/prod_1_jacket.png">
+                        </div>
+                        <div class="icon-waistcoat">
+                            <img src="img/jacket/total-look/prod_4_waistcoat.png">
+                        </div>
+                        <div class="icon-trousers">
+                            <img src="img/jacket/total-look/prod_2_trousers.png">
+                        </div>
+
+                        <div class="total-look-price-block">
+                            <div class="delivery-time">
+                                <div class="small-man">
+                                    <!-- <video autoplay="" loop="" muted="" class="tl-video" width="100px" height="500px" id="bgvideo" autoplay>
+                                        <source src="img/ON 360_2.mp4" type="video/mp4">
+                                    </video> -->
+                                    <img src="img/small-man.png">
+                                </div>
+                                <div class="delivery"></div>
+                                <div class="days"><span>{{tr("Delivery")}}</span></div>
+                            </div>
+                            <div class="prices">
+                                <div class="tl-model-name">
+                                    <p>{{tr("CLASSIC")}}</p>
+                                </div>
+                                <div class="price">
+                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00&#8364;</span></div>
+                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00&#8364;</span></div>
+                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00&#8364;</span></div>
+                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00&#8364;</span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
+                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00&#8364;</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total-look-center"></div>
+                    <div class="total-look-right">
+                        <div class="icon-tie">
+                            <img src="img/jacket/total-look/prod_5_tie.png">
+                        </div>
+                        <div class="icon-shawl">
+                            <img src="img/jacket/total-look/prod_7_shawl.png">
+                        </div>
+                        <div class="icon-cufflink active">
+                            <img src="img/jacket/total-look/prod_6_cufflinks-active.png">
+                        </div>
+                        <div class="icon-shoes">
+                            <img src="img/jacket/total-look/prod_8_shoe.png">
+                        </div>
+                        <div class="v-couture">
+                            <img src="img/options/logo_vc.png">
+                        </div>
+                    </div>
+                </div>
+            </total-look>
+            <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active">
+                <div class="remote-configuration" id="customer-profile-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("ORDER")}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else">
+                                <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="main-start">
+                            <div class="price-block">
+                                <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                                <div class="product-block">
+                                    <div class="product"></div>
+                                </div>
+                                <div class="summary-block">
+                                    <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                    <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                    <div class="accessories-summary"></div>
+                                </div>
+                                <div class="prices">
+                                    <div class="price">
+                                        <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                    </div>
+                                </div>
+                                <div class="delivery-time">
+                                    <div class="total-price">0,00&#8364;</div>
+                                    <div class="delivery"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-middle">
+                            <div class="product-model">
+                                  <img class="product" src="./img/Joker_large_white.jpg" width="700px" height="700px">
+                            </div>
+                        </div>
+                        <div class="main-end">
+                            <div id="product-order" class="order-form">
+                                <form>
+                                    <div class="input-label">
+                                        <label class="label" for="full-name">{{tr('Full Name')}}</label>
+                                        <input type="text" name="full-name" id="full-name"/>
+                                    </div>
+                                    <div class="input-label">
+                                        <label class="label" for="email-order">{{tr('Email')}}</label>
+                                        <input type="email" name="email" id="email-order"/>
+                                    </div>
+                                    <div class="input-label">
+                                        <label class="label" for="size">{{tr('Base Size')}}</label>
+                                        <select size="1" name="size" id="size">
+                                            <option value="34">{{tr('Size')}} 34</option>
+                                            <option value="34.5">{{tr('Size')}} 34.5</option>
+                                            <option value="35">{{tr('Size')}} 35</option>
+                                            <option value="35.5">{{tr('Size')}} 35.5</option>
+                                            <option value="36">{{tr('Size')}} 36</option>
+                                            <option value="36.5">{{tr('Size')}} 36.5</option>
+                                            <option value="37" selected>{{tr('Size')}} 37</option>
+                                            <option value="37.5">{{tr('Size')}} 37.5</option>
+                                            <option value="38">{{tr('Size')}} 38</option>
+                                            <option value="38.5">{{tr('Size')}} 38.5</option>
+                                            <option value="39">{{tr('Size')}} 39</option>
+                                            <option value="39.5">{{tr('Size')}} 39.5</option>
+                                            <option value="40">{{tr('Size')}} 40</option>
+                                            <option value="40.5">{{tr('Size')}} 40.5</option>
+                                            <option value="41">{{tr('Size')}} 41</option>
+                                            <option value="41.5">{{tr('Size')}} 41.5</option>
+                                            <option value="42">{{tr('Size')}} 42</option>
+                                            <option value="42.5">{{tr('Size')}} 42.5</option>
+                                            <option value="43">{{tr('Size')}} 43</option>
+                                            <option value="43.5">{{tr('Size')}} 43.5</option>
+                                            <option value="44">{{tr('Size')}} 44</option>
+                                        </select>
+                                        <a class="dropdown-btn"></a>
+                                    </div>
+                                    <div class="input-label">
+                                        <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
+                                        <select size="1" name="size" id="fitted_size">
+                                            <option value="34">Size 34</option>
+                                            <option value="34.5">Size 34.5</option>
+                                            <option value="35">Size 35</option>
+                                            <option value="35.5">Size 35.5</option>
+                                            <option value="36">Size 36</option>
+                                            <option value="36.5">Size 36.5</option>
+                                            <option value="37" selected>Size 37</option>
+                                            <option value="37.5">Size 37.5</option>
+                                            <option value="38">Size 38</option>
+                                            <option value="38.5">{{tr('Size')}} 38.5</option>
+                                            <option value="39">{{tr('Size')}} 39</option>
+                                            <option value="39.5">{{tr('Size')}} 39.5</option>
+                                            <option value="40">{{tr('Size')}} 40</option>
+                                            <option value="40.5">{{tr('Size')}} 40.5</option>
+                                            <option value="41">{{tr('Size')}} 41</option>
+                                            <option value="41.5">{{tr('Size')}} 41.5</option>
+                                            <option value="42">{{tr('Size')}} 42</option>
+                                            <option value="42.5">{{tr('Size')}} 42.5</option>
+                                            <option value="43">{{tr('Size')}} 43</option>
+                                            <option value="43.5">{{tr('Size')}} 43.5</option>
+                                            <option value="44">{{tr('Size')}} 44</option>
+                                        </select>
+                                        <a class="dropdown-btn"></a>
+                                    </div>
+                                    <div class="input-label">
+                                        <div class="label">{{tr('Delivery address')}}</div>
+                                        <input type="text" id="district" placeholder="District of the shop"/>
+                                        <input type="text" name="city" id="city" placeholder="City"/>
+                                        <div style="display: flex; flex-direction: row">
+                                            <input type="text" name="country" id="country" placeholder="Country"
+                                                   style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
+                                            <input type="number" name="zip-code" id="zip-code" placeholder="Zip Code"
+                                                   style="flex:2 1 115px;width: 100%;"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-label">
+                                        <label class="label" for="phone">{{tr('Phone Number')}}</label>
+                                        <input type="tel" name="phone" id="phone"/>
+                                    </div>
+                                    <div class="input-label">
+                                        <label class="label" for="payment-type">{{tr('Payment type')}}</label>
+                                        <select size="1" name="payment-type" id="payment-type">
+                                            <option value="cash">{{tr("Cash")}}</option>
+                                            <option value="creditCard">{{tr("Credit Card")}}</option>
+                                            <option value="debitCard">{{tr("Debit Card")}}</option>
+                                            <option value="other">{{tr("Other")}}</option>
+                                        </select>
+                                        <a class="dropdown-btn"></a>
+                                    </div>
+                                    <div class="input-label">
+                                        <label class="label" for="notes">{{tr('Notes')}}</label>
+                                        <input type="text" name="notes" id="notes" notrequired="true"/>
+                                    </div>
+                                    <div class="order-button"></div>
+                                    <div class="order-success" style="display:none;">
+                                        {{tr("The pre-order has been successfully completed!")}}
+                                    </div>
+                                    <div class="order-fail" style="display:none;">
+                                        {{tr("The order has failed")}}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </customer-profile>
+            <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.active">
+                <div class="remote-configuration" id="customer-edit-profile-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="main-start">
+                            <div class="price-block">
+                                <div class="collection-summary">Flat</div>
+                                <div class="shoe-block">
+                                    <div class="shoe"></div>
+                                </div>
+                                <div class="summary-block">
+                                    <div class="heel-material-summary"></div>
+                                    <div class="heel-color-summary"></div>
+                                    <div class="accessories-summary"></div>
+                                </div>
+                                <div class="prices">
+                                    <div class="price">
+                                        <p class="base-mod-price">{{tr('Base model')}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span>0,00&#8364;</span></p>
+                                        <div class="total-price">0,00&#8364;</div>
+                                    </div>
+                                    <div class="delivery-time">
+                                        <div class="days"><span>21</span></div>
+                                        <div class="delivery"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-middle">
+
+                        </div>
+                        <div class="main-end">
+                            <div class="else-shoes"></div>
+                        </div>
+                    </div>
+                </div>
+            </customer-edit-profile>
+            <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
+                <div id="customer-login-screen">
+                    {{tr("no customer login on main screen")}}
+                </div>
+            </customer-login>
+            <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
+                            :states="states" :configurator="configuration" inline-template>
+                <div class="content mainscreen-app" id="customer-order-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <span class="back-to">
+                                <a>{{getCollectionName()}}</a>
+                            </span>
+                        </div>
+                        <div class="header-middle">
+                            <img src="./img/logo.png">
+                            <span class="screen-name">{{tr("ORDER")}}</span>
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="go-account"></div>
+                                <span id="user_name">
+                                    {{states.customer_profile_view.active_customer.firstname}}
+                                    {{states.customer_profile_view.active_customer.lastname}}
+                                </span>
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                        <span id="fitting-factor"
+                                            class="">
+                                            {{getFittingValues().best_style}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="vertical-line"></span>
+                            </div>
+                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
+                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="main-start">
+                            <div class="price-block">
+                                <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                                <div class="product-block">
+                                    <div class="product"></div>
+                                </div>
+                                <div class="summary-block">
+                                    <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                    <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                    <div class="accessories-summary"></div>
+                                </div>
+                                <div class="prices">
+                                    <div class="price">
+                                        <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                        <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                    </div>
+                                </div>
+                                <div class="delivery-time">
+                                    <div class="total-price">0,00&#8364;</div>
+                                    <div class="delivery"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-middle">
+                            <div class="product-model">
+                            </div>
+                        </div>
+                        <div class="main-end" v-if="account_data">
+                           <div id="product-order" class="order-form" v-show="states.customer_order_view.active">
+                            <form>
+                                <div class="input-label">
+                                    <label class="label">{{tr('Full Name')}}</label>
+                                    <input type="text" :value="account_data.firstname" name="firstname"  placeholder="First Name" style="flex: 1 2 140px;width: 100%;margin-right: 5px;"/>
+                                    <input type="text" :value="account_data.lastname" name="lastname" placeholder="Last Name" style="flex:2 1 115px;width: 100%;"/>
+                                </div>
+                                <div class="input-label">
+                                    <label class="label" for="email-order">{{tr('Email')}}</label>
+                                    <input type="email" :value="account_data.email" name="email" id="email-order"/>
+                                </div>
+                                <div class="input-label">
+                                    <label class="label" for="size">{{tr('Base Size')}}</label>
+                                    <select size="1" :value="account_data.size" name="size" id="size">
+                                        <option value="34">{{tr('Size')}} 34</option>
+                                        <option value="34.5">{{tr('Size')}} 34.5</option>
+                                        <option value="35">{{tr('Size')}} 35</option>
+                                        <option value="35.5">{{tr('Size')}} 35.5</option>
+                                        <option value="36">{{tr('Size')}} 36</option>
+                                        <option value="36.5">{{tr('Size')}} 36.5</option>
+                                        <option value="37" selected>{{tr('Size')}} 37</option>
+                                        <option value="37.5">{{tr('Size')}} 37.5</option>
+                                        <option value="38">{{tr('Size')}} 38</option>
+                                        <option value="38.5">{{tr('Size')}} 38.5</option>
+                                        <option value="39">{{tr('Size')}} 39</option>
+                                        <option value="39.5">{{tr('Size')}} 39.5</option>
+                                        <option value="40">{{tr('Size')}} 40</option>
+                                        <option value="40.5">{{tr('Size')}} 40.5</option>
+                                        <option value="41">{{tr('Size')}} 41</option>
+                                        <option value="41.5">{{tr('Size')}} 41.5</option>
+                                        <option value="42">{{tr('Size')}} 42</option>
+                                        <option value="42.5">{{tr('Size')}} 42.5</option>
+                                        <option value="43">{{tr('Size')}} 43</option>
+                                        <option value="43.5">{{tr('Size')}} 43.5</option>
+                                        <option value="44">{{tr('Size')}} 44</option>
+                                    </select>
+                                    <a class="dropdown-btn"></a>
+                                </div>
+                                <div class="input-label">
+                                    <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
+                                    <select size="1" :value="account_data.size" name="size" id="fitted_size">
+                                        <option value="34">Size 34</option>
+                                        <option value="34.5">Size 34.5</option>
+                                        <option value="35">Size 35</option>
+                                        <option value="35.5">Size 35.5</option>
+                                        <option value="36">Size 36</option>
+                                        <option value="36.5">Size 36.5</option>
+                                        <option value="37" selected>Size 37</option>
+                                        <option value="37.5">Size 37.5</option>
+                                        <option value="38">Size 38</option>
+                                        <option value="38.5">{{tr('Size')}} 38.5</option>
+                                        <option value="39">{{tr('Size')}} 39</option>
+                                        <option value="39.5">{{tr('Size')}} 39.5</option>
+                                        <option value="40">{{tr('Size')}} 40</option>
+                                        <option value="40.5">{{tr('Size')}} 40.5</option>
+                                        <option value="41">{{tr('Size')}} 41</option>
+                                        <option value="41.5">{{tr('Size')}} 41.5</option>
+                                        <option value="42">{{tr('Size')}} 42</option>
+                                        <option value="42.5">{{tr('Size')}} 42.5</option>
+                                        <option value="43">{{tr('Size')}} 43</option>
+                                        <option value="43.5">{{tr('Size')}} 43.5</option>
+                                        <option value="44">{{tr('Size')}} 44</option>
+                                    </select>
+                                    <a class="dropdown-btn"></a>
+                                </div>
+                                <div class="input-label">
+                                    <div class="label">{{tr('Delivery address')}}</div>
+                                    <input type="text" :value="account_data.addresses[0].street[0]" id="district" placeholder="District of the shop"/>
+                                    <input type="text" :value="account_data.addresses[0].city" name="city" id="city" placeholder="City"/>
+                                    <div style="display: flex; flex-direction: row">
+                                        <input type="text" :value="account_data.addresses[0].countryId" name="country" id="country" placeholder="Country" style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
+                                        <input type="number" :value="account_data.addresses[0].postcode" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;width: 100%;"/>
+                                    </div>
+                                </div>
+
+                                <div class="input-label">
+                                    <label class="label" for="phone">{{tr('Phone Number')}}</label>
+                                    <input type="tel" :value="account_data.addresses[0].telephone" name="phone" id="phone"/>
+                                </div>
+                                <div class="input-label">
+                                    <label class="label" for="payment-type">{{tr('Payment type')}}</label>
+                                    <select size="1" name="payment-type" id="payment-type">
+                                        <option value="cash">{{tr("Cash")}}</option>
+                                        <option value="creditCard">{{tr("Credit Card")}}</option>
+                                        <option value="debitCard">{{tr("Debit Card")}}</option>
+                                        <option value="other">{{tr("Other")}}</option>
+                                    </select>
+                                    <a class="dropdown-btn"></a>
+                                </div>
+                                <div class="input-label">
+                                    <label class="label" for="notes">{{tr('Notes')}}</label>
+                                    <input type="text" name="notes" id="notes" notrequired="true"/>
+                                </div>
+                                <div class="order-button"></div>
+                                <div class="order-success" style="display:none;">
+                                    {{tr("The pre-order has been successfully completed!")}}
+                                </div>
+                                <div class="order-fail" style="display:none;">
+                                    {{tr("The order has failed")}}
+                                </div>
+                            </form>
+                         </div>
+
+
+                        </div>
+                    </div>
+                    <div v-show="visible.order_success" id="order-success-push">
+                        {{tr('Your order has been successfully completed')}}
+                    </div>
+                </div>
+            </customer-order>
+            <customer-fitting v-if="states.customer_fitting_view.active" id="customer-fitting-screen" :visible="visible"
+                            :states="states" :configurator="configuration" inline-template>
+                <div class="container" id="customer-fitting-screen">
+                    <div class="header">
+                            <div class="header-start" >
+                                <span class="back-to">
+                                    <a>{{getCollectionName()}}</a>
+                                </span>
+                            </div>
+                            <div class="header-middle">
+                                <img src="./img/logo.png">
+                                <span class="screen-name">{{tr('BEST FIT')}}</span>
+                            </div>
+                            <div class="header-end">
+                                <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                    <div class="go-account"></div>
+                                    <span id="user_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                        {{states.customer_profile_view.active_customer.lastname}}
+                                    </span>
+                                    <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                        <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                        <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                            <span id="fitting-factor"
+                                                class="">
+                                                {{getFittingValues().best_style}}
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="vertical-line"></span>
+                                </div>
+                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="best-fit" style="">
+                        <div class="user_profile_params">
+                            <div class="user_info">
+                                <div class="user_info_line username_profile">{{tr('Name')}}:
+                                    <span id="user_profile_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Gender')}}:
+                                    <span id="user_profile_sex">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Size')}}:
+                                    <span id="user_profile_size">
+                                        {{states.customer_profile_view.active_customer.size}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Email')}}:
+                                    <span id="user_profile_email">
+                                        {{states.customer_profile_view.active_customer.email}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Phone')}}:
+                                    <span id="user_profile_phone">
+                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Delivery address')}}:
+                                    <span id="user_profile_address">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    Notes:
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="total_user_profile">
+                                <table id="user_profile_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>{{tr('Measure')}}</th>
+                                            <th>{{tr('Left Foot')}}</th>
+                                            <th>{{tr('Right Foot')}}</th>
+                                        </tr>
+                                        <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                            <td>{{tr(metric.name)}}</td>
+                                            <td>{{tr(metric.LEFT_FOOT)}}</td>
+                                            <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>  <!-- ./user-info end -->
+                        <div class="user_scans">
+                            <div class="username_profile userscans">User scans</div>
+                            <div class="left_scan">
+                                <div style="display: none;">{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                                <img id="left_scan_image" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                            </div>
+                        </div> <!-- ./user_scans end -->
+                    </div>
+                </div>
+            </customer-fitting>
+            <material-library v-if="states.material_library_view.active" id="material-library-screen">
+                <div id="material-library-screen"></div>
+            </material-library>
+        </div>
+
+        <script src="../config.js"></script>
+        <script src="../translations.js"></script>
+        <script id="brandId" value="13"></script>
+
+        <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
+        <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
+        <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
+
+        <div id="canvas_container_id" style="position: absolute; height: 100%; width: 100%"></div>
+    </body>
+</html>

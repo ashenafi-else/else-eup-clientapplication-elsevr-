@@ -1,0 +1,40 @@
+#else-control {
+    overflow: hidden;
+    z-index: 2;
+}
+
+#else-control {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.session-code .code {
+    font-size: 1.3em;
+    margin-right: 5px;
+}
+
+
+.session-code-screen .session-code img {
+    display: block;
+    margin-top: 2vh;
+}
+
+#product-start-screen .list-items .element img {
+    margin: auto;
+}
+
+.scans {
+    max-width:960px;
+    text-align:center;
+}
+
+.scans img {
+    position:relative;
+    display: inline-block;
+    float:left;
+    padding:0px;
+    height: 370px;
+    width: auto;
+}

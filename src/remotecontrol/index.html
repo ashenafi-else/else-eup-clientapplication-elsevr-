@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Remote</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/loader.css" rel="stylesheet">
+    <link href="css/screens.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+<body>
+<div id="else-remotecontrol-control">
+    <div id="loader" :visible="visible" v-show="visible.pending">
+        <div class="img"></div>
+    </div>
+    <header-component inline-template :states="states" :visible="visible" v-if="visible.header">
+        <header id="header">
+            <div class="head">
+                <div class="logo" @click="home()">
+                    <div></div>
+                </div>
+                <div class="main_button profile"
+                     v-if="visible.header_customer_login_button"
+                     @click="customerLoginAction">
+                    {{tr("Login/Register")}}
+                </div>
+                <div class="main_button profile"
+                     v-if="visible.header_customer_profile_button"
+                     @click="customerProfileAction">
+                    {{tr("Profile")}}
+                </div>
+                <div class="main_button fitting"
+                     v-if="visible.header_customer_fitting_button">
+                    {{tr("Fitting")}}
+                </div>
+                <div class="order"
+                     v-if="visible.header_customer_order_button"
+                     @click="orderAction">
+                    {{tr("Order")}}
+                </div>
+            </div>
+        </header>
+    </header-component>
+    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
+        <div class="store-selection" id="stores-screen">
+            <div class="logo-section">
+                <img class="logo" src="./img/logo.png">
+                <span class="logo-line"></span>
+            </div>
+            <div class="store-list" >
+                <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
+                <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
+                    <a :id="store.id">{{tr(store.name)}}</a>
+                </div>
+            </div>
+            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
+                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+            </video>
+            </div>
+        </div>
+    </stores>
+    <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
+        <div id="session-code-screen" class="session-code-screen">
+            <div class="session-code">
+                <div class="logo-section">
+                    <img class="logo" src="img/logo.png">
+                    <span class="logo-line"></span>
+                </div>
+                <div class="input">
+                    <label>{{tr("Enter the store password")}}</label>
+                    <input type="text" v-model="store_code" maxlength="4">
+                </div>
+                <div class="input">
+                    <label>{{tr("Please enter your session code")}}</label>
+                    <input type="text" v-model="session_code" maxlength="4">
+                    <button @click="join">{{tr("Connect")}}</button>
+                </div>
+
+                <div class="cam">
+                    <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
+                </div>
+            </div>
+        </div>
+    </qr-code-scanner>
+    <product-start-screen inline-template :visible="visible" :states="states" v-if="states.collection_view.active">
+        <div class="container" id="product-start-screen">
+            <div class="virtual-catalog">
+                <div class="logo-section">
+                    <img class="logo" src="img/logo.png">
+                </div> 
+                <div class="list-items">
+                    <div class="element"
+                         @click="setActive(collection.id)"
+                         :class="[collection.active?'active':'', collection.name]"
+                         :id="collection.id"
+                         v-for="collection in states.collection_view.collections">
+                        <div class="name">
+                            <span>{{collection.name}}</span>
+                        </div> 
+                        <img class="collection-img" :src="collection.image">
+                    </div>
+                </div>
+                <div class="go-else">  
+                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </product-start-screen>
+    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
+        <div class="container" id="product-list-screen">
+            <div class="start-screen virtual-catalog">
+                <div class="logo-section">
+                    <img class="logo" src="./img/logo.png">
+                    <span class="logo-line"></span>
+                </div>
+                <div class="list-items">
+                    <div class="element"
+                         @click="setActiveProduct(product.id)"
+                         :class="[product.active?'active':'', product.name]"
+                         :id="product.id"
+                         v-for="product in states.product_list_view.products">
+                        <div class="name">
+                            <span>{{tr(product.name)}}</span>
+                        </div>
+                        <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name">
+                    </div>
+                </div>
+
+                <div class="go-else">
+                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </product-list>
+    <product-details inline-template
+                     :configuration="configuration"
+                     :states="states"
+                     :state="states.product_view"
+                     :data="api2Data"
+                     v-if="states.product_view.active">
+        <div class="remote-configuration" id="product-details-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+            <div class="configuration-main">
+                <div class="product-config">
+                    <div class="components vertical-bar decollete">
+                        <div class="column_1">{{tr("Part")}}</div>
+                        <div class="component"
+                             @click="changePart(part)"
+                             :class="[setClass(part.id, 'component'), part.active?'control-active':'']"
+                             :id="'part-' + part.id"
+                             v-for="part in data.parts"></div>
+                    </div>
+                    <div class="elements vaertical-bar"
+                         v-if="data.active_component.configurable && element.configurable"
+                         v-for="element in data.active_structure.elements">
+                        <div class="materials vertical-bar">
+                            <div class="column_1">{{tr("Material")}}</div>
+                            <div class="material"
+                                 @click.self="changeMaterial(element, material)"
+                                 :class="(element.active_material == material.name)?'control-active':''"
+                                 :id="material.name"
+                                 v-for="material in element.colors"> 
+                                <div class="colors vertical-bar" v-if="element.active_material == material.name">
+                                    <div class="column_1">{{tr("Color")}}</div>
+                                    <div class="color"
+                                         @click="changeColor(element, material, color)"
+                                         :id="color.id"
+                                         :class="(element.active_color == color.name)?'control-active':''"
+                                         v-for="color in material.colors">
+                                        {{getColorName(color)}}
+                                    </div>
+                                </div>        
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="summary-footer" style="">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{state.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="data.active_color">
+                        {{tr("Color")}}: {{getColorName(data.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="data.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(data.active_material)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="remote-controller-menu">
+                <div class="configurator">
+                    <div class="go-account" @click="goAccount">
+                        <span class="profile-icon"></span>
+                        <span class="profile-name">{{getUserName()}}</span>
+                    </div>
+                    <div class="rotation"
+                         :class="state.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         @click="toggleRotation">
+                        <span class="rotation-icon"></span>
+                        {{tr("Rotate/Stop")}}
+                    </div>
+                    <div id="product-part" class="select product-part" @click="partPreview">
+                        <span class="product-part-icon"></span>
+                        {{tr("Detail Preview")}}
+                    </div>
+                    <div id="part-view" class="select advanced-product" @click="detailPreview">
+                        <span class="advanced-icon"></span>
+                        {{tr("Product Preview")}}
+                    </div>
+                    <div id="go-fitt" class="select go-fitt" @click="fitting">
+                        <span class="fitt-icon"></span>
+                        {{tr("Best fit")}}
+                    </div>
+                    <div id="header-materials" class="select header-materials" @click="materialPreview">
+                        <span class="material-icon"></span>
+                        {{tr("Material Preview")}}
+                    </div>
+                    <div class="go-order" @click="order">
+                        <span class="order-icon"></span>
+                        {{tr("Pre-order")}}
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </product-details>
+    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+        <div class="remote-configuration" id="product-preview-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="full-preview-mode">
+                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
+                    <div class="default-cameras">
+                        <div class="camera camera-view"
+                             :id="camera"
+                             :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                             @click="changeCamera(camera)"
+                             v-for="camera in states.preview_view.cameras"></div>
+                    </div>
+                </div>
+                <div class="summary-footer" style="">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="rotation"
+                         :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         @click="toggleRotation">
+                        <span class="rotation-icon"></span>
+                        {{tr('Rotate/Stop')}}
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </product-preview>
+    <material-preview v-if="states.material_view.active" :states="states" id="material-screen" inline-template>
+        <div class="remote-configuration" id="material-preview-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="detail-preview-mode">
+                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch> 
+                    <div class="default-cameras">
+                        <div class="camera camera-view"
+                             :id="camera"
+                             :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
+                             @click="changeCamera(camera)"
+                             v-for="camera in states.part_view.cameras"></div>
+                    </div>
+                </div>
+                <div class="summary-footer" style="">
+                    <div class="product-summary">{{tr('Your current configuration')}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="rotation"
+                         :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         @click="toggleRotation">
+                        <span class="rotation-icon"></span>
+                        {{tr('Rotate/Stop')}}
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </material-preview>
+    <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
+        <div class="remote-configuration" id="part-preview-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="detail-preview-mode">
+                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch> 
+                    <div class="default-cameras">
+                        <div class="camera camera-view"
+                             :id="camera"
+                             :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
+                             @click="changeCamera(camera)"
+                             v-for="camera in states.part_view.cameras"></div>
+                    </div>
+                </div>
+                <div class="summary-footer" style="">
+                    <div class="product-summary">{{tr('Your current configuration')}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="rotation"
+                         :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         @click="toggleRotation">
+                        <span class="rotation-icon"></span>
+                        {{tr('Rotate/Stop')}}
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </part-preview>
+    <total-look inline-template :visible="visible" :states="states" v-if="states.sets_view.active">
+        <div class="container" id="total-look-screen">
+            <div class="total-look">
+                <div class="total-look-icons">
+                    <div class="tl-icon"
+                         @click="activateSet(set.id)"
+                         :id="set.id"
+                         v-for="set in states.sets_view.collection">
+                        <img :src="'img/jacket/total-look/' + set.sku + '.png'" v-if="!set.active">
+                        <img :src="'img/jacket/total-look/' + set.sku + '-active.png'" v-if="!!set.active">
+                    </div>
+                </div>
+                <div class="continue on-total-look" @click="next()">{{tr("Continue")}}</div>
+            </div>
+        </div>
+    </total-look>
+    <customer-profile inline-template :visible="visible" :states="states" v-if="states.customer_profile_view.active">
+        <div class="remote-configuration" id="customer-profile-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="signedupuser-block">
+                    <div class="user">
+                        <div class="user-left">
+                            <div class="username">{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                            <div class="edit-profile-info" @click="editProfile">{{tr('Edit Profile Information')}}</div>
+                        </div>
+                        <input id="logout" class="button-logout" type="button" :value="tr('Log out')" @click="customer_logout">
+                    </div>
+                    <hr>
+                    <div class="scan_list_block">
+                        <select class="scan-list" v-model="selectedScan">
+                            <option v-for="scan in states.customer_profile_view.scans" :value="scan">
+                                {{tr(scan.scanner)}}{{scan.scan_id}}({{scan.created_date}})
+                            </option>
+                        </select>
+                        <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(selectedScan)"/>
+                    </div>
+                    <div class="update_scan">
+                        <div>
+                            <div style="display: inline-block">
+                                <input class="update-scan-id" id="updated_scan_id" v-model.trim="newScanId" type="text" :placeholder="tr('New scan id')">
+                            </div>
+                            <input type="button" class="update-scan-button" :value="tr('Update scan')" @click="updateScan(newScanId)">
+                            <div id="update_scan_error" v-show="updateScanError">
+                                {{tr("Error! Scan couldn't be updated!")}}
+                            </div>
+                            <div id="update_scan_success" v-show="updateScanSuccess">
+                                {{tr('Scan successfully updated!')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="foot_toggle">
+                        <input type="radio" id="left_foot_toggle" name="foot" value="left" v-model="chosenFoot"/>
+                        <label for="left_foot_toggle" :class="chosenFoot == 'left' ? 'active' : ''"><span>{{tr('Left Foot')}}</span></label>
+                        <input type="radio" id="right_foot_toggle" name="foot" value="right" v-model="chosenFoot"/>
+                        <label for="right_foot_toggle" :class="chosenFoot == 'right' ? 'active' : ''"><span>{{tr('Right Foot')}}</span></label>
+                    </div>
+                    <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
+                </div>
+                <div class="summary-footer">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                </div>
+            </div>
+        </div>
+    </customer-profile>
+    <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.active">
+        <div class="remote-configuration" id="customer-edit-profile-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="signedupuser-block" v-if="accountData">
+                    <div class="edit-profile-form">
+                       <form>
+                          <div class="register-input">
+                            <label for="edit_first_name" class="label">{{tr('First name')}}*</label> 
+                            <input type="text" name="first_name" id="edit_first_name" v-model="accountData.firstname">
+                          </div>
+                          <div class="register-input">
+                            <label for="edit_last_name" class="label">{{tr('Last name')}}*</label> 
+                            <input type="text" name="last_name" id="edit_last_name" v-model="accountData.lastname">
+                          </div>
+                          <div class="register-input">
+                            <label for="edit_email" class="label">{{tr('Email')}}*</label> 
+                            <input type="email" name="email" id="edit_email" v-model="accountData.email">
+                          </div>
+                          <div class="register-input">
+                             <label for="edit_size" class="label">{{tr('Size')}}*</label> 
+                             <select name="size" id="edit_size" v-model="accountData.size">
+                                <option value="35">{{tr("Size 35")}}</option>
+                                <option value="35.5">{{tr("Size 35.5")}}</option>
+                                <option value="36">{{tr("Size 36")}}</option>
+                                <option value="36.5">{{tr("Size 36.5")}}</option>
+                                <option value="37">{{tr("Size 37")}}</option>
+                                <option value="37.5">{{tr("Size 37.5")}}</option>
+                                <option value="38">{{tr("Size 38")}}</option>
+                                <option value="38.5">{{tr("Size 38.5")}}</option>
+                                <option value="39">{{tr("Size 39")}}</option>
+                                <option value="39.5">{{tr("Size 39.5")}}</option>
+                                <option value="40">{{tr("Size 40")}}</option>
+                                <option value="40.5">{{tr("Size 40.5")}}</option>
+                                <option value="41">{{tr("Size 41")}}</option>
+                                <option value="41.5">{{tr("Size 41.5")}}</option>
+                                <option value="42">{{tr("Size 42")}}</option>
+                                <option value="42.5">{{tr("Size 42.5")}}</option>
+                                <option value="43">{{tr("Size 43")}}</option>
+                                <option value="43.5">{{tr("Size 43.5")}}</option>
+                             </select>
+                             <a class="dropdown-btn"></a>
+                          </div>
+                          <div class="register-input gender">
+                            <label class="label">{{tr('Gender')}}</label> 
+                            <input type="radio" id="edit_female_gender" name="gender" value="0" selected="selected" v-model="accountData.gender"> 
+                            <label for="edit_female_gender"><span>{{tr('Female')}}</span></label>
+                            <input type="radio" id="edit_male_gender" name="gender" value="1" v-model="accountData.gender"> 
+                            <label for="edit_male_gender"><span>{{tr('Male')}}</span></label>
+                          </div>
+                          <div class="register-input">
+                            <label for="edit_phone" class="label">{{tr('Phone number')}}*</label> 
+                            <input type="tel" name="phone" id="edit_phone" v-model="accountData.addresses[0].telephone">
+                          </div>
+                          <div class="register-input">
+                             <div class="label">{{tr('Customer Address')}}*</div>
+                             <input type="text" name="city" id="edit_city" v-model="accountData.addresses[0].city"> 
+                             <input type="text" id="edit_district" v-model="accountData.addresses[0].street[0]">
+                          </div>
+                          <div class="register-input">
+                            <label for="edit_zip_code" class="label">{{tr('Zip Code')}}</label> 
+                            <input type="number" name="zip-code" id="edit_zip_code" v-model="accountData.addresses[0].postcode">
+                          </div>
+                          <div class="register-input">
+                            <label for="edit_notes" class="label">Notes</label> 
+                            <input type="text" name="edit_notes" id="edit_notes">
+                          </div>
+                          <div class="edit-button-group">
+                            <input type="button" value="Save Changes" id="edit-profile" class="save-changes" @click="saveChanges(accountData)"> 
+                            <input type="button" value="Cancel" class="view-profile-info" @click="back">
+                          </div>
+                       </form>
+                    </div>
+                </div>
+                <div class="summary-footer">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                </div>
+            </div>
+        </div>
+    </customer-edit-profile>
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+        <div class="remote-configuration" id="customer-login-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="signin-register-screen">
+                    <ul class="nav profile-nav-tabs">
+                        <li class="nav-tab"
+                            :class="states.customer_login_view.show_search_results?'':'active'"
+                            @click="states.customer_login_view.show_search_results=false">
+                            <a id="to_create_account" class="open-tab">{{tr("Create an account")}}</a>
+                        </li> 
+                        <li class="nav-tab"
+                            :class="states.customer_login_view.show_search_results?'active':''"
+                            @click="states.customer_login_view.show_search_results=true">
+                            <a id="to_signin" class="open-tab">{{tr("Sign in")}}</a>
+                        </li>
+                    </ul>
+                    <div class="search-actions" v-if="states.customer_login_view.show_search_results">
+                        <div class="account-search">
+                            <div>
+                                <input type="search" v-model="search_text" placeholder="Search Profile" class="search-input">
+                                <input type="button" value="Search" @click="customer_search(search_text)" class="search-customer">
+                            </div>
+                        </div> 
+                        <div class="search-result">
+                            <div class="customer"
+                                 @click="customer_signup(customer.id)"
+                                 v-for="customer in states.customer_login_view.search_results">
+                                {{customer.email}} {{customer.firstaname}} {{customer.lastname}}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="create-new-customer" class="register-block" v-if="!states.customer_login_view.show_search_results">
+                        <form>
+                            <div class="register-input">
+                                <label class="label">{{tr("Full Name")}}*</label>
+                                <input type="text" v-model.trim="customer.firstname" name="firstname" placeholder="First Name" style="width: 250px;">
+                                <input type="text" v-model.trim="customer.lastname" name="lastname" placeholder="Last Name" style="width: 250px;">
+                            </div> 
+                            <div class="register-input">
+                                <label for="register_email" class="label">{{tr("Email")}}*</label>
+                                <input type="email" v-model.trim="customer.email" placeholder="Email address" name="email" id="register_email">
+                            </div> 
+                            <div class="register-input">
+                                <label for="register_size" class="label">{{tr("Size")}}*</label>
+                                <select name="size" id="register_size" v-model.trim="customer.size">
+                                    <option value="35">{{tr("Size 35")}}</option>
+                                    <option value="35.5">{{tr("Size 35.5")}}</option>
+                                    <option value="36">{{tr("Size 36")}}</option>
+                                    <option value="36.5">{{tr("Size 36.5")}}</option>
+                                    <option value="37">{{tr("Size 37")}}</option>
+                                    <option value="37.5">{{tr("Size 37.5")}}</option>
+                                    <option value="38">{{tr("Size 38")}}</option>
+                                    <option value="38.5">{{tr("Size 38.5")}}</option>
+                                    <option value="39">{{tr("Size 39")}}</option>
+                                    <option value="39.5">{{tr("Size 39.5")}}</option>
+                                    <option value="40">{{tr("Size 40")}}</option>
+                                    <option value="40.5">{{tr("Size 40.5")}}</option>
+                                    <option value="41">{{tr("Size 41")}}</option>
+                                    <option value="41.5">{{tr("Size 41.5")}}</option>
+                                    <option value="42">{{tr("Size 42")}}</option>
+                                    <option value="42.5">{{tr("Size 42.5")}}</option>
+                                    <option value="43">{{tr("Size 43")}}</option>
+                                    <option value="43.5">{{tr("Size 43.5")}}</option>
+                                </select> 
+                                <a class="dropdown-btn"></a>
+                            </div> 
+                            <div class="register-input gender">
+                                <label class="label">{{tr("Gender")}}</label>
+                                <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected">
+                                <label for="register_female_gender">
+                                    <span>{{tr("Female")}}</span>
+                                </label> 
+                                <input type="radio" id="register_male_gender" v-model="customer.gender" name="gender" value="1">
+                                <label for="register_male_gender"><span>{{tr("Male")}}</span></label>
+                            </div>
+                            <div class="register-input">
+                                <label for="register_phone" class="label">{{tr("Phone number")}}*</label>
+                                <input type="tel" placeholder="Phone Number" v-model.trim="customer.telephone" name="phone" id="register_phone"></div>
+                            <div class="register-input"><div class="label">{{tr("Customer Address")}}*</div>
+                                <input type="text" v-model.trim="customer.city" name="city" id="register_city">
+                                <input type="text" v-model.trim="customer.district" id="register_district"></div>
+                            <div class="register-input">
+                                <label for="register_zip_code" class="label">{{tr("Zip Code")}}</label>
+                                <input type="number" v-model.trim="customer.postcode" name="zip-code" id="register_zip_code">
+                            </div> 
+                            <div class="register-input">
+                                <label for="register_notes" class="label">{{tr("Notes")}}</label>
+                                <input type="text" name="notes" v-model.trim="customer.note" id="register_notes">
+                            </div> 
+                            <button class="register-button" type="button" id="signup-customer" @click="createNewCustomer">{{tr("Register")}}</button>
+                        </form>
+                    </div> <!---->
+                </div>
+                <div class="summary-footer">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                </div>  
+            </div>
+        </div>
+    </customer-login>
+    <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
+                    :states="states" :configurator="configuration" inline-template>
+        <div class="remote-configuration" id="customer-order-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+            
+                <div class="order-button-block" v-if="account_data">
+                    <form>
+                        <div class="input-label">
+                            <label class="label">{{tr("Full Name")}}</label>
+                            <input type="text" v-model.trim="account_data.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;"> 
+                            <input type="text" v-model.trim="account_data.lastname" @input="updateData" name="lastname" placeholder="Last Name" style="flex: 1 1 190px;">
+                        </div> 
+                        <div class="input-label">
+                            <label for="email-order" class="label">{{tr("Email")}}</label>
+                            <input type="email" v-model.trim="account_data.email" @input="updateData" name="email" id="email-order">
+                        </div> 
+                        <div class="input-label">
+                            <label for="size" class="label">{{tr("Base Size")}}</label>
+                            <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
+                                <option value="35">{{tr("Size 35")}}</option>
+                                <option value="35.5">{{tr("Size 35.5")}}</option>
+                                <option value="36">{{tr("Size 36")}}</option>
+                                <option value="36.5">{{tr("Size 36.5")}}</option>
+                                <option value="37" selected="selected">{{tr("Size 37")}}</option>
+                                <option value="37.5">{{tr("Size 37.5")}}</option>
+                                <option value="38">{{tr("Size 38")}}</option>
+                                <option value="38.5">{{tr("Size 38.5")}}</option>
+                                <option value="39">{{tr("Size 39")}}</option>
+                                <option value="39.5">{{tr("Size 39.5")}}</option>
+                                <option value="40">{{tr("Size 40")}}</option>
+                                <option value="40.5">{{tr("Size 40.5")}}</option>
+                                <option value="41">{{tr("Size 41")}}</option>
+                                <option value="41.5">{{tr("Size 41.5")}}</option>
+                                <option value="42">{{tr("Size 42")}}</option>
+                                <option value="42.5">{{tr("Size 42.5")}}</option>
+                                <option value="43">{{tr("Size 43")}}</option>
+                                <option value="43.5">{{tr("Size 43.5")}}</option>
+                            </select> 
+                            <a class="dropdown-btn"></a>
+                        </div> 
+                        <div class="input-label">
+                            <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
+                            <select name="size" id="fitted_size" v-model.trim="account_data.size" @input="updateData">
+                                <option value="35">{{tr("Size 35")}}</option>
+                                <option value="35.5">{{tr("Size 35.5")}}</option>
+                                <option value="36">{{tr("Size 36")}}</option>
+                                <option value="36.5">{{tr("Size 36.5")}}</option>
+                                <option value="37" selected="selected">{{tr("Size 37")}}</option>
+                                <option value="37.5">{{tr("Size 37.5")}}</option>
+                                <option value="38">{{tr("Size 38")}}</option>
+                                <option value="38.5">{{tr("Size 38.5")}}</option>
+                                <option value="39">{{tr("Size 39")}}</option>
+                                <option value="39.5">{{tr("Size 39.5")}}</option>
+                                <option value="40">{{tr("Size 40")}}</option>
+                                <option value="40.5">{{tr("Size 40.5")}}</option>
+                                <option value="41">{{tr("Size 41")}}</option>
+                                <option value="41.5">{{tr("Size 41.5")}}</option>
+                                <option value="42">{{tr("Size 42")}}</option>
+                                <option value="42.5">{{tr("Size 42.5")}}</option>
+                                <option value="43">{{tr("Size 43")}}</option>
+                                <option value="43.5">{{tr("Size 43.5")}}</option>
+                            </select> 
+                            <a class="dropdown-btn"></a>
+                            </div> 
+                            <div class="input-label">
+                                <div class="label">{{tr("Delivery address")}}</div>
+                                    <input type="text" v-model.trim="account_data.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;"> 
+                                    <input type="text" v-model.trim="account_data.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;"> 
+                                <div style="display: flex; flex-direction: row; margin-left: 30%;">
+                                    <input type="text" v-model.trim="account_data.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-right: 5px;"> 
+                                    <input type="number" v-model.trim="account_data.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%;">
+                                </div>
+                            </div> 
+                            <div class="input-label">
+                                <label for="phone" class="label">{{tr("Phone number")}}</label>
+                                <input type="tel" v-model.trim="account_data.addresses[0].telephone" @input="updateData" name="phone" id="phone">
+                            </div> 
+                            <div class="input-label">
+                                <label for="payment-type" class="label">{{tr("Payment type")}}</label>
+                                <select size="1" name="payment-type" id="payment-type">
+                                    <option value="cash" selected="selected">{{tr("Cash")}}</option>
+                                    <option value="creditCard">{{tr("Credit Card")}}</option>
+                                    <option value="debitCard">{{tr("Debit Card")}}</option>
+                                    <option value="other">{{tr("Other")}}</option></select>
+                                <a class="dropdown-btn"></a>
+                            </div> 
+                            <div class="input-label">
+                                <label for="notes" class="label">{{tr("Notes")}}</label>
+                                <input type="text" name="notes" id="notes">
+                            </div> 
+                            <div class="order-button"></div>
+                    </form> 
+                    <div class="button share-conf">
+                        <img src="../img/share.png">
+                        {{tr("Share this configuration")}}
+                    </div> 
+                    <div class="button order" @click="sendOrder">{{tr("Pre-order Now")}}</div>
+                </div>
+            </div>
+        <div class="remote-controller-menu">
+            <div class="back-to-config">
+                <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+            </div>  
+        </div>
+        <div v-show="visible.order_success" id="order-success-push">{{tr('Your order has been successfully completed')}}</div>
+    </div>
+    </customer-order>
+    <customer-fitting v-if="states.customer_fitting_view.active" id="customer-fitting-screen" :visible="visible"
+                            :states="states" :configurator="configuration" inline-template>
+        <div class="remote-configuration" id="customer-fitting-screen">
+            <div class="remote-controller-main">
+                <div class="controller-header">
+                    <div class="header-logo go-home" @click="home()"></div>
+                </div>
+                <div class="signedupuser-block">
+                    <div class="user">
+                        <div class="user-left">
+                            <div class="username">{{states.customer_profile_view.active_customer.firstname}}</div>
+                            <div class="edit-profile-info">{{tr('Edit Profile Information')}}</div>
+                        </div>
+                        <input id="logout" class="button-logout" type="button" value="Log out">
+                    </div>
+                    <hr>
+                    <div class="scan_list_block">
+                        <select class="scan-list">
+                            <option>
+                            </option>
+                        </select>
+                        <input type="button" value="Set as default" class="set-as-default-button" />
+                    </div>
+                    <div class="update_scan">
+                        <div>
+                            <div style="display: inline-block">
+                                <input class="update-scan-id" id="updated_scan_id" type="text" placeholder="New scan id">
+                            </div>
+                            <input type="button" class="update-scan-button"  value="Update scan">
+                            <div id="update_scan_error" style="display: none">
+                            </div>
+                            <div id="update_scan_success" style="display: none">
+                            </div>
+                        </div>
+                    </div>
+                    <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
+                </div>
+                <div class="summary-footer">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div> 
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
+                </div>
+            </div>
+            <div class="remote-controller-menu">
+                <div class="back-to-config">
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                </div>
+            </div>
+        </div>
+    </customer-fitting>
+    <material-library v-if="states.material_library_view.active" id="material-library-screen">
+        <div id="material-library-screen"></div>
+    </material-library>
+</div>
+<script src="../config.js"></script>
+<script src="../translations.js"></script>
+<script id="brandId" value="13"></script>
+
+<script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
+<!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
+<!--<script src="http://localhost:9000/detector.js"></script>-->
+<canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
+</body>
+</html>

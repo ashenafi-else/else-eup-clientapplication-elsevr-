@@ -176,7 +176,7 @@
                             <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span> | <span class="selectedpart">HEEL</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{getUserName()}}
@@ -295,7 +295,7 @@
                             <span class="screen-name">{{tr('DETAIL PREVIEW')}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -347,7 +347,7 @@
                             <span class="screen-name">{{tr("PREVIEW")}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -399,7 +399,7 @@
                             <span class="screen-name">{{tr("PREVIEW")}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -516,7 +516,7 @@
                             <span class="screen-name">{{tr("ORDER")}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -691,7 +691,7 @@
                             <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -768,7 +768,7 @@
                             <span class="screen-name">{{tr("ORDER")}}</span>
                         </div>
                         <div class="header-end">
-                            <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
                                 <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -946,7 +946,7 @@
                                 <span class="screen-name">{{tr('BEST FIT')}}</span>
                             </div>
                             <div class="header-end">
-                                <div class="login" v-if=states.customer_profile_view.active_customer.id>
+                                <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                     <div class="go-account"></div>
                                     <span id="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}

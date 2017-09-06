@@ -127,7 +127,7 @@
                         <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name">
                     </div>
                 </div>
-
+                <div class="continue-to-configurator" @click="continueAction">{{tr('continue')}}</div>
                 <div class="go-else">
                     <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
                         <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
@@ -383,7 +383,7 @@
                     <div class="scan_list_block">
                         <select class="scan-list" v-model="selectedScan">
                             <option v-for="scan in states.customer_profile_view.scans" :value="scan">
-                                {{tr(scan.scanner)}}{{scan.scan_id}}({{scan.created_date}})
+                                {{scan.scan_id}} - {{scan.created_date}}
                             </option>
                         </select>
                         <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(selectedScan)"/>
@@ -757,29 +757,16 @@
                     <div class="user">
                         <div class="user-left">
                             <div class="username">{{states.customer_profile_view.active_customer.firstname}}</div>
-                            <div class="edit-profile-info">{{tr('Edit Profile Information')}}</div>
                         </div>
-                        <input id="logout" class="button-logout" type="button" value="Log out">
                     </div>
                     <hr>
                     <div class="scan_list_block">
-                        <select class="scan-list">
-                            <option>
+                        <select class="scan-list" v-model="selectedScan">
+                            <option v-for="scan in states.customer_profile_view.scans" :value="scan">
+                                {{scan.scan_id}} - {{scan.created_date}}
                             </option>
                         </select>
-                        <input type="button" value="Set as default" class="set-as-default-button" />
-                    </div>
-                    <div class="update_scan">
-                        <div>
-                            <div style="display: inline-block">
-                                <input class="update-scan-id" id="updated_scan_id" type="text" placeholder="New scan id">
-                            </div>
-                            <input type="button" class="update-scan-button"  value="Update scan">
-                            <div id="update_scan_error" style="display: none">
-                            </div>
-                            <div id="update_scan_success" style="display: none">
-                            </div>
-                        </div>
+                        <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(selectedScan)"/>
                     </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                 </div>

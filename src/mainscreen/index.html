@@ -504,177 +504,101 @@
                 </div>
             </total-look>
             <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active">
-                <div class="remote-configuration" id="customer-profile-screen">
+                <div class="container" id="customer-fitting-screen">
                     <div class="header">
-                        <div class="header-start" >
-                            <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
-                            </span>
-                        </div>
-                        <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("ORDER")}}</span>
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
-                                    {{states.customer_profile_view.active_customer.firstname}}
-                                    {{states.customer_profile_view.active_customer.lastname}}
+                            <div class="header-start" >
+                                <span class="back-to">
+                                    <a>{{getCollectionName()}}</a>
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
-                                    <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
-                                        <span id="fitting-factor"
-                                            class="">
-                                            {{getFittingValues().best_style}}
-                                        </span>
-                                    </span>
-                                </div>
-                                <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else">
-                                <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
+                            <div class="header-middle">
+                                <img src="./img/reyrey-logo.png">
+                                <span class="screen-name">{{tr('PROFILE')}}</span>
+                            </div>
+                            <div class="header-end">
+                                <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                                    <div class="go-account"></div>
+                                    <span id="user_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                        {{states.customer_profile_view.active_customer.lastname}}
+                                    </span>
+                                    <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                        <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
+                                        <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
+                                            <span id="fitting-factor"
+                                                class="">
+                                                {{getFittingValues().best_style}}
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="vertical-line"></span>
+                                </div>
+                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
                                     <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
                     </div>
-                    <div class="main">
-                        <div class="main-start">
-                            <div class="price-block">
-                                <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                                <div class="product-block">
-                                    <div class="product"></div>
+                    <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="user_profile_params">
+                            <div class="user_info">
+                                <div class="user_info_line username_profile">{{tr('Name')}}:
+                                    <span id="user_profile_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                    </span>
                                 </div>
-                                <div class="summary-block">
-                                    <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                    <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                    <div class="accessories-summary"></div>
+                                <div class="user_info_line">
+                                    {{tr('Gender')}}:
+                                    <span id="user_profile_sex">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
                                 </div>
-                                <div class="prices">
-                                    <div class="price">
-                                        <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
-                                    </div>
+                                <div class="user_info_line">
+                                    {{tr('Size')}}:
+                                    <span id="user_profile_size">
+                                        {{states.customer_profile_view.active_customer.size}}
+                                    </span>
                                 </div>
-                                <div class="delivery-time">
-                                    <div class="total-price">0,00&#8364;</div>
-                                    <div class="delivery"></div>
+                                <div class="user_info_line">
+                                    {{tr('Email')}}:
+                                    <span id="user_profile_email">
+                                        {{states.customer_profile_view.active_customer.email}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Phone')}}:
+                                    <span id="user_profile_phone">
+                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Delivery address')}}:
+                                    <span id="user_profile_address">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    Notes:
+                                    <span></span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="main-middle">
-                            <div class="product-model">
-                                  <img class="product" src="./img/Joker_large_white.jpg" width="700px" height="700px">
+                            <div class="total_user_profile">
+                                <table id="user_profile_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>{{tr('Measure')}}</th>
+                                            <th>{{tr('Left Foot')}}</th>
+                                            <th>{{tr('Right Foot')}}</th>
+                                        </tr>
+                                        <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                            <td>{{tr(metric.name)}}</td>
+                                            <td>{{tr(metric.LEFT_FOOT)}}</td>
+                                            <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        <div class="main-end">
-                            <div id="product-order" class="order-form">
-                                <form>
-                                    <div class="input-label">
-                                        <label class="label" for="full-name">{{tr('Full Name')}}</label>
-                                        <input type="text" name="full-name" id="full-name"/>
-                                    </div>
-                                    <div class="input-label">
-                                        <label class="label" for="email-order">{{tr('Email')}}</label>
-                                        <input type="email" name="email" id="email-order"/>
-                                    </div>
-                                    <div class="input-label">
-                                        <label class="label" for="size">{{tr('Base Size')}}</label>
-                                        <select size="1" name="size" id="size">
-                                            <option value="34">{{tr('Size')}} 34</option>
-                                            <option value="34.5">{{tr('Size')}} 34.5</option>
-                                            <option value="35">{{tr('Size')}} 35</option>
-                                            <option value="35.5">{{tr('Size')}} 35.5</option>
-                                            <option value="36">{{tr('Size')}} 36</option>
-                                            <option value="36.5">{{tr('Size')}} 36.5</option>
-                                            <option value="37" selected>{{tr('Size')}} 37</option>
-                                            <option value="37.5">{{tr('Size')}} 37.5</option>
-                                            <option value="38">{{tr('Size')}} 38</option>
-                                            <option value="38.5">{{tr('Size')}} 38.5</option>
-                                            <option value="39">{{tr('Size')}} 39</option>
-                                            <option value="39.5">{{tr('Size')}} 39.5</option>
-                                            <option value="40">{{tr('Size')}} 40</option>
-                                            <option value="40.5">{{tr('Size')}} 40.5</option>
-                                            <option value="41">{{tr('Size')}} 41</option>
-                                            <option value="41.5">{{tr('Size')}} 41.5</option>
-                                            <option value="42">{{tr('Size')}} 42</option>
-                                            <option value="42.5">{{tr('Size')}} 42.5</option>
-                                            <option value="43">{{tr('Size')}} 43</option>
-                                            <option value="43.5">{{tr('Size')}} 43.5</option>
-                                            <option value="44">{{tr('Size')}} 44</option>
-                                        </select>
-                                        <a class="dropdown-btn"></a>
-                                    </div>
-                                    <div class="input-label">
-                                        <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
-                                        <select size="1" name="size" id="fitted_size">
-                                            <option value="34">Size 34</option>
-                                            <option value="34.5">Size 34.5</option>
-                                            <option value="35">Size 35</option>
-                                            <option value="35.5">Size 35.5</option>
-                                            <option value="36">Size 36</option>
-                                            <option value="36.5">Size 36.5</option>
-                                            <option value="37" selected>Size 37</option>
-                                            <option value="37.5">Size 37.5</option>
-                                            <option value="38">Size 38</option>
-                                            <option value="38.5">{{tr('Size')}} 38.5</option>
-                                            <option value="39">{{tr('Size')}} 39</option>
-                                            <option value="39.5">{{tr('Size')}} 39.5</option>
-                                            <option value="40">{{tr('Size')}} 40</option>
-                                            <option value="40.5">{{tr('Size')}} 40.5</option>
-                                            <option value="41">{{tr('Size')}} 41</option>
-                                            <option value="41.5">{{tr('Size')}} 41.5</option>
-                                            <option value="42">{{tr('Size')}} 42</option>
-                                            <option value="42.5">{{tr('Size')}} 42.5</option>
-                                            <option value="43">{{tr('Size')}} 43</option>
-                                            <option value="43.5">{{tr('Size')}} 43.5</option>
-                                            <option value="44">{{tr('Size')}} 44</option>
-                                        </select>
-                                        <a class="dropdown-btn"></a>
-                                    </div>
-                                    <div class="input-label">
-                                        <div class="label">{{tr('Delivery address')}}</div>
-                                        <input type="text" id="district" placeholder="District of the shop"/>
-                                        <input type="text" name="city" id="city" placeholder="City"/>
-                                        <div style="display: flex; flex-direction: row">
-                                            <input type="text" name="country" id="country" placeholder="Country"
-                                                   style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
-                                            <input type="number" name="zip-code" id="zip-code" placeholder="Zip Code"
-                                                   style="flex:2 1 115px;width: 100%;"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="input-label">
-                                        <label class="label" for="phone">{{tr('Phone Number')}}</label>
-                                        <input type="tel" name="phone" id="phone"/>
-                                    </div>
-                                    <div class="input-label">
-                                        <label class="label" for="payment-type">{{tr('Payment type')}}</label>
-                                        <select size="1" name="payment-type" id="payment-type">
-                                            <option value="cash">{{tr("Cash")}}</option>
-                                            <option value="creditCard">{{tr("Credit Card")}}</option>
-                                            <option value="debitCard">{{tr("Debit Card")}}</option>
-                                            <option value="other">{{tr("Other")}}</option>
-                                        </select>
-                                        <a class="dropdown-btn"></a>
-                                    </div>
-                                    <div class="input-label">
-                                        <label class="label" for="notes">{{tr('Notes')}}</label>
-                                        <input type="text" name="notes" id="notes" notrequired="true"/>
-                                    </div>
-                                    <div class="order-button"></div>
-                                    <div class="order-success" style="display:none;">
-                                        {{tr("The pre-order has been successfully completed!")}}
-                                    </div>
-                                    <div class="order-fail" style="display:none;">
-                                        {{tr("The order has failed")}}
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        </div>  <!-- ./user-info end -->
                     </div>
                 </div>
             </customer-profile>
@@ -969,7 +893,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="best-fit" style="">
+                    <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
                         <div class="user_profile_params">
                             <div class="user_info">
                                 <div class="user_info_line username_profile">{{tr('Name')}}:
@@ -1012,30 +936,24 @@
                                     <span></span>
                                 </div>
                             </div>
-                            <div class="total_user_profile">
-                                <table id="user_profile_table">
-                                    <tbody>
-                                        <tr>
-                                            <th>{{tr('Measure')}}</th>
-                                            <th>{{tr('Left Foot')}}</th>
-                                            <th>{{tr('Right Foot')}}</th>
-                                        </tr>
-                                        <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                            <td>{{tr(metric.name)}}</td>
-                                            <td>{{tr(metric.LEFT_FOOT)}}</td>
-                                            <td>{{tr(metric.RIGHT_FOOT)}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="best_sizes">
+                                <div class="best_size" v-if="states.customer_fitting_view.best_sizes.best_size">
+                                    <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                                    <img id="best_size" style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                                </div>
+                            </div>
+                            <div style="height: 350px;width: 600px;">
+                                <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
+                                    <div class="username_profile userscans">User scans</div>
+                                    <div class="left_scan">
+                                        <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                                    </div>
+                                    <div class="right_scan">
+                                        <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                                    </div>
+                                </div>
                             </div>
                         </div>  <!-- ./user-info end -->
-                        <div class="user_scans">
-                            <div class="username_profile userscans">User scans</div>
-                            <div class="left_scan">
-                                <div style="display: none;">{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                                <img id="left_scan_image" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
-                            </div>
-                        </div> <!-- ./user_scans end -->
                     </div>
                 </div>
             </customer-fitting>

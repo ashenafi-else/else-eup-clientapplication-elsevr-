@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+
 var plugins = [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
@@ -17,6 +18,7 @@ var plugins = [
         {
             ignore: [
                 '*.js',
+                '*.less',
                 './templates',
             ],
         }),
@@ -32,18 +34,22 @@ var plugins = [
         ]),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-    }),
+    })
 ];
 
 module.exports = {
+    entry: {
+        mainscreen: './src/mainscreen/css/style.less',
+        remotecontrol: './src/remotecontrol/css/style.less'
+    },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: "[name]/style.js",
     },
     module: {
         loaders: [
             {test: /\.css/, loader: 'style-loader!css-loader!postcss-loader'},
-            {test: /\.less/, loader: 'style-loader!css-loader!postcss-loader!less-loader'},
+            {test: /\.less/, loader: 'style-loader!css-loader!less-loader'},
             {test: /\.html/, loader: 'vue-template-compiler'}
         ]
     },

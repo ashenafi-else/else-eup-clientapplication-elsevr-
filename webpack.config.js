@@ -38,9 +38,10 @@ var plugins = [
 ];
 
 module.exports = {
+    context: path.resolve(__dirname, './src'),
     entry: {
-        mainscreen: './src/mainscreen/css/style.less',
-        remotecontrol: './src/remotecontrol/css/style.less'
+        mainscreen: './mainscreen/css/style.less',
+        remotecontrol: './remotecontrol/css/style.less'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -50,7 +51,8 @@ module.exports = {
         loaders: [
             {test: /\.css/, loader: 'style-loader!css-loader!postcss-loader'},
             {test: /\.less/, loader: 'style-loader!css-loader!less-loader'},
-            {test: /\.html/, loader: 'vue-template-compiler'}
+            {test: /\.html/, loader: 'vue-template-compiler'},
+            {test: /\.(jpe?g|png|gif|svg)$/, loader: 'file?name=img/[name].[ext]' },
         ]
     },
     plugins: plugins

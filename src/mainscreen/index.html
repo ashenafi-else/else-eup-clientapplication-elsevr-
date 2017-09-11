@@ -124,21 +124,23 @@
             <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
                 <div class="container" id="product-list-screen">
                     <div class="top-panel">
-                        <img src="img/header.svg"/>
+                        <div><img src="img/header.svg"/></div>
+                        <div class="logo-container">
+                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <div class="elsa-container"><img src="img/ELSA.png"/></div>
+                            <div class="text stylish-text">3D Product Configurator</div>
+                        </div>
                     </div>
                     <div class="virtual-catalog">
-                        <div class="logo-section">
-                            <img class="logo" src="./img/logo.png">
-                            <span class="logo-line"></span>
-                            <span class="collection-heading">{{getCollectionName()}}</span>
-                        </div>
                         <div class="list-items">
                             <div class="element"
                                  :class="[product.active?'active':'', product.name]"
                                  :id="product.id"
                                  v-for="product in states.product_list_view.products">
-                                <div class="element-border"><img src="img/blue-border.svg"/></div>
-                                <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name"/>
+                                <div class="element-boot">
+                                    <div class="element-border"><img src="img/blue-border.svg"/></div>
+                                    <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name"/>
+                                </div>
                                 <!--<div class="description" v-if="product.configuration">-->
                                     <!--<ul class="col-16">-->
                                         <!--<ul id="description" class="options">-->

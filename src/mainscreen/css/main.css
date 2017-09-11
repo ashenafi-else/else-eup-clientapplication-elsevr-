@@ -116,7 +116,7 @@ div.header {
     display: block;
     background: #000000;
 }
-.collection-img, .element.active video {
+element.active video {
     margin-top: 15%;
     display: flex;
     height: 350px;
@@ -134,15 +134,6 @@ span.collection-heading {
     font-size: 1.3em;
 }
 
-.list-items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 80%;
-    min-width: 100%;
-    justify-content: center;
-    margin-top: 20px;
-}
 .element.Wedge {
     background-color: #FCF9F5;
 }

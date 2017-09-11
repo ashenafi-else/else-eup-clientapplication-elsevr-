@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "client application ELSE VR",
   "scripts": {
-    "build": "webpack --mode=build",
-    "dev": "webpack --progress --colors --watch --mode=dev",
+    "build": "webpack -p",
+    "dev": "webpack-dev-server --color",
     "deploy": "gulp deploy",
     "deploy-stage": "gulp deploy-stage"
   },
@@ -28,7 +28,8 @@
     "gulp-sourcemaps": "^2.2.3",
     "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2",
-    "webpack": "^1.13.3",
+    "webpack": "^2.0.0",
+    "webpack-dev-server": "^2.7.1",
     "yargs": "^6.4.0",
     "file-loader": "^0.11.2",
 
@@ -37,7 +38,8 @@
     "css-loader": "*",
     "less": "*",
     "less-loader": "*",
-    "extract-text-webpack-plugin": "1.0.1"
+    "extract-text-webpack-plugin": "^2.1.2",
+    "css-hot-loader": "*"
   },
   "dependencies": {}
 }

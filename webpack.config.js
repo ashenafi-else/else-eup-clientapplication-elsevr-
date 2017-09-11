@@ -19,14 +19,14 @@ var plugins = [
             {
                 from: path.resolve(__dirname, './src/remotecontrol/'),
                 to: path.resolve(__dirname, './dist/remotecontrol')
-            },
+            }
         ],
         {
             ignore: [
                 '*.js',
                 '*.less',
-                './templates',
-            ],
+                './templates'
+            ]
         }),
     new CopyWebpackPlugin([
             {
@@ -36,10 +36,10 @@ var plugins = [
             {
                 from: path.resolve(__dirname, './src/translations.js'),
                 to: path.resolve(__dirname, './dist/')
-            },
+            }
         ]),
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })
 ];
 
@@ -51,14 +51,37 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: "[name]/style.js",
+        filename: "[name].js"
+    },
+    devtool: 'source-map',
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        port: 8000,
+        hotOnly: true
     },
     module: {
-        loaders: [
-            {test: /\.scss$/i, loader: extractCSS.extract(['css','sass'], {publicPath: '../'})},
-            {test: /\.less$/i, loader: extractLESS.extract(['css','less'], {publicPath: '../'})},
-            {test: /\.(jpe?g|png|gif|svg)$/, loader: 'file?name=img/[name].[ext]' },
-        ]
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['css-hot-loader'].concat(extractCSS.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader'],
+                    publicPath: '../'
+                }))
+            },
+            {
+                test: /\.less$/,
+                use: ['css-hot-loader'].concat(extractLESS.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader'],
+                    publicPath: '../'
+                }))
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/,
+                use: 'file-loader?name=img/[name].[ext]',
+            },
+        ],
     },
     plugins: plugins
 

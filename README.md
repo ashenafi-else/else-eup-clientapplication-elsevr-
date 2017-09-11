@@ -8,10 +8,9 @@ Remote Control resolution 800*1280 and wider on chrome
 1. install npm
 2. run command "npm install" from project directory
 3. after success installation run command "npm run dev" (this is provides hot update after code change)
-4. go to project_dir/dist and run command 'python -m CGIHTTPServer 8000' for start application server
-5. open browser via localhost:8000
-5.1  http://localhost:8000/mainscreen/index.html
-5.2  http://localhost:8000/remotecontrol/index.html
+4. open browser via localhost:8000
+4.1  http://localhost:8000/mainscreen/index.html
+4.2  http://localhost:8000/remotecontrol/index.html
 
 ## App deploy and URLs
 

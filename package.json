@@ -11,11 +11,8 @@
   "devDependencies": {
     "apache-server-configs": "2.14.0",
     "archiver": "^0.21.0",
-    "autoprefixer-loader": "^3.2.0",
     "copy-webpack-plugin": "4.0.1",
-    "css-loader": "*",
     "del": "^2.0.2",
-    "file-loader": "^0.11.2",
     "glob": "^6.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.2",
@@ -29,13 +26,18 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
     "gulp-sourcemaps": "^2.2.3",
-    "less": "*",
-    "less-loader": "*",
     "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2",
-    "style-loader": "*",
     "webpack": "^1.13.3",
-    "yargs": "^6.4.0"
+    "yargs": "^6.4.0",
+    "file-loader": "^0.11.2",
+
+    "style-loader": "*",
+    "postcss-loader": "*",
+    "css-loader": "*",
+    "less": "*",
+    "less-loader": "*",
+    "extract-text-webpack-plugin": "1.0.1"
   },
   "dependencies": {}
 }

@@ -2,10 +2,16 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractCSS = new ExtractTextPlugin('css/[name].css');
+const extractLESS = new ExtractTextPlugin('css/[name].css');
 
 var plugins = [
+    extractCSS,
+    extractLESS,
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin(
+        [
             {
                 from: path.resolve(__dirname, './src/mainscreen/'),
                 to: path.resolve(__dirname, './dist/mainscreen')
@@ -49,9 +55,8 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.css/, loader: 'style-loader!css-loader!postcss-loader'},
-            {test: /\.less/, loader: 'style-loader!css-loader!less-loader'},
-            {test: /\.html/, loader: 'vue-template-compiler'},
+            {test: /\.scss$/i, loader: extractCSS.extract(['css','sass'], {publicPath: '../'})},
+            {test: /\.less$/i, loader: extractLESS.extract(['css','less'], {publicPath: '../'})},
             {test: /\.(jpe?g|png|gif|svg)$/, loader: 'file?name=img/[name].[ext]' },
         ]
     },

@@ -143,14 +143,6 @@ span.collection-heading {
     justify-content: center;
     margin-top: 20px;
 }
-.list-items .element{
-    display: flex;
-    flex-basis: 19%;
-    height: 80%;
-    margin: 6px;
-    flex-direction: column;
-    background-color: #625c5c;
-}
 .element.Wedge {
     background-color: #FCF9F5;
 }
@@ -161,20 +153,21 @@ span.collection-heading {
     background-color: #FFFCFA;
 }
 
-.element .name, .materials .name{
-    margin-top: 10px;
-    font-size: 24px;
-    text-align: center;
-    color: #000000;
-}
-.element .name::after{
-    content: " ";
-    display: block;
-    width: 95%;
-    height: 1px;
-    background-color: #000000;
-    margin: 5px auto;
-}
+/*.element .name, .materials .name{*/
+    /*margin-top: 10px;*/
+    /*font-size: 24px;*/
+    /*text-align: center;*/
+    /*color: #000000;*/
+/*}*/
+/*.element .name::after{*/
+    /*content: " ";*/
+    /*display: block;*/
+    /*width: 95%;*/
+    /*height: 1px;*/
+    /*background-color: #000000;*/
+    /*margin: 5px auto;*/
+/*}*/
+
 
 .list-items .element.active{
     -webkit-filter: grayscale(0%);
@@ -199,7 +192,6 @@ span.collection-heading {
     justify-content: center;
     margin-bottom: 30px;
 }
-
 
 .element .description .col-83{
     flex: 3 2 0;

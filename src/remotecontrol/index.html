@@ -87,7 +87,7 @@
             <div class="virtual-catalog">
                 <div class="logo-section">
                     <img class="logo" src="img/logo.png">
-                </div> 
+                </div>
                 <div class="list-items">
                     <div class="element"
                          @click="setActive(collection.id)"
@@ -96,11 +96,11 @@
                          v-for="collection in states.collection_view.collections">
                         <div class="name">
                             <span>{{collection.name}}</span>
-                        </div> 
+                        </div>
                         <img class="collection-img" :src="collection.image">
                     </div>
                 </div>
-                <div class="go-else">  
+                <div class="go-else">
                     <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
                         <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
                     </video>
@@ -127,7 +127,7 @@
                         <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name">
                     </div>
                 </div>
-                <div class="continue-to-configurator" @click="continueAction">{{tr('continue')}}</div>
+                <button class="continue-to-configurator" @click="continueAction">{{tr('continue')}}</button>
                 <div class="go-else">
                     <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
                         <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
@@ -166,7 +166,7 @@
                                  @click.self="changeMaterial(element, material)"
                                  :class="(element.active_material == material.name)?'control-active':''"
                                  :id="material.name"
-                                 v-for="material in element.colors"> 
+                                 v-for="material in element.colors">
                                 <div class="colors vertical-bar" v-if="element.active_material == material.name">
                                     <div class="column_1">{{tr("Color")}}</div>
                                     <div class="color"
@@ -176,7 +176,7 @@
                                          v-for="color in material.colors">
                                         {{getColorName(color)}}
                                     </div>
-                                </div>        
+                                </div>
                             </div>
                         </div>
                      </div>
@@ -186,7 +186,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{state.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="data.active_color">
                         {{tr("Color")}}: {{getColorName(data.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="data.active_material">
                         {{tr("Mat")}}: {{getMaterialName(data.active_material)}}
                     </div>
@@ -225,7 +225,7 @@
                         <span class="order-icon"></span>
                         {{tr("Pre-order")}}
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </product-details>
@@ -250,7 +250,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -265,7 +265,7 @@
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </product-preview>
@@ -276,7 +276,7 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
                 <div class="detail-preview-mode">
-                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch> 
+                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                     <div class="default-cameras">
                         <div class="camera camera-view"
                              :id="camera"
@@ -290,7 +290,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -305,7 +305,7 @@
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </material-preview>
@@ -316,7 +316,7 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
                 <div class="detail-preview-mode">
-                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch> 
+                    <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                     <div class="default-cameras">
                         <div class="camera camera-view"
                              :id="camera"
@@ -330,7 +330,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -345,7 +345,7 @@
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </part-preview>
@@ -415,7 +415,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -438,19 +438,19 @@
                     <div class="edit-profile-form">
                        <form>
                           <div class="register-input">
-                            <label for="edit_first_name" class="label">{{tr('First name')}}*</label> 
+                            <label for="edit_first_name" class="label">{{tr('First name')}}*</label>
                             <input type="text" name="first_name" id="edit_first_name" v-model="accountData.firstname">
                           </div>
                           <div class="register-input">
-                            <label for="edit_last_name" class="label">{{tr('Last name')}}*</label> 
+                            <label for="edit_last_name" class="label">{{tr('Last name')}}*</label>
                             <input type="text" name="last_name" id="edit_last_name" v-model="accountData.lastname">
                           </div>
                           <div class="register-input">
-                            <label for="edit_email" class="label">{{tr('Email')}}*</label> 
+                            <label for="edit_email" class="label">{{tr('Email')}}*</label>
                             <input type="email" name="email" id="edit_email" v-model="accountData.email">
                           </div>
                           <div class="register-input">
-                             <label for="edit_size" class="label">{{tr('Size')}}*</label> 
+                             <label for="edit_size" class="label">{{tr('Size')}}*</label>
                              <select name="size" id="edit_size" v-model="accountData.size">
                                 <option value="35">{{tr("Size 35")}}</option>
                                 <option value="35.5">{{tr("Size 35.5")}}</option>
@@ -474,31 +474,31 @@
                              <a class="dropdown-btn"></a>
                           </div>
                           <div class="register-input gender">
-                            <label class="label">{{tr('Gender')}}</label> 
-                            <input type="radio" id="edit_female_gender" name="gender" value="0" selected="selected" v-model="accountData.gender"> 
+                            <label class="label">{{tr('Gender')}}</label>
+                            <input type="radio" id="edit_female_gender" name="gender" value="0" selected="selected" v-model="accountData.gender">
                             <label for="edit_female_gender"><span>{{tr('Female')}}</span></label>
-                            <input type="radio" id="edit_male_gender" name="gender" value="1" v-model="accountData.gender"> 
+                            <input type="radio" id="edit_male_gender" name="gender" value="1" v-model="accountData.gender">
                             <label for="edit_male_gender"><span>{{tr('Male')}}</span></label>
                           </div>
                           <div class="register-input">
-                            <label for="edit_phone" class="label">{{tr('Phone number')}}*</label> 
+                            <label for="edit_phone" class="label">{{tr('Phone number')}}*</label>
                             <input type="tel" name="phone" id="edit_phone" v-model="accountData.addresses[0].telephone">
                           </div>
                           <div class="register-input">
                              <div class="label">{{tr('Customer Address')}}*</div>
-                             <input type="text" name="city" id="edit_city" v-model="accountData.addresses[0].city"> 
+                             <input type="text" name="city" id="edit_city" v-model="accountData.addresses[0].city">
                              <input type="text" id="edit_district" v-model="accountData.addresses[0].street[0]">
                           </div>
                           <div class="register-input">
-                            <label for="edit_zip_code" class="label">{{tr('Zip Code')}}</label> 
+                            <label for="edit_zip_code" class="label">{{tr('Zip Code')}}</label>
                             <input type="number" name="zip-code" id="edit_zip_code" v-model="accountData.addresses[0].postcode">
                           </div>
                           <div class="register-input">
-                            <label for="edit_notes" class="label">Notes</label> 
+                            <label for="edit_notes" class="label">Notes</label>
                             <input type="text" name="edit_notes" id="edit_notes">
                           </div>
                           <div class="edit-button-group">
-                            <input type="button" value="Save Changes" id="edit-profile" class="save-changes" @click="saveChanges(accountData)"> 
+                            <input type="button" value="Save Changes" id="edit-profile" class="save-changes" @click="saveChanges(accountData)">
                             <input type="button" value="Cancel" class="view-profile-info" @click="back">
                           </div>
                        </form>
@@ -509,7 +509,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -534,7 +534,7 @@
                             :class="states.customer_login_view.show_search_results?'':'active'"
                             @click="states.customer_login_view.show_search_results=false">
                             <a id="to_create_account" class="open-tab">{{tr("Create an account")}}</a>
-                        </li> 
+                        </li>
                         <li class="nav-tab"
                             :class="states.customer_login_view.show_search_results?'active':''"
                             @click="states.customer_login_view.show_search_results=true">
@@ -547,7 +547,7 @@
                                 <input type="search" v-model="search_text" placeholder="Search Profile" class="search-input">
                                 <input type="button" value="Search" @click="customer_search(search_text)" class="search-customer">
                             </div>
-                        </div> 
+                        </div>
                         <div class="search-result">
                             <div class="customer"
                                  @click="customer_signup(customer.id)"
@@ -562,11 +562,11 @@
                                 <label class="label">{{tr("Full Name")}}*</label>
                                 <input type="text" v-model.trim="customer.firstname" name="firstname" placeholder="First Name" style="width: 250px;">
                                 <input type="text" v-model.trim="customer.lastname" name="lastname" placeholder="Last Name" style="width: 250px;">
-                            </div> 
+                            </div>
                             <div class="register-input">
                                 <label for="register_email" class="label">{{tr("Email")}}*</label>
                                 <input type="email" v-model.trim="customer.email" placeholder="Email address" name="email" id="register_email">
-                            </div> 
+                            </div>
                             <div class="register-input">
                                 <label for="register_size" class="label">{{tr("Size")}}*</label>
                                 <select name="size" id="register_size" v-model.trim="customer.size">
@@ -588,15 +588,15 @@
                                     <option value="42.5">{{tr("Size 42.5")}}</option>
                                     <option value="43">{{tr("Size 43")}}</option>
                                     <option value="43.5">{{tr("Size 43.5")}}</option>
-                                </select> 
+                                </select>
                                 <a class="dropdown-btn"></a>
-                            </div> 
+                            </div>
                             <div class="register-input gender">
                                 <label class="label">{{tr("Gender")}}</label>
                                 <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected">
                                 <label for="register_female_gender">
                                     <span>{{tr("Female")}}</span>
-                                </label> 
+                                </label>
                                 <input type="radio" id="register_male_gender" v-model="customer.gender" name="gender" value="1">
                                 <label for="register_male_gender"><span>{{tr("Male")}}</span></label>
                             </div>
@@ -609,11 +609,11 @@
                             <div class="register-input">
                                 <label for="register_zip_code" class="label">{{tr("Zip Code")}}</label>
                                 <input type="number" v-model.trim="customer.postcode" name="zip-code" id="register_zip_code">
-                            </div> 
+                            </div>
                             <div class="register-input">
                                 <label for="register_notes" class="label">{{tr("Notes")}}</label>
                                 <input type="text" name="notes" v-model.trim="customer.note" id="register_notes">
-                            </div> 
+                            </div>
                             <button class="register-button" type="button" id="signup-customer" @click="createNewCustomer">{{tr("Register")}}</button>
                         </form>
                     </div> <!---->
@@ -623,7 +623,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>
@@ -632,7 +632,7 @@
             <div class="remote-controller-menu">
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
-                </div>  
+                </div>
             </div>
         </div>
     </customer-login>
@@ -643,18 +643,18 @@
                 <div class="controller-header">
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
-            
+
                 <div class="order-button-block" v-if="account_data">
                     <form>
                         <div class="input-label">
                             <label class="label">{{tr("Full Name")}}</label>
-                            <input type="text" v-model.trim="account_data.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;"> 
+                            <input type="text" v-model.trim="account_data.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;">
                             <input type="text" v-model.trim="account_data.lastname" @input="updateData" name="lastname" placeholder="Last Name" style="flex: 1 1 190px;">
-                        </div> 
+                        </div>
                         <div class="input-label">
                             <label for="email-order" class="label">{{tr("Email")}}</label>
                             <input type="email" v-model.trim="account_data.email" @input="updateData" name="email" id="email-order">
-                        </div> 
+                        </div>
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Base Size")}}</label>
                             <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
@@ -676,9 +676,9 @@
                                 <option value="42.5">{{tr("Size 42.5")}}</option>
                                 <option value="43">{{tr("Size 43")}}</option>
                                 <option value="43.5">{{tr("Size 43.5")}}</option>
-                            </select> 
+                            </select>
                             <a class="dropdown-btn"></a>
-                        </div> 
+                        </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
                             <select name="size" id="fitted_size" v-model.trim="account_data.size" @input="updateData">
@@ -700,22 +700,22 @@
                                 <option value="42.5">{{tr("Size 42.5")}}</option>
                                 <option value="43">{{tr("Size 43")}}</option>
                                 <option value="43.5">{{tr("Size 43.5")}}</option>
-                            </select> 
+                            </select>
                             <a class="dropdown-btn"></a>
-                            </div> 
+                            </div>
                             <div class="input-label">
                                 <div class="label">{{tr("Delivery address")}}</div>
-                                    <input type="text" v-model.trim="account_data.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;"> 
-                                    <input type="text" v-model.trim="account_data.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;"> 
+                                    <input type="text" v-model.trim="account_data.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;">
+                                    <input type="text" v-model.trim="account_data.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;">
                                 <div style="display: flex; flex-direction: row; margin-left: 30%;">
-                                    <input type="text" v-model.trim="account_data.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-right: 5px;"> 
+                                    <input type="text" v-model.trim="account_data.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-right: 5px;">
                                     <input type="number" v-model.trim="account_data.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%;">
                                 </div>
-                            </div> 
+                            </div>
                             <div class="input-label">
                                 <label for="phone" class="label">{{tr("Phone number")}}</label>
                                 <input type="tel" v-model.trim="account_data.addresses[0].telephone" @input="updateData" name="phone" id="phone">
-                            </div> 
+                            </div>
                             <div class="input-label">
                                 <label for="payment-type" class="label">{{tr("Payment type")}}</label>
                                 <select size="1" name="payment-type" id="payment-type">
@@ -724,24 +724,24 @@
                                     <option value="debitCard">{{tr("Debit Card")}}</option>
                                     <option value="other">{{tr("Other")}}</option></select>
                                 <a class="dropdown-btn"></a>
-                            </div> 
+                            </div>
                             <div class="input-label">
                                 <label for="notes" class="label">{{tr("Notes")}}</label>
                                 <input type="text" name="notes" id="notes">
-                            </div> 
+                            </div>
                             <div class="order-button"></div>
-                    </form> 
+                    </form>
                     <div class="button share-conf">
                         <img src="../img/share.png">
                         {{tr("Share this configuration")}}
-                    </div> 
+                    </div>
                     <div class="button order" @click="sendOrder">{{tr("Pre-order Now")}}</div>
                 </div>
             </div>
         <div class="remote-controller-menu">
             <div class="back-to-config">
                 <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
-            </div>  
+            </div>
         </div>
         <div v-show="visible.order_success" id="order-success-push">{{tr('Your order has been successfully completed')}}</div>
     </div>
@@ -775,7 +775,7 @@
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div> 
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>

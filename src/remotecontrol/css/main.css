@@ -156,13 +156,6 @@ footer {
     background-color: #FFFCFA;
 }
 
-.element.active{
-    box-shadow:inset 0px 0px 0px 10px #0c0b0b;
-    -webkit-box-shadow:inset 0px 0px 0px 10px #0c0b0b;
-    -moz-box-shadow:inset 0px 0px 0px 10px #0c0b0b;
-}
-
-
 /* REYREY - STORE-SELECTION & STORE-PASSWORD & SESSION CODE SCREENS */
 .store-selection, .store-password-screen, .session-code-screen{
     flex: auto;

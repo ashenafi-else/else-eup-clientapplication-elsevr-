@@ -123,32 +123,35 @@
             </product-start-screen>
             <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
                 <div class="container" id="product-list-screen">
+                    <div class="top-panel">
+                        <img src="img/header.svg"/>
+                    </div>
                     <div class="virtual-catalog">
                         <div class="logo-section">
                             <img class="logo" src="./img/logo.png">
                             <span class="logo-line"></span>
                             <span class="collection-heading">{{getCollectionName()}}</span>
                         </div>
-
                         <div class="list-items">
                             <div class="element"
                                  :class="[product.active?'active':'', product.name]"
                                  :id="product.id"
                                  v-for="product in states.product_list_view.products">
-                                <div class="name">
-                                    <span>{{tr(product.name)}}</span>
-                                </div>
+                                <div class="element-border"><img src="img/blue-border.svg"/></div>
                                 <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name"/>
-                                <div class="description" v-if="product.configuration">
-                                    <ul class="col-16">
-                                        <ul id="description" class="options">
-                                            <li class="number-configurations">{{product.configuration.configurations_count}}</li>
-                                            <li class="number-elements">{{product.configuration.components_count}}</li>
-                                            <li class="number-materials">{{product.configuration.materials_count}}</li>
-                                            <li class="number-colors">{{product.configuration.colors_count}}</li>
-                                        </ul>
-                                    </ul>
-                                </div>
+                                <!--<div class="description" v-if="product.configuration">-->
+                                    <!--<ul class="col-16">-->
+                                        <!--<ul id="description" class="options">-->
+                                            <!--<li class="number-configurations">{{product.configuration.configurations_count}}</li>-->
+                                            <!--<li class="number-elements">{{product.configuration.components_count}}</li>-->
+                                            <!--<li class="number-materials">{{product.configuration.materials_count}}</li>-->
+                                            <!--<li class="number-colors">{{product.configuration.colors_count}}</li>-->
+                                        <!--</ul>-->
+                                    <!--</ul>-->
+                                <!--</div>-->
+                                <button class="name">
+                                    <span>{{tr(product.name)}}</span>
+                                </button>
                             </div>
                         </div>
                         <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">

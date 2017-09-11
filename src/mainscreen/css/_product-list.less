@@ -1,4 +1,44 @@
 #product-list-screen{
     background-image: url(../img/bg.png);
     min-height: 100vh;
+    .list-items{
+        .element{
+            .flex-container();
+            position: relative;
+            background: center/100% url(../img/white-shadow.png), center/80% url(../img/circle-shadow.png);
+            background-repeat: no-repeat;
+            flex-basis: 19%;
+            height: 80%;
+            margin: 6px;
+            flex-direction: column;
+            .name {
+                border: 1px solid #5FECFF;
+                border-radius: 7px;
+                background-color: rgb( 12, 88, 128 );
+                opacity: 0.65;
+                width: 382px;
+                height: 62px;
+                font-size: 42px;
+                color: white;
+                margin:0 auto;
+            }
+        }
+    }
+    .element-border{
+        .flex-container();
+        .justify-content(center);
+        .align-items(center);
+        position: absolute;
+        width: 100%;
+        img{
+            .object-fit(contain);
+            margin-top: -5%;
+            width: 100%;
+
+        }
+    }
+}
+
+.continue-to-configurator{
+    color: red;
 }

@@ -84,12 +84,6 @@ footer {
     flex-direction: column;
     height: 100%;
 }
-.virtual-catalog .logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 .virtual-catalog .logo-section .reyrey-logo {
     width: 360px;
     height: 200px;
@@ -101,45 +95,12 @@ footer {
     width: auto;
     align-self: center;
 }
-.list-items{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: c;
-    height: 100%;
-    width: 100%;
-}
-.list-items::after{
-    content: " ";
-    display: block;
-    width: 99%;
-    height: 1px;
-    background-color: #000000;
-    margin: -52px auto;
-}
-.list-items .element{
-    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.92);
-    display: flex;
-    /* flex-basis: 30.5%; */
-    height: 80%;
-    flex-direction: column;
-    margin: 20px 5px 0 5px;
-    width: 31.5%;
-}
+
 .element .name{
     margin-top: 10px;
     font-size: 24px;
     text-align: center;
     color: #000000;
-}
-.element .name::after{
-    content: " ";
-    display: block;
-    width: 95%;
-    height: 1px;
-    background-color: #000000;
-    margin: 5px auto;
 }
 .element.Flat img.collection-img {
     height: 50%;

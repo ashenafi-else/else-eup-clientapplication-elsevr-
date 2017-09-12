@@ -1,89 +1,75 @@
-const webpack = require('webpack');
-const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
+var path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('css/[name].css');
-const extractLESS = new ExtractTextPlugin('css/[name].css');
-
-var plugins = [
-    extractCSS,
-    extractLESS,
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new CopyWebpackPlugin(
-        [
-            {
-                from: path.resolve(__dirname, './src/mainscreen/'),
-                to: path.resolve(__dirname, './dist/mainscreen')
-            },
-            {
-                from: path.resolve(__dirname, './src/remotecontrol/'),
-                to: path.resolve(__dirname, './dist/remotecontrol')
-            }
-        ],
-        {
-            ignore: [
-                '*.js',
-                '*.less',
-                './templates'
-            ]
-        }),
-    new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './src/config.js'),
-                to: path.resolve(__dirname, './dist/')
-            },
-            {
-                from: path.resolve(__dirname, './src/translations.js'),
-                to: path.resolve(__dirname, './dist/')
-            }
-        ]),
-    new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
-];
+var isProd = process.env.NODE_ENV === 'production' ;
+var cssDev = ['style-loader', 'css-loader', 'less-loader'];
+// var cssDev = ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+//     fallback: 'style-loader',
+//     use: ['style-loader', 'css-loader', 'less-loader']
+// }));
+var cssProd = ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    loader: ['css-loader', 'less-loader'],
+    publicPath: '/dist'
+});
+var cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        mainscreen: './mainscreen/css/style.less',
-        remotecontrol: './remotecontrol/css/style.less'
+        mainscreen: './mainscreen/app.js',
+        remotecontrol: './remotecontrol/app.js'
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: "[name].js"
-    },
-    devtool: 'source-map',
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        port: 8000,
-        hot: true,
-        inline: true
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ['css-hot-loader'].concat(extractCSS.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader'],
-                    publicPath: '../'
-                }))
+                test: /\.less$/,
+                use: cssConfig
             },
             {
-                test: /\.less$/,
-                use: ['css-hot-loader'].concat(extractLESS.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'less-loader'],
-                    publicPath: '../'
-                }))
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 use: 'file-loader?name=img/[name].[ext]',
-            },
-        ],
+            }
+        ]
     },
-    plugins: plugins
-
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 8000,
+        compress: true,
+        hotOnly: true,
+        inline: true
+    },
+    devtool: 'source-map',
+    plugins: [
+        new ExtractTextPlugin({
+            filename: '[name].css',
+            disable: !isProd,
+            allChunks: true
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new CopyWebpackPlugin(
+            [{
+                from: path.resolve(__dirname, './src/mainscreen/'),
+                to: path.resolve(__dirname, './dist/mainscreen')
+            }, {
+                from: path.resolve(__dirname, './src/remotecontrol/'),
+                to: path.resolve(__dirname, './dist/remotecontrol')
+            }],
+            { ignore: ['*.js', '*.less']}
+        )
+    ]
 };

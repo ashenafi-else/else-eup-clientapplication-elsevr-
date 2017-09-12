@@ -154,18 +154,33 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
             <div class="configuration-main">
-                <div class="product-config">
+                <div class="product-config" :class="state.active_product.name">
                     <div class="components vertical-bar"
-                         :class="state.active_product.name">>
-                        <div class="column_1">{{tr("Part")}}</div>
+                         :class="state.active_product.name">
+                        <div class="column_1">{{tr("Component")}}</div>
                         <div class="component"
-                             @click="changePart(part)"
-                             :class="[setClass(part.id, 'component'), part.active?'control-active':'']"
-                             :id="'part-' + part.id"
-                             v-for="part in data.parts"></div>
+                             @click="changeComponent(component)"
+                             :class="[setClass(component.id, 'component'), component.active?'control-active':'']"
+                             :id="'component-' + component.id"
+                             v-for="component in data.components"></div>
+                    </div>
+                    <div class="structures vertical-bar"
+                         :class="setClass(data.active_component_id, 'component')"
+                         v-if="data.active_component.configurable && data.active_structure.visible">
+                        <div class="column_1">{{tr("Structure")}}</div>
+                        <div class="structure empty-strucutre"
+                             @click="changeStructure(0)"
+                             v-if="data.active_component.optional"
+                             :class="[setClass(0, 'structure'), data.active_structure_id==0?'control-active':'']"
+                             id="structure-0"></div>
+                        <div class="structure"
+                             @click="changeStructure(structure)"
+                             :class="[setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
+                             :id="'structure-' + structure.structure"
+                             v-for="structure in data.structures"></div>
                     </div>
                     <div class="elements vaertical-bar"
-                         :class="state.active_product.name"
+                         :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="materials vertical-bar"
@@ -799,7 +814,7 @@
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
-<!-- <script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script> -->
+<!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
 <!--<script src="http://localhost:9000/detector.js"></script>-->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>

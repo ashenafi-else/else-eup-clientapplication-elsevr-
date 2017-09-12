@@ -1,5 +1,7 @@
 #product-list-screen{
-    background-image: url(../img/bg.png);
+    background: url(../img/bg.png) no-repeat;
+    position: relative;
+    background-size: cover;
     min-height: 100vh;
     .list-items{
         .flex-container();
@@ -16,7 +18,7 @@
             position: relative;
             flex-basis: 19%;
             height: 80%;
-            margin: 6px;
+            margin-bottom: 60px;
             flex-direction: column;
             .name {
                 border: 1px solid #5FECFF;
@@ -40,6 +42,7 @@
                 padding: 0 10%;
             }
             .active-picture{
+                position: absolute;
                 opacity: 0;
                 visibility: hidden;
             }
@@ -63,8 +66,4 @@
             width: 100%;
         }
     }
-}
-
-.continue-to-configurator{
-    color: red;
 }

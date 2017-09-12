@@ -159,17 +159,6 @@ span.collection-heading {
     /*margin: 5px auto;*/
 /*}*/
 
-
-.list-items .element.active{
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-    border-radius: 0;
-    background-color: #ccc;
-    opacity: 1;
-}
-.element.active .name{
-    color: #000;
-}
 .element.active .name::after{
     background-color: #000;
 }
@@ -205,34 +194,6 @@ ul ul.options{
     max-width: 40px;
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 3px 3px 10px #000;
-}
-
-.element .description>
-ul ul.options{
-    display: flex;
-    flex-direction: row;
-    padding: 5px 10px;
-    border-radius: 5px;
-    min-width: 200px;
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 0px 5px #fff;
-    border: solid 2px #fff;
-    max-height: 50px;
-    margin-top: 50px;
-}
-.element .description>
-ul ul>li{
-    margin: 10px 0;
-    padding: 15px;
-    font-size: 21px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.element.active .description>
-ul ul>li>span{
-    padding: 5px;
-    color: #000;
 }
 
 .element .description>

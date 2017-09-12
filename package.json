@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "client application ELSE VR",
   "scripts": {
-    "build": "webpack -p",
+    "build": "npm run clean && NODE_ENV=production webpack -p",
     "dev": "webpack-dev-server --color",
-    "deploy": "gulp deploy",
-    "deploy-stage": "gulp deploy-stage"
+    "deploy": "npm run clean && npm run build && gulp deploy",
+    "deploy-stage": "npm run clean && npm run build && gulp deploy-stage",
+    "clean": "rimraf ./dist/*"
   },
   "devDependencies": {
     "apache-server-configs": "2.14.0",
@@ -32,14 +33,18 @@
     "webpack-dev-server": "^2.7.1",
     "yargs": "^6.4.0",
     "file-loader": "^0.11.2",
-
+    "html-webpack-plugin": "^2.26.0",
+    "babel": "^6.5.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
     "style-loader": "*",
     "postcss-loader": "*",
     "css-loader": "*",
     "less": "*",
     "less-loader": "*",
     "extract-text-webpack-plugin": "^2.1.2",
-    "css-hot-loader": "*"
+    "css-hot-loader": "^1.3.1"
   },
   "dependencies": {}
 }

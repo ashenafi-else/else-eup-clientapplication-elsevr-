@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "client application ELSE VR",
   "scripts": {
-    "build": "npm run clean && NODE_ENV=production webpack -p",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "dev": "webpack-dev-server --color",
-    "deploy": "npm run clean && npm run build && gulp deploy",
-    "deploy-stage": "npm run clean && npm run build && gulp deploy-stage",
+    "deploy": "npm run build && gulp deploy",
+    "deploy-stage": "npm run build && gulp deploy-stage",
     "clean": "rimraf ./dist/*"
   },
   "devDependencies": {
@@ -44,7 +44,8 @@
     "less": "*",
     "less-loader": "*",
     "extract-text-webpack-plugin": "^2.1.2",
-    "css-hot-loader": "^1.3.1"
+    "css-hot-loader": "^1.3.1",
+    "cross-env": "^5.0.5"
   },
   "dependencies": {}
 }

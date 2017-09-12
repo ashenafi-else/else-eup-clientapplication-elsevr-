@@ -3,3 +3,40 @@
     -moz-box-shadow:    @string;
     box-shadow:         @string;
 }
+
+.flex-container(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-direction(@direction: row) {
+    -webkit-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    flex-direction: @direction;
+}
+
+.object-fit(@fit: fill){
+    -o-object-fit: @fit;
+    object-fit: @fit;
+    font-family: 'object-fit: @{fit}';
+}
+
+.justify-content(@justify: flex-start) {
+    -webkit-justify-content: @justify;
+    -ms-justify-content: @justify;
+    justify-content: @justify;
+}
+.align-items(@align: stretch) {
+    -webkit-align-items: @align;
+    -ms-align-items: @align;
+    align-items: @align;
+}
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing:    @type;
+    box-sizing:         @type;
+}
+

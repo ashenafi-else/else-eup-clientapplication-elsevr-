@@ -113,8 +113,8 @@
         <div class="container" id="product-list-screen">
             <div class="start-screen virtual-catalog">
                 <div class="logo-section">
-                    <img class="logo" src="./img/logo.png">
-                    <span class="logo-line"></span>
+                    <img class="logo" src="img/logo.svg">
+                    <span>Virtual catalogue</span>
                 </div>
                 <div class="list-items">
                     <div class="element"
@@ -125,13 +125,15 @@
                         <div class="name">
                             <span>{{tr(product.name)}}</span>
                         </div>
-                        <img class="collection-img" :src="product.image" :alt="product.name">
                         <div class="product_fitt_score"
                              :class="getFittingClass()"
                              v-if="product.fit_score">{{product.fit_score}}</div>
+                        <div class="image-container">
+                            <img :src="product.image" :alt="product.name"/>
+                        </div>
                     </div>
                 </div>
-                <button class="continue-to-configurator" @click="continueAction">{{tr('continue')}}</button>
+                <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
                 <div class="go-else">
                     <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
                         <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">

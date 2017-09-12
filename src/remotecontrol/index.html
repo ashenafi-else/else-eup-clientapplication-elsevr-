@@ -126,6 +126,9 @@
                             <span>{{tr(product.name)}}</span>
                         </div>
                         <img class="collection-img" :src="product.image" :alt="product.name">
+                        <div class="product_fitt_score"
+                             :class="getFittingClass()"
+                             v-if="product.fit_score">{{product.fit_score}}</div>
                     </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('continue')}}</button>
@@ -794,7 +797,7 @@
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
-<!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
+<!-- <script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script> -->
 <!--<script src="http://localhost:9000/detector.js"></script>-->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>

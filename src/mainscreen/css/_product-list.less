@@ -39,6 +39,16 @@
                 bottom: 0;
                 padding: 0 10%;
             }
+            .active-picture{
+                opacity: 0;
+                visibility: hidden;
+            }
+            &.active{
+                .active-picture{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
         }
     }
     .element-border{

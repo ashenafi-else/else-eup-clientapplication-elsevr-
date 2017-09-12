@@ -40,7 +40,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -135,7 +135,7 @@
                                  v-for="product in states.product_list_view.products">
                                 <div class="element-boot">
                                     <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/blue-border.svg"/></div>
-                                    <img class="collection-img" :src="getProductImage(product.image)" :alt="product.name"/>
+                                    <img class="collection-img" :src="collection.image" :alt="product.name"/>
                                 </div>
                                 <!--<div class="description" v-if="product.configuration">-->
                                     <!--<ul class="col-16">-->
@@ -186,7 +186,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -202,9 +202,9 @@
                     <div class="main">
                         <div class="main-start">
 
-                            <div class="components-block wedge">
+                            <div class="components-block">
                                 <div class="component"
-                                     :class="getPartName(part)"
+                                     :class="[getPartName(part), state.active_product.name]"
                                      :id="'component-' + part.id"
                                      v-for="part in data.parts">
                                     {{tr(getPartName(part))}}
@@ -253,9 +253,12 @@
                                 </ul>
                             </div>
                             <div class="element"
+                                 :class="state.active_product.name"
                                  v-for="element in data.active_structure.elements">
                                 <div class="materials-color-block">
-                                    <div class="material-block" v-for="material in element.colors">
+                                    <div class="material-block"
+                                         :class="[state.active_product.name, material.name]"
+                                         v-for="material in element.colors">
                                         <div class="material-head"
                                              :class="(element.active_material == material.name)?'active':''">
                                             <div class="material-start">
@@ -268,7 +271,7 @@
                                             <div class="mc">
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                                     :class="(element.active_color == color.name)?'active':''"
+                                                     :class="[color.name ,(element.active_color == color.name)?'active':'']"
                                                      v-for="color in material.colors">
                                                 </div>
                                             </div>
@@ -306,7 +309,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -358,7 +361,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -410,7 +413,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -527,7 +530,7 @@
                                         <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                         <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                             <span id="fitting-factor"
-                                                class="">
+                                                :class="getFittingClass()">
                                                 {{getFittingValues().best_style}}
                                             </span>
                                         </span>
@@ -575,7 +578,7 @@
                                 <div class="user_info_line">
                                     {{tr('Delivery address')}}:
                                     <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.gender}}
+                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
                                     </span>
                                 </div>
                                 <div class="user_info_line">
@@ -626,7 +629,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -703,7 +706,7 @@
                                     <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                     <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                         <span id="fitting-factor"
-                                            class="">
+                                            :class="getFittingClass()">
                                             {{getFittingValues().best_style}}
                                         </span>
                                     </span>
@@ -881,7 +884,7 @@
                                         <span v-if="getFittingValues().best_size">{{tr('Recommended size')}}: <span id="rec-size">{{getFittingValues().best_size}}</span></span>
                                         <span v-if="getFittingValues().best_style != null">{{tr('Your fitting factor')}}:
                                             <span id="fitting-factor"
-                                                class="">
+                                                :class="getFittingClass()">
                                                 {{getFittingValues().best_style}}
                                             </span>
                                         </span>

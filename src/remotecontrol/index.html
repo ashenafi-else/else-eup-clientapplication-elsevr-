@@ -188,7 +188,7 @@
                             <div class="column_1 table-header">{{tr("Material")}}</div>
                             <div class="material"
                                  @click.self="changeMaterial(element, material)"
-                                 :class="[material.name, (element.active_material == material.name)?'control-active':'']"
+                                 :class="[material.name, 'colors-'+material.colors.length, (element.active_material == material.name)?'control-active':'']"
                                  :id="material.name"
                                  v-for="material in element.colors">
                                 <div class="colors vertical-bar" v-if="element.active_material == material.name">

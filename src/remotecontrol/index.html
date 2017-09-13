@@ -125,8 +125,11 @@
                         <div class="name">
                             <span>{{tr(product.name)}}</span>
                         </div>
+                        <div class="product_fitt_score"
+                             :class="getFittingClass()"
+                             v-if="product.fit_score">{{product.fit_score}}</div>
                         <div class="image-container">
-                            <img :src="getProductImage(product.image)" :alt="product.name"/>
+                            <img :src="product.image" :alt="product.name"/>
                         </div>
                     </div>
                 </div>
@@ -151,23 +154,41 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
             <div class="configuration-main">
-                <div class="product-config">
-                    <div class="components vertical-bar decollete">
-                        <div class="column_1 table-header">{{tr("Part")}}</div>
+                <div class="product-config" :class="state.active_product.name">
+                    <div class="components vertical-bar"
+                         :class="state.active_product.name">
+                        <div class="column_1 table-header">{{tr("Component")}}</div>
                         <div class="component"
-                             @click="changePart(part)"
-                             :class="[setClass(part.id, 'component'), part.active?'control-active':'']"
-                             :id="'part-' + part.id"
-                             v-for="part in data.parts"></div>
+                             @click="changeComponent(component)"
+                             :class="[setClass(component.id, 'component'), component.active?'control-active':'']"
+                             :id="'component-' + component.id"
+                             v-for="component in data.components"></div>
+                    </div>
+                    <div class="structures vertical-bar"
+                         :class="setClass(data.active_component_id, 'component')"
+                         v-if="data.active_component.configurable && data.active_structure.visible">
+                        <div class="column_1">{{tr("Structure")}}</div>
+                        <div class="structure empty-strucutre"
+                             @click="changeStructure(0)"
+                             v-if="data.active_component.optional"
+                             :class="[setClass(0, 'structure'), data.active_structure_id==0?'control-active':'']"
+                             id="structure-0"></div>
+                        <div class="structure"
+                             @click="changeStructure(structure)"
+                             :class="[setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
+                             :id="'structure-' + structure.structure"
+                             v-for="structure in data.structures"></div>
                     </div>
                     <div class="elements vaertical-bar"
+                         :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
-                        <div class="materials vertical-bar">
+                        <div class="materials vertical-bar"
+                             :class="state.active_product.name">
                             <div class="column_1 table-header">{{tr("Material")}}</div>
                             <div class="material"
                                  @click.self="changeMaterial(element, material)"
-                                 :class="(element.active_material == material.name)?'control-active':''"
+                                 :class="[material.name, (element.active_material == material.name)?'control-active':'']"
                                  :id="material.name"
                                  v-for="material in element.colors">
                                 <div class="colors vertical-bar" v-if="element.active_material == material.name">
@@ -175,7 +196,7 @@
                                     <div class="color"
                                          @click="changeColor(element, material, color)"
                                          :id="color.id"
-                                         :class="(element.active_color == color.name)?'control-active':''"
+                                         :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
                                          v-for="color in material.colors">
                                         {{getColorName(color)}}
                                     </div>
@@ -384,12 +405,12 @@
                     </div>
                     <hr>
                     <div class="scan_list_block">
-                        <select class="scan-list" v-model="selectedScan">
+                        <select class="scan-list" v-model="states.customer_profile_view.active_scan">
                             <option v-for="scan in states.customer_profile_view.scans" :value="scan">
                                 {{scan.scan_id}} - {{scan.created_date}}
                             </option>
                         </select>
-                        <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(selectedScan)"/>
+                        <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(states.customer_profile_view.active_scan)"/>
                     </div>
                     <div class="update_scan">
                         <div>
@@ -763,14 +784,6 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="scan_list_block">
-                        <select class="scan-list" v-model="selectedScan">
-                            <option v-for="scan in states.customer_profile_view.scans" :value="scan">
-                                {{scan.scan_id}} - {{scan.created_date}}
-                            </option>
-                        </select>
-                        <input type="button" value="Set as default" class="set-as-default-button" @click="setDefaultScan(selectedScan)"/>
-                    </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                 </div>
                 <div class="summary-footer">

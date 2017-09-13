@@ -2,13 +2,8 @@
     .box-sizing(border-box);
 }
 
-.container{
-    background: url(../img/bg.png) no-repeat;
-}
-
 #else-mainscreen-control{
     min-height: 100vh;
-
 }
 
 .top-panel{
@@ -70,6 +65,27 @@
         img{
             width: 220px;
         }
+    }
+}
+
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    z-index: 999;
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        height: 50px;
+        background-image: url(../img/header-divider.svg);
+        background-repeat: no-repeat;
     }
 }
 

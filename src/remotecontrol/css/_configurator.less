@@ -42,7 +42,6 @@
         width: 32%;
         margin: 0 10px;
         .component{
-            border: 1px solid red;
             width: 100%;
         }
     }
@@ -75,12 +74,13 @@
 .product-config{
     position: relative;
 }
-.component, .material, .color{
+.component,.structure, .material, .color{
     background-color: #E8E8E8;
     color: #adaeae;
     cursor: pointer;
     font-size: 17px;
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -92,8 +92,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
-
 .table-header {
     margin-top: 5px;
     text-align: center;
@@ -101,4 +99,48 @@
     display: block;
     width: 100%;
     height: 20px;
+}
+
+[id*='component-']{
+    min-height: 80px;
+    &:before{
+        margin-right: auto;
+        margin-left: 10%;
+        content: '';
+        z-index: 10;
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        background-size: 60px 60px;
+    }
+}
+#component-1{
+    &:before{
+        background-image: url(../img/upper.png);
+    }
+}
+#component-2{
+    &:before{
+        background-image: url(../img/trim.png);
+    }
+}
+#component-3{
+    &:before{
+        background-image: url(../img/heel.png);
+    }
+}
+#component-4{
+    &:before{
+        background-image: url(../img/strap.png);
+    }
+}
+#component-5{
+    &:before{
+        background-image: url(../img/insole.png);
+    }
+}
+#component-7{
+    &:before{
+        background-image: url(../img/lining.png);
+    }
 }

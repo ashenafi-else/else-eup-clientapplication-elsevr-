@@ -153,7 +153,7 @@
             <div class="configuration-main">
                 <div class="product-config">
                     <div class="components vertical-bar decollete">
-                        <div class="column_1">{{tr("Part")}}</div>
+                        <div class="column_1 table-header">{{tr("Part")}}</div>
                         <div class="component"
                              @click="changePart(part)"
                              :class="[setClass(part.id, 'component'), part.active?'control-active':'']"
@@ -164,14 +164,14 @@
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="materials vertical-bar">
-                            <div class="column_1">{{tr("Material")}}</div>
+                            <div class="column_1 table-header">{{tr("Material")}}</div>
                             <div class="material"
                                  @click.self="changeMaterial(element, material)"
                                  :class="(element.active_material == material.name)?'control-active':''"
                                  :id="material.name"
                                  v-for="material in element.colors">
                                 <div class="colors vertical-bar" v-if="element.active_material == material.name">
-                                    <div class="column_1">{{tr("Color")}}</div>
+                                    <div class="column_1 table-header">{{tr("Color")}}</div>
                                     <div class="color"
                                          @click="changeColor(element, material, color)"
                                          :id="color.id"
@@ -198,35 +198,35 @@
         </div>
         <div class="remote-controller-menu">
                 <div class="configurator">
-                    <div class="go-account" @click="goAccount">
+                    <div class="configurator-item go-account" @click="goAccount">
                         <span class="profile-icon"></span>
                         <span class="profile-name">{{getUserName()}}</span>
                     </div>
-                    <div class="rotation"
+                    <div class="configurator-item rotation"
                          :class="state.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
-                        {{tr("Rotate/Stop")}}
+                        <span class="text">{{tr("Rotate/Stop")}}</span>
                     </div>
-                    <div id="product-part" class="select product-part" @click="partPreview">
+                    <div id="product-part" class="configurator-item select product-part" @click="partPreview">
                         <span class="product-part-icon"></span>
-                        {{tr("Detail Preview")}}
+                        <span class="text">{{tr("Detail Preview")}}</span>
                     </div>
-                    <div id="part-view" class="select advanced-product" @click="detailPreview">
+                    <div id="part-view" class="configurator-item select advanced-product" @click="detailPreview">
                         <span class="advanced-icon"></span>
-                        {{tr("Product Preview")}}
+                        <span class="text">{{tr("Product Preview")}}</span>
                     </div>
-                    <div id="go-fitt" class="select go-fitt" @click="fitting">
-                        <span class="fitt-icon"></span>
-                        {{tr("Best fit")}}
-                    </div>
-                    <div id="header-materials" class="select header-materials" @click="materialPreview">
+                    <div id="header-materials" class="configurator-item select header-materials" @click="materialPreview">
                         <span class="material-icon"></span>
-                        {{tr("Material Preview")}}
+                        <span class="text">{{tr("Material Preview")}}</span>
                     </div>
-                    <div class="go-order" @click="order">
+                    <div id="go-fitt" class="configurator-item select go-fitt" @click="fitting">
+                        <span class="fitt-icon"></span>
+                        <span class="text">{{tr("Best fit")}}</span>
+                    </div>
+                    <div class="configurator-item go-order" @click="order">
                         <span class="order-icon"></span>
-                        {{tr("Pre-order")}}
+                        <span class="text">{{tr("Pre-order")}}</span>
                     </div>
                 </div>
             </div>

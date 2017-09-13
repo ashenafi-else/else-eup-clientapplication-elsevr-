@@ -1,0 +1,104 @@
+.configurator{
+    width: 100%;
+    height: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #E8E8E8;
+    .configurator-item{
+        .flex-container();
+        .align-items(center);
+        .justify-content(flex-start);
+        font-size: 0.8em;
+        border: 1px solid black;
+        border-radius: 4px;
+        background-color: white;
+        width: 95%;
+        height: 58px;
+        min-height: 58px;
+        margin-left: 5px;
+        margin-top: 35px;
+        cursor: pointer;
+    }
+}
+
+.remote-controller-menu{
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    line-height: 60px;
+    z-index: 999;
+    min-width: 175px;
+    height: 100vh;
+    width: 18%;
+}
+
+.product-config{
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    .components{
+        width: 32%;
+        margin: 0 10px;
+        .component{
+            border: 1px solid red;
+            width: 100%;
+        }
+    }
+    .elements{
+        margin: 0 10px;
+        width: 31%;
+    }
+}
+&.control-active{
+    .inner-shadow();
+}
+.colors{
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    top:0;
+    margin: 0 10px;
+}
+.materials{
+    width: 100%;
+    position: relative;
+}
+
+.configuration-main{
+    width: 100%;
+    height: 92%;
+    position: relative;
+}
+
+.product-config{
+    position: relative;
+}
+.component, .material, .color{
+    background-color: #E8E8E8;
+    color: #adaeae;
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.table-header {
+    margin-top: 5px;
+    text-align: center;
+    background-color: #ededed;
+    display: block;
+    width: 100%;
+    height: 20px;
+}

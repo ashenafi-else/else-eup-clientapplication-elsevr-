@@ -47,7 +47,7 @@
     }
     .elements{
         margin: 0 10px;
-        width: 31%;
+        width: 21%;
     }
 }
 &.control-active{
@@ -101,7 +101,19 @@
     height: 20px;
 }
 
-[id*='component-']{
+.structures{
+    width: 21%;
+    margin: 0 10px;
+}
+
+//
+
+
+.component{
+    background-color: white !important;
+}
+
+[class*='elsevr_women_1_1_component'][id*='component-']{
     min-height: 80px;
     &:before{
         margin-right: auto;
@@ -134,7 +146,7 @@
         background-image: url(../img/strap.png);
     }
 }
-#component-5{
+#component-6{
     &:before{
         background-image: url(../img/insole.png);
     }
@@ -143,4 +155,67 @@
     &:before{
         background-image: url(../img/lining.png);
     }
+}
+#component-8{
+    &:before{
+        //background-image: url(../img/);
+    }
+}
+
+//colors
+
+.mat_suede_blue{
+    background-color: midnightblue;
+}
+.mat_suede_white{
+    background-color: lightyellow;
+}
+.mat_suede_beige{
+    background-color: beige;
+}
+.mat_suede_red {
+    background-color: firebrick;
+}
+.mat_turquoise_blueshade{
+    background-color: midnightblue;
+}
+.mat_turquoise_greenshade{
+    background-color: forestgreen;
+}
+.mat_suede_black{
+    background-color: black;
+}
+.mat_velukid_10667{
+    background-color: #FF8FB3;
+}
+.mat_velukid_10668{
+    background-color: #CAAFAE;
+}
+.mat_velukid_10675{
+    background-color: #431861;
+}
+.mat_velukid_10683{
+    background-color: #005FFF;
+}
+.mat_velukid_10671{
+    background-color: #C7A574;
+}
+
+
+// right panel
+
+.play-rotate span:first-child{
+    background-image: url("../img/options/play.png");
+    background-repeat: no-repeat;
+    background-position-x: 8%;
+    background-position-y: 55%;
+    background-size: 24px;
+}
+
+.pause-rotate span:first-child{
+    background-image: url("../img/options/pause.png");
+    background-repeat: no-repeat;
+    background-position-x: 8%;
+    background-position-y: 55%;
+    background-size: 24px;
 }

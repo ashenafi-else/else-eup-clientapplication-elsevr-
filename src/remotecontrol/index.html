@@ -167,7 +167,7 @@
                     <div class="structures vertical-bar"
                          :class="setClass(data.active_component_id, 'component')"
                          v-if="data.active_component.configurable && data.active_structure.visible">
-                        <div class="column_1">{{tr("Structure")}}</div>
+                        <div class="column_1 table-header">{{tr("Structure")}}</div>
                         <div class="structure empty-strucutre"
                              @click="changeStructure(0)"
                              v-if="data.active_component.optional"

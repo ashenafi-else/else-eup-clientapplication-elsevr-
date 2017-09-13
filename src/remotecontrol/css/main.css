@@ -356,21 +356,7 @@ span.rotation-icon {
     background-position-y: 55%;
     background-size: 24px;
 }
-.play-rotate span{
-    background-image: url("../img/options/play.png");
-    background-repeat: no-repeat;
-    background-position-x: 8%;
-    background-position-y: 55%;
-    background-size: 24px;
-}
 
-.pause-rotate span{
-    background-image: url("../img/options/pause.png");
-    background-repeat: no-repeat;
-    background-position-x: 8%;
-    background-position-y: 55%;
-    background-size: 24px;
-}
 .fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon {
     background: center center no-repeat;
     background-size: contain;

@@ -136,7 +136,6 @@
                                  :id="product.id"
                                  v-for="product in states.product_list_view.products">
                                 <div class="element-boot">
-                                    <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/blue-border.svg"/></div>
                                     <div class="product_fitt_score"
                                          :class="getFittingClass()"
                                          v-if="product.fit_score != null">{{product.fit_score}}</div>

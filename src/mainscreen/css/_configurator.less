@@ -1,8 +1,22 @@
-
-
 #product-details-screen{
     background: url(../img/shadow-configurator.svg) no-repeat center, url(../img/bg.png) no-repeat 100%;
     background-size: cover;
+}
+
+.model-name {
+    .clip-path(url(../img/elsa.svg));
+    width: 100%;
+    display: flex;
+    color: #000000;
+    font-weight: 600;
+    font-size: 120%;
+    background: #EEEEEE;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.model-name span {
+    padding-top: 10px;
 }
 
 .price-block{
@@ -11,11 +25,19 @@
     left: 20px;
     bottom: 24px;
     color: #696969;
-    width: 263px;
-    height: 283px;
-    background-color: rgba( 12, 88, 128,0.651);
 }
 .price-block .delivery-time{
+    .block_delivery_price {
+
+        left: 11px;
+        top: 977px;
+        width: 263px;
+        height: 83px;
+        z-index: 5;
+    }
+    background-color: rgb( 0, 0, 0 );
+    color: white;
+    border: 1px solid white;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -23,10 +45,32 @@
     justify-content: space-around;
 }
 
+.diff-prices-container{
+    .blue-block();
+    width: 263px;
+    height: 283px;
+}
+
 .price-block .prices{
-    background-color: #fefefe;
     padding: 0 10px 10px;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.price-block p[class$='-price']{
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+}
+
+.header-start{
+    .flex-container();
+    justify-content: center;
+    width: 30%;
+    display: flex;
+    font-size: 20px;
 }

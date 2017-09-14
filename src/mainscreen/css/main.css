@@ -19,14 +19,7 @@ html, body{
 .header span.screen-name {
     margin-top: 20px;
 }
-.header-start{
-    justify-content: center;
-    width: 18%;
-    display: flex;
-    font-size: 20px;
-    opacity: 0.7;
-    align-items: center;
-}
+
 .header-end {
     display: flex;
     flex-direction: row;
@@ -567,27 +560,6 @@ ul.options>li.number-colors::before{
     font-size: 0.9em;
 }
 
-.model-name {
-    display: flex;
-    color: #000000;
-    font-weight: 600;
-    font-size: 120%;
-    background: #EEEEEE;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.model-name span {
-    padding-top: 10px;
-}
-.model-name::after {
-    content: " ";
-    display: block;
-    width: 100%;
-    height: 1px;
-    margin-top: 20px;
-    background: #2d2d2d;
-}
 
 .product-block {
     width: 50px;
@@ -617,29 +589,13 @@ ul.options>li.number-colors::before{
     font-weight: bold;
     color: #000;
 }
-
-.price-block .prices::after, .summary-block::after{
-    content: " ";
-    display: block;
-    width: 100%;
-    height: 1px;
-    margin-top: 0px;
-background: black;
-}
 .delivery-time .days
 span{
     font-size: 18px;
     padding: 0;
     font-weight: lighter;
 }
-.price-block
-p[class$='-price']{
-    font-weight: 400;
-    display: flex;
-    flex-direction: row;
-    color: black;
-    justify-content: space-between;
-}
+
 .delivery{
     background:url("../img/delivery.png") center no-repeat;
     background-size: 90%;

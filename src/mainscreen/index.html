@@ -167,8 +167,9 @@
                 <div class="content mainscreen-app" id="product-details-screen">
                     <div class="header">
                         <div class="header-start" >
+                            <span class="stylish-text">3D Product Configurator</span>
                             <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
+                                <!--<a>{{getCollectionName()}}</a>-->
                             </span>
                         </div>
                         <div class="header-middle">
@@ -214,6 +215,7 @@
                                 </div>
                             </div>
                             <div class="price-block">
+                                <div class="diff-prices-container">
                                 <div class="model-name"><span>{{state.active_product.name}}</span></div>
                                 <div class="product-block">
                                     <div class="product"></div>
@@ -239,6 +241,7 @@
                                             {{tr("Extra materials")}}: <span>0,00&#8364;</span>
                                         </p>
                                     </div>
+                                </div>
                                 </div>
                                 <div class="delivery-time">
                                     <div class="total-price">{{state.active_product.price}}&#8364;</div>

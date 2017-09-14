@@ -447,68 +447,12 @@ ul.options>li.number-colors::before{
     background-position: center center;
 }
 
-.materials-color-block {
-    height: 80%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    right: 50px;
-}
-.material-block{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100px;
-    background-repeat: no-repeat;
-    margin: 10px 0;
-    text-align: center;
-    position: relative;
-}
-.material-head {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    margin-left: -50px;
-    width: 100%;
-}
-.material-head.active{
-    /* margin-top: -25px; */
-    /* width: 100%; */
-    /* display: flex; */
-    /* flex-direction: row-reverse; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* margin-left: -50px; */
-}
+
 .material-icon{
     width: 95px;
     height: 95px;
 }
-.mc {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 300px !important;
-    justify-content: center;
-    width: 100%;
-    margin: 25px 50px 0px 0px;
-}
-.color {
-    background-position: center center;
-    background-color: #fff;
-    background-size: contain;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 0 solid rgb(0, 255, 242);
-    width: 40px;
-    height: 40px;
-    margin: 0px -15px 10px auto;
-}
+
 @keyframes blink {
     50% { border-color:  rgba(0, 255, 255, 0.5); }
 }
@@ -516,20 +460,7 @@ ul.options>li.number-colors::before{
     border: solid #00ffff;
     animation: blink 1s linear infinite alternate;
 }
-.material-start {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-content: center;
-    right: 0px;
-    position: absolute;
-}
-.big-active-material {
-    -webkit-mask: url(../img/material-mask.svg) no-repeat 50% 50%;
-    mask: url(../img/material-mask.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-}
+
 
 .wishlist {
     width: 300px;
@@ -575,13 +506,6 @@ ul.options>li.number-colors::before{
 }
 .price {
     width: 80%;
-}
-.total-price{
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
 }
 
 .delivery-time .days{

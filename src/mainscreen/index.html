@@ -55,30 +55,43 @@
             </header-component>
             <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
                 <div class="store-selection" id="stores-screen">
-                    <div class="logo-section">
-                        <img class="logo" src="./img/logo.png">
-                        <span class="logo-line"></span>
+                    <div class="top-panel">
+                        <div class="logo-container">
+                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <img class="logo-micam" src="img/Logo_Micam.png">
+                        </div>
                     </div>
-                    <div class="store-list" >
+                    <div class="store-list">
                         <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
                         <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
                             <a :id="store.id">{{tr(store.name)}}</a>
                         </div>
                     </div>
+                    <div class="bottom-panel">
+                        <div class="stylish-text">3D Retail Revolution </div>
+                    </div>
                 </div>
             </stores>
             <session-code inline-template v-if="states.login_view.active">
                 <div id="session-code-screen" class="session-code-screen">
-                    <div class="logo-section">
-                        <img class="logo" src="img/logo.png">
-                        <span class="logo-line"></span>
+                    <div class="top-panel">
+                        <div class="logo-container">
+                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <img class="logo-micam" src="img/Logo_Micam.png">
+                        </div>
                     </div>
                     <div class="session-code">
-                        <div>
-                            <span class="code">{{tr("Session code")}}:</span>
-                            <span class="code">{{session_code}}</span>
-                        </div>
+                        <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                        <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                         <img :src="qrImage"/>
+                        <div class="element-border">
+                            <img src="img/blue-border.svg"/>
+                        </div>
+                    </div>
+
+                    <div class="bottom-panel">
+                        <div class="stylish-text">3D Retail Revolution </div>
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
                     </div>
                 </div>
             </session-code>

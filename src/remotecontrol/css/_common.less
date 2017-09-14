@@ -2,6 +2,36 @@
     .box-sizing(border-box);
 }
 
+#else-remotecontrol-control{
+    width: 100%;
+    height: 100%;
+}
+#else-control {
+    height: 100%;
+    width: 100%;
+}
+@maintext-color: #f2f2f2;
+
+.top-panel{
+    .logo-container{
+        background: top/100% url(../img/header-divider.svg) no-repeat;
+        background-position-y: bottom;
+        position: relative;
+        .flex-container();
+        .justify-content(space-between);
+        .align-items(flex-start);
+        .logo-pwd{
+            width: 100px;
+            margin: 0px 10px 10px auto;
+        }
+        .logo-else-shoes{
+            margin-right: auto;
+        }
+    }
+    width: 100%;
+    min-width: 100%;
+}
+
 .inner-shadow(){
     .box-shadow(inset 0 0 0 10px #00ffff);
 }

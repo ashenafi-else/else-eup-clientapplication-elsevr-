@@ -54,10 +54,6 @@
                     <a :id="store.id">{{tr(store.name)}}</a>
                 </div>
             </div>
-            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-            </video>
-            </div>
         </div>
     </stores>
     <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
@@ -101,11 +97,6 @@
                         <img class="collection-img" :src="collection.image">
                     </div>
                 </div>
-                <div class="go-else">
-                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
         </div>
     </product-start-screen>
@@ -134,11 +125,6 @@
                     </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
-                <div class="go-else">
-                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
         </div>
     </product-list>
@@ -154,7 +140,7 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
             <div class="configuration-main">
-                <div class="product-config" 
+                <div class="product-config"
                      :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
                     <div class="components vertical-bar"
                          :class="state.active_product.name">

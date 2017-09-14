@@ -66,10 +66,6 @@
                             <a :id="store.id">{{tr(store.name)}}</a>
                         </div>
                     </div>
-                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
-                    </div>
                 </div>
             </stores>
             <session-code inline-template v-if="states.login_view.active">
@@ -84,10 +80,6 @@
                             <span class="code">{{session_code}}</span>
                         </div>
                         <img :src="qrImage"/>
-                    </div>
-                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
                     </div>
                 </div>
             </session-code>
@@ -147,10 +139,6 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                            <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                        </video>
-                        </div>
                     </div>
                     <div class="bottom-panel">
                         <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
@@ -196,10 +184,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -327,10 +311,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="product-area">
@@ -382,10 +362,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -439,10 +415,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="preview-area on_detail">
@@ -481,9 +453,6 @@
                         <div class="total-look-price-block">
                             <div class="delivery-time">
                                 <div class="small-man">
-                                    <!-- <video autoplay="" loop="" muted="" class="tl-video" width="100px" height="500px" id="bgvideo" autoplay>
-                                        <source src="img/ON 360_2.mp4" type="video/mp4">
-                                    </video> -->
                                     <img src="img/small-man.png">
                                 </div>
                                 <div class="delivery"></div>
@@ -560,10 +529,6 @@
                                     </div>
                                     <span class="vertical-line"></span>
                                 </div>
-                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
@@ -663,10 +628,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="main">
@@ -743,10 +704,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -926,10 +883,6 @@
                                     </div>
                                     <span class="vertical-line"></span>
                                 </div>
-                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
@@ -1001,7 +954,7 @@
                                     <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
                                 </div>
                                 <div class="best_size"
-                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''" 
+                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
                                      v-if="states.customer_fitting_view.best_sizes.best_size">
                                     <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
                                     <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">

@@ -163,6 +163,7 @@
                              @click="changeComponent(component)"
                              :class="[component.name, setClass(component.id, 'component'), component.active?'control-active':'']"
                              :id="'component-' + component.id"
+                             v-if="component.visible"
                              v-for="component in data.components">
                             {{tr(component.name)}}
                         </div>
@@ -842,7 +843,7 @@
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
-<!-- <script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script> -->
+<!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
 <!--<script src="http://localhost:9000/detector.js"></script>-->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>

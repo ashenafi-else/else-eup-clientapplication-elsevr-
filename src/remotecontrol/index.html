@@ -44,41 +44,36 @@
     </header-component>
     <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
         <div class="store-selection" id="stores-screen">
-            <div class="logo-section">
-                <img class="logo" src="./img/logo.png">
-                <span class="logo-line"></span>
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                </div>
             </div>
             <div class="store-list" >
-                <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
                 <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
                     <a :id="store.id">{{tr(store.name)}}</a>
                 </div>
-            </div>
-            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-            </video>
             </div>
         </div>
     </stores>
     <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
         <div id="session-code-screen" class="session-code-screen">
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                </div>
+            </div>
             <div class="session-code">
-                <div class="logo-section">
-                    <img class="logo" src="img/logo.png">
-                    <span class="logo-line"></span>
-                </div>
-                <div class="input">
-                    <label>{{tr("Enter the store password")}}</label>
-                    <input type="text" v-model="store_code" maxlength="4">
-                </div>
-                <div class="input">
-                    <label>{{tr("Please enter your session code")}}</label>
-                    <input type="text" v-model="session_code" maxlength="4">
-                    <button @click="join">{{tr("Connect")}}</button>
-                </div>
-
                 <div class="cam">
+                    <label>{{tr("Scan the code on mainscreen")}}</label>
                     <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
+                </div>
+                <div class="input">
+                    <label>{{tr("or enter your session code")}}</label>
+                    <input type="text" v-model="session_code" maxlength="4">
+                    <button @click="join">{{tr("Continue")}}</button>
                 </div>
             </div>
         </div>

@@ -118,7 +118,7 @@ footer {
 }
 
 /* REYREY - STORE-SELECTION & STORE-PASSWORD & SESSION CODE SCREENS */
-.store-selection, .store-password-screen, .session-code-screen{
+.store-selection, .store-password-screen{
     flex: auto;
     display: flex;
     flex-direction: column;
@@ -206,37 +206,6 @@ footer {
     align-items: center;
 }
 
-.store-password-screen .store-password .password-input label,
-.session-code-screen .session-code .input label {
-    display: block;
-    margin-bottom: 10px;
-    height: 28px;
-    padding: 4px 10px 4px 10px;
-    color: rgba(0, 0, 0, 0.92);
-    font-size: 24px;
-    font-weight: bold;
-    overflow: hidden;
-    font-family: Lato, Verdana, sans-serif;
-}
-
-.store-password-screen .store-password .password-input input,
-.session-code-screen  .session-code .input input {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    width: 100%;
-    display: block;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid;
-    height: 60px;
-    line-height: 50px;
-    font-size: 32px;
-    padding: 0;
-    font-family: Lato, Verdana, sans-serif;
-    text-align: center;
-}
-
 .store-password-screen .store-password .password-input span,
 .session-code-screen .session-code .input span {
     background: #F3F3F3;
@@ -250,7 +219,7 @@ footer {
 }
 
 .store-password-screen .store-password .password-input button,
-.session-code-screen .session-code .input button {
+{
     background: #000000;
     border: none;
     font-size: 24px;

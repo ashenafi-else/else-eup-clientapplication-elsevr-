@@ -154,7 +154,8 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
             <div class="configuration-main">
-                <div class="product-config" :class="state.active_product.name">
+                <div class="product-config" 
+                     :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
                         <div class="column_1 table-header">{{tr("Component")}}</div>
@@ -162,6 +163,7 @@
                              @click="changeComponent(component)"
                              :class="[component.name, setClass(component.id, 'component'), component.active?'control-active':'']"
                              :id="'component-' + component.id"
+                             v-if="component.visible"
                              v-for="component in data.components">
                             {{tr(component.name)}}
                         </div>
@@ -791,6 +793,26 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="comparision_toggle">
+                        <div class="prev_best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.prev_best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.prev_best_size.size)}}</span>
+                        </div>
+                        <div class="best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.best_size.size)}}</span>
+                        </div>
+                        <div class="next_best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.next_best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.next_best_size.size)}}</span>
+                        </div>
+                    </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                 </div>
                 <div class="summary-footer">

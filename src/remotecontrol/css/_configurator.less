@@ -125,42 +125,54 @@
         display: inline-block;
         background-size: 60px 60px;
     }
-}
-#component-1{
-    &:before{
-        background-image: url(../img/upper.png);
+
+    .upper{
+        &:before{
+            background-image: url(../img/upper.png);
+        }
+    }
+    .trim{
+        &:before{
+            background-image: url(../img/trim.png);
+        }
+    }
+    .strap{
+        &:before{
+            background-image: url(../img/strap.png);
+        }
+    }
+    .heel{
+        &:before{
+            background-image: url(../img/heel.png);
+        }
+    }
+    .applique{
+        &:before{
+            background-image: url(../img/application.png);
+        }
+    }
+    .insole{
+        &:before{
+            background-image: url(../img/insole.png);
+        }
+    }
+    .lining{
+        &:before{
+            background-image: url(../img/lining.png);
+        }
+    }
+    .outsole:not(.crystal){
+        &:before{
+            background-image: url(../img/outsole.png);
+        }
+    }
+    .outsole.crystal{
+        &:before{
+            background-image: url(../img/not_transparent_crystal.png);
+        }
     }
 }
-#component-2{
-    &:before{
-        background-image: url(../img/trim.png);
-    }
-}
-#component-3{
-    &:before{
-        background-image: url(../img/heel.png);
-    }
-}
-#component-4{
-    &:before{
-        background-image: url(../img/strap.png);
-    }
-}
-#component-6{
-    &:before{
-        background-image: url(../img/insole.png);
-    }
-}
-#component-7{
-    &:before{
-        background-image: url(../img/lining.png);
-    }
-}
-#component-8{
-    &:before{
-        //background-image: url(../img/);
-    }
-}
+
 
 //colors
 

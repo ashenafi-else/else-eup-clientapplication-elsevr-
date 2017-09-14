@@ -1,19 +1,24 @@
 #product-details-screen{
     background: url(../img/shadow-configurator.svg) no-repeat center, url(../img/bg.png) no-repeat 100%;
     background-size: cover;
+    .header{
+        .logo-container{
+            img{
+                height: 100%;
+                max-height: 110px;
+            }
+        }
+    }
 }
 
 .model-name {
-    .clip-path(url(../img/elsa.svg));
-    width: 100%;
-    display: flex;
+    text-align: left;
+
+    width: 70%;
     color: #000000;
     font-weight: 600;
     font-size: 120%;
-    background: #EEEEEE;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background: #5fecff;
 }
 .model-name span {
     padding-top: 10px;
@@ -27,14 +32,16 @@
     color: #696969;
     .diff-prices-container{
         .blue-block();
+        overflow: hidden;
         width: 263px;
         height: 283px;
+        border-radius: 10px;
     }
     .delivery-time{
         margin-top: 20px;
         background-color: rgb( 0, 0, 0 );
         color: white;
-        border-radius: 4px;
+        border-radius: 10px;
         border: 1px solid white;
         display: flex;
         flex-direction: row;
@@ -51,18 +58,18 @@
     }
 }
 
-
 .materials-color-block {
     .blue-block();
     top: 150px;
     width: 100px;
     height: 80%;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    border-radius: 10px;
+    display: block;
     right: 50px;
+    .title{
+        background: #5fecff;
+    }
 }
 .material-head.active{
     .colors-block{
@@ -106,20 +113,26 @@
 
 .header-start{
     .flex-container();
-    justify-content: center;
-    width: 30%;
+    .align-items(center);
+    width: auto;
     display: flex;
     font-size: 20px;
 }
 
 .colors-block{
+
+    -webkit-mask: url(../img/colors-block.svg) no-repeat 50% 50%;
+    mask: url(../img/colors-block.svg) no-repeat 50% 50%;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+
     padding: 5px;
     width: 295px;
     height: 539px;
     position: absolute;
     top:0;
     background-color: white;
-    left: -325px;
+    left: -315px;
     display: none;
     text-align: start;
     .color {

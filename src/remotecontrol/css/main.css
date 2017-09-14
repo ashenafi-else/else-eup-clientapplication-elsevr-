@@ -218,7 +218,7 @@ footer {
     font-size: 22px;
 }
 
-.store-password-screen .store-password .password-input button,
+.store-password-screen .store-password .password-input button
 {
     background: #000000;
     border: none;

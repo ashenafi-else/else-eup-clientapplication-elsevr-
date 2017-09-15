@@ -1015,3 +1015,26 @@ footer {
     width: 70px;
     z-index: 1;
 }
+
+#canvas_container_id {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+}
+
+#canvas_container_id.product_view,
+#canvas_container_id.material_view,
+#canvas_container_id.part_view,
+#canvas_container_id.preview_view {
+    width: 100%;
+    left: 0;
+}
+
+#canvas_container_id.customer_edit_profile_view,
+#canvas_container_id.customer_order_view,
+#canvas_container_id.customer_fitting_view,
+#canvas_container_id.customer_profile_view {
+    width: 50%;
+    left: 50%;
+}

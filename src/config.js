@@ -9,5 +9,8 @@ window.config = {
     'default_scanner': 'Dome000031',
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_configuration': {},
+    'product_tour_configuration': {
+        'elsevr_women_1_1': 'micam v2 model 1.2 (Product tour 122762)'
+    },
     'home_state': 'PRODUCT_LIST'
 };

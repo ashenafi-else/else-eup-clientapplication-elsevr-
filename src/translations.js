@@ -43,5 +43,8 @@ window.translations = {
     },
     'MATERIAL_LIBRARY_VIEW': {
         'en': 'MATERIALS'
+    },
+    'MAT_LEATHER_BLACK-MAN': {
+        'en': 'Black Leather'
     }
 };

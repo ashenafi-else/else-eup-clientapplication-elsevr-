@@ -15,29 +15,11 @@ html, body{
 }
 
 /* HEADER */
-div.header {
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    text-align: center;
-    box-shadow: 0 3px 8px 0 rgb(0, 0, 0), 0 1px 0 0 rgba(0, 0, 0, 0.19);
-    z-index: 999;
-}
+
 .header span.screen-name {
     margin-top: 20px;
 }
-.header-start{
-    justify-content: center;
-    width: 18%;
-    display: flex;
-    font-size: 20px;
-    opacity: 0.7;
-    align-items: center;
-}
+
 .header-end {
     display: flex;
     flex-direction: row;
@@ -263,12 +245,7 @@ ul.options>li.number-colors::before{
     width: 530px;
     height: 180px;
 }
-#session-code-screen .logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+
 .logo-section .logo-line{
     content: '';
     width: 600px;
@@ -277,30 +254,6 @@ ul.options>li.number-colors::before{
     height: 0;
     background: #000000;
     display: block;
-}
-.store-selection .store-list {
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
-}
-.store-selection .store-list a:hover {
-    color: #0064DB;
-}
-
-.store-selection .storeselect-heading{
-    font-size: 36px;
-    overflow: hidden;
-    font-family: 'Lato', Verdana, sans-serif;
-    margin-bottom: 50px;
-}
-
-.store-selection .store-list .store {
-    display: block;
-    margin: 20px 30px 0px 30px;
-    color: black;
-    text-align: center;
 }
 .store-password-screen .store-password, .session-code-screen .session-code {
     position: absolute;
@@ -425,19 +378,8 @@ ul.options>li.number-colors::before{
 .main-start{
     display: flex;
     flex-direction: column;
-}.price-block{
-     font-size: 13px;
-     position: absolute;
-     left: 20px;
-     bottom: 24px;
-     color: #696969;
-     width: 10%;
-     box-shadow: 0px 0px 10px #dddddd;
-     /* padding: 10px; */
-     outline-offset: -9px;
-     background: white;
-     /* border: white solid 8px; */
- }
+}
+
 .main-middle .product-model{
     display: flex;
     width: 100%;
@@ -476,68 +418,12 @@ ul.options>li.number-colors::before{
     background-position: center center;
 }
 
-.materials-color-block {
-    height: 80%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    right: 50px;
-}
-.material-block{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100px;
-    background-repeat: no-repeat;
-    margin: 10px 0;
-    text-align: center;
-    position: relative;
-}
-.material-head {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    margin-left: -50px;
-    width: 100%;
-}
-.material-head.active{
-    /* margin-top: -25px; */
-    /* width: 100%; */
-    /* display: flex; */
-    /* flex-direction: row-reverse; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* margin-left: -50px; */
-}
+
 .material-icon{
     width: 95px;
     height: 95px;
 }
-.mc {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 300px !important;
-    justify-content: center;
-    width: 100%;
-    margin: 25px 50px 0px 0px;
-}
-.color {
-    background-position: center center;
-    background-color: #fff;
-    background-size: contain;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 0 solid rgb(0, 255, 242);
-    width: 40px;
-    height: 40px;
-    margin: 0px -15px 10px auto;
-}
+
 @keyframes blink {
     50% { border-color:  rgba(0, 255, 255, 0.5); }
 }
@@ -545,20 +431,7 @@ ul.options>li.number-colors::before{
     border: solid #00ffff;
     animation: blink 1s linear infinite alternate;
 }
-.material-start {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-content: center;
-    right: 0px;
-    position: absolute;
-}
-.big-active-material {
-    -webkit-mask: url(../img/material-mask.svg) no-repeat 50% 50%;
-    mask: url(../img/material-mask.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-}
+
 
 .wishlist {
     width: 300px;
@@ -589,51 +462,7 @@ ul.options>li.number-colors::before{
     font-size: 0.9em;
 }
 
-.model-name {
-    display: flex;
-    color: #000000;
-    font-weight: 600;
-    font-size: 120%;
-    background: #EEEEEE;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.model-name span {
-    padding-top: 10px;
-}
-.model-name::after {
-    content: " ";
-    display: block;
-    width: 100%;
-    height: 1px;
-    margin-top: 20px;
-    background: #2d2d2d;
-}
-.price-block{
-    display: flex;
-    flex-direction: column;
-    height: 37%;
-    width: 14%;
-    margin-left: auto;
-    box-shadow: 0px 2px 13px 1px #696969;
-    background-color: #fefefe;
-}
 
-.price-block .delivery-time{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
-}
-.price-block .prices{
-    background-color: #fefefe;
-    padding: 0 10px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .product-block {
     width: 50px;
     height: 100px;
@@ -649,27 +478,11 @@ ul.options>li.number-colors::before{
 .price {
     width: 80%;
 }
-.total-price{
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-}
 
 .delivery-time .days{
     font-size: 24px;
     font-weight: bold;
     color: #000;
-}
-
-.price-block .prices::after, .summary-block::after{
-    content: " ";
-    display: block;
-    width: 100%;
-    height: 1px;
-    margin-top: 0px;
-background: black;
 }
 .delivery-time .days
 span{
@@ -677,14 +490,7 @@ span{
     padding: 0;
     font-weight: lighter;
 }
-.price-block
-p[class$='-price']{
-    font-weight: 400;
-    display: flex;
-    flex-direction: row;
-    color: black;
-    justify-content: space-between;
-}
+
 .delivery{
     background:url("../img/delivery.png") center no-repeat;
     background-size: 90%;

@@ -71,14 +71,11 @@ table tr:nth-child(even) td{
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    /* bottom: 0; */
-    margin: 69px 0 0 0;
+    right: 0;]
     background: url("../img/loader.gif") center;
     background-size: 150px;
     background-repeat: no-repeat;
     background-color: RGBA(250,250,250,0.8);
-    /*opacity: 0.5;*/
 }
 input::selection, input::selection::-moz-selection {
     background-color: rgba(68, 138, 195, 0.13);

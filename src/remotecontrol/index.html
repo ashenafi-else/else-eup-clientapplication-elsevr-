@@ -44,41 +44,36 @@
     </header-component>
     <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
         <div class="store-selection" id="stores-screen">
-            <div class="logo-section">
-                <img class="logo" src="./img/logo.png">
-                <span class="logo-line"></span>
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                </div>
             </div>
             <div class="store-list" >
-                <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
                 <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
                     <a :id="store.id">{{tr(store.name)}}</a>
                 </div>
-            </div>
-            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-            </video>
             </div>
         </div>
     </stores>
     <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
         <div id="session-code-screen" class="session-code-screen">
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                </div>
+            </div>
             <div class="session-code">
-                <div class="logo-section">
-                    <img class="logo" src="img/logo.png">
-                    <span class="logo-line"></span>
-                </div>
-                <div class="input">
-                    <label>{{tr("Enter the store password")}}</label>
-                    <input type="text" v-model="store_code" maxlength="4">
-                </div>
-                <div class="input">
-                    <label>{{tr("Please enter your session code")}}</label>
-                    <input type="text" v-model="session_code" maxlength="4">
-                    <button @click="join">{{tr("Connect")}}</button>
-                </div>
-
                 <div class="cam">
+                    <label>{{tr("Scan the code on mainscreen")}}</label>
                     <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
+                </div>
+                <div class="input">
+                    <label>{{tr("or enter your session code")}}</label>
+                    <input type="text" v-model="session_code" maxlength="4">
+                    <button @click="join">{{tr("Continue")}}</button>
                 </div>
             </div>
         </div>
@@ -100,11 +95,6 @@
                         </div>
                         <img class="collection-img" :src="collection.image">
                     </div>
-                </div>
-                <div class="go-else">
-                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
                 </div>
             </div>
         </div>
@@ -134,11 +124,6 @@
                     </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
-                <div class="go-else">
-                    <video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
         </div>
     </product-list>
@@ -154,51 +139,60 @@
                     <div class="header-logo go-home" @click="home()"></div>
                 </div>
             <div class="configuration-main">
-                <div class="product-config" :class="state.active_product.name">
+                <div class="product-config"
+                     :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
-                        <div class="column_1">{{tr("Component")}}</div>
+                        <div class="column_1 table-header">{{tr("Component")}}</div>
                         <div class="component"
                              @click="changeComponent(component)"
-                             :class="[setClass(component.id, 'component'), component.active?'control-active':'']"
+                             :class="[component.name, setClass(component.id, 'component'), component.active?'control-active':'']"
                              :id="'component-' + component.id"
-                             v-for="component in data.components"></div>
+                             v-if="component.visible"
+                             v-for="component in data.components">
+                            {{tr(component.name)}}
+                        </div>
                     </div>
                     <div class="structures vertical-bar"
                          :class="setClass(data.active_component_id, 'component')"
                          v-if="data.active_component.configurable && data.active_structure.visible">
-                        <div class="column_1">{{tr("Structure")}}</div>
+                        <div class="column_1 table-header">{{tr("Structure")}}</div>
                         <div class="structure empty-strucutre"
                              @click="changeStructure(0)"
                              v-if="data.active_component.optional"
                              :class="[setClass(0, 'structure'), data.active_structure_id==0?'control-active':'']"
-                             id="structure-0"></div>
+                             id="structure-0">
+                            {{tr("None")}}
+                        </div>
                         <div class="structure"
                              @click="changeStructure(structure)"
-                             :class="[setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
+                             :class="[structure.name, setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
                              :id="'structure-' + structure.structure"
-                             v-for="structure in data.structures"></div>
+                             v-for="structure in data.structures">
+                            {{tr(structure.name)}}
+                        </div>
                     </div>
                     <div class="elements vaertical-bar"
-                         :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
+                         :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="materials vertical-bar"
                              :class="state.active_product.name">
-                            <div class="column_1">{{tr("Material")}}</div>
+                            <div class="column_1 table-header">{{tr("Material")}}</div>
                             <div class="material"
                                  @click.self="changeMaterial(element, material)"
-                                 :class="[material.name, (element.active_material == material.name)?'control-active':'']"
+                                 :class="[material.name, 'colors-'+material.colors.length, (element.active_material == material.name)?'control-active':'']"
                                  :id="material.name"
                                  v-for="material in element.colors">
+                                {{tr(material.name)}}
                                 <div class="colors vertical-bar" v-if="element.active_material == material.name">
-                                    <div class="column_1">{{tr("Color")}}</div>
+                                    <div class="column_1 table-header">{{tr("Color")}}</div>
                                     <div class="color"
-                                         @click="changeColor(element, material, color)"
+                                         @click.stop="changeColor(element, material, color)"
                                          :id="color.id"
                                          :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
                                          v-for="color in material.colors">
-                                        {{getColorName(color)}}
+                                        {{tr(color.name)}}
                                     </div>
                                 </div>
                             </div>
@@ -219,35 +213,35 @@
         </div>
         <div class="remote-controller-menu">
                 <div class="configurator">
-                    <div class="go-account" @click="goAccount">
+                    <div class="configurator-item go-account" @click="goAccount">
                         <span class="profile-icon"></span>
                         <span class="profile-name">{{getUserName()}}</span>
                     </div>
-                    <div class="rotation"
+                    <div class="configurator-item rotation"
                          :class="state.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
-                        {{tr("Rotate/Stop")}}
+                        <span class="text">{{tr("Rotate/Stop")}}</span>
                     </div>
-                    <div id="product-part" class="select product-part" @click="partPreview">
+                    <div id="product-part" class="configurator-item select product-part" @click="partPreview">
                         <span class="product-part-icon"></span>
-                        {{tr("Detail Preview")}}
+                        <span class="text">{{tr("Detail Preview")}}</span>
                     </div>
-                    <div id="part-view" class="select advanced-product" @click="detailPreview">
+                    <div id="part-view" class="configurator-item select advanced-product" @click="detailPreview">
                         <span class="advanced-icon"></span>
-                        {{tr("Product Preview")}}
+                        <span class="text">{{tr("Product Preview")}}</span>
                     </div>
-                    <div id="go-fitt" class="select go-fitt" @click="fitting">
-                        <span class="fitt-icon"></span>
-                        {{tr("Best fit")}}
-                    </div>
-                    <div id="header-materials" class="select header-materials" @click="materialPreview">
+                    <div id="header-materials" class="configurator-item select header-materials" @click="materialPreview">
                         <span class="material-icon"></span>
-                        {{tr("Material Preview")}}
+                        <span class="text">{{tr("Material Preview")}}</span>
                     </div>
-                    <div class="go-order" @click="order">
+                    <div id="go-fitt" class="configurator-item select go-fitt" @click="fitting">
+                        <span class="fitt-icon"></span>
+                        <span class="text">{{tr("Best fit")}}</span>
+                    </div>
+                    <div class="configurator-item go-order" @click="order">
                         <span class="order-icon"></span>
-                        {{tr("Pre-order")}}
+                        <span class="text">{{tr("Pre-order")}}</span>
                     </div>
                 </div>
             </div>
@@ -784,6 +778,26 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="comparision_toggle">
+                        <div class="prev_best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.prev_best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.prev_best_size.size)}}</span>
+                        </div>
+                        <div class="best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.best_size.size)}}</span>
+                        </div>
+                        <div class="next_best_size_toggle"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                             @click="updateComparision(states.customer_fitting_view.best_sizes.next_best_size)"
+                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                            <span>{{tr(states.customer_fitting_view.best_sizes.next_best_size.size)}}</span>
+                        </div>
+                    </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                 </div>
                 <div class="summary-footer">

@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
         <link href="../mainscreen.css" rel="stylesheet">
     </head>
-
     <body>
         <div id="else-mainscreen-control">
             <div id="loader" :visible="visible" v-show="visible.pending">
@@ -56,38 +55,43 @@
             </header-component>
             <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
                 <div class="store-selection" id="stores-screen">
-                    <div class="logo-section">
-                        <img class="logo" src="./img/logo.png">
-                        <span class="logo-line"></span>
+                    <div class="top-panel">
+                        <div class="logo-container">
+                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <img class="logo-micam" src="img/Logo_Micam.png">
+                        </div>
                     </div>
-                    <div class="store-list" >
+                    <div class="store-list">
                         <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
                         <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
                             <a :id="store.id">{{tr(store.name)}}</a>
                         </div>
                     </div>
-                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
+                    <div class="bottom-panel">
+                        <div class="stylish-text">3D Retail Revolution </div>
                     </div>
                 </div>
             </stores>
             <session-code inline-template v-if="states.login_view.active">
                 <div id="session-code-screen" class="session-code-screen">
-                    <div class="logo-section">
-                        <img class="logo" src="img/logo.png">
-                        <span class="logo-line"></span>
+                    <div class="top-panel">
+                        <div class="logo-container">
+                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <img class="logo-micam" src="img/Logo_Micam.png">
+                        </div>
                     </div>
                     <div class="session-code">
-                        <div>
-                            <span class="code">{{tr("Session code")}}:</span>
-                            <span class="code">{{session_code}}</span>
-                        </div>
+                        <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                        <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                         <img :src="qrImage"/>
+                        <div class="element-border">
+                            <img src="img/blue-border.svg"/>
+                        </div>
                     </div>
-                    <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                        <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                    </video>
+
+                    <div class="bottom-panel">
+                        <div class="stylish-text">3D Retail Revolution </div>
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
                     </div>
                 </div>
             </session-code>
@@ -124,7 +128,7 @@
                 <div class="container" id="product-list-screen">
                     <div class="top-panel">
                         <div class="logo-container">
-                            <img class="logo-else" src="img/Logo_ELSE.png"/>
+                            <img class="logo-else" src="img/neon-logo.png"/>
                             <div class="elsa-container"><img src="img/ELSA.png"/></div>
                             <div class="text stylish-text">3D Product Configurator</div>
                         </div>
@@ -136,7 +140,6 @@
                                  :id="product.id"
                                  v-for="product in states.product_list_view.products">
                                 <div class="element-boot">
-                                    <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/blue-border.svg"/></div>
                                     <div class="product_fitt_score"
                                          :class="getFittingClass()"
                                          v-if="product.fit_score != null">{{product.fit_score}}</div>
@@ -148,13 +151,8 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                            <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                        </video>
-                        </div>
                     </div>
                     <div class="bottom-panel">
-                        <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
                         <div class="stylish-text">3D Retail Revolution </div>
                     </div>
                 </div>
@@ -168,13 +166,11 @@
                 <div class="content mainscreen-app" id="product-details-screen">
                     <div class="header">
                         <div class="header-start" >
+                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
+                            <span class="stylish-text">3D Product Configurator</span>
                             <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
+                                <!--<a>{{getCollectionName()}}</a>-->
                             </span>
-                        </div>
-                        <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span> | <span class="selectedpart">HEEL</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -197,10 +193,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="main">
@@ -215,30 +207,32 @@
                                 </div>
                             </div>
                             <div class="price-block">
-                                <div class="model-name"><span>{{state.active_product.name}}</span></div>
-                                <div class="product-block">
-                                    <div class="product"></div>
-                                </div>
-                                <div class="summary-block">
-                                    <div class="material-summary" v-if="data.active_material">
-                                        {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
+                                <div class="diff-prices-container">
+                                    <div class="model-name"><span>{{state.active_product.name}}</span></div>
+                                    <div class="product-block">
+                                        <div class="product"></div>
                                     </div>
-                                    <div class="color-summary" v-if="data.active_color">
-                                        {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
+                                    <div class="summary-block">
+                                        <div class="material-summary" v-if="data.active_material">
+                                            {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
+                                        </div>
+                                        <div class="color-summary" v-if="data.active_color">
+                                            {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
+                                        </div>
+                                        <div class="accessories-summary"></div>
                                     </div>
-                                    <div class="accessories-summary"></div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price">
-                                        <p class="base-mod-price">
-                                            {{tr("Base model")}}: <span>{{state.active_product.price}}&#8364;</span>
-                                        </p>
-                                        <p class="extra-acc-price">
-                                            {{tr("Extra accessories")}}: <span>0,00&#8364;</span>
-                                        </p>
-                                        <p class="extra-mat-price">
-                                            {{tr("Extra materials")}}: <span>0,00&#8364;</span>
-                                        </p>
+                                    <div class="prices">
+                                        <div class="price">
+                                            <p class="base-mod-price">
+                                                {{tr("Base model")}}: <span>{{state.active_product.price}}&#8364;</span>
+                                            </p>
+                                            <p class="extra-acc-price">
+                                                {{tr("Extra accessories")}}: <span>0,00&#8364;</span>
+                                            </p>
+                                            <p class="extra-mat-price">
+                                                {{tr("Extra materials")}}: <span>0,00&#8364;</span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
@@ -248,18 +242,19 @@
                             </div>
                         </div>
                         <div class="main-end">
-                            <div class="product-options">
-                                <ul class="options">
-                                    <li class="number-configurations">{{configuration.structure.configurations_count}}</li>
-                                    <li class="number-elements">{{configuration.structure.components_count}}</li>
-                                    <li class="number-materials">{{configuration.structure.materials_count}}</li>
-                                    <li class="number-colors">{{configuration.structure.colors_count}}</li>
-                                </ul>
-                            </div>
+                            <!--<div class="product-options">-->
+                                <!--<ul class="options">-->
+                                    <!--<li class="number-configurations">{{configuration.structure.configurations_count}}</li>-->
+                                    <!--<li class="number-elements">{{configuration.structure.components_count}}</li>-->
+                                    <!--<li class="number-materials">{{configuration.structure.materials_count}}</li>-->
+                                    <!--<li class="number-colors">{{configuration.structure.colors_count}}</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
                             <div class="element"
                                  :class="state.active_product.name"
                                  v-for="element in data.active_structure.elements">
                                 <div class="materials-color-block">
+                                    <div class="title"><span>{{tr("Materials")}}</span></div>
                                     <div class="material-block"
                                          :class="[state.active_product.name, material.name]"
                                          v-for="material in element.colors">
@@ -272,14 +267,13 @@
                                                 <div class="material-name">{{getMaterialName(material)}}</div>
                                             </div>
 
-                                            <div class="mc">
+                                            <div class="mc colors-block">
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
                                                      :class="[color.name ,(element.active_color == color.name)?'active':'']"
                                                      v-for="color in material.colors">
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -299,7 +293,6 @@
                             </span>
                         </div>
                         <div class="header-middle">
-                            <img src="./img/logo.png">
                             <span class="screen-name">{{tr('DETAIL PREVIEW')}}</span>
                         </div>
                         <div class="header-end">
@@ -324,10 +317,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="product-area">
@@ -350,13 +339,8 @@
                 <div id="material-preview-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
-                            </span>
-                        </div>
-                        <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("PREVIEW")}}</span>
+                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
+                            <span class="screen-name stylish-text">{{tr("PREVIEW")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -379,10 +363,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -406,13 +386,8 @@
                 <div id="part-preview-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
-                            </span>
-                        </div>
-                        <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("PREVIEW")}}</span>
+                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
+                            <span class="screen-name stylish-text">{{tr("PREVIEW")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -435,10 +410,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -478,9 +449,6 @@
                         <div class="total-look-price-block">
                             <div class="delivery-time">
                                 <div class="small-man">
-                                    <!-- <video autoplay="" loop="" muted="" class="tl-video" width="100px" height="500px" id="bgvideo" autoplay>
-                                        <source src="img/ON 360_2.mp4" type="video/mp4">
-                                    </video> -->
                                     <img src="img/small-man.png">
                                 </div>
                                 <div class="delivery"></div>
@@ -557,10 +525,6 @@
                                     </div>
                                     <span class="vertical-line"></span>
                                 </div>
-                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
@@ -660,10 +624,6 @@
                                 </div>
                                 <span class="vertical-line"></span>
                             </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="main">
@@ -740,10 +700,6 @@
                                     </span>
                                 </div>
                                 <span class="vertical-line"></span>
-                            </div>
-                            <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else">
-                                <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
                             </div>
                         </div>
                     </div>
@@ -923,10 +879,6 @@
                                     </div>
                                     <span class="vertical-line"></span>
                                 </div>
-                                <div class="go-else"><video autoplay="" loop="" muted="" class="bgvideo go-else" id="bgvideo">
-                                    <source src="img/pwd_by_else_for_configurator.mp4" type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                     </div>
                     <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
@@ -972,10 +924,42 @@
                                     <span></span>
                                 </div>
                             </div>
+                            <div class="comparision_differences" v-if="states.customer_fitting_view.active_comparision">
+                                <li class="comparision_differences_for_left" v-if="states.customer_fitting_view.active_comparision.output_differences.left">
+                                    <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.left">
+                                        <span class="metric_name">{{tr(diff.name)}}</span>
+                                        <div class="difference_values">
+                                            <span v-for="value in diff.difference">{{value}}</span>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <li class="comparision_differences_for_right" v-if="states.customer_fitting_view.active_comparision.output_differences.right">
+                                    <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.right">
+                                        <span class="metric_name">{{tr(diff.name)}}</span>
+                                        <div class="difference_values">
+                                            <span v-for="value in diff.difference">{{value}}</span>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </div>
                             <div class="best_sizes">
-                                <div class="best_size" v-if="states.customer_fitting_view.best_sizes.best_size">
+                                <div class="prev_best_size"
+                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                                     v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                                    <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
+                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                                </div>
+                                <div class="best_size"
+                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                                     v-if="states.customer_fitting_view.best_sizes.best_size">
                                     <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                                    <img id="best_size" style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                                </div>
+                                <div class="next_best_size"
+                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                                     v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                                    <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
+                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
                                 </div>
                             </div>
                             <div style="height: 350px;width: 600px;">
@@ -990,6 +974,17 @@
                                 </div>
                             </div>
                         </div>  <!-- ./user-info end -->
+                        <div class="product_info">
+                            <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                            <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
+                                <span>{{tr('Size')}}</span>
+                                <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
+                            </div>
+                            <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
+                                <span>{{tr('Fitting factor')}}</span>
+                                <span>{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </customer-fitting>
@@ -1003,7 +998,7 @@
 
         <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
         <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
-         <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
+         <!-- <script src="http://localhost:9000/mainscreen-ui-sdk.js"></script> -->
 
         <div id="canvas_container_id" style="position: absolute; height: 100%; width: 100%"></div>
     </body>

@@ -6,14 +6,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var isProd = process.env.NODE_ENV === 'production' ;
 var cssDev = ['style-loader', 'css-loader', 'less-loader'];
-// var cssDev = ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-//     fallback: 'style-loader',
-//     use: ['style-loader', 'css-loader', 'less-loader']
-// }));
 var cssProd = ExtractTextPlugin.extract({
     fallback: 'style-loader',
     loader: ['css-loader', 'less-loader'],
-    publicPath: '/dist'
+    publicPath: './'
 });
 var cssConfig = isProd ? cssProd : cssDev;
 

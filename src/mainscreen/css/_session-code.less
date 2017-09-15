@@ -1,0 +1,44 @@
+#session-code-screen{
+    background: url(../img/bg.png) no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    .session-code{
+          height: 80%;
+          min-width: 25%;
+          .flex-container();
+          .justify-content(center);
+          .align-items(center);
+          flex-direction: column;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 24px;
+          background:  center/80% url(../img/circle-shadow.png), center/100% url(../img/white-shadow.png);
+          background-repeat: no-repeat;
+          -webkit-background-size: contain;
+          background-size: contain;
+          width: 100%;
+          img {
+              display: block;
+              margin-top: 2vh;
+          }
+    }
+    .element-border{
+        .flex-container();
+        .justify-content(center);
+        .align-items(center);
+        width: 49%;
+        img{
+          width: 100%;
+          margin-bottom: 73%;
+        }
+    }
+    .logo-pwd-else{
+      width: 130px;
+      position: absolute;
+      right: 10px;
+      bottom: 25px;
+    }
+}

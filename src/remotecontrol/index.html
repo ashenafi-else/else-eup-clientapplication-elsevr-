@@ -251,7 +251,10 @@
         <div class="remote-configuration" id="product-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Product Preview</span>
+                    </div>
                 </div>
                 <div class="full-preview-mode">
                     <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
@@ -276,12 +279,15 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">< {{tr('Back')}}</div>
                     <div class="rotation"
                          :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
+                    </div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
                     </div>
                 </div>
             </div>
@@ -291,7 +297,10 @@
         <div class="remote-configuration" id="material-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Material Preview</span>
+                    </div>
                 </div>
                 <div class="detail-preview-mode">
                     <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
@@ -316,12 +325,15 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                     <div class="rotation"
                          :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
+                    </div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
                     </div>
                 </div>
             </div>
@@ -331,7 +343,10 @@
         <div class="remote-configuration" id="part-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Detail Preview</span>
+                    </div>
                 </div>
                 <div class="detail-preview-mode">
                     <v-touch class="touch_area on_preview" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
@@ -356,12 +371,15 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                     <div class="rotation"
                          :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
+                    </div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
                     </div>
                 </div>
             </div>
@@ -441,7 +459,7 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                 </div>
             </div>
         </div>
@@ -535,7 +553,7 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                 </div>
             </div>
         </div>
@@ -649,7 +667,7 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                 </div>
             </div>
         </div>
@@ -758,7 +776,7 @@
             </div>
         <div class="remote-controller-menu">
             <div class="back-to-config">
-                <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
             </div>
         </div>
         <div v-show="visible.order_success" id="order-success-push">{{tr('Your order has been successfully completed')}}</div>
@@ -813,7 +831,7 @@
             </div>
             <div class="remote-controller-menu">
                 <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back to Configurator')}}</div>
+                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                 </div>
             </div>
         </div>

@@ -1,14 +1,3 @@
-#else-control {
-    overflow: hidden;
-    z-index: 2;
-}
-
-#else-control {
-    height: 100%;
-    width: 100%;
-}
-
-
 #product-start-screen .list-items .element img {
     margin: auto;
 }

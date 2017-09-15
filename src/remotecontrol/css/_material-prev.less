@@ -1,0 +1,50 @@
+#material-screen{
+  .flex-container();
+  .flex-direction(row);
+  height: 100%;
+  width: 100%;
+  .remote-controller-main{
+      .detail-preview-mode{
+        .flex-container();
+        .justify-content(center);
+      }
+      width: 88%;
+      .touch_area{
+        height: 680px;
+        width: 90%;
+        .flex-container();
+        .justify-content(center);
+        .align-items(center);
+        background: url(../img/touch-area-icon.png) center no-repeat #e8e8e8;
+        background-size: auto 40%;
+        background-position: 50% 50%;
+      }
+  }
+  .remote-controller-menu{
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    line-height: 60px;
+    z-index: 999;
+    min-width: 175px;
+    height: 100vh;
+    width: 18%;
+    background-color: #e8e8e8;
+    .rotation{
+      .flex-container();
+      .align-items(center);
+      background-color: white;
+      border: 1px solid;
+      width: 95%;
+      .border-radius(5px);
+    }
+  }
+  .elsa{
+    margin-top: auto;
+    margin-bottom: 50px;
+    img{
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

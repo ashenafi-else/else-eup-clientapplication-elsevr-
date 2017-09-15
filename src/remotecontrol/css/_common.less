@@ -9,6 +9,8 @@
 #else-control {
     height: 100%;
     width: 100%;
+    overflow: hidden;
+    z-index: 2;
 }
 @maintext-color: #f2f2f2;
 
@@ -31,7 +33,132 @@
     width: 100%;
     min-width: 100%;
 }
-
+.controller-header{
+    width: 100%;
+    height: 8%;
+    .flex-container();
+    .align-items(flex-end);
+    .justify-content(space-between);
+    background-color: white;
+}
+.header-text{
+    font-size: 24px;
+    color: black;
+    padding-left: 20px;
+}
 .inner-shadow(){
     .box-shadow(inset 0 0 0 10px #00ffff);
+}
+
+
+.default-cameras{
+    padding: 20px 10px;
+    .flex-container();
+    .justify-content(center);
+    .align-items(center);
+    flex-direction: column;
+    #camera {
+        display: none;
+    }
+    .camera-view{
+        position: absolute;
+        background: url("../img/options/camera.png") center no-repeat;
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+    }
+    .camera-view.active{
+        width: 50px;
+        height: 43px;
+        border: none!important;
+        box-shadow: none!important;
+        border-bottom: 2px solid rgb(0, 255, 242);
+    }
+    .camera-view.cameraFRONT{
+        bottom: 22%;
+        left: 41%;
+        transform: rotate(90deg);
+    }
+    .camera-view.cameraTOP{
+        bottom: 13%;
+        left: 41%;
+        transform: rotate(90deg);
+    }
+    .camera-view.cameraLEFT{
+        bottom: 25%;
+        right: 33%;
+        transform: rotate(25deg);
+    }
+    .camera-view.cameraLEFTp{
+        bottom: 47%;
+        left: 18%;
+        transform: rotate(180deg) scale(1,-1);
+    }
+    .camera-view.cameraBOTTOM {
+        top: 14%;
+        left: 41%;
+        transform: rotate(-90deg);
+    }
+    .camera-view.cameraBACK{
+        top: 24%;
+        left: 41%;
+        transform: rotate(-90deg);
+    }
+    .camera-view.cameraRIGHT{
+        bottom: 47%;
+        right: 30%;
+    }
+    .camera-view.cameraRIGHTp{
+        bottom: 25%;
+        left: 18%;
+        transform: rotate(-215deg) scale(1,-1);
+    }
+}
+
+
+.back-to-config{
+    .flex-container();
+    .flex-direction(column);
+    .justify-content(space-around);
+    .align-items(center);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17%;
+    z-index: 99999999999;
+}
+.back-to-config-button{
+    margin: 5px;
+    width: 95%;
+    height: 55px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+
+.summary-footer{
+    position: absolute;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    background-color: #FFFFFF;
+    line-height: 25px;
+    bottom: 1px;
+}
+.summary-footer div{
+    display: inline-block;
+}
+
+.go-home{
+    .flex-container();
+    .flex-direction(row);
+    .align-items(center);
+    width: 30%;
+    height: 100%;
+    margin-left: 4%;
 }

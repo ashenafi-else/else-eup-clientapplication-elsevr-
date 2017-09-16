@@ -141,7 +141,7 @@ window.translations = {
         'en': ''
     },
     'MAT_METAL_GOLD': {
-        'en': 'Gold'
+        'en': 'Bronze'
     },
     'MAT_METAL_SILVER-BUCKLE': {
         'en': 'Silver'

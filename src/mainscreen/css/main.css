@@ -467,6 +467,7 @@ ul.options>li.number-colors::before{
     width: 100%;
     height: 100px;
     background: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
 }
 
 .summary-block div {
@@ -498,11 +499,25 @@ span{
     background-position: center;
     width: 85px;
     height: 65px;
+    margin-left: -25px;
 }
 
 .product-block .product{
     background-image: url(../img/Wedge_VC.png);
 }
+
+.product-block::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    margin-bottom: 0;
+    border: 18px solid transparent;
+    border-right: 18px solid rgba(255, 255, 255, 0.65);
+    border-bottom: 18px solid rgba(255, 255, 255, 0.65);
+    top: 0.7px;
+    border-top-right-radius: 10px;
+}
+
 .components-block {
     display: flex;
     flex-wrap: wrap;

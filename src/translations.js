@@ -60,7 +60,7 @@ window.translations = {
         'en': 'Beige'
     },
     'MAT_SUEDE_WHITE': {
-        'en': ''
+        'en': 'White'
     },
     'MAT_SUEDE_BLUE': {
         'en': 'Blue'

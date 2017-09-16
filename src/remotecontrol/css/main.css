@@ -337,6 +337,7 @@ span.rotation-icon {
     height: 88vh;
     display: flex;
     flex-direction: column;
+    flex:1;
 }
 .vertical-bar:last-child{
     border: none;

@@ -37,10 +37,10 @@ table, th, td {
     text-align: center;
 }
 table tr:nth-child(odd) td{
-    background-color: #2d2d2d;
+    background-color: #318da8;
 }
 table tr:nth-child(even) td{
-    background-color: #3e3e3e;
+    background-color: #0b4665;
 }
 
 * {

@@ -240,6 +240,15 @@
                                     <div class="total-price">{{state.active_product.price}}&#8364;</div>
                                 </div>
                             </div>
+                            <div class="description-product">
+                                <img src="img/configurations.png">
+                                <!-- ul class="options">
+                                    <li class="number-configurations">328M</li>
+                                    <li class="number-elements">8</li>
+                                    <li class="number-materials">13</li>
+                                    <li class="number-colors">64</li>
+                                </ul> -->
+                            </div>
                             <div class="diy"><span>DIY&AI</span></div>
                         </div>
                         <div class="main-end">
@@ -486,14 +495,12 @@
                     </div>
                 </div>
             </total-look>
-            <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active">
-                <div class="container" id="customer-fitting-screen">
+            <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active" class="customer-profile" >
+                <div class="container" id="customer-profile-screen">
                     <div class="header">
                             <div class="header-start" >
-                                <span class="back-to">
-                                    <a>{{getCollectionName()}}</a>
-                                    <span class="screen-name stylish-text">{{tr('FITTING FACTOR')}}</span>
-                                </span>
+                                <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                                <span class="stylish-text">{{tr("User Profile")}}</span>
                             </div>
                             <div class="header-middle">
                             </div>
@@ -593,8 +600,6 @@
                             </span>
                         </div>
                         <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("SHOE CONFIGURATOR")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -665,14 +670,10 @@
                 <div class="content mainscreen-app" id="customer-order-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
-                            </span>
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="screen-name stylish-text">{{tr("Order")}}</span>
                         </div>
-                        <div class="header-middle">
-                            <img src="./img/logo.png">
-                            <span class="screen-name">{{tr("ORDER")}}</span>
-                        </div>
+                        <div class="header-middle"></div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
@@ -700,20 +701,22 @@
                     <div class="main">
                         <div class="main-start">
                             <div class="price-block">
-                                <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                                <div class="product-block">
-                                    <div class="product"></div>
-                                </div>
-                                <div class="summary-block">
-                                    <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                    <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                    <div class="accessories-summary"></div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price">
-                                        <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                <div class="diff-prices-container">
+                                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                                    <div class="product-block">
+                                        <div class="product"></div>
+                                    </div>
+                                    <div class="summary-block">
+                                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                        <div class="accessories-summary"></div>
+                                    </div>
+                                    <div class="prices">
+                                        <div class="price">
+                                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
@@ -838,18 +841,15 @@
                     </div>
                 </div>
             </customer-order>
-            <customer-fitting v-if="states.customer_fitting_view.active" id="customer-fitting-screen" :visible="visible"
+            <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"
                             :states="states" :configurator="configuration" inline-template>
                 <div class="container" id="customer-fitting-screen">
                     <div class="header">
                             <div class="header-start" >
-                                <span class="back-to">
-                                    <a>{{getCollectionName()}}</a>
-                                </span>
+                                <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                                <span class="screen-name stylish-text">{{tr("Fitting Factor")}}</span>
                             </div>
                             <div class="header-middle">
-                                <img src="./img/logo.png">
-                                <span class="screen-name">{{tr('BEST FIT')}}</span>
                             </div>
                             <div class="header-end">
                                 <div class="login" v-if="states.customer_profile_view.active_customer.id">

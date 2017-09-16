@@ -27,7 +27,7 @@ html, body{
     margin-left: 100px;
 }
 .header-middle {
-    width: 64%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,18 +120,18 @@ span.collection-heading {
 }
 
 /*.element .name, .materials .name{*/
-    /*margin-top: 10px;*/
-    /*font-size: 24px;*/
-    /*text-align: center;*/
-    /*color: #000000;*/
+/*margin-top: 10px;*/
+/*font-size: 24px;*/
+/*text-align: center;*/
+/*color: #000000;*/
 /*}*/
 /*.element .name::after{*/
-    /*content: " ";*/
-    /*display: block;*/
-    /*width: 95%;*/
-    /*height: 1px;*/
-    /*background-color: #000000;*/
-    /*margin: 5px auto;*/
+/*content: " ";*/
+/*display: block;*/
+/*width: 95%;*/
+/*height: 1px;*/
+/*background-color: #000000;*/
+/*margin: 5px auto;*/
 /*}*/
 
 .element.active .name::after{
@@ -752,12 +752,13 @@ span{
     justify-content: flex-start;
     position: absolute;
     font-size: 0.8em;
-    top: 70px;
+    top: 90px;
     left:0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    width: 50%;
     height: 88%;
+    z-index: 999;
 }
 .user_profile_params,
 .user_scans,
@@ -805,9 +806,10 @@ span{
     margin: 30px 15px 30px 30px;
     flex: 2;
     height: 100%;
-    background-color: #fff;
+    background-color: #0b4968;
     z-index: -1;
     /* width: 30%; */
+    color: #ffffff;
 }
 .user_info{
     margin: 35px 0px 30px 0px;
@@ -819,13 +821,13 @@ span{
     flex: 3;
     /* width: 30%; */
     height: 100%;
-    background-color: white;
+    /* background-color: white; */
     z-index: -1;
 }
 .left_scan, .right_scan{
     width: 40%;
     margin: 10px 10px 0;
-    background-color: white;
+    /* background-color: white; */
     padding: 30px;
     text-align: center;
 }
@@ -854,7 +856,7 @@ span.user_profile_name {
     text-align: center;
     margin: 19px 0px 20px 0px;
     width: 97%;
-    background-color: white;
+    /* background-color: white; */
     padding: 15px;
 }
 
@@ -1032,6 +1034,7 @@ footer {
     height: 100%;
     width: 100%;
     left: 0;
+    /* margin-right: 240px; */
 }
 
 #canvas_container_id.product_view,
@@ -1043,9 +1046,9 @@ footer {
 }
 
 #canvas_container_id.customer_edit_profile_view,
-#canvas_container_id.customer_order_view,
 #canvas_container_id.customer_fitting_view,
 #canvas_container_id.customer_profile_view {
     width: 50%;
     left: 50%;
+    z-index:9999;
 }

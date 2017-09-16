@@ -1,0 +1,41 @@
+#customer-order-screen{
+  background: url(../img/shadow-configurator.svg) no-repeat center, url(../img/bg.png) no-repeat 100%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  .header{
+    .logo-container{
+      img{
+        height: 100%;
+        max-height: 80px;
+      }
+    }
+    .stylish-text{
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .main{
+    flex: 2;
+    .flex-container();
+    height: 100vh;
+    width: 100%;
+    .main-end{
+      .order-form{
+        z-index: 99999;
+        .flex-container();
+        padding: 1% 2%;
+        form{
+          position: absolute;
+          width: 22%;
+          border-radius: 10px;
+          /* right: 5px; */
+          padding: 35px;
+          margin-top: 30px;
+          background-color: rgba(12, 88, 128, 0.651);
+        }
+      }
+    }
+  }
+}

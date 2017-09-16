@@ -136,7 +136,10 @@
         <div class="remote-configuration" id="product-details-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">3D Product Configurator</span>
+                    </div>
                 </div>
             <div class="configuration-main">
                 <div class="product-config"
@@ -237,7 +240,14 @@
                     </div>
                     <div id="go-fitt" class="configurator-item select go-fitt" @click="fitting">
                         <span class="fitt-icon"></span>
-                        <span class="text">{{tr("Best fit")}}</span>
+                        <span class="text">{{tr("Fitting Factor")}}</span>
+                    </div>
+                    <div id="go-wishlist" class="configurator-item select" >
+                        <span class="wishlist-icon"></span>
+                        <span class="text">{{tr("Wishlist")}}</span>
+                    </div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
                     </div>
                     <div class="configurator-item go-order" @click="order">
                         <span class="order-icon"></span>
@@ -405,7 +415,10 @@
         <div class="remote-configuration" id="customer-profile-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Profile</span>
+                    </div>
                 </div>
                 <div class="signedupuser-block">
                     <div class="user">
@@ -460,6 +473,9 @@
             <div class="remote-controller-menu">
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -468,7 +484,10 @@
         <div class="remote-configuration" id="customer-edit-profile-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Edit Profile</span>
+                    </div>
                 </div>
                 <div class="signedupuser-block" v-if="accountData">
                     <div class="edit-profile-form">
@@ -554,6 +573,9 @@
             <div class="remote-controller-menu">
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -562,9 +584,12 @@
         <div class="remote-configuration" id="customer-login-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Registration</span>
+                    </div>
                 </div>
-                <div class="signin-register-screen">
+                <div class="form-block">
                     <ul class="nav profile-nav-tabs">
                         <li class="nav-tab"
                             :class="states.customer_login_view.show_search_results?'':'active'"
@@ -668,6 +693,9 @@
             <div class="remote-controller-menu">
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -677,7 +705,10 @@
         <div class="remote-configuration" id="customer-order-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Order</span>
+                    </div>
                 </div>
 
                 <div class="order-button-block" v-if="account_data">
@@ -767,16 +798,29 @@
                             </div>
                             <div class="order-button"></div>
                     </form>
-                    <div class="button share-conf">
+                    <!-- <div class="button share-conf">
                         <img src="../img/share.png">
                         {{tr("Share this configuration")}}
-                    </div>
+                    </div> -->
                     <div class="button order" @click="sendOrder">{{tr("Pre-order Now")}}</div>
+                </div>
+                <div class="summary-footer">
+                    <div class="product-summary">{{tr("Your current configuration")}} -</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="heel-color-summary" v-if="states.product_view.active_color">
+                        {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
+                    </div>
+                    <div class="heel-material-summary" v-if="states.product_view.active_material">
+                        {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
+                    </div>
                 </div>
             </div>
         <div class="remote-controller-menu">
             <div class="back-to-config">
                 <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                <div class="elsa">
+                    <img src="img/elsa-black-white.png">
+                </div>
             </div>
         </div>
         <div v-show="visible.order_success" id="order-success-push">{{tr('Your order has been successfully completed')}}</div>
@@ -787,7 +831,10 @@
         <div class="remote-configuration" id="customer-fitting-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
-                    <div class="header-logo go-home" @click="home()"></div>
+                    <div class="go-home" @click="home()">
+                        <img src="img/logo-else-shoes-black.png">
+                        <span class="header-text">Fitting Factor</span>
+                    </div>
                 </div>
                 <div class="signedupuser-block">
                     <div class="user">

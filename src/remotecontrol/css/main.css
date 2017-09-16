@@ -260,7 +260,7 @@ footer {
     width: 15%;
     height: 100%;
     background-size: contain;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 
@@ -352,6 +352,9 @@ span.rotation-icon {
     background-position: top 35% center;
     background-repeat: no-repeat;
     background-size: 50%;
+}
+.component {
+    justify-content: flex-start;
 }
 .structures .structure{
     background-position: top 35% center;

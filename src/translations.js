@@ -117,16 +117,16 @@ window.translations = {
         'en': 'Antique pink'
     },
     'MAT_PATENT_10652': {
-        'en': 'Nude 1'
+        'en': 'Beige'
     },
     'MAT_PATENT_10653': {
-        'en': 'Nude 2'
+        'en': 'Beige 2'
     },
     'MAT_PATENT_10671': {
-        'en': 'Nude 3'
+        'en': 'Light brown'
     },
     'MAT_PATENT_10675': {
-        'en': 'Nude 4'
+        'en': 'Brown'
     },
     'MAT_PATENT_10679': {
         'en': 'Red'
@@ -141,7 +141,7 @@ window.translations = {
         'en': ''
     },
     'MAT_METAL_GOLD': {
-        'en': 'Gold'
+        'en': 'Bronze'
     },
     'MAT_METAL_SILVER-BUCKLE': {
         'en': 'Silver'
@@ -304,5 +304,8 @@ window.translations = {
     },
     'MAT_LEATHER_DARK-BEIGE': {
         'en': 'dark beige'
+    },
+    'LEATHER+BUCKLE': {
+    'en': 'Leather strap'
     }
 };

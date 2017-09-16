@@ -298,7 +298,7 @@ span.rotation-icon {
     background-size: 24px;
 }
 
-.fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon {
+.fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
     background: center center no-repeat;
     background-size: contain;
     width: 34px;
@@ -318,13 +318,18 @@ span.rotation-icon {
 .advanced-icon {
     background-image: url("../img/options/preview.png");
 }
+.wishlist-icon{
+    background-image: url("../img/options/wishlist.png");
+}
 .order-icon {
     background: url("../img/options/order.png") center no-repeat;
     background-size: contain;
     margin-right: 10px;
+    margin-left: 10px;
     width: 60px;
     height: 60px;
 }
+
 
 /* REYREY - WINDOW BLOCK */
 .configuration-main{

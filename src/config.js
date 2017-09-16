@@ -6,7 +6,7 @@ window.config = {
     'default_camera': 'cameraLEFTp',
     'camera_animation_time': 1000,
     'default_language': 'en',
-    'default_scanner': 'Dome000031',
+    'default_scanner': 'Dome000018',
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_configuration': {},
     'product_tour_configuration': {

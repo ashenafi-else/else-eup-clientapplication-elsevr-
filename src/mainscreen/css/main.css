@@ -594,12 +594,12 @@ span{
     box-shadow: none!important;
     border-bottom: 2px solid rgb(0, 255, 242);
 }
-.camera-view.camera-front{
+.camera-view.cameraFRONT{
     bottom: 17%;
     left: 49%;
     transform: rotate(90deg);
 }
-.camera-view.camera-top{
+.camera-view.cameraTOP{
     top: 90%;
     left: 49%;
     transform: rotate(90deg);
@@ -609,12 +609,12 @@ span{
     left: 17%;
     transform: scale(-1, 1);
 }
-.camera-view.camera-left{
+.camera-view.cameraLEFT{
     bottom: 42%;
     left: 17%;
     transform: scale(-1,1);
 }
-.camera-view.camera-leftp{
+.camera-view.cameraLEFTp{
     bottom: 23%;
     right: 18%;
     transform: rotate(25deg);
@@ -624,16 +624,16 @@ span{
     left: 49%;
     transform: rotate(-90deg);
 }
-.camera-view.camera-back{
+.camera-view.cameraBACK{
     top: 21%;
     left: 49%;
     transform: rotate(-90deg);
 }
-.camera-view.camera-right{
+.camera-view.cameraRIGHT{
     bottom: 43%;
     right: 17%;
 }
-.camera-view.camera-rightp{
+.camera-view.cameraRIGHTp{
     bottom: 23%;
     left: 18%;
     transform: rotate(-215deg) scale(1,-1);

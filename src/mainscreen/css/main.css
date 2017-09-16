@@ -1052,3 +1052,6 @@ footer {
     left: 50%;
     z-index:9999;
 }
+.material-name{
+    color:#ffffff;
+}

@@ -427,11 +427,6 @@ ul.options>li.number-colors::before{
 @keyframes blink {
     50% { border-color:  rgba(0, 255, 255, 0.5); }
 }
-.color.active {
-    border: solid #00ffff;
-    animation: blink 1s linear infinite alternate;
-}
-
 
 .wishlist {
     width: 300px;

@@ -56,9 +56,22 @@
     .components{
         width: 30%;
         margin-left:10px;
+        overflow: scroll;
         .component{
             width: 100%;
         }
+    }
+    .components::-webkit-scrollbar, .colors::-webkit-scrollbar{
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+    .components::-webkit-scrollbar-thumb,.colors::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #dfdfdf;
+    }
+    .components::-webkit-scrollbar-track,.colors::-webkit-scrollbar-track{
+        border-radius: 10px;
+        background-color: #ffffff;
     }
     .elements{
         width: 21%;
@@ -75,7 +88,8 @@
     left: 100%;
     top:0;
     margin: 0 10px;
-    min-height: 122px; 
+    min-height: 122px;
+    overflow: scroll;
 }
 .materials{
     width: 50%;
@@ -108,9 +122,10 @@
     transition: all 0.2s ease-out;
     margin-top: 5px;
     margin-bottom: 5px;
+    min-height: 125px;
 }
 .table-header {
-    margin-top: 5px;
+    //margin-top: 5px;
     text-align: center;
     background-color: #ededed;
     display: block;

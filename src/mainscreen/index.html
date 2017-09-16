@@ -166,7 +166,7 @@
                 <div class="content mainscreen-app" id="product-details-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                             <span class="stylish-text">3D Product Configurator</span>
                             <span class="back-to">
                                 <!--<a>{{getCollectionName()}}</a>-->
@@ -289,12 +289,8 @@
                 <div id="product-preview-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <span class="back-to">
-                                <a>{{getCollectionName()}}</a>
-                            </span>
-                        </div>
-                        <div class="header-middle">
-                            <span class="screen-name stylish-text">{{tr('Product Preview')}}</span>
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="stylish-text">{{tr("Product Preview")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -331,17 +327,16 @@
                                 <div class="zoom"></div>
                             </div>
                         </div>
-                        <div class="else-shoes"></div>
-                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
                     </div>
+                    <div class="diy"><span>Ask ELSA</span></div>
                 </div>
             </product-preview>
             <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" inline-template>
                 <div id="material-preview-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
-                            <span class="screen-name stylish-text">{{tr("Material Preview")}}</span>
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="stylish-text">{{tr("Material Preview")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -378,17 +373,16 @@
                                 <div class="zoom"></div>
                             </div>
                         </div>
-                        <div class="else-shoes"></div>
-                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
                     </div>
+                    <div class="diy"><span>Ask ELSA</span></div>
                 </div>
             </material-preview>
             <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
                 <div id="part-preview-screen">
                     <div class="header">
                         <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/chromium-else-logo.png"></div>
-                            <span class="screen-name stylish-text">{{tr("Detail Preview")}}</span>
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="stylish-text">{{tr("Detail Preview")}}</span>
                         </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -415,7 +409,7 @@
                         </div>
                     </div>
                     <div class="preview-area on_detail">
-                         <div id="product-cameras" style="">
+                        <div id="product-cameras" style="">
                             <div class="camera camera-view"
                                  :id="camera"
                                  :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
@@ -425,9 +419,8 @@
                                 <div class="zoom"></div>
                             </div>
                         </div>
-                        <div class="else-shoes"></div>
-                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
                     </div>
+                    <div class="diy"><span>Ask ELSA</span></div>
                 </div>
             </part-preview>
             <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
@@ -498,11 +491,10 @@
                             <div class="header-start" >
                                 <span class="back-to">
                                     <a>{{getCollectionName()}}</a>
+                                    <span class="screen-name stylish-text">{{tr('FITTING FACTOR')}}</span>
                                 </span>
                             </div>
                             <div class="header-middle">
-                                <img src="./img/reyrey-logo.png">
-                                <span class="screen-name stylish-text">{{tr('USER PROFILE')}}</span>
                             </div>
                             <div class="header-end">
                                 <div class="login" v-if="states.customer_profile_view.active_customer.id">

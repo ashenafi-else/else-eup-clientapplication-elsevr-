@@ -238,7 +238,7 @@
                         <span class="material-icon"></span>
                         <span class="text">{{tr("Material Preview")}}</span>
                     </div>
-                    <div id="go-fitt" class="configurator-item select go-fitt" @click="fitting">
+                    <div id="go-fitt" class="configurator-item select go-fitt"  @click="fitting">
                         <span class="fitt-icon"></span>
                         <span class="text">{{tr("Fitting Factor")}}</span>
                     </div>
@@ -843,7 +843,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="comparision_toggle">
+                    <div class="comparison_toggle">
                         <div class="prev_best_size_toggle"
                              :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
                              @click="updateComparision(states.customer_fitting_view.best_sizes.prev_best_size)"
@@ -879,6 +879,13 @@
             <div class="remote-controller-menu">
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                    <div class="configurator-item rotation">
+                        <span class="rotation-icon"></span>
+                        <span class="text">{{tr("Rotate/Stop")}}</span>
+                    </div>
+                    <div class="elsa">
+                        <img src="img/elsa-black-white.png">
+                    </div>
                 </div>
             </div>
         </div>

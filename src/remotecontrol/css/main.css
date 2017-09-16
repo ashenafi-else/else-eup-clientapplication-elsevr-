@@ -368,13 +368,6 @@ span.rotation-icon {
     background-image: none!important;
 }
 /*REYREY - PRODUCT PREVIEW */
-.full-preview-mode{
-    display: flex;
-    flex-direction: column;
-    color: #ADAEAE;
-    font-family: 'Lato', Verdana, Geneva, sans-serif;
-    height: 91%;
-}
 .default-cameras{
     padding: 20px 10px;
     display: flex;

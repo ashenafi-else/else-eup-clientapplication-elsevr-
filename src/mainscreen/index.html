@@ -183,12 +183,12 @@
                                     {{getUserName()}}
                                 </span>
                                 <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <div v-if="getFittingValues().best_size != null">
+                                    <div class="size-block" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                        <span>fitting factor</span>
-                                        <span class="fitting-factor">{{getFittingValues().best_size.score}}</span>
+                                        <span class="factor-text">fitting factor</span>
+                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                                     </div>
                                     <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
@@ -335,6 +335,8 @@
                             <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                             <span class="stylish-text">{{tr("Product Preview")}}</span>
                         </div>
+                        <div class="header-middle">
+                        </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
@@ -355,7 +357,6 @@
                                         </span>
                                     </span>
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -405,6 +406,8 @@
                             <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                             <span class="stylish-text">{{tr("Material Preview")}}</span>
                         </div>
+                        <div class="header-middle">
+                        </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
@@ -412,12 +415,15 @@
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
+
                                 <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size != null">
-                                        <span id="rec-size" class="recommended-size">
-                                            {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
+                                    <div class="size-block" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                                    </span>
+                                        <span class="factor-text">fitting factor</span>
+                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                    </div>
                                     <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
@@ -425,7 +431,6 @@
                                         </span>
                                     </span> -->
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -475,6 +480,8 @@
                             <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                             <span class="stylish-text">{{tr("Detail Preview")}}</span>
                         </div>
+                        <div class="header-middle">
+                        </div>
                         <div class="header-end">
                             <div class="login" v-if="states.customer_profile_view.active_customer.id">
                                 <div class="go-account"></div>
@@ -495,7 +502,6 @@
                                         </span>
                                     </span>
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -629,7 +635,6 @@
                                             </span>
                                         </span>
                                     </div>
-                                    <span class="vertical-line"></span>
                                 </div>
                         </div>
                     </div>
@@ -726,7 +731,6 @@
                                         </span>
                                     </span>
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -799,7 +803,6 @@
                                         </span>
                                     </span>
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -819,14 +822,14 @@
                                     <div class="prices">
                                         <div class="price">
                                             <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
-                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
-                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
-                                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                                     <div class="delivery"></div>
+                                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -964,19 +967,20 @@
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
                                     <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                        <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
-                                            <span id="rec-size">
-                                                {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
-                                            </span>
+                                        <div class="size-block" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                                        <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                            <span class="factor-text">fitting factor</span>
+                                            <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                        </div>
+                                        <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                             <span id="fitting-factor"
                                                   :class="getFittingClass()">
                                                 {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                             </span>
-                                        </span>
+                                        </span> -->
                                     </div>
-                                    <span class="vertical-line"></span>
                                 </div>
                         </div>
                     </div>

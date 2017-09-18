@@ -59,6 +59,7 @@
         overflow: scroll;
         .component{
             width: 100%;
+            justify-content: flex-start;
         }
     }
     .components::-webkit-scrollbar, .colors::-webkit-scrollbar{
@@ -143,12 +144,15 @@
 
 .component{
     background-color: white !important;
+    outline-offset: 1px;
+    outline: 2px solid #E8E8E8;
+    text-transform: capitalize;
 }
 
 [class*='elsevr_women_1_1_component'][id*='component-']{
-    min-height: 80px;
+    min-height: 125px;
     &:before{
-        margin-right: auto;
+        margin-right: 3px;
         margin-left: 10%;
         content: '';
         z-index: 10;
@@ -206,9 +210,9 @@
 }
 
 [class*='elsevr_men_1_1_component'][id*='component-'] {
-    min-height: 80px;
+    min-height: 125px;
     &:before {
-        margin-right: auto;
+        margin-right: 3px;
         margin-left: 10%;
         content: '';
         z-index: 10;

@@ -806,7 +806,7 @@ span{
     margin: 30px 15px 30px 30px;
     flex: 2;
     height: 100%;
-    background-color: #0b4968;
+    background-color: rgba(11, 73, 104, 0.72);
     z-index: -1;
     /* width: 30%; */
     color: #ffffff;

@@ -10,7 +10,10 @@ window.config = {
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_configuration': {},
     'product_tour_configuration': {
-        'elsevr_women_1_1': 'micam v2 model 1.2 (Product tour 122762)'
+        'elsevr_women_1_1': {
+        	'name': 'micam v2 model 1.2 (Product tour 122877)',
+        	'interval': 50
+        }
     },
     'home_state': 'PRODUCT_LIST'
 };

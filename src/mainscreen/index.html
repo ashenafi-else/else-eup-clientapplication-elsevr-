@@ -222,20 +222,20 @@
                                     <div class="prices">
                                         <div class="price">
                                             <p class="base-mod-price">
-                                                {{tr("Base model")}}: <span>{{state.active_product.price}}&#8364;</span>
+                                                {{tr("Base model")}}: <span class="price-span">{{state.active_product.price}}<span class="bitcoin"></span></span>
                                             </p>
                                             <p class="extra-acc-price">
-                                                {{tr("Extra accessories")}}: <span>0,00&#8364;</span>
+                                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
                                             </p>
                                             <p class="extra-mat-price">
-                                                {{tr("Extra materials")}}: <span>0,00&#8364;</span>
+                                                {{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
                                     <div class="delivery"></div>
-                                    <div class="total-price">{{state.active_product.price}}&#8364;</div>
+                                    <div class="total-price">{{state.active_product.price}}<span class="bitcoin"></span></div>
                                 </div>
                             </div>
                             <div class="description-product">
@@ -278,6 +278,7 @@
                                             <div class="mc colors-block">
                                                 <div class="color-title"><span>Colors</span></div>
                                                 <div class="color"
+                                                     <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
                                                      :class="[color.name ,(element.active_color == color.name)?'active':'']"
                                                      v-for="color in material.colors">
@@ -533,14 +534,14 @@
                                     <p>{{tr("CLASSIC")}}</p>
                                 </div>
                                 <div class="price">
-                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00&#8364;</span></div>
-                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00&#8364;</span></div>
+                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00<span class="bitcoin"></span></span></div>
                                 </div>
                             </div>
                         </div>
@@ -709,10 +710,10 @@
                                 </div>
                                 <div class="prices">
                                     <div class="price">
-                                        <p class="base-mod-price">{{tr('Base model')}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span>0,00&#8364;</span></p>
-                                        <div class="total-price">0,00&#8364;</div>
+                                        <p class="base-mod-price">{{tr('Base model')}}: <span class="price-span">0,00<span class="bitcoin"></span>;</span></p>
+                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                        <div class="total-price">0,00<span class="bitcoin"></span></div>
                                     </div>
                                     <div class="delivery-time">
                                         <div class="days"><span>21</span></div>
@@ -783,14 +784,14 @@
                                     </div>
                                     <div class="prices">
                                         <div class="price">
-                                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                            <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
-                                    <div class="total-price">0,00&#8364;</div>
+                                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                                     <div class="delivery"></div>
                                 </div>
                             </div>

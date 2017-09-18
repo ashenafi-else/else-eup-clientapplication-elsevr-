@@ -420,7 +420,7 @@ ul.options>li.number-colors::before{
 
 
 .material-icon{
-    width: 95px;
+    width: auto;
     height: 95px;
 }
 
@@ -1054,4 +1054,6 @@ footer {
 }
 .material-name{
     color:#ffffff;
+    width: 130px;
+    text-align: center;
 }

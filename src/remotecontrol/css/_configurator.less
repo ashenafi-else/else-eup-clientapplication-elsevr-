@@ -158,49 +158,109 @@
         background-size: 60px 60px;
     }
 
-    .upper{
+    &.upper{
         &:before{
-            background-image: url(../img/upper.png);
+            background-image: url(../img/components/w-upper.png);
         }
     }
-    .trim{
+    &.trim{
         &:before{
-            background-image: url(../img/trim.png);
+            background-image: url(../img/components/w-trim.png);
         }
     }
-    .strap{
+    &.strap{
         &:before{
-            background-image: url(../img/strap.png);
+            background-image: url(../img/components/w-strap.png);
         }
     }
-    .heel{
+    &.heel{
         &:before{
-            background-image: url(../img/heel.png);
+            background-image: url(../img/components/w-heel.png);
         }
     }
-    .applique{
+    &.applique{
         &:before{
-            background-image: url(../img/application.png);
+            background-image: url(../img/components/w-application.png);
         }
     }
-    .insole{
+    &.insole{
         &:before{
-            background-image: url(../img/insole.png);
+            background-image: url(../img/components/w-insole.png);
         }
     }
-    .lining{
+    &.lining{
         &:before{
-            background-image: url(../img/lining.png);
+            background-image: url(../img/components/w-lining.png);
         }
     }
-    .outsole:not(.crystal){
+    &.outsole:not(.crystal){
         &:before{
-            background-image: url(../img/outsole.png);
+            background-image: url(../img/components/w-outsole.png);
         }
     }
-    .outsole.crystal{
+    &.outsole.crystal{
         &:before{
-            background-image: url(../img/not_transparent_crystal.png);
+            background-image: url(../img/components/w-not_transparent_crystal.png);
+        }
+    }
+}
+
+[class*='elsevr_men_1_1_component'][id*='component-'] {
+    min-height: 80px;
+    &:before {
+        margin-right: auto;
+        margin-left: 10%;
+        content: '';
+        z-index: 10;
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        background-size: 60px 60px;
+    }
+
+    &.upper{
+        &:before{
+            background-image: url(../img/components/m-upper-facing.png);
+        }
+    }
+    &.winged.toe.cap{
+        &:before{
+            background-image: url(../img/components/m-front.png);
+        }
+    }
+    &.vamp{
+        &:before{
+            background-image: url(../img/components/m-middle.png);
+        }
+    }
+    &.tongue{
+        &:before{
+            background-image: url(../img/components/m-tongue.png);
+        }
+    }
+    &.back.strap{
+        &:before{
+            background-image: url(../img/components/m-back-strap.png);
+        }
+    }
+    &.heel{
+        &:before{
+            background-image: url(../img/components/m-heel.png);
+        }
+    }
+    &.lining{
+        &:before{
+            background-image: url(../img/components/m-lining.png);
+        }
+    }
+    &.insole{
+        &:before{
+            background-image: url(../img/components/m-insole.png);
+        }
+    }
+    &.outsole{
+        &:before{
+            background-image: url(../img/components/m-outsole.png);
         }
     }
 }

@@ -317,9 +317,9 @@
                     <div class="default-cameras">
                         <div class="camera camera-view"
                              :id="camera"
-                             :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
+                             :class="[tr(camera), states.material_view.active_camera==camera?'active':'']"
                              @click="changeCamera(camera)"
-                             v-for="camera in states.part_view.cameras"></div>
+                             v-for="camera in states.material_view.cameras"></div>
                     </div>
                 </div>
                 <div class="summary-footer" style="">

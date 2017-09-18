@@ -692,7 +692,7 @@ span{
 .input-label .label{
     font-size: 18px;
     padding: 5px 0 0;
-    color: #696969;
+    color: #ffffff;
 }
 
 .input-label input::-webkit-input-placeholder{
@@ -706,14 +706,14 @@ span{
 }
 
 .input-label input, .input-label textarea,.input-label select, .input-label select>option{
-    border: 1px solid #5c5c5c;
-    background-color: #d2d3d4;
+    border: none;
+    background-color: #42b3cb;
     color: #feffff;
     padding: 3px 0 4px 10px;
     font-size: 15px;
     margin: 5px 0;
-    outline-color: #ba3f3f;
-    font-family: 'Lato','Verdana', sans-serif;;
+    /* outline-color: #ba3f3f; */
+    font-family: 'Lato','Verdana', sans-serif;
 }
 .input-label input.active, .input-label textarea.active,.input-label select.active{
     border: 1px solid #5c5c5c!important;

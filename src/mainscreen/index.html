@@ -32,7 +32,6 @@
                                         {{states.customer_login_view.active_customer.firstname}}
                                         {{states.customer_login_view.active_customer.lastname}}
                                     </span>
-                                    <div class="user-figure"></div>
                                 </div>
                                 <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                     <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
@@ -47,7 +46,6 @@
                                         </span>
                                     </span>
                                 </div>
-                                <span class="vertical-line"></span>
                             </div>
                         </div>
                     </div>
@@ -227,20 +225,20 @@
                                     <div class="prices">
                                         <div class="price">
                                             <p class="base-mod-price">
-                                                {{tr("Base model")}}: <span>{{state.active_product.price}}&#8364;</span>
+                                                {{tr("Base model")}}: <span class="price-span">{{state.active_product.price}}<span class="bitcoin"></span></span>
                                             </p>
                                             <p class="extra-acc-price">
-                                                {{tr("Extra accessories")}}: <span>0,00&#8364;</span>
+                                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
                                             </p>
                                             <p class="extra-mat-price">
-                                                {{tr("Extra materials")}}: <span>0,00&#8364;</span>
+                                                {{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
                                     <div class="delivery"></div>
-                                    <div class="total-price">{{state.active_product.price}}&#8364;</div>
+                                    <div class="total-price">{{state.active_product.price}}<span class="bitcoin"></span></div>
                                 </div>
                             </div>
                             <div class="description-product">
@@ -283,6 +281,7 @@
 
                                             <div class="mc colors-block">
                                                 <div class="color-title"><span>Colors</span></div>
+                                                <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
                                                      :class="[color.name ,(element.active_color == color.name)?'active':'']"
@@ -342,6 +341,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="price-block">
+                        <div class="diff-prices-container">
+                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                            <div class="product-block">
+                                <div class="product"></div>
+                            </div>
+                            <div class="summary-block">
+                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                <div class="accessories-summary"></div>
+                            </div>
+                            <div class="prices">
+                                <div class="price">
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-time">
+                            <div class="total-price">0,00&#8364;</div>
+                            <div class="delivery"></div>
+                        </div>
+                    </div>
                     <div class="diy"><span>Ask ELSA</span></div>
                 </div>
             </product-preview>
@@ -380,12 +403,36 @@
                          <div id="product-cameras" style="">
                             <div class="camera camera-view"
                                  :id="camera"
-                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
-                                 v-for="camera in states.preview_view.cameras"></div>
+                                 :class="[tr(camera), states.material_view.active_camera==camera?'active':'']"
+                                 v-for="camera in states.material_view.cameras"></div>
                             <div class="rotation-zoom">
                                 <div class="rott"></div>
                                 <div class="zoom"></div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="diff-prices-container">
+                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                            <div class="product-block">
+                                <div class="product"></div>
+                            </div>
+                            <div class="summary-block">
+                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                <div class="accessories-summary"></div>
+                            </div>
+                            <div class="prices">
+                                <div class="price">
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-time">
+                            <div class="total-price">0,00&#8364;</div>
+                            <div class="delivery"></div>
                         </div>
                     </div>
                     <div class="diy"><span>Ask ELSA</span></div>
@@ -426,12 +473,36 @@
                         <div id="product-cameras" style="">
                             <div class="camera camera-view"
                                  :id="camera"
-                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
-                                 v-for="camera in states.preview_view.cameras"></div>
+                                 :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
+                                 v-for="camera in states.part_view.cameras"></div>
                             <div class="rotation-zoom">
                                 <div class="rott"></div>
                                 <div class="zoom"></div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="diff-prices-container">
+                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                            <div class="product-block">
+                                <div class="product"></div>
+                            </div>
+                            <div class="summary-block">
+                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                <div class="accessories-summary"></div>
+                            </div>
+                            <div class="prices">
+                                <div class="price">
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-time">
+                            <div class="total-price">0,00&#8364;</div>
+                            <div class="delivery"></div>
                         </div>
                     </div>
                     <div class="diy"><span>Ask ELSA</span></div>
@@ -467,14 +538,14 @@
                                     <p>{{tr("CLASSIC")}}</p>
                                 </div>
                                 <div class="price">
-                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00&#8364;</span></div>
-                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00&#8364;</span></div>
-                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00&#8364;</span></div>
+                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00<span class="bitcoin"></span></span></div>
                                 </div>
                             </div>
                         </div>
@@ -643,10 +714,10 @@
                                 </div>
                                 <div class="prices">
                                     <div class="price">
-                                        <p class="base-mod-price">{{tr('Base model')}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span>0,00&#8364;</span></p>
-                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span>0,00&#8364;</span></p>
-                                        <div class="total-price">0,00&#8364;</div>
+                                        <p class="base-mod-price">{{tr('Base model')}}: <span class="price-span">0,00<span class="bitcoin"></span>;</span></p>
+                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                        <div class="total-price">0,00<span class="bitcoin"></span></div>
                                     </div>
                                     <div class="delivery-time">
                                         <div class="days"><span>21</span></div>
@@ -717,14 +788,14 @@
                                     </div>
                                     <div class="prices">
                                         <div class="price">
-                                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                                            <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="delivery-time">
-                                    <div class="total-price">0,00&#8364;</div>
+                                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                                     <div class="delivery"></div>
                                 </div>
                             </div>

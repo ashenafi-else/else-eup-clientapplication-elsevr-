@@ -345,32 +345,6 @@ ul.options>li.number-colors::before{
     flex-direction: column;
     min-height: 100vh;
 }
-.main-start{
-    width: 25%;
-    padding: 0px;
-    margin-top: 90px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-}
-.main-end {
-    width: 25%;
-    padding: 10px;
-    margin-top: 59px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-}
-.main-middle {
-    display: flex;
-    width: 60%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    height: 100vh;
-    flex: 1 1;
-}
 .main-end {
     justify-content: space-between;
     overflow: hidden;
@@ -511,12 +485,6 @@ span{
     border-bottom: 18px solid rgba(255, 255, 255, 0.65);
     top: 0.7px;
     border-top-right-radius: 10px;
-}
-
-.components-block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .components-block.wedge .component{

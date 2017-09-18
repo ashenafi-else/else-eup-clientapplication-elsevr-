@@ -143,7 +143,10 @@
                                          :class="getFittingClass()"
                                          v-if="product.fit_score != null">{{product.fit_score}}</div>
                                     <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/active-border.svg"/></div>
-                                    <img class="collection-img" :src="product.image" :alt="product.name"/>
+                                    <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
+                                    <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
+                                        <img class="collection-img" v-show="img.active" :src="img.url" v-for="img in product.tour_360">
+                                    </div>
                                 </div>
                                 <button class="name">
                                     <span>{{tr(product.name)}}</span>
@@ -264,6 +267,7 @@
                             <!--</div>-->
                             <div class="element"
                                  :class="state.active_product.name"
+                                 v-if="data.active_component.configurable && element.configurable"
                                  v-for="element in data.active_structure.elements">
                                 <div class="materials-color-block">
                                     <div class="title"><span>{{tr("Materials")}}</span></div>

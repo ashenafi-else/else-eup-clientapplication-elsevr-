@@ -204,7 +204,7 @@
                         <div class="main-start">
                             <div class="components-block">
                                 <div class="parts-block configurable-parts-block">
-                                    <div class="title">{{tr("Configurable parts")}}</div>
+                                    <div class="title w-50per">{{tr("Configurable parts")}}</div>
                                     <div class="configurable-parts-container">
                                         <div class="component"
                                              :class="[getPartName(part), state.active_product.name]"
@@ -212,25 +212,45 @@
                                              v-for="part in data.parts">
                                             {{tr(getPartName(part))}}
                                         </div>
-                                        <div class="component">
-                                            alala
+                                        <div class="component component-item">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
                                             <div class="structure"></div>
                                         </div>
-                                        <div class="component"> alala</div>
-                                        <div class="component"> alala</div>
-                                        <div class="component"> <span>alala</span> <span>alala</span></div>
-                                        <div class="component"> alala</div>
-                                        <div class="component active">
-                                            <span>alala</span>
+                                        <div class="component component-item">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
+                                        </div>
+                                        <div class="component component-item">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
+                                        </div>
+                                        <div class="component component-item">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
+                                        </div>
+                                        <div class="component component-item">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
+                                        </div>
+                                        <div class="component component-item active">
+                                            <img src="img/options/camera_active.png"/>
+                                            <span class="name">alala</span>
                                             <div class="structure-dropped">
-                                                <div class="structure-item">alala</div>
-                                                <div class="structure-item">alala</div>
+                                                <div class="structure-item component-item">
+                                                    <img src="img/options/camera_active.png"/>
+                                                    <span class="name">alala</span>
+                                                </div>
+                                                <div class="structure-item component-item">
+                                                    <img src="img/options/camera_active.png"/>
+                                                    <span class="name">alala</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="parts-block non-configurable-parts-block">
-                                    <div class="title">{{tr("Non configurable parts")}}</div>
+                                    <div class="title w-70per">{{tr("Non configurable parts")}}</div>
                                     <div class="non-configurable-parts-container">
                                         <div class="component"> alala</div>
                                         <div class="component"> alala</div>

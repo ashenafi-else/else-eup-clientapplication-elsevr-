@@ -125,15 +125,6 @@
     width: 400px;
 }
 
-.blue-block-title(){
-
-}
-
-.trapeze-title(){
-
-}
-
-
 
 //M A T E R I A L S
 
@@ -280,4 +271,41 @@
 }
 .mat_suede_dark-beige{
     background-image: url("../img/materials/mat_suede_darkbeige.png")!important;
+}
+
+.active-item-rotating-round(){
+    &:after{
+        opacity: 1;
+        content: '';
+        @keyframes rotating {
+            from {
+                .rotate(0deg);
+            }
+            to {
+                .rotate(360deg);
+            }
+        }
+        .animation(rotating, 10s, linear, infinite);
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+        position: absolute;
+        min-width: 70px;
+        min-height: 70px;
+        background: url(../img/active-border.svg) no-repeat center;
+    }
+}
+
+.w-80per{
+    width: 80%;
+}
+.w-50per{
+    width: 50%;
+}
+.w-60per{
+    width: 60%;
+}
+.w-70per{
+    width: 70%;
 }

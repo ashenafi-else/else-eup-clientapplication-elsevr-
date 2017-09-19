@@ -53,13 +53,21 @@
 .blue-title(){
     height: 34px;
     padding: 7px 15px;
-    -webkit-mask: url(../img/trapeze-title.svg) no-repeat 0 100%;
-    mask: url(../img/trapeze-title.svg) no-repeat 0 100%;
-    -webkit-mask-size: contain;
-    mask-size: contain;
     background: rgba(88, 216, 240, 0.651);
     color: white;
     font-weight: 600;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        padding: 0;
+        top:0;
+        right: -34px;
+        border: 17px solid transparent;
+        border-left: 17px solid rgba(88, 216, 240, 0.651);
+        border-top: 17px solid rgba(88, 216, 240, 0.651);
+    }
 }
 
 .mask-path(@url){
@@ -96,4 +104,14 @@
     -ms-transition:     @transition;
     -o-transition:      @transition;
     transition:      @transition;
+}
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+}
+.object-fit(@fit: fill) {
+    -o-object-fit: @fit;
+    object-fit: @fit;
+    font-family: "object-fit: @{fit}";
 }

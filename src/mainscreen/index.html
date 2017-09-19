@@ -828,6 +828,7 @@
                     </div>
                     <div class="main">
                         <div class="main-start">
+                            <div class="elsa-container"><img src="img/ELSA.png"/></div>
                             <div class="price-block">
                                 <div class="diff-prices-container">
                                     <div class="model-name"><span>{{tr("Flat")}}</span></div>
@@ -967,6 +968,7 @@
                     <div v-show="visible.order_success" id="order-success-push">
                         {{tr('Your order has been successfully completed')}}
                     </div>
+                    <div class="diy"><span>Ask ELSA</span></div>
                 </div>
             </customer-order>
             <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"

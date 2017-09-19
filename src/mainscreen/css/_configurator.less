@@ -361,6 +361,24 @@
     .justify-content(flex-start);
 }
 
+.component-item{
+    .flex-container();
+    .flex-direction(column);
+    .justify-content(center);
+    .align-items(center);
+    position: relative;
+    flex: 1 1 100%;
+    img{
+        width: 90%;
+        height: 80%;
+        .object-fit(contain);
+    }
+    .name{
+        font-size: 12px;
+    }
+}
+
+
 .parts-block{
     .blue-block();
     border: solid 1px rgba(0, 255, 255, 0.651);
@@ -376,20 +394,6 @@
     [class*='container']{
         .flex-container();
         .flex-wrap(wrap);
-    }
-    .component-item{
-        .flex-container();
-        .flex-direction(column);
-        .justify-content(center);
-        .align-items(center);
-        img{
-            width: 90%;
-            height: 80%;
-            .object-fit(contain);
-        }
-        .name{
-            font-size: 12px;
-        }
     }
     .component{
         flex: 1 1 26%;
@@ -425,6 +429,31 @@
         }
     }
 }
+.types-block{
+    .flex-container();
+    .flex-direction(column);
+    .blue-block();
+    border: solid 1px rgba(0, 255, 255, 0.651);
+    border-radius: 10px;
+    //width: 70%;
+    max-width: 500px;
+    .title{
+        .blue-title();
+        border-top-left-radius: 8px;
+    }
+    .types-block-container{
+        .flex-container();
+        .flex-wrap(nowrap);
+    }
+    .component-item{
+        width: 100px;
+        max-width: 100px;
+        color: white;
+        &.active{
+            .active-item-rotating-round();
+        }
+    }
+}
 
 .configurable-parts-block{
     width: 420px;
@@ -450,16 +479,22 @@
     padding: 10px;
     margin-top: 59px;
     z-index: 1;
+    position: relative;
 }
-.main-middle {
-    display: flex;
-    width: 60%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
+.main-middle{
+    .flex-container();
+    .flex-direction(column);
+    .justify-content(flex-start);
+    width: 30%;
+    margin-top: 110px;
+}
+.main{
+    .flex-container();
+    .flex-wrap(nowrap);
+    .justify-content(space-between);
     height: 100vh;
-    flex: 1 1;
+    width: 100%;
 }
+
 
 

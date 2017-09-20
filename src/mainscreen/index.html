@@ -203,48 +203,42 @@
                     <div class="main">
                         <div class="main-start">
                             <div class="components-block">
-                                <div class="parts-block configurable-parts-block">
-                                    <div class="title w-50per">{{tr("Configurable parts")}}</div>
-                                    <div class="configurable-parts-container">
-                                        <div class="component"
-                                             :class="[getPartName(part), state.active_product.name]"
-                                             :id="'component-' + part.id"
-                                             v-for="part in data.parts">
-                                            {{tr(getPartName(part))}}
-                                        </div>
-                                        <div class="component component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                            <div class="structure"></div>
-                                        </div>
-                                        <div class="component component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                        </div>
-                                        <div class="component component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                        </div>
-                                        <div class="component component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                        </div>
-                                        <div class="component component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                        </div>
-                                        <div class="component component-item active">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                            <div class="structure-dropped">
-                                                <div class="structure-item component-item">
-                                                    <img src="img/options/camera_active.png"/>
-                                                    <span class="name">alala</span>
+                                <div class="components-block">
+                                    <div class="parts-block configurable-parts-block">
+                                        <div class="title w-50per">{{tr("Configurable parts")}}</div>
+                                        <div class="configurable-parts-container">
+                                            <div class="component"
+                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                                 :id="'component-' + component.id"
+                                                 v-if="component.configurable"
+                                                 v-for="component in data.components">
+                                                <img src="img/options/camera_active.png"/>
+                                                <span class="name">{{tr(component.name)}}</span>
+                                                <div class="structure"></div>
+
+                                                <div class="structure-dropped" v-if="component.active">
+                                                    <div class="structure-item component-item"
+                                                         :class="[structure.name, structure.active?'active':'']"
+                                                         v-if="structure.visible"
+                                                         v-for="structure in component.structures">
+                                                        <img src="img/options/camera_active.png"/>
+                                                        <span class="name">{{tr(structure.name)}}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="structure-item component-item">
-                                                    <img src="img/options/camera_active.png"/>
-                                                    <span class="name">alala</span>
-                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="parts-block non-configurable-parts-block">
+                                        <div class="title w-70per">{{tr("Non configurable parts")}}</div>
+                                        <div class="non-configurable-parts-container">
+                                            <div class="component"
+                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                                 :id="'component-' + component.id"
+                                                 v-if="!component.configurable"
+                                                 v-for="component in data.components">
+                                                <img src="img/options/camera_active.png"/>
+                                                <span class="name">{{tr(component.name)}}</span>
+                                                <div class="structure"></div>
                                             </div>
                                         </div>
                                     </div>

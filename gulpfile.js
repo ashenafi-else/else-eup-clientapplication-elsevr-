@@ -7,15 +7,15 @@ var containerName = 'elsevr';
 var container = 'appselse';
 var containerKey = 'gRlCuXTLExfKgOJy3oXGTUbVzBcYRXhWCJe6f9quDTD2mJTDzTBF0eU3MX0NFoUTZlfabryEG2uHx7hhBae+qw==';
 
-dist_dir = 'dist';
+var dist_dir = 'dist';
 
-gulp.task('deploy-stage', function () {
-    return gulp.src([dist_dir + '/**/*.*']).pipe(deployCdn({
-        containerName: containerName,
+function _deploy(_dist_dir, _folder, _containerName, _container, _containerKey) {
+    return gulp.src([_dist_dir + '/**/*.*']).pipe(deployCdn({
+        containerName: _containerName,
         containerOptions: {publicAccessLevel: "blob"},
-        serviceOptions: [container, containerKey],
-        folder: 'web',
-        zip: true,
+        serviceOptions: [_container, _containerKey],
+        folder: _folder,
+        zip: false,
         deleteExistingBlobs: true,
         concurrentUploadThreads: 10,
         metadata: {
@@ -24,21 +24,12 @@ gulp.task('deploy-stage', function () {
         },
         testRun: false
     })).on('error', gutil.log);
+}
+
+gulp.task('deploy-stage', function () {
+    _deploy(dist_dir, 'web', containerName, container, containerKey)
 });
 
 gulp.task('deploy', function () {
-    return gulp.src([dist_dir + '/**/*.*']).pipe(deployCdn({
-        containerName: containerName,
-        containerOptions: {publicAccessLevel: "blob"},
-        serviceOptions: [container, containerKey],
-        folder: 'dev',
-        zip: true,
-        deleteExistingBlobs: true,
-        concurrentUploadThreads: 10,
-        metadata: {
-            cacheControl: 'public, max-age=0',
-            cacheControlHeader: 'public, max-age=0'
-        },
-        testRun: false
-    })).on('error', gutil.log);
+    _deploy(dist_dir, 'dev', containerName, container, containerKey)
 });

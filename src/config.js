@@ -4,10 +4,18 @@
 
 window.config = {
     'default_camera': 'cameraLEFTp',
+    'default_material_camera': 'cameraLEFTp',
+    'default_part_camera': 'cameraLEFTp',
+    'default_preview_camera': 'cameraLEFTp',
     'camera_animation_time': 1000,
     'default_language': 'en',
     'default_scanner': 'Dome000018',
+    'default_scanners': {
+        '18': 'Dome000031',
+        '19': 'Dome000031'
+    },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
+    'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',
     'default_configuration': {},
     'product_tour_configuration': {
         'elsevr_women_1_1': {
@@ -15,5 +23,8 @@ window.config = {
         	'interval': 50
         }
     },
-    'home_state': 'PRODUCT_LIST'
+    'component_cameras': {},
+    'cameras_initial_settings': {},
+    'home_state': 'PRODUCT_LIST',
+    'render_quality': 'AUTO'
 };

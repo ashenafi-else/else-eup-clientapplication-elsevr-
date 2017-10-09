@@ -57,7 +57,7 @@
                     <div class="top-panel">
                         <div class="logo-container">
                             <img class="logo-else" src="img/Logo_ELSE.png"/>
-                            <img class="logo-micam" src="img/Logo_Micam.png">
+                            <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
                         </div>
                     </div>
                     <div class="store-list">
@@ -212,7 +212,6 @@
                                                  :id="'component-' + component.id"
                                                  v-if="component.configurable"
                                                  v-for="component in data.components">
-                                                <img src="img/options/camera_active.png"/>
                                                 <span class="name">{{tr(component.name)}}</span>
                                                 <div class="structure"></div>
 
@@ -300,7 +299,7 @@
                                     <li class="number-colors">64</li>
                                 </ul> -->
                             </div>
-                            <div class="diy"><span>DIY&AI</span></div>
+                            <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
                         <div class="main-middle">
                             <div class="types-block">
@@ -435,7 +434,7 @@
                             <div class="delivery"></div>
                         </div>
                     </div>
-                    <div class="diy"><span>Ask ELSA</span></div>
+                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
             </product-preview>
             <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" inline-template>
@@ -509,7 +508,7 @@
                             <div class="delivery"></div>
                         </div>
                     </div>
-                    <div class="diy"><span>Ask ELSA</span></div>
+                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
             </material-preview>
             <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
@@ -580,7 +579,7 @@
                             <div class="delivery"></div>
                         </div>
                     </div>
-                    <div class="diy"><span>Ask ELSA</span></div>
+                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
             </part-preview>
             <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
@@ -987,7 +986,7 @@
                     <div v-show="visible.order_success" id="order-success-push">
                         {{tr('Your order has been successfully completed')}}
                     </div>
-                    <div class="diy"><span>Ask ELSA</span></div>
+                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
             </customer-order>
             <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"

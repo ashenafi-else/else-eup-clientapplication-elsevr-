@@ -139,9 +139,9 @@
                                  :id="product.id"
                                  v-for="product in states.product_list_view.products">
                                 <div class="element-boot">
-                                    <div class="product_fitt_score"
-                                         :class="getFittingClass()"
-                                         v-if="product.fit_score != null">{{product.fit_score}}</div>
+                                    <!--<div class="product_fitt_score"-->
+                                         <!--:class="getFittingClass()"-->
+                                         <!--v-if="product.fit_score != null">{{product.fit_score}}</div>-->
                                     <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/active-border.svg"/></div>
                                     <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
                                     <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
@@ -349,7 +349,20 @@
                             </div>
                         </div>
                         <div class="else-shoes"></div>
-                        <div class="wishlist" id="wish-list"><div class="wl-title">{{tr("Wishlist")}}</div></div>
+                        <div class="wishlist" id="wish-list">
+                            <div class="wl-title">{{tr("Wishlist")}}</div>
+                            <div class="wl-container">
+                                <div class="wl-item">
+                                    <div class="item-description">
+                                    <img src="img/options/camera_active.png">
+                                        <div>
+                                            <span class="configuration-title">MY CONFIGURATION</span>
+                                            <span class="configuration-description">Descreiption of the model</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </product-details>
@@ -723,6 +736,9 @@
                                 </table>
                             </div>
                         </div>  <!-- ./user-info end -->
+                        <div class="user_profile_params">
+                            <div class="your-scans_profile">Your Scans</div>
+                        </div>
                     </div>
                 </div>
             </customer-profile>

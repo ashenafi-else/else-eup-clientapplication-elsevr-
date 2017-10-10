@@ -388,14 +388,18 @@
         .flex-wrap(wrap);
     }
     .component{
-        height: 100px;
-        width: 100px;
+        height: 93px;
+        width: 93px;
         margin: 10px;
         position: relative;
         display: flex;
         justify-content: flex-end;
         flex-direction: column;
         align-items: center;
+        background-size: contain;
+        background-position-x: center;
+        background-position-y: -6px;
+        background-repeat: no-repeat;
         &:after{
             .transition(opacity 0.2s ease);
             opacity: 0;
@@ -405,9 +409,6 @@
             .active-item-rotating-round();
         }
         &._Men_ {
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
             &.upper {
                 background-image: url(../img/components/m-upper-facing.png);
             }
@@ -422,6 +423,50 @@
             }
             &.strap {
                 background-image: url(../img/components/m-back-strap.png);
+            }
+            &.monogram {
+                background-image: url(../img/components/m-monogram.png);
+            }
+            &.heel {
+                background-image: url(../img/components/m-heel.png);
+            }
+            &.lining {
+                background-image: url(../img/components/m-lining.png);
+            }
+            &.insole {
+                background-image: url(../img/components/m-insole.png);
+            }
+            &.outsole {
+                background-image: url(../img/components/m-outsole.png);
+            }
+        }
+        &._Women_ {
+            &.upper {
+                background-image: url(../img/components/w-upper.png);
+            }
+            &.trim {
+                background-image: url(../img/components/w-trim.png);
+            }
+            &.applique {
+                background-image: url(../img/components/w-application.png);
+            }
+            &.strap {
+                background-image: url(../img/components/w-strap.png);
+            }
+            &.heel {
+                background-image: url(../img/components/w-heel.png);
+            }
+            &.accessory {
+                background-image: url(../img/components/w-accessory.png);
+            }
+            &.crystal {
+                background-image: url(../img/components/w-transparent_crystal.png);
+            }
+            &.lining {
+                background-image: url(../img/components/w-lining.png);
+            }
+            &.insole {
+                background-image: url(../img/components/w-insole.png);
             }
         }
         span.name {
@@ -449,6 +494,12 @@
         }
     }
 }
+
+.non-configurable-parts-container .component {
+    width: 65px;
+    height: 65px;
+}
+
 .types-block{
     .flex-container();
     .flex-direction(column);
@@ -479,7 +530,6 @@
 .configurable-parts-block{
     width: 460px;
     height:auto;
-    max-height:;
 }
 .non-configurable-parts-block{
     width: 350px;

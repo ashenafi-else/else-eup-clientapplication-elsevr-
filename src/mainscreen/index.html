@@ -220,7 +220,7 @@
                                                          :class="[structure.name, structure.active?'active':'']"
                                                          v-if="structure.visible"
                                                          v-for="structure in component.structures">
-                                                        <img src="img/options/camera_active.png"/>
+                                                        <!--<img src="img/options/camera_active.png"/>-->
                                                         <span class="name">{{tr(structure.name)}}</span>
                                                     </div>
                                                 </div>
@@ -235,23 +235,10 @@
                                                  :id="'component-' + component.id"
                                                  v-if="!component.configurable"
                                                  v-for="component in data.components">
-                                                <img src="img/options/camera_active.png"/>
+                                                <!--<img src="img/options/camera_active.png"/>-->
                                                 <span class="name">{{tr(component.name)}}</span>
                                                 <div class="structure"></div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="parts-block non-configurable-parts-block">
-                                    <div class="title w-80per">{{tr("Non configurable parts")}}</div>
-                                    <div class="non-configurable-parts-container">
-                                        <div class="structure-item component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
-                                        </div>
-                                        <div class="structure-item component-item">
-                                            <img src="img/options/camera_active.png"/>
-                                            <span class="name">alala</span>
                                         </div>
                                     </div>
                                 </div>

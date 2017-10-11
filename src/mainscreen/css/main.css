@@ -674,6 +674,7 @@ span{
     margin: 30px auto 0;
     cursor: pointer;
     background: url(../img/else-shoes.png) center center no-repeat;
+    background: url(../img/else-shoes.png) center center no-repeat;
     background-size: contain;
 }
 
@@ -693,7 +694,6 @@ span{
     height: 88%;
     z-index: 999;
 }
-.user_profile_params,
 .user_scans,
 .left_scan,
 .right_scan {
@@ -731,19 +731,7 @@ span{
 .total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
     border-right: 1px solid #d9d9d9;
 }
-.user_profile_params{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    box-shadow: 0 0 10px #777777;
-    margin: 20px 10px 30px 10px;
-    flex: 2;
-    height: 100%;
-    background-color: rgba(11, 73, 104, 0.72);
-    z-index: -1;
-    /* width: 30%; */
-    color: #ffffff;
-}
+
 .user_info{
     margin: 35px 0px 30px 0px;
     z-index: -1;
@@ -764,10 +752,7 @@ span{
     padding: 30px;
     text-align: center;
 }
-.user_info_line {
-    margin-bottom: 5px;
-    margin-left: 30px;
-}
+
 span.user_profile_name {
     font-size: 24px;
     margin: 10px;
@@ -866,15 +851,15 @@ span.user_profile_name {
     width: 180px;
 }
 .else-shoes{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url(../img/else-shoes.png);
     position: absolute;
-    right: 115px;
-    bottom: 60px;
+    right: 10px;
+    top: 0px;
     cursor: pointer;
 }
 footer {

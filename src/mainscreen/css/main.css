@@ -404,13 +404,6 @@ ul.options>li.number-colors::before{
     margin-top: 4px;
 }
 
-.summary-block div {
-    display: flex;
-    flex-direction: row;
-    margin-left: 30px;
-    padding: 5px;
-    color: black;
-}
 .price {
     width: 95%;
 }

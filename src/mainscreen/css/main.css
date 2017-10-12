@@ -27,7 +27,7 @@ html, body{
     margin-left: auto;
 }
 .header-middle {
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -967,4 +967,5 @@ footer {
     color:#ffffff;
     width: 130px;
     text-align: center;
+    margin-bottom: 4px;
 }

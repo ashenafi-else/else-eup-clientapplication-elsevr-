@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="session-code">
-                        <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                        <img class="logo-chromium" src="img/neon-logo.png"/>
                         <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                         <img :src="qrImage"/>
                         <div class="element-border">
@@ -1101,6 +1101,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="elsa"><img src="img/ELSA.png">/div>
                         </div>  <!-- ./user-info end -->
                         <div class="product_info">
                             <div class="fitting-name">Virtual Fitting</div>
@@ -1109,19 +1110,19 @@
                                      :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
                                      v-if="states.customer_fitting_view.best_sizes.prev_best_size">
                                     <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                                    <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
                                 </div>
                                 <div class="best_size"
                                      :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
                                      v-if="states.customer_fitting_view.best_sizes.best_size">
                                     <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                                    <!--<img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
                                 </div>
                                 <div class="next_best_size"
                                      :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
                                      v-if="states.customer_fitting_view.best_sizes.next_best_size">
                                     <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                                    <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
                                 </div>
                             </div>
                             <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">

@@ -76,7 +76,7 @@
                     <div class="top-panel">
                         <div class="logo-container">
                             <img class="logo-else" src="img/Logo_ELSE.png"/>
-                            <img class="logo-micam" src="img/Logo_Micam.png">
+                            <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
                         </div>
                     </div>
                     <div class="session-code">
@@ -129,7 +129,7 @@
                         <div class="logo-container">
                             <img class="logo-else" src="img/neon-logo.png"/>
                             <div class="elsa-container"><img src="img/ELSA.png"/></div>
-                            <div class="text stylish-text">3D Product Configurator</div>
+                            <div class="text stylish-text">Virtual Boutique 3D</div>
                         </div>
                     </div>
                     <div class="virtual-catalog">
@@ -348,7 +348,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="else-shoes"></div>
+                        <!--<div class="else-shoes"></div>-->
                         <div class="wishlist" id="wish-list">
                             <div class="wl-title">{{tr("Wishlist")}}</div>
                             <div class="wl-container">
@@ -977,7 +977,7 @@
                                 </div>
                                 <div class="order-button"></div>
                                 <div class="order-success" style="display:none;">
-                                    {{tr("The pre-order has been successfully completed!")}}
+                                    {{tr("The order has been successfully completed!")}}
                                 </div>
                                 <div class="order-fail" style="display:none;">
                                     {{tr("The order has failed")}}
@@ -1123,6 +1123,7 @@
                             </div>
                         </div>  <!-- ./user-info end -->
                         <div class="product_info">
+                            <div class="fitting-name">Virtual Fitting</div>
                             <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
                             <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
                                 <span>{{tr('Size')}}</span>
@@ -1134,6 +1135,37 @@
                             </div>
                         </div>
                     </div>
+                    <div class="price-block">
+                        <div class="diff-prices-container">
+                            <div class="model-name"><span></span></div>
+                            <div class="product-block">
+                                <div class="product"></div>
+                            </div>
+                            <div class="summary-block">
+
+                                <div class="accessories-summary"></div>
+                            </div>
+                            <div class="prices">
+                                <div class="price">
+                                    <p class="base-mod-price">
+                                        : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                                    </p>
+                                    <p class="extra-acc-price">
+                                        : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                                    </p>
+                                    <p class="extra-mat-price">
+                                        : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-time">
+                            <div class="delivery"></div>
+                            <div class="total-price">0,00<span class="bitcoin"></span></div>
+                        </div>
+                    </div>
+
+
                 </div>
             </customer-fitting>
             <material-library v-if="states.material_library_view.active" id="material-library-screen">

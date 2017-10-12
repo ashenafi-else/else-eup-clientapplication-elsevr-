@@ -27,7 +27,7 @@ html, body{
     margin-left: auto;
 }
 .header-middle {
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -404,13 +404,6 @@ ul.options>li.number-colors::before{
     margin-top: 4px;
 }
 
-.summary-block div {
-    display: flex;
-    flex-direction: row;
-    margin-left: 30px;
-    padding: 5px;
-    color: black;
-}
 .price {
     width: 95%;
 }
@@ -974,4 +967,5 @@ footer {
     color:#ffffff;
     width: 130px;
     text-align: center;
+    margin-bottom: 4px;
 }

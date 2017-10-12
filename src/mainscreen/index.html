@@ -854,7 +854,7 @@
                                 <div class="diff-prices-container">
                                     <div class="model-name"><span>{{tr("Flat")}}</span></div>
                                     <div class="product-block">
-                                        <div class="product"></div>
+                                        <img class="live-image">
                                     </div>
                                     <div class="summary-block">
                                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -884,8 +884,10 @@
                             <form>
                                 <div class="input-label">
                                     <label class="label">{{tr('Full Name')}}</label>
-                                    <input type="text" :value="account_data.firstname" name="firstname"  placeholder="First Name" style="flex: 1 2 140px;width: 100%;margin-right: 5px;"/>
-                                    <input type="text" :value="account_data.lastname" name="lastname" placeholder="Last Name" style="flex:2 1 115px;width: 100%;"/>
+                                    <div class="fullname-block">
+                                        <input type="text" :value="account_data.firstname" name="firstname"  style="flex: 1 2 140px;width: 50%;"/>
+                                        <input type="text" :value="account_data.lastname" name="lastname"  style="flex:2 1 115px;width: 50%;"/>
+                                    </div>
                                 </div>
                                 <div class="input-label">
                                     <label class="label" for="email-order">{{tr('Email')}}</label>

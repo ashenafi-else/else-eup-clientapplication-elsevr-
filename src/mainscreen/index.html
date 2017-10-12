@@ -1,219 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>MainScreen</title>
-        <meta charset="UTF-8">
-        <link href="css/main.css" rel="stylesheet">
-        <link href="css/reset.css" rel="stylesheet">
-        <link href="css/loader.css" rel="stylesheet">
-        <link href="css/screens.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-        <link href="../mainscreen.css" rel="stylesheet">
-    </head>
-    <body>
-        <div id="else-mainscreen-control">
-            <div id="loader" :visible="visible" v-show="visible.pending">
-                <div class="img"></div>
-            </div>
-            <header-component :visible="visible" :states="states" :active_state="active_state" v-if="visible.header" inline-template>
-                <header class="controller-header" id="header">
-                    <div class="header-content">
-                        <div class="header-left">
-                            <div class="logo"></div>
-                        </div>
-                        <div class="header-center">
-                            <span class="screen-name">{{tr(active_state)}}</span>
-                        </div>
+<head>
+    <title>MainScreen</title>
+    <meta charset="UTF-8">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/loader.css" rel="stylesheet">
+    <link href="css/screens.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="../mainscreen.css" rel="stylesheet">
+</head>
+<body>
+<div id="else-mainscreen-control">
+    <div id="loader" :visible="visible" v-show="visible.pending">
+        <div class="img"></div>
+    </div>
+    <header-component :visible="visible" :states="states" :active_state="active_state" v-if="visible.header" inline-template>
+        <header class="controller-header" id="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo"></div>
+                </div>
+                <div class="header-center">
+                    <span class="screen-name">{{tr(active_state)}}</span>
+                </div>
 
-                        <div class="header-right">
-                            <div class="login">
-                                <div class="go-account" v-if="visible.header_customer_profile_button">
+                <div class="header-right">
+                    <div class="login">
+                        <div class="go-account" v-if="visible.header_customer_profile_button">
                                     <span class="user-name">
                                         {{states.customer_login_view.active_customer.firstname}}
                                         {{states.customer_login_view.active_customer.lastname}}
                                     </span>
-                                </div>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <div v-if="getFittingValues().best_size != null">
+                        </div>
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="recommended-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                        <span class="fitting-factor">{{getFittingValues().best_size.score}}</span>
-                                    </div>
-                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                        <span id="fitting-factor"
-                                              :class="getFittingClass()">
-                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                        </span>
-                                    </span> -->
-                                </div>
+                                <span class="fitting-factor">{{getFittingValues().best_size.score}}</span>
                             </div>
+                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                <span id="fitting-factor"
+                                      :class="getFittingClass()">
+                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                </span>
+                            </span> -->
                         </div>
-                    </div>
-                </header>
-            </header-component>
-            <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
-                <div class="store-selection" id="stores-screen">
-                    <div class="top-panel">
-                        <div class="logo-container">
-                            <img class="logo-else" src="img/Logo_ELSE.png"/>
-                            <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
-                        </div>
-                    </div>
-                    <div class="store-list">
-                        <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
-                        <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
-                            <a :id="store.id">{{tr(store.name)}}</a>
-                        </div>
-                    </div>
-                    <div class="bottom-panel">
-                        <div class="stylish-text">3D Retail Revolution </div>
                     </div>
                 </div>
-            </stores>
-            <session-code inline-template v-if="states.login_view.active">
-                <div id="session-code-screen" class="session-code-screen">
-                    <div class="top-panel">
-                        <div class="logo-container">
-                            <img class="logo-else" src="img/Logo_ELSE.png"/>
-                            <img class="logo-micam" src="img/Logo_Micam.png">
-                        </div>
-                    </div>
-                    <div class="session-code">
-                        <img class="logo-chromium" src="img/chromium-else-logo.png"/>
-                        <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
-                        <img :src="qrImage"/>
-                        <div class="element-border">
-                            <img src="img/blue-border.svg"/>
-                        </div>
-                    </div>
+            </div>
+        </header>
+    </header-component>
+    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
+        <div class="store-selection" id="stores-screen">
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else" src="img/Logo_ELSE.png"/>
+                    <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
+                </div>
+            </div>
+            <div class="store-list">
+                <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
+                <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
+                    <a :id="store.id">{{tr(store.name)}}</a>
+                </div>
+            </div>
+            <div class="bottom-panel">
+                <div class="stylish-text">3D Retail Revolution </div>
+            </div>
+        </div>
+    </stores>
+    <session-code inline-template v-if="states.login_view.active">
+        <div id="session-code-screen" class="session-code-screen">
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else" src="img/Logo_ELSE.png"/>
+                    <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
+                </div>
+            </div>
+            <div class="session-code">
+                <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
+                <img :src="qrImage"/>
+                <div class="element-border">
+                    <img src="img/blue-border.svg"/>
+                </div>
+            </div>
 
-                    <div class="bottom-panel">
-                        <div class="stylish-text">3D Retail Revolution </div>
-                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+            <div class="bottom-panel">
+                <div class="stylish-text">3D Retail Revolution </div>
+                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+            </div>
+        </div>
+    </session-code>
+    <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
+        <div class="content mainscreen-app virtual-catalog" id="product-start-screen">
+            <div class="logo-section">
+                <img class="logo" src="img/logo.png">
+                <span class="logo-line"></span>
+            </div>
+            <div class="list-items" >
+                <div class="element"
+                     :class="[collection.active?'active':'', collection.name]"
+                     :id="collection.id"
+                     v-for="collection in states.collection_view.collections">
+                    <div class="name">
+                        <span>{{collection.name}}</span>
+                    </div>
+                    <img class="collection-img" :src="collection.image"/>
+                    <div class="description">
+                        <ul class="col-16">
+                            <ul id="description4" class="options">
+                                <li class="number-configurations">2601</li>
+                                <li class="number-elements">3</li>
+                                <li class="number-materials">6</li>
+                                <li class="number-colors">51</li>
+                            </ul>
+                        </ul>
                     </div>
                 </div>
-            </session-code>
-            <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
-                <div class="content mainscreen-app virtual-catalog" id="product-start-screen">
-                    <div class="logo-section">
-                        <img class="logo" src="img/logo.png">
-                        <span class="logo-line"></span>
-                    </div>
-                    <div class="list-items" >
-                        <div class="element"
-                             :class="[collection.active?'active':'', collection.name]"
-                             :id="collection.id"
-                             v-for="collection in states.collection_view.collections">
-                            <div class="name">
-                                <span>{{collection.name}}</span>
-                            </div>
-                            <img class="collection-img" :src="collection.image"/>
-                            <div class="description">
-                                <ul class="col-16">
-                                    <ul id="description4" class="options">
-                                        <li class="number-configurations">2601</li>
-                                        <li class="number-elements">3</li>
-                                        <li class="number-materials">6</li>
-                                        <li class="number-colors">51</li>
-                                    </ul>
-                                </ul>
+            </div>
+        </div>
+    </product-start-screen>
+    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
+        <div class="container" id="product-list-screen">
+            <div class="top-panel">
+                <div class="logo-container">
+                    <img class="logo-else" src="img/neon-logo.png"/>
+                    <div class="elsa-container"><img src="img/ELSA.png"/></div>
+                    <div class="text stylish-text">Virtual Boutique 3D</div>
+                </div>
+            </div>
+            <div class="virtual-catalog">
+                <div class="list-items">
+                    <div class="element"
+                         :class="[product.active?'active':'', product.name]"
+                         :id="product.id"
+                         v-for="product in states.product_list_view.products">
+                        <div class="element-boot">
+                            <!--<div class="product_fitt_score"-->
+                            <!--:class="getFittingClass()"-->
+                            <!--v-if="product.fit_score != null">{{product.fit_score}}</div>-->
+                            <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/active-border.svg"/></div>
+                            <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
+                            <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
+                                <img class="collection-img" v-show="img.active" :src="img.url" v-for="img in product.tour_360">
                             </div>
                         </div>
+                        <button class="name">
+                            <span>{{tr(product.name)}}</span>
+                        </button>
                     </div>
                 </div>
-            </product-start-screen>
-            <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
-                <div class="container" id="product-list-screen">
-                    <div class="top-panel">
-                        <div class="logo-container">
-                            <img class="logo-else" src="img/neon-logo.png"/>
-                            <div class="elsa-container"><img src="img/ELSA.png"/></div>
-                            <div class="text stylish-text">3D Product Configurator</div>
-                        </div>
-                    </div>
-                    <div class="virtual-catalog">
-                        <div class="list-items">
-                            <div class="element"
-                                 :class="[product.active?'active':'', product.name]"
-                                 :id="product.id"
-                                 v-for="product in states.product_list_view.products">
-                                <div class="element-boot">
-                                    <!--<div class="product_fitt_score"-->
-                                         <!--:class="getFittingClass()"-->
-                                         <!--v-if="product.fit_score != null">{{product.fit_score}}</div>-->
-                                    <div class="element-border"><img src="img/blue-border.svg"/><img class="active-picture" src="img/active-border.svg"/></div>
-                                    <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
-                                    <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
-                                        <img class="collection-img" v-show="img.active" :src="img.url" v-for="img in product.tour_360">
-                                    </div>
-                                </div>
-                                <button class="name">
-                                    <span>{{tr(product.name)}}</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom-panel">
-                        <div class="stylish-text">3D Retail Revolution </div>
-                    </div>
-                </div>
-            </product-list>
-            <product-details inline-template
-                             :configuration="configuration"
-                             :states="states"
-                             :state="states.product_view"
-                             :data="api2Data"
-                             v-if="states.product_view.active">
-                <div class="content mainscreen-app" id="product-details-screen">
-                    <div class="header">
-                        <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                            <span class="stylish-text">3D Product Configurator</span>
-                            <span class="back-to">
+            </div>
+            <div class="bottom-panel">
+                <div class="stylish-text">3D Retail Revolution </div>
+            </div>
+        </div>
+    </product-list>
+    <product-details inline-template
+                     :configuration="configuration"
+                     :states="states"
+                     :state="states.product_view"
+                     :data="api2Data"
+                     v-if="states.product_view.active">
+        <div class="content mainscreen-app" id="product-details-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="stylish-text">3D Product Configurator</span>
+                    <span class="back-to">
                                 <!--<a>{{getCollectionName()}}</a>-->
                             </span>
-                        </div>
-                        <div class="header-middle">
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{getUserName()}}
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <div class="size-block" v-if="getFittingValues().best_size != null">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div class="size-block" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                        <span class="factor-text">fitting factor</span>
-                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
-                                    </div>
-                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                        <span id="fitting-factor"
-                                              :class="getFittingClass()">
-                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                        </span>
-                                    </span> -->
-                                </div>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
+                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                <span id="fitting-factor"
+                                      :class="getFittingClass()">
+                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                </span>
+                            </span> -->
                         </div>
                     </div>
-                    <div class="main">
-                        <div class="main-start">
-                            <div class="components-block">
-                                <div class="components-block">
-                                    <div class="parts-block configurable-parts-block">
-                                        <div class="title w-50per">{{tr("Configurable parts")}}</div>
-                                        <div class="configurable-parts-container">
-                                            <div class="component"
-                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                                 :id="'component-' + component.id"
-                                                 v-if="component.configurable"
-                                                 v-for="component in data.components">
-                                                <span class="name">{{tr(component.name)}}</span>
-                                                <div class="structure"></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="main-start">
+                    <div class="components-block">
+                        <div class="components-block">
+                            <div class="parts-block configurable-parts-block">
+                                <div class="title w-50per">{{tr("Configurable parts")}}</div>
+                                <div class="configurable-parts-container">
+                                    <div class="component"
+                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                         :id="'component-' + component.id"
+                                         v-if="component.configurable"
+                                         v-for="component in data.components">
+                                        <span class="name">{{tr(component.name)}}</span>
+                                        <div class="structure"></div>
 
                                                 <div class="structure-dropped" v-if="component.active">
                                                     <div class="structure-item component-item"
@@ -334,30 +334,13 @@
                                                 <div class="material-name">{{getMaterialName(material)}}</div>
                                             </div>
 
-                                            <div class="mc colors-block">
-                                                <div class="color-title"><span>Colors</span></div>
-                                                <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
-                                                <div class="color"
-                                                     :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                                     :class="[color.name ,(element.active_color == color.name)?'active':'']"
-                                                     v-for="color in material.colors">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="else-shoes"></div>
-                        <div class="wishlist" id="wish-list">
-                            <div class="wl-title">{{tr("Wishlist")}}</div>
-                            <div class="wl-container">
-                                <div class="wl-item">
-                                    <div class="item-description">
-                                    <img src="img/options/camera_active.png">
-                                        <div>
-                                            <span class="configuration-title">MY CONFIGURATION</span>
-                                            <span class="configuration-description">Descreiption of the model</span>
+                                    <div class="mc colors-block">
+                                        <div class="color-title"><span>Colors</span></div>
+                                        <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
+                                        <div class="color"
+                                             :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                             :class="[color.name ,(element.active_color == color.name)?'active':'']"
+                                             v-for="color in material.colors">
                                         </div>
                                     </div>
                                 </div>
@@ -365,787 +348,838 @@
                         </div>
                     </div>
                 </div>
-            </product-details>
-            <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
-                <div id="product-preview-screen">
-                    <div class="header">
-                        <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                            <span class="stylish-text">{{tr("Product Preview")}}</span>
+                <!--<div class="else-shoes"></div>-->
+                <div class="wishlist" id="wish-list">
+                    <div class="wl-title">{{tr("Wishlist")}}</div>
+                    <div class="wl-container">
+                        <div class="wl-item">
+                            <div class="item-description">
+                                <img src="img/options/camera_active.png">
+                                <div>
+                                    <span class="configuration-title">MY CONFIGURATION</span>
+                                    <span class="configuration-description">Description of the model</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="header-middle">
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </product-details>
+    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+        <div id="product-preview-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="stylish-text">{{tr("Product Preview")}}</span>
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                     <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
                                         <span id="rec-size">
                                             {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                         </span>
                                     </span>
-                                    <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
                                     </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="product-area">
-                        <div class="default-cameras">
-                            <div class="camera camera-view"
-                                 :id="camera"
-                                 :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
-                                 v-for="camera in states.preview_view.cameras"></div>
-                            <div class="rotation-zoom">
-                                <div class="rott"></div>
-                                <div class="zoom"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-block">
-                        <div class="diff-prices-container">
-                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                            <div class="product-block">
-                                <div class="product"></div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                <div class="accessories-summary"></div>
-                            </div>
-                            <div class="prices">
-                                <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delivery-time">
-                            <div class="total-price">0,00&#8364;</div>
-                            <div class="delivery"></div>
-                        </div>
-                    </div>
-                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
-            </product-preview>
-            <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" inline-template>
-                <div id="material-preview-screen">
-                    <div class="header">
-                        <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                            <span class="stylish-text">{{tr("Material Preview")}}</span>
+            </div>
+            <div class="product-area">
+                <div class="default-cameras">
+                    <div class="camera camera-view"
+                         :id="camera"
+                         :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                         v-for="camera in states.preview_view.cameras"></div>
+                    <div class="rotation-zoom">
+                        <div class="rott"></div>
+                        <div class="zoom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-block">
+                <div class="diff-prices-container">
+                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="product-block">
+                        <div class="product"></div>
+                    </div>
+                    <div class="summary-block">
+                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                        <div class="accessories-summary"></div>
+                    </div>
+                    <div class="prices">
+                        <div class="price">
+                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
                         </div>
-                        <div class="header-middle">
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+                    </div>
+                </div>
+                <div class="delivery-time">
+                    <div class="total-price">0,00&#8364;</div>
+                    <div class="delivery"></div>
+                </div>
+            </div>
+            <!--<div class="diy"><span>Ask ELSA</span></div>-->
+        </div>
+    </product-preview>
+    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" inline-template>
+        <div id="material-preview-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="stylish-text">{{tr("Material Preview")}}</span>
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
 
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <div class="size-block" v-if="getFittingValues().best_size != null">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div class="size-block" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                        <span class="factor-text">fitting factor</span>
-                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
-                                    </div>
-                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                        <span id="fitting-factor"
-                                              :class="getFittingClass()">
-                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                        </span>
-                                    </span> -->
-                                </div>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
+                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                <span id="fitting-factor"
+                                      :class="getFittingClass()">
+                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                </span>
+                            </span> -->
                         </div>
                     </div>
-                    <div class="preview-area on_detail">
-                         <div id="product-cameras" style="">
-                            <div class="camera camera-view"
-                                 :id="camera"
-                                 :class="[tr(camera), states.material_view.active_camera==camera?'active':'']"
-                                 v-for="camera in states.material_view.cameras"></div>
-                            <div class="rotation-zoom">
-                                <div class="rott"></div>
-                                <div class="zoom"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-block">
-                        <div class="diff-prices-container">
-                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                            <div class="product-block">
-                                <div class="product"></div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                <div class="accessories-summary"></div>
-                            </div>
-                            <div class="prices">
-                                <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delivery-time">
-                            <div class="total-price">0,00&#8364;</div>
-                            <div class="delivery"></div>
-                        </div>
-                    </div>
-                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
-            </material-preview>
-            <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
-                <div id="part-preview-screen">
-                    <div class="header">
-                        <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                            <span class="stylish-text">{{tr("Detail Preview")}}</span>
+            </div>
+            <div class="preview-area on_detail">
+                <div id="product-cameras" style="">
+                    <div class="camera camera-view"
+                         :id="camera"
+                         :class="[tr(camera), states.material_view.active_camera==camera?'active':'']"
+                         v-for="camera in states.material_view.cameras"></div>
+                    <div class="rotation-zoom">
+                        <div class="rott"></div>
+                        <div class="zoom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-block">
+                <div class="diff-prices-container">
+                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="product-block">
+                        <div class="product"></div>
+                    </div>
+                    <div class="summary-block">
+                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                        <div class="accessories-summary"></div>
+                    </div>
+                    <div class="prices">
+                        <div class="price">
+                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
                         </div>
-                        <div class="header-middle">
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+                    </div>
+                </div>
+                <div class="delivery-time">
+                    <div class="total-price">0,00&#8364;</div>
+                    <div class="delivery"></div>
+                </div>
+            </div>
+            <!--<div class="diy"><span>Ask ELSA</span></div>-->
+        </div>
+    </material-preview>
+    <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
+        <div id="part-preview-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="stylish-text">{{tr("Detail Preview")}}</span>
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                     <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
                                         <span id="rec-size">
                                             {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                         </span>
                                     </span>
-                                    <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
                                     </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="preview-area on_detail">
-                        <div id="product-cameras" style="">
-                            <div class="camera camera-view"
-                                 :id="camera"
-                                 :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
-                                 v-for="camera in states.part_view.cameras"></div>
-                            <div class="rotation-zoom">
-                                <div class="rott"></div>
-                                <div class="zoom"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-block">
-                        <div class="diff-prices-container">
-                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                            <div class="product-block">
-                                <div class="product"></div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                <div class="accessories-summary"></div>
-                            </div>
-                            <div class="prices">
-                                <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delivery-time">
-                            <div class="total-price">0,00&#8364;</div>
-                            <div class="delivery"></div>
-                        </div>
-                    </div>
-                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
-                </div>
-            </part-preview>
-            <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
-                <div class="total-look" id="total-look-screen">
-                    <div class="total-look-left">
-
-                        <div class="icon-shirt">
-                            <img src="img/jacket/total-look/prod_3_shirt.png">
-                        </div>
-                        <div class="icon-jacket">
-                            <img src="img/jacket/total-look/prod_1_jacket.png">
-                        </div>
-                        <div class="icon-waistcoat">
-                            <img src="img/jacket/total-look/prod_4_waistcoat.png">
-                        </div>
-                        <div class="icon-trousers">
-                            <img src="img/jacket/total-look/prod_2_trousers.png">
-                        </div>
-
-                        <div class="total-look-price-block">
-                            <div class="delivery-time">
-                                <div class="small-man">
-                                    <img src="img/small-man.png">
-                                </div>
-                                <div class="delivery"></div>
-                                <div class="days"><span>{{tr("Delivery")}}</span></div>
-                            </div>
-                            <div class="prices">
-                                <div class="tl-model-name">
-                                    <p>{{tr("CLASSIC")}}</p>
-                                </div>
-                                <div class="price">
-                                    <div class="base-mod-price">{{tr("Jacket")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
-                                    <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00<span class="bitcoin"></span></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="total-look-center"></div>
-                    <div class="total-look-right">
-                        <div class="icon-tie">
-                            <img src="img/jacket/total-look/prod_5_tie.png">
-                        </div>
-                        <div class="icon-shawl">
-                            <img src="img/jacket/total-look/prod_7_shawl.png">
-                        </div>
-                        <div class="icon-cufflink active">
-                            <img src="img/jacket/total-look/prod_6_cufflinks-active.png">
-                        </div>
-                        <div class="icon-shoes">
-                            <img src="img/jacket/total-look/prod_8_shoe.png">
-                        </div>
-                        <div class="v-couture">
-                            <img src="img/options/logo_vc.png">
                         </div>
                     </div>
                 </div>
-            </total-look>
-            <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active" class="customer-profile" >
-                <div class="container" id="customer-profile-screen">
-                    <div class="header">
-                            <div class="header-start" >
-                                <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                                <span class="stylish-text">{{tr("User Profile")}}</span>
-                            </div>
-                            <div class="header-middle">
-                            </div>
-                            <div class="header-end">
-                                <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                    <div class="go-account"></div>
-                                    <span id="user_name">
+            </div>
+            <div class="preview-area on_detail">
+                <div id="product-cameras" style="">
+                    <div class="camera camera-view"
+                         :id="camera"
+                         :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
+                         v-for="camera in states.part_view.cameras"></div>
+                    <div class="rotation-zoom">
+                        <div class="rott"></div>
+                        <div class="zoom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-block">
+                <div class="diff-prices-container">
+                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="product-block">
+                        <div class="product"></div>
+                    </div>
+                    <div class="summary-block">
+                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                        <div class="accessories-summary"></div>
+                    </div>
+                    <div class="prices">
+                        <div class="price">
+                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="delivery-time">
+                    <div class="total-price">0,00&#8364;</div>
+                    <div class="delivery"></div>
+                </div>
+            </div>
+            <!--<div class="diy"><span>Ask ELSA</span></div>-->
+        </div>
+    </part-preview>
+    <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
+        <div class="total-look" id="total-look-screen">
+            <div class="total-look-left">
+
+                <div class="icon-shirt">
+                    <img src="img/jacket/total-look/prod_3_shirt.png">
+                </div>
+                <div class="icon-jacket">
+                    <img src="img/jacket/total-look/prod_1_jacket.png">
+                </div>
+                <div class="icon-waistcoat">
+                    <img src="img/jacket/total-look/prod_4_waistcoat.png">
+                </div>
+                <div class="icon-trousers">
+                    <img src="img/jacket/total-look/prod_2_trousers.png">
+                </div>
+
+                <div class="total-look-price-block">
+                    <div class="delivery-time">
+                        <div class="small-man">
+                            <img src="img/small-man.png">
+                        </div>
+                        <div class="delivery"></div>
+                        <div class="days"><span>{{tr("Delivery")}}</span></div>
+                    </div>
+                    <div class="prices">
+                        <div class="tl-model-name">
+                            <p>{{tr("CLASSIC")}}</p>
+                        </div>
+                        <div class="price">
+                            <div class="base-mod-price">{{tr("Jacket")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="bitcoin"></span></span></div>
+                            <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00<span class="bitcoin"></span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="total-look-center"></div>
+            <div class="total-look-right">
+                <div class="icon-tie">
+                    <img src="img/jacket/total-look/prod_5_tie.png">
+                </div>
+                <div class="icon-shawl">
+                    <img src="img/jacket/total-look/prod_7_shawl.png">
+                </div>
+                <div class="icon-cufflink active">
+                    <img src="img/jacket/total-look/prod_6_cufflinks-active.png">
+                </div>
+                <div class="icon-shoes">
+                    <img src="img/jacket/total-look/prod_8_shoe.png">
+                </div>
+                <div class="v-couture">
+                    <img src="img/options/logo_vc.png">
+                </div>
+            </div>
+        </div>
+    </total-look>
+    <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active" class="customer-profile" >
+        <div class="container" id="customer-profile-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="stylish-text">{{tr("User Profile")}}</span>
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
-                                    <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                         <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
                                             <span id="rec-size">
                                                 {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                             </span>
                                         </span>
-                                        <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                             <span id="fitting-factor"
                                                   :class="getFittingClass()">
                                                 {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                             </span>
                                         </span>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="user_profile_params">
-                            <div class="user_info">
-                                <div class="user_info_line username_profile">{{tr('Name')}}:
-                                    <span id="user_profile_name">
-                                        {{states.customer_profile_view.active_customer.firstname}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Gender')}}:
-                                    <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Size')}}:
-                                    <span id="user_profile_size">
-                                        {{states.customer_profile_view.active_customer.size}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Email')}}:
-                                    <span id="user_profile_email">
-                                        {{states.customer_profile_view.active_customer.email}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Phone')}}:
-                                    <span id="user_profile_phone">
-                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Delivery address')}}:
-                                    <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    Notes:
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div class="total_user_profile">
-                                <table id="user_profile_table">
-                                    <tbody>
-                                        <tr>
-                                            <th>{{tr('Measure')}}</th>
-                                            <th>{{tr('Left Foot')}}</th>
-                                            <th>{{tr('Right Foot')}}</th>
-                                        </tr>
-                                        <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                            <td>{{tr(metric.name)}}</td>
-                                            <td>{{tr(metric.LEFT_FOOT)}}</td>
-                                            <td>{{tr(metric.RIGHT_FOOT)}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>  <!-- ./user-info end -->
-                        <div class="user_profile_params">
-                            <div class="your-scans_profile">Your Scans</div>
                         </div>
                     </div>
                 </div>
-            </customer-profile>
-            <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.active">
-                <div class="remote-configuration" id="customer-edit-profile-screen">
-                    <div class="header">
-                        <div class="header-start" >
+            </div>
+            <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
+                <div class="user_profile_params">
+                    <div class="user_info">
+                        <div class="user_info_line username_profile">{{tr('Name')}}:
+                            <span id="user_profile_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Gender')}}:
+                            <span id="user_profile_sex">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Size')}}:
+                            <span id="user_profile_size">
+                                        {{states.customer_profile_view.active_customer.size}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Email')}}:
+                            <span id="user_profile_email">
+                                        {{states.customer_profile_view.active_customer.email}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Phone')}}:
+                            <span id="user_profile_phone">
+                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Delivery address')}}:
+                            <span id="user_profile_address">
+                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            Notes:
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="total_user_profile">
+                        <table id="user_profile_table">
+                            <tbody>
+                            <tr>
+                                <th>{{tr('Measure')}}</th>
+                                <th>{{tr('Left Foot')}}</th>
+                                <th>{{tr('Right Foot')}}</th>
+                            </tr>
+                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                <td>{{tr(metric.name)}}</td>
+                                <td>{{tr(metric.LEFT_FOOT)}}</td>
+                                <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>  <!-- ./user-info end -->
+                <div class="user_profile_params">
+                    <div class="your-scans_profile">Your Scans</div>
+                </div>
+            </div>
+        </div>
+    </customer-profile>
+    <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.active">
+        <div class="remote-configuration" id="customer-edit-profile-screen">
+            <div class="header">
+                <div class="header-start" >
                             <span class="back-to">
                                 <a>{{getCollectionName()}}</a>
                             </span>
-                        </div>
-                        <div class="header-middle">
-                        </div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                     <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
                                         <span id="rec-size">
                                             {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                         </span>
                                     </span>
-                                    <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
                                     </span>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="main-start">
+                    <div class="price-block">
+                        <div class="collection-summary">Flat</div>
+                        <div class="shoe-block">
+                            <div class="shoe"></div>
+                        </div>
+                        <div class="summary-block">
+                            <div class="heel-material-summary"></div>
+                            <div class="heel-color-summary"></div>
+                            <div class="accessories-summary"></div>
+                        </div>
+                        <div class="prices">
+                            <div class="price">
+                                <p class="base-mod-price">{{tr('Base model')}}: <span class="price-span">0,00<span class="bitcoin"></span>;</span></p>
+                                <p class="extra-acc-price">{{tr('Extra accessories')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                <p class="extra-mat-price">{{tr('Extra materials')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
+                                <div class="total-price">0,00<span class="bitcoin"></span></div>
+                            </div>
+                            <div class="delivery-time">
+                                <div class="days"><span>21</span></div>
+                                <div class="delivery"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="main">
-                        <div class="main-start">
-                            <div class="price-block">
-                                <div class="collection-summary">Flat</div>
-                                <div class="shoe-block">
-                                    <div class="shoe"></div>
-                                </div>
-                                <div class="summary-block">
-                                    <div class="heel-material-summary"></div>
-                                    <div class="heel-color-summary"></div>
-                                    <div class="accessories-summary"></div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price">
-                                        <p class="base-mod-price">{{tr('Base model')}}: <span class="price-span">0,00<span class="bitcoin"></span>;</span></p>
-                                        <p class="extra-acc-price">{{tr('Extra accessories')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
-                                        <p class="extra-mat-price">{{tr('Extra materials')}}: <span class="price-span"><span class="bitcoin"></span>0,00<span class="bitcoin"></span></span></p>
-                                        <div class="total-price">0,00<span class="bitcoin"></span></div>
-                                    </div>
-                                    <div class="delivery-time">
-                                        <div class="days"><span>21</span></div>
-                                        <div class="delivery"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-middle">
+                </div>
+                <div class="main-middle">
 
-                        </div>
-                        <div class="main-end">
-                            <div class="else-shoes"></div>
-                        </div>
-                    </div>
                 </div>
-            </customer-edit-profile>
-            <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
-                <div id="customer-login-screen">
-                    {{tr("no customer login on main screen")}}
+                <div class="main-end">
+                    <div class="else-shoes"></div>
                 </div>
-            </customer-login>
-            <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
-                            :states="states" :configurator="configuration" inline-template>
-                <div class="content mainscreen-app" id="customer-order-screen">
-                    <div class="header">
-                        <div class="header-start" >
-                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                            <span class="screen-name stylish-text">{{tr("Order")}}</span>
-                        </div>
-                        <div class="header-middle"></div>
-                        <div class="header-end">
-                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                <div class="go-account"></div>
-                                <span id="user_name">
+            </div>
+        </div>
+    </customer-edit-profile>
+    <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
+        <div id="customer-login-screen">
+            {{tr("no customer login on main screen")}}
+        </div>
+    </customer-login>
+    <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
+                    :states="states" :configurator="configuration" inline-template>
+        <div class="content mainscreen-app" id="customer-order-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="screen-name stylish-text">{{tr("Order")}}</span>
+                </div>
+                <div class="header-middle"></div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
-                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                                     <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
                                         <span id="rec-size">
                                             {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                         </span>
                                     </span>
-                                    <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
                                     </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="main">
-                        <div class="main-start">
-                            <div class="elsa-container"><img src="img/ELSA.png"/></div>
-                            <div class="price-block">
-                                <div class="diff-prices-container">
-                                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
-                                    <div class="product-block">
-                                        <div class="product"></div>
-                                    </div>
-                                    <div class="summary-block">
-                                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                        <div class="accessories-summary"></div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price">
-                                            <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
-                                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
-                                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="delivery-time">
-                                    <div class="delivery"></div>
-                                    <div class="total-price">0,00<span class="bitcoin"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-middle">
-                            <div class="product-model">
-                            </div>
-                        </div>
-                        <div class="main-end" v-if="account_data">
-                           <div id="product-order" class="order-form" v-show="states.customer_order_view.active">
-                            <form>
-                                <div class="input-label">
-                                    <label class="label">{{tr('Full Name')}}</label>
-                                    <input type="text" :value="account_data.firstname" name="firstname"  placeholder="First Name" style="flex: 1 2 140px;width: 100%;margin-right: 5px;"/>
-                                    <input type="text" :value="account_data.lastname" name="lastname" placeholder="Last Name" style="flex:2 1 115px;width: 100%;"/>
-                                </div>
-                                <div class="input-label">
-                                    <label class="label" for="email-order">{{tr('Email')}}</label>
-                                    <input type="email" :value="account_data.email" name="email" id="email-order"/>
-                                </div>
-                                <div class="input-label">
-                                    <label class="label" for="size">{{tr('Base Size')}}</label>
-                                    <select size="1" :value="account_data.size" name="size" id="size">
-                                        <option value="34">{{tr('Size')}} 34</option>
-                                        <option value="34.5">{{tr('Size')}} 34.5</option>
-                                        <option value="35">{{tr('Size')}} 35</option>
-                                        <option value="35.5">{{tr('Size')}} 35.5</option>
-                                        <option value="36">{{tr('Size')}} 36</option>
-                                        <option value="36.5">{{tr('Size')}} 36.5</option>
-                                        <option value="37" selected>{{tr('Size')}} 37</option>
-                                        <option value="37.5">{{tr('Size')}} 37.5</option>
-                                        <option value="38">{{tr('Size')}} 38</option>
-                                        <option value="38.5">{{tr('Size')}} 38.5</option>
-                                        <option value="39">{{tr('Size')}} 39</option>
-                                        <option value="39.5">{{tr('Size')}} 39.5</option>
-                                        <option value="40">{{tr('Size')}} 40</option>
-                                        <option value="40.5">{{tr('Size')}} 40.5</option>
-                                        <option value="41">{{tr('Size')}} 41</option>
-                                        <option value="41.5">{{tr('Size')}} 41.5</option>
-                                        <option value="42">{{tr('Size')}} 42</option>
-                                        <option value="42.5">{{tr('Size')}} 42.5</option>
-                                        <option value="43">{{tr('Size')}} 43</option>
-                                        <option value="43.5">{{tr('Size')}} 43.5</option>
-                                        <option value="44">{{tr('Size')}} 44</option>
-                                    </select>
-                                    <a class="dropdown-btn"></a>
-                                </div>
-                                <div class="input-label">
-                                    <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
-                                    <select size="1" :value="account_data.size" name="size" id="fitted_size">
-                                        <option value="34">Size 34</option>
-                                        <option value="34.5">Size 34.5</option>
-                                        <option value="35">Size 35</option>
-                                        <option value="35.5">Size 35.5</option>
-                                        <option value="36">Size 36</option>
-                                        <option value="36.5">Size 36.5</option>
-                                        <option value="37" selected>Size 37</option>
-                                        <option value="37.5">Size 37.5</option>
-                                        <option value="38">Size 38</option>
-                                        <option value="38.5">{{tr('Size')}} 38.5</option>
-                                        <option value="39">{{tr('Size')}} 39</option>
-                                        <option value="39.5">{{tr('Size')}} 39.5</option>
-                                        <option value="40">{{tr('Size')}} 40</option>
-                                        <option value="40.5">{{tr('Size')}} 40.5</option>
-                                        <option value="41">{{tr('Size')}} 41</option>
-                                        <option value="41.5">{{tr('Size')}} 41.5</option>
-                                        <option value="42">{{tr('Size')}} 42</option>
-                                        <option value="42.5">{{tr('Size')}} 42.5</option>
-                                        <option value="43">{{tr('Size')}} 43</option>
-                                        <option value="43.5">{{tr('Size')}} 43.5</option>
-                                        <option value="44">{{tr('Size')}} 44</option>
-                                    </select>
-                                    <a class="dropdown-btn"></a>
-                                </div>
-                                <div class="input-label">
-                                    <div class="label">{{tr('Delivery address')}}</div>
-                                    <input type="text" :value="account_data.addresses[0].street[0]" id="district" placeholder="District of the shop"/>
-                                    <input type="text" :value="account_data.addresses[0].city" name="city" id="city" placeholder="City"/>
-                                    <div style="display: flex; flex-direction: row">
-                                        <input type="text" :value="account_data.addresses[0].countryId" name="country" id="country" placeholder="Country" style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
-                                        <input type="number" :value="account_data.addresses[0].postcode" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;width: 100%;"/>
-                                    </div>
-                                </div>
-
-                                <div class="input-label">
-                                    <label class="label" for="phone">{{tr('Phone Number')}}</label>
-                                    <input type="tel" :value="account_data.addresses[0].telephone" name="phone" id="phone"/>
-                                </div>
-                                <div class="input-label">
-                                    <label class="label" for="payment-type">{{tr('Payment type')}}</label>
-                                    <select size="1" name="payment-type" id="payment-type">
-                                        <option value="cash">{{tr("Cash")}}</option>
-                                        <option value="creditCard">{{tr("Credit Card")}}</option>
-                                        <option value="debitCard">{{tr("Debit Card")}}</option>
-                                        <option value="other">{{tr("Other")}}</option>
-                                    </select>
-                                    <a class="dropdown-btn"></a>
-                                </div>
-                                <div class="input-label">
-                                    <label class="label" for="notes">{{tr('Notes')}}</label>
-                                    <input type="text" name="notes" id="notes" notrequired="true"/>
-                                </div>
-                                <div class="order-button"></div>
-                                <div class="order-success" style="display:none;">
-                                    {{tr("The pre-order has been successfully completed!")}}
-                                </div>
-                                <div class="order-fail" style="display:none;">
-                                    {{tr("The order has failed")}}
-                                </div>
-                            </form>
-                         </div>
-
-
-                        </div>
-                    </div>
-                    <div v-show="visible.order_success" id="order-success-push">
-                        {{tr('Your order has been successfully completed')}}
-                    </div>
-                    <!--<div class="diy"><span>Ask ELSA</span></div>-->
                 </div>
-            </customer-order>
-            <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"
-                            :states="states" :configurator="configuration" inline-template>
-                <div class="container" id="customer-fitting-screen">
-                    <div class="header">
-                            <div class="header-start" >
-                                <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                                <span class="screen-name stylish-text">{{tr("Fitting Factor")}}</span>
+            </div>
+            <div class="main">
+                <div class="main-start">
+                    <div class="elsa-container"><img src="img/ELSA.png"/></div>
+                    <div class="price-block">
+                        <div class="diff-prices-container">
+                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                            <div class="product-block">
+                                <img class="live-image">
                             </div>
-                            <div class="header-middle">
+                            <div class="summary-block">
+                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
+                                <div class="accessories-summary"></div>
                             </div>
-                            <div class="header-end">
-                                <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                                    <div class="go-account"></div>
-                                    <span id="user_name">
+                            <div class="prices">
+                                <div class="price">
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-time">
+                            <div class="delivery"></div>
+                            <div class="total-price">0,00<span class="bitcoin"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-middle">
+                    <div class="product-model">
+                    </div>
+                </div>
+                <div class="main-end" v-if="account_data">
+                    <div id="product-order" class="order-form" v-show="states.customer_order_view.active">
+                        <form>
+                            <div class="input-label">
+                                <label class="label">{{tr('Full Name')}}</label>
+                                <div class="fullname-block">
+                                    <input type="text" :value="account_data.firstname" name="firstname"  style="flex: 1 2 140px;width: 50%;"/>
+                                    <input type="text" :value="account_data.lastname" name="lastname"  style="flex:2 1 115px;width: 50%;"/>
+                                </div>
+                            </div>
+                            <div class="input-label">
+                                <label class="label" for="email-order">{{tr('Email')}}</label>
+                                <input type="email" :value="account_data.email" name="email" id="email-order"/>
+                            </div>
+                            <div class="input-label">
+                                <label class="label" for="size">{{tr('Base Size')}}</label>
+                                <select size="1" :value="account_data.size" name="size" id="size">
+                                    <option value="34">{{tr('Size')}} 34</option>
+                                    <option value="34.5">{{tr('Size')}} 34.5</option>
+                                    <option value="35">{{tr('Size')}} 35</option>
+                                    <option value="35.5">{{tr('Size')}} 35.5</option>
+                                    <option value="36">{{tr('Size')}} 36</option>
+                                    <option value="36.5">{{tr('Size')}} 36.5</option>
+                                    <option value="37" selected>{{tr('Size')}} 37</option>
+                                    <option value="37.5">{{tr('Size')}} 37.5</option>
+                                    <option value="38">{{tr('Size')}} 38</option>
+                                    <option value="38.5">{{tr('Size')}} 38.5</option>
+                                    <option value="39">{{tr('Size')}} 39</option>
+                                    <option value="39.5">{{tr('Size')}} 39.5</option>
+                                    <option value="40">{{tr('Size')}} 40</option>
+                                    <option value="40.5">{{tr('Size')}} 40.5</option>
+                                    <option value="41">{{tr('Size')}} 41</option>
+                                    <option value="41.5">{{tr('Size')}} 41.5</option>
+                                    <option value="42">{{tr('Size')}} 42</option>
+                                    <option value="42.5">{{tr('Size')}} 42.5</option>
+                                    <option value="43">{{tr('Size')}} 43</option>
+                                    <option value="43.5">{{tr('Size')}} 43.5</option>
+                                    <option value="44">{{tr('Size')}} 44</option>
+                                </select>
+                                <a class="dropdown-btn"></a>
+                            </div>
+                            <div class="input-label">
+                                <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
+                                <select size="1" :value="account_data.size" name="size" id="fitted_size">
+                                    <option value="34">Size 34</option>
+                                    <option value="34.5">Size 34.5</option>
+                                    <option value="35">Size 35</option>
+                                    <option value="35.5">Size 35.5</option>
+                                    <option value="36">Size 36</option>
+                                    <option value="36.5">Size 36.5</option>
+                                    <option value="37" selected>Size 37</option>
+                                    <option value="37.5">Size 37.5</option>
+                                    <option value="38">Size 38</option>
+                                    <option value="38.5">{{tr('Size')}} 38.5</option>
+                                    <option value="39">{{tr('Size')}} 39</option>
+                                    <option value="39.5">{{tr('Size')}} 39.5</option>
+                                    <option value="40">{{tr('Size')}} 40</option>
+                                    <option value="40.5">{{tr('Size')}} 40.5</option>
+                                    <option value="41">{{tr('Size')}} 41</option>
+                                    <option value="41.5">{{tr('Size')}} 41.5</option>
+                                    <option value="42">{{tr('Size')}} 42</option>
+                                    <option value="42.5">{{tr('Size')}} 42.5</option>
+                                    <option value="43">{{tr('Size')}} 43</option>
+                                    <option value="43.5">{{tr('Size')}} 43.5</option>
+                                    <option value="44">{{tr('Size')}} 44</option>
+                                </select>
+                                <a class="dropdown-btn"></a>
+                            </div>
+                            <div class="input-label">
+                                <div class="label">{{tr('Delivery address')}}</div>
+                                <input type="text" :value="account_data.addresses[0].street[0]" id="district" placeholder="District of the shop"/>
+                                <input type="text" :value="account_data.addresses[0].city" name="city" id="city" placeholder="City"/>
+                                <div style="display: flex; flex-direction: row">
+                                    <input type="text" :value="account_data.addresses[0].countryId" name="country" id="country" placeholder="Country" style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
+                                    <input type="number" :value="account_data.addresses[0].postcode" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;width: 100%;"/>
+                                </div>
+                            </div>
+
+                            <div class="input-label">
+                                <label class="label" for="phone">{{tr('Phone Number')}}</label>
+                                <input type="tel" :value="account_data.addresses[0].telephone" name="phone" id="phone"/>
+                            </div>
+                            <div class="input-label">
+                                <label class="label" for="payment-type">{{tr('Payment type')}}</label>
+                                <select size="1" name="payment-type" id="payment-type">
+                                    <option value="cash">{{tr("Cash")}}</option>
+                                    <option value="creditCard">{{tr("Credit Card")}}</option>
+                                    <option value="debitCard">{{tr("Debit Card")}}</option>
+                                    <option value="other">{{tr("Other")}}</option>
+                                </select>
+                                <a class="dropdown-btn"></a>
+                            </div>
+                            <div class="input-label">
+                                <label class="label" for="notes">{{tr('Notes')}}</label>
+                                <input type="text" name="notes" id="notes" notrequired="true"/>
+                            </div>
+                            <div class="order-button"></div>
+                            <div class="order-success" style="display:none;">
+                                {{tr("The order has been successfully completed!")}}
+                            </div>
+                            <div class="order-fail" style="display:none;">
+                                {{tr("The order has failed")}}
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+            <div v-show="visible.order_success" id="order-success-push">
+                {{tr('Your order has been successfully completed')}}
+            </div>
+            <!--<div class="diy"><span>Ask ELSA</span></div>-->
+        </div>
+    </customer-order>
+    <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"
+                      :states="states" :configurator="configuration" inline-template>
+        <div class="container" id="customer-fitting-screen">
+            <div class="header">
+                <div class="header-start" >
+                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                    <span class="screen-name stylish-text">{{tr("Virtul Fitting")}}</span>
+                </div>
+                <div class="header-middle">
+                </div>
+                <div class="header-end">
+                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span id="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
-                                    <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                        <div class="size-block" v-if="getFittingValues().best_size != null">
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div class="size-block" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                            <span class="factor-text">fitting factor</span>
-                                            <span class="factor-score">{{getFittingValues().best_size.score}}</span>
-                                        </div>
-                                        <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                            <span id="fitting-factor"
-                                                  :class="getFittingClass()">
-                                                {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                            </span>
-                                        </span> -->
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="user_profile_params">
-                            <div class="user_info">
-                                <div class="user_info_line username_profile">{{tr('Name')}}:
-                                    <span id="user_profile_name">
-                                        {{states.customer_profile_view.active_customer.firstname}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Gender')}}:
-                                    <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Size')}}:
-                                    <span id="user_profile_size">
-                                        {{states.customer_profile_view.active_customer.size}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Email')}}:
-                                    <span id="user_profile_email">
-                                        {{states.customer_profile_view.active_customer.email}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Phone')}}:
-                                    <span id="user_profile_phone">
-                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    {{tr('Delivery address')}}:
-                                    <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
-                                </div>
-                                <div class="user_info_line">
-                                    Notes:
-                                    <span></span>
-                                </div>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
-                            <!-- <div class="comparision_differences" v-if="states.customer_fitting_view.active_comparision">
-                                <li class="comparision_differences_for_left" v-if="states.customer_fitting_view.active_comparision.output_differences.left">
-                                    <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.left">
-                                        <span class="metric_name">{{tr(diff.name)}}</span>
-                                        <div class="difference_values">
-                                            <span v-for="value in diff.difference">{{value}}</span>
-                                        </div>
-                                    </ul>
-                                </li>
-                                <li class="comparision_differences_for_right" v-if="states.customer_fitting_view.active_comparision.output_differences.right">
-                                    <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.right">
-                                        <span class="metric_name">{{tr(diff.name)}}</span>
-                                        <div class="difference_values">
-                                            <span v-for="value in diff.difference">{{value}}</span>
-                                        </div>
-                                    </ul>
-                                </li>
-                            </div> -->
-                            <div class="best_sizes">
-                                <div class="prev_best_size"
-                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                                     v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                                    <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
-                                </div>
-                                <div class="best_size"
-                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                                     v-if="states.customer_fitting_view.best_sizes.best_size">
-                                    <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
-                                </div>
-                                <div class="next_best_size"
-                                     :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                                     v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                                    <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                                    <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
-                                </div>
-                            </div>
-                            <div style="height: 350px;width: 600px;">
-                                <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
-                                    <div class="username_profile userscans">User scans</div>
-                                    <div class="left_scan">
-                                        <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
-                                    </div>
-                                    <div class="right_scan">
-                                        <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  <!-- ./user-info end -->
-                        <div class="product_info">
-                            <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
-                            <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
-                                <span>{{tr('Size')}}</span>
-                                <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
-                            </div>
-                            <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
-                                <span>{{tr('Fitting factor')}}</span>
-                                <span>{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
-                            </div>
+                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                <span id="fitting-factor"
+                                      :class="getFittingClass()">
+                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                </span>
+                            </span> -->
                         </div>
                     </div>
                 </div>
-            </customer-fitting>
-            <material-library v-if="states.material_library_view.active" id="material-library-screen">
-                <div id="material-library-screen"></div>
-            </material-library>
+            </div>
+            <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
+                <div class="user_profile_params">
+                    <div class="user_info">
+                        <div class="user_info_line username_profile">{{tr('Name')}}:
+                            <span id="user_profile_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Gender')}}:
+                            <span id="user_profile_sex">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Size')}}:
+                            <span id="user_profile_size">
+                                        {{states.customer_profile_view.active_customer.size}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Email')}}:
+                            <span id="user_profile_email">
+                                        {{states.customer_profile_view.active_customer.email}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Phone')}}:
+                            <span id="user_profile_phone">
+                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            {{tr('Delivery address')}}:
+                            <span id="user_profile_address">
+                                        {{states.customer_profile_view.active_customer.gender}}
+                                    </span>
+                        </div>
+                        <div class="user_info_line">
+                            Notes:
+                            <span></span>
+                        </div>
+                    </div>
+                    <!-- <div class="comparision_differences" v-if="states.customer_fitting_view.active_comparision">
+                        <li class="comparision_differences_for_left" v-if="states.customer_fitting_view.active_comparision.output_differences.left">
+                            <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.left">
+                                <span class="metric_name">{{tr(diff.name)}}</span>
+                                <div class="difference_values">
+                                    <span v-for="value in diff.difference">{{value}}</span>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="comparision_differences_for_right" v-if="states.customer_fitting_view.active_comparision.output_differences.right">
+                            <ul v-for="diff in states.customer_fitting_view.active_comparision.output_differences.right">
+                                <span class="metric_name">{{tr(diff.name)}}</span>
+                                <div class="difference_values">
+                                    <span v-for="value in diff.difference">{{value}}</span>
+                                </div>
+                            </ul>
+                        </li>
+                    </div> -->
+                    <div class="best_sizes">
+                        <div class="prev_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
+                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                        </div>
+                        <div class="best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
+                        </div>
+                        <div class="next_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
+                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                        </div>
+                    </div>
+                    <div style="height: 350px;width: 600px;">
+                        <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
+                            <div class="username_profile userscans">User scans</div>
+                            <div class="left_scan">
+                                <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                            </div>
+                            <div class="right_scan">
+                                <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!-- ./user-info end -->
+                <div class="product_info">
+                    <div class="fitting-name">Virtual Fitting</div>
+                    <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                    <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
+                        <span>{{tr('Size')}}</span>
+                        <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
+                    </div>
+                    <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
+                        <span>{{tr('Fitting factor')}}</span>
+                        <span>{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="price-block">
+                <div class="diff-prices-container">
+                    <div class="model-name"><span></span></div>
+                    <div class="product-block">
+                        <div class="product"></div>
+                    </div>
+                    <div class="summary-block">
+
+                        <div class="accessories-summary"></div>
+                    </div>
+                    <div class="prices">
+                        <div class="price">
+                            <p class="base-mod-price">
+                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                            </p>
+                            <p class="extra-acc-price">
+                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                            </p>
+                            <p class="extra-mat-price">
+                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="delivery-time">
+                    <div class="delivery"></div>
+                    <div class="total-price">0,00<span class="bitcoin"></span></div>
+                </div>
+            </div>
+
+
         </div>
+    </customer-fitting>
+    <material-library v-if="states.material_library_view.active" id="material-library-screen">
+        <div id="material-library-screen"></div>
+    </material-library>
+</div>
 
-        <script src="../mainscreen.bundle.js"></script>
-        <script id="brandId" value="13"></script>
+<script src="../mainscreen.bundle.js"></script>
+<script id="brandId" value="13"></script>
 
-        <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
-        <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
-         <!-- <script src="http://localhost:9000/mainscreen-ui-sdk.js"></script> -->
+<script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
+<!-- <script src="http://localhost:9000/mainscreen-ui-sdk.js"></script> -->
 
-        <div id="canvas_container_id"></div>
-    </body>
+<div id="canvas_container_id"></div>
+</body>
 </html>

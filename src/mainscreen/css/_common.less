@@ -17,7 +17,7 @@
     }
     .elsa-container {
         position: absolute;
-        top: 30px;
+        top: 95px;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -45,7 +45,7 @@
     right: 0;
     width: 100%;
     max-width: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 27PX;
     &:before {
         content: "";
         position: absolute;
@@ -111,12 +111,16 @@
     color: #0c5880;
     font-weight: bold;
     padding: 0px;
-    margin: 0 0 0 20px;
+    margin: 0 auto;
     -webkit-text-stroke: 1px white;
 }
 .logo-else{
     width: 250px;
-    margin-right: auto;
+    /* margin-right: auto; */
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    top: 76vh;
 }
 .logo-micam{
     width: 250px;
@@ -125,6 +129,79 @@
 .logo-chromium{
     width: 400px;
 }
+//CAMERAS
+/* cameras */
+.camera-view{
+    position: absolute;
+    background: url("../img/options/camera.png") center no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+.camera-view.active{
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    background: url("../img/options/camera_active.png") center no-repeat;
+    border: none!important;
+    background-size: 130%;
+    box-shadow: none!important;
+    border-bottom: 2px solid rgb(0, 255, 242);
+}
+.camera-view.cameraFRONT{
+    bottom: 17%;
+    left: 49%;
+    transform: rotate(90deg);
+}
+.camera-view.cameraTOP{
+    top: 90%;
+    left: 49%;
+    transform: rotate(90deg);
+}
+.camera-view.camera-inside{
+    bottom: 41%;
+    left: 17%;
+    transform: scale(-1, 1);
+}
+.camera-view.cameraLEFT{
+    bottom: 42%;
+    left: 17%;
+    transform: scale(-1,1);
+}
+.camera-view.cameraLEFTp{
+    bottom: 23%;
+    right: 18%;
+    transform: rotate(25deg);
+}
+.camera-view.camera-inside {
+    top: 13%;
+    left: 49%;
+    transform: rotate(-90deg);
+}
+.camera-view.cameraBACK{
+    top: 21%;
+    left: 49%;
+    transform: rotate(-90deg);
+}
+.camera-view.cameraRIGHT{
+    bottom: 43%;
+    right: 17%;
+}
+.camera-view.cameraRIGHTp{
+    bottom: 23%;
+    left: 18%;
+    transform: rotate(-215deg) scale(1,-1);
+}
+.camera-view.cameraBOTTOM{
+    top: 14%;
+    left: 49%;
+    transform: rotate(-90deg);
+}
+#camera{
+    display: none;
+}
+
+
 
 
 //M A T E R I A L S

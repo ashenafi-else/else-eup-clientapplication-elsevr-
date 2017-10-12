@@ -720,20 +720,7 @@ input:checked + .slider:before {
 .signedupuser-block{
     width: 93%;
 }
-.search-actions {
-    flex-direction: column;
-    margin-right: 50px;
-}
-.account-search{
-    display: flex;
-    flex-direction: column;
-}
-.register-block{
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    flex-direction: column;
-}
+
 .foot_toggle{
     display: flex;
     flex-direction: row;
@@ -743,14 +730,13 @@ input:checked + .slider:before {
 .edit-profile-form {
     margin-top: 60px;
 }
-.register-block .register-input, .edit-profile-form .register-input{
+.edit-profile-form .register-input{
     display:flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.register-block .register-input .label, .edit-profile-form .register-input .label{
-    width: 20%;
+.edit-profile-form .register-input .label{
     font-weight: 600;
     margin: 15px 15px 15px 140px;
     font-size: 1em;

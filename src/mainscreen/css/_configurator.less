@@ -60,28 +60,6 @@
     }
 }
 
-.model-name {
-    text-align: left;
-    padding: 8px;
-    width: 70%;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 120%;
-    background: rgba(88, 216, 240, 0.651);
-}
-.model-name:after {
-    content: '';
-    position: absolute;
-    left: 70%;
-    margin-top: -8px;
-    border: 16px solid transparent;
-    border-left: 16px solid rgba(88, 216, 240, 0.651);
-    border-top: 16px solid rgba(88, 216, 240, 0.651);
-}
-.model-name span {
-    padding-top: 10px;
-}
-
 .price-block{
     font-size: 13px;
     position: absolute;
@@ -95,6 +73,73 @@
         width: 225px;
         height: 250px;
         border-radius: 10px;
+        .model-name {
+            text-align: left;
+            padding: 8px;
+            width: 70%;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 120%;
+            background: rgba(88, 216, 240, 0.651);
+        }
+        .model-name:after {
+            content: '';
+            position: absolute;
+            left: 70%;
+            margin-top: -8px;
+            border: 16px solid transparent;
+            border-left: 16px solid rgba(88, 216, 240, 0.651);
+            border-top: 16px solid rgba(88, 216, 240, 0.651);
+        }
+        .model-name span {
+            padding-top: 10px;
+        }
+        .product-block {
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.65);
+            margin-top: 4px;
+        }
+        .summary-block {
+            padding: 0 10px 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .material-summary, .color-summary {
+                width: 95%;
+                font-weight: 400;
+                display: flex;
+                flex-direction: row;
+                color: white;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        }
+        .prices{
+            padding: 0 10px 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .price {
+                width: 95%;
+                p[class$='-price']{
+                    font-weight: 400;
+                    display: flex;
+                    flex-direction: row;
+                    color: white;
+                    justify-content: space-between;
+                    align-items: center;
+                    .price-span {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+            }
+        }
     }
     .delivery-time{
         margin-top: 7px;
@@ -108,27 +153,30 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 15px 0 27px;
-    }
-    .total-price{
-        display: flex;
-        justify-content: space-around;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-    }
-    .bitcoin{
-        display: inline-block;
-        background-image: url(../img/options/bitcoin.png);
-        width: 1.2em;
-        height: 1.2em;
-        margin-left: 3px;
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    .price-span {
-        display: flex;
-        align-items: center;
+        .delivery{
+            background:url("../img/delivery.png") center no-repeat;
+            background-size: 90%;
+            width: 85px;
+            height: 65px;
+            margin-left: -25px;
+        }
+        .total-price{
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            .bitcoin{
+                display: inline-block;
+                background-image: url(../img/options/bitcoin.png);
+                width: 1.2em;
+                height: 1.2em;
+                margin-left: 3px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
     }
 }
 .description-product{
@@ -277,22 +325,6 @@
     width: 100%;
 }
 
-.price-block .prices{
-    padding: 0 10px 10px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.price-block p[class$='-price']{
-    font-weight: 400;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    justify-content: space-between;
-    align-items: center;
-}
 
 
 
@@ -556,7 +588,7 @@
     .justify-content(flex-start);
     min-width: 420px;
     width: 30%;
-    padding: 0px;
+    padding: 0;
     margin-top: 90px;
     z-index: 1;
     position: relative;

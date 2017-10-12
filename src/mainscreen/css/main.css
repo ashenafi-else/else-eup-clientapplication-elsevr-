@@ -27,7 +27,7 @@ html, body{
     margin-left: auto;
 }
 .header-middle {
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@ html, body{
     background-image: url("../img/user.png");
     width: 24px;
     background-position-y: 8px;
-    margin: 0px;
+    margin: 0;
 }
 .header-end .go-else video{
     width: 50px;
@@ -86,7 +86,7 @@ html, body{
     content: '';
     width: 600px;
     margin-bottom: 20px;
-    padding: 2px 0 0 0px;
+    padding: 2px 0 0 0;
     height: 0;
     display: block;
     background: #000000;
@@ -250,7 +250,7 @@ ul.options>li.number-colors::before{
     content: '';
     width: 600px;
     margin-top: 15px;
-    padding: 2px 0 0 0px;
+    padding: 2px 0 0 0;
     height: 0;
     background: #000000;
     display: block;
@@ -369,7 +369,7 @@ ul.options>li.number-colors::before{
     display: flex;
     flex-direction: row;
     background-color: rgba(255, 255, 255, 0.8);
-    margin-top: 0px;
+    margin-top: 0;
     border-radius: 5px;
 }
 .product-options ul.options li{
@@ -404,13 +404,6 @@ ul.options>li.number-colors::before{
     margin-top: 4px;
 }
 
-.summary-block div {
-    display: flex;
-    flex-direction: row;
-    margin-left: 30px;
-    padding: 5px;
-    color: black;
-}
 .price {
     width: 95%;
 }
@@ -430,7 +423,6 @@ span{
 .delivery{
     background:url("../img/delivery.png") center no-repeat;
     background-size: 90%;
-    background-position: center;
     width: 85px;
     height: 65px;
     margin-left: -25px;
@@ -448,7 +440,7 @@ span{
     border: 18px solid transparent;
     border-right: 18px solid rgba(255, 255, 255, 0.65);
     border-bottom: 18px solid rgba(255, 255, 255, 0.65);
-    top: 0.7px;
+    top:0.7px;
     border-top-right-radius: 10px;
 }
 
@@ -508,68 +500,6 @@ span{
     display: flex;
     height: 100vh;
     width: 100%;
-}
-/* cameras */
-.camera-view{
-    position: absolute;
-    background: url("../img/options/camera.png") center no-repeat;
-    background-size: contain;
-    width: 50px;
-    height: 50px;
-}
-.camera-view.active{
-    position:absolute;
-    width: 50px;
-    height: 50px;
-    background: url("../img/options/camera_active.png") center no-repeat;
-    border: none!important;
-    background-size: 130%;
-    box-shadow: none!important;
-    border-bottom: 2px solid rgb(0, 255, 242);
-}
-.camera-view.cameraFRONT{
-    bottom: 17%;
-    left: 49%;
-    transform: rotate(90deg);
-}
-.camera-view.cameraTOP{
-    top: 90%;
-    left: 49%;
-    transform: rotate(90deg);
-}
-.camera-view.camera-inside{
-    bottom: 41%;
-    left: 17%;
-    transform: scale(-1, 1);
-}
-.camera-view.cameraLEFT{
-    bottom: 42%;
-    left: 17%;
-    transform: scale(-1,1);
-}
-.camera-view.cameraLEFTp{
-    bottom: 23%;
-    right: 18%;
-    transform: rotate(25deg);
-}
-.camera-view.camera-inside {
-    top: 13%;
-    left: 49%;
-    transform: rotate(-90deg);
-}
-.camera-view.cameraBACK{
-    top: 21%;
-    left: 49%;
-    transform: rotate(-90deg);
-}
-.camera-view.cameraRIGHT{
-    bottom: 43%;
-    right: 17%;
-}
-.camera-view.cameraRIGHTp{
-    bottom: 23%;
-    left: 18%;
-    transform: rotate(-215deg) scale(1,-1);
 }
 
 .rotation-zoom{
@@ -674,7 +604,6 @@ span{
     margin: 30px auto 0;
     cursor: pointer;
     background: url(../img/else-shoes.png) center center no-repeat;
-    background: url(../img/else-shoes.png) center center no-repeat;
     background-size: contain;
 }
 
@@ -733,7 +662,7 @@ span{
 }
 
 .user_info{
-    margin: 35px 0px 30px 0px;
+    margin: 35px 0 30px 0;
     z-index: -1;
 }
 .user_scans{
@@ -772,7 +701,7 @@ span.user_profile_name {
 .userscans {
     display: block!important;
     text-align: center;
-    margin: 19px 0px 20px 0px;
+    margin: 19px 0 20px 0;
     width: 97%;
     /* background-color: white; */
     padding: 15px;
@@ -816,13 +745,13 @@ span.user_profile_name {
     margin: 19px 10px 20px 20px;
     width: 94%;
     background-color: white;
-    padding: 16px 0px 16px 16px;
+    padding: 16px 0 16px 16px;
 }
 .scan{
     margin: 19px 10px 20px 20px;
     width: 94%;
     background-color: white;
-    padding: 16px 0px 16px 16px;
+    padding: 16px 0 16px 16px;
 }
 .fitting{
     display: flex;
@@ -859,14 +788,14 @@ span.user_profile_name {
     background-image: url(../img/else-shoes.png);
     position: absolute;
     right: 10px;
-    top: 0px;
+    top: 0;
     cursor: pointer;
 }
 footer {
     background-color: #6c6c6c;
     min-height: 6px;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
 }
 .store-selection, .store-password-screen, .session-code-screen{
@@ -898,7 +827,7 @@ footer {
     content: '';
     width: 600px;
     margin: 10px;
-    padding: 2px 0 0 0px;
+    padding: 2px 0 0 0;
     height: 0;
     display: block;
     background: #000000;
@@ -930,7 +859,7 @@ footer {
 
 .store-selection .store-list .store {
     display: block;
-    margin: 20px 30px 0px 30px;
+    margin: 20px 30px 0 30px;
     color: black;
     text-align: center;
 }
@@ -974,4 +903,5 @@ footer {
     color:#ffffff;
     width: 130px;
     text-align: center;
+    margin-bottom: 4px;
 }

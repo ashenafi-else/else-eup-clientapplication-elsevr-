@@ -215,124 +215,124 @@
                                         <span class="name">{{tr(component.name)}}</span>
                                         <div class="structure"></div>
 
-                                        <div class="structure-dropped" v-if="component.active">
-                                            <div class="structure-item component-item"
-                                                 :class="[structure.name, structure.active?'active':'']"
-                                                 v-if="structure.visible"
-                                                 v-for="structure in component.structures">
+                                                <div class="structure-dropped" v-if="component.active">
+                                                    <div class="structure-item component-item"
+                                                         :class="[structure.name, structure.active?'active':'']"
+                                                         v-if="structure.visible"
+                                                         v-for="structure in component.structures">
+                                                        <!--<img src="img/options/camera_active.png"/>-->
+                                                        <span class="name">{{tr(structure.name)}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="parts-block non-configurable-parts-block">
+                                        <div class="title w-70per">{{tr("Non configurable parts")}}</div>
+                                        <div class="non-configurable-parts-container">
+                                            <div class="component"
+                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                                 :id="'component-' + component.id"
+                                                 v-if="!component.configurable"
+                                                 v-for="component in data.components">
                                                 <!--<img src="img/options/camera_active.png"/>-->
-                                                <span class="name">{{tr(structure.name)}}</span>
+                                                <span class="name">{{tr(component.name)}}</span>
+                                                <div class="structure"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="parts-block non-configurable-parts-block">
-                                <div class="title w-70per">{{tr("Non configurable parts")}}</div>
-                                <div class="non-configurable-parts-container">
-                                    <div class="component"
-                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                         :id="'component-' + component.id"
-                                         v-if="!component.configurable"
-                                         v-for="component in data.components">
-                                        <!--<img src="img/options/camera_active.png"/>-->
-                                        <span class="name">{{tr(component.name)}}</span>
-                                        <div class="structure"></div>
+                            <div class="price-block">
+                                <div class="diff-prices-container">
+                                    <div class="model-name"><span>{{state.active_product.name}}</span></div>
+                                    <div class="product-block">
+                                        <div class="product"></div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-block">
-                        <div class="diff-prices-container">
-                            <div class="model-name"><span>{{state.active_product.name}}</span></div>
-                            <div class="product-block">
-                                <div class="product"></div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="material-summary" v-if="data.active_material">
-                                    {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
-                                </div>
-                                <div class="color-summary" v-if="data.active_color">
-                                    {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
-                                </div>
-                                <div class="accessories-summary"></div>
-                            </div>
-                            <div class="prices">
-                                <div class="price">
-                                    <p class="base-mod-price">
-                                        {{tr("Base model")}}: <span class="price-span">{{state.active_product.price}}<span class="bitcoin"></span></span>
-                                    </p>
-                                    <p class="extra-acc-price">
-                                        {{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
-                                    </p>
-                                    <p class="extra-mat-price">
-                                        {{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delivery-time">
-                            <div class="delivery"></div>
-                            <div class="total-price">{{state.active_product.price}}<span class="bitcoin"></span></div>
-                        </div>
-                    </div>
-                    <div class="description-product">
-                        <img src="img/configurations.png">
-                        <!-- ul class="options">
-                            <li class="number-configurations">328M</li>
-                            <li class="number-elements">8</li>
-                            <li class="number-materials">13</li>
-                            <li class="number-colors">64</li>
-                        </ul> -->
-                    </div>
-                    <!--<div class="diy"><span>DIY&AI</span></div>-->
-                </div>
-                <div class="main-middle">
-                    <div class="types-block">
-                        <div class="title w-50per">Dynamic types</div>
-                        <div class="types-block-container">
-                            <div class="component-item active">
-                                <img src="img/options/camera_active.png">
-                                <span class="name">name</span>
-                            </div>
-                            <div class="component-item">
-                                <img src="img/options/camera_active.png">
-                                <span class="name">name</span>
-                            </div>
-                            <div class="component-item">
-                                <img src="img/options/camera_active.png">
-                                <span class="name">name</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main-end">
-                    <!--<div class="product-options">-->
-                    <!--<ul class="options">-->
-                    <!--<li class="number-configurations">{{configuration.structure.configurations_count}}</li>-->
-                    <!--<li class="number-elements">{{configuration.structure.components_count}}</li>-->
-                    <!--<li class="number-materials">{{configuration.structure.materials_count}}</li>-->
-                    <!--<li class="number-colors">{{configuration.structure.colors_count}}</li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <div class="element"
-                         :class="state.active_product.name"
-                         v-if="data.active_component.configurable && element.configurable"
-                         v-for="element in data.active_structure.elements">
-                        <div class="materials-color-block">
-                            <div class="title"><span>{{tr("Materials")}}</span></div>
-                            <div class="material-block"
-                                 :class="[state.active_product.name, material.name]"
-                                 v-for="material in element.colors">
-                                <div class="material-head"
-                                     :class="(element.active_material == material.name)?'active':''">
-                                    <div class="material-start">
-                                        <div class="material-icon big-active-material"
-                                             :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
+                                    <div class="summary-block">
+                                        <div class="material-summary" v-if="data.active_material">
+                                            {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
                                         </div>
-                                        <div class="material-name">{{getMaterialName(material)}}</div>
+                                        <div class="color-summary" v-if="data.active_color">
+                                            {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
+                                        </div>
+                                        <div class="accessories-summary"></div>
                                     </div>
+                                    <div class="prices">
+                                        <div class="price">
+                                            <p class="base-mod-price">
+                                                {{tr("Base model")}}: <span class="price-span">{{state.active_product.price}}<span class="bitcoin"></span></span>
+                                            </p>
+                                            <p class="extra-acc-price">
+                                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
+                                            </p>
+                                            <p class="extra-mat-price">
+                                                {{tr("Extra materials")}}: <span class="price-span">0,00<span class="bitcoin"></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="delivery-time">
+                                    <div class="delivery"></div>
+                                    <div class="total-price">{{state.active_product.price}}<span class="bitcoin"></span></div>
+                                </div>
+                            </div>
+                            <div class="description-product">
+                                <img src="img/configurations.png">
+                                <!-- ul class="options">
+                                    <li class="number-configurations">328M</li>
+                                    <li class="number-elements">8</li>
+                                    <li class="number-materials">13</li>
+                                    <li class="number-colors">64</li>
+                                </ul> -->
+                            </div>
+                            <!--<div class="diy"><span>DIY&AI</span></div>-->
+                        </div>
+                        <div class="main-middle">
+                            <div class="types-block">
+                                <div class="title w-50per">Dynamic types</div>
+                                <div class="types-block-container">
+                                    <div class="component-item active">
+                                        <img src="img/options/camera_active.png">
+                                        <span class="name">name</span>
+                                    </div>
+                                    <div class="component-item">
+                                        <img src="img/options/camera_active.png">
+                                        <span class="name">name</span>
+                                    </div>
+                                    <div class="component-item">
+                                        <img src="img/options/camera_active.png">
+                                        <span class="name">name</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-end">
+                            <!--<div class="product-options">-->
+                                <!--<ul class="options">-->
+                                    <!--<li class="number-configurations">{{configuration.structure.configurations_count}}</li>-->
+                                    <!--<li class="number-elements">{{configuration.structure.components_count}}</li>-->
+                                    <!--<li class="number-materials">{{configuration.structure.materials_count}}</li>-->
+                                    <!--<li class="number-colors">{{configuration.structure.colors_count}}</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <div class="element"
+                                 :class="state.active_product.name"
+                                 v-if="data.active_component.configurable && element.configurable"
+                                 v-for="element in data.active_structure.elements">
+                                <div class="materials-color-block">
+                                    <div class="title"><span>{{tr("Materials")}}</span></div>
+                                    <div class="material-block"
+                                         :class="[state.active_product.name, material.name]"
+                                         v-for="material in element.colors">
+                                        <div class="material-head"
+                                             :class="(element.active_material == material.name)?'active':''">
+                                            <div class="material-start">
+                                                <div class="material-icon big-active-material"
+                                                     :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
+                                                </div>
+                                                <div class="material-name">{{getMaterialName(material)}}</div>
+                                            </div>
 
                                     <div class="mc colors-block">
                                         <div class="color-title"><span>Colors</span></div>

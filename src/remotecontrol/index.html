@@ -144,6 +144,18 @@
             <div class="configuration-main">
                 <div class="product-config"
                      :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
+                    <div class="products vertical-bar"
+                         :class="state.active_product.name"
+                         v-if="state.products.length > 1">
+                        <div class="column_1 table-header">{{tr("Model")}}</div>
+                        <div class="product"
+                             @click="changeProduct(product)"
+                             :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
+                             :id="'product-' + product.id"
+                             v-for="product in state.products">
+                            {{tr(product.name)}}
+                        </div>
+                    </div>
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
                         <div class="column_1 table-header">{{tr("Component")}}</div>

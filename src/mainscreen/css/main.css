@@ -502,68 +502,6 @@ span{
     height: 100vh;
     width: 100%;
 }
-/* cameras */
-.camera-view{
-    position: absolute;
-    background: url("../img/options/camera.png") center no-repeat;
-    background-size: contain;
-    width: 50px;
-    height: 50px;
-}
-.camera-view.active{
-    position:absolute;
-    width: 50px;
-    height: 50px;
-    background: url("../img/options/camera_active.png") center no-repeat;
-    border: none!important;
-    background-size: 130%;
-    box-shadow: none!important;
-    border-bottom: 2px solid rgb(0, 255, 242);
-}
-.camera-view.cameraFRONT{
-    bottom: 17%;
-    left: 49%;
-    transform: rotate(90deg);
-}
-.camera-view.cameraTOP{
-    top: 90%;
-    left: 49%;
-    transform: rotate(90deg);
-}
-.camera-view.camera-inside{
-    bottom: 41%;
-    left: 17%;
-    transform: scale(-1, 1);
-}
-.camera-view.cameraLEFT{
-    bottom: 42%;
-    left: 17%;
-    transform: scale(-1,1);
-}
-.camera-view.cameraLEFTp{
-    bottom: 23%;
-    right: 18%;
-    transform: rotate(25deg);
-}
-.camera-view.camera-inside {
-    top: 13%;
-    left: 49%;
-    transform: rotate(-90deg);
-}
-.camera-view.cameraBACK{
-    top: 21%;
-    left: 49%;
-    transform: rotate(-90deg);
-}
-.camera-view.cameraRIGHT{
-    bottom: 43%;
-    right: 17%;
-}
-.camera-view.cameraRIGHTp{
-    bottom: 23%;
-    left: 18%;
-    transform: rotate(-215deg) scale(1,-1);
-}
 
 .rotation-zoom{
     position: absolute;

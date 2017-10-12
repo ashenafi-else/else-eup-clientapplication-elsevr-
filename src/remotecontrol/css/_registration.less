@@ -10,8 +10,72 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 20px;
         width: 90%;
+        .profile-nav-tabs{
+          .flex-container();
+          margin-bottom: 30px;
+          width: 70%;
+          .justify-content(space-around);
+          .nav-tab{
+            .flex-container();
+            padding: 5px;
+            font-size: 24px;
+            color: #9E9E9E;
+            list-style: none;
+            float: left;
+            cursor: pointer;
+            font-weight: bold;
+            flex-direction: column;
+            margin: 0px 35px;
+            .open-tab{
+              .flex-container();
+              .justify-content(center);
+              text-decoration: underline;
+            }
+          }
+          .nav-tab.active {
+            color: #000000;
+            border-bottom: none;
+          }
+        }
+        .register-block{
+          .register-input{
+            .flex-container();
+            .align-items(center);
+            .justify-content(flex-start);
+            label{
+              width: 15%;
+              font-size: 24px;
+              margin: 15px 60px 15px 140px;
+              font-size: 1em;
+            }
+          }
+        }
+        .search-actions{
+          .flex-container();
+          width: 100%;
+          .flex-direction(column);
+          .align-items(center);
+          .account-search{
+            .flex-container();
+            .flex-direction(column);
+            .align-items(center);
+          }
+          .search-result{
+            .flex-container();
+            .flex-direction(column);
+            border-top: none;
+            border-bottom: none;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            .justify-content(center);
+            .align-items(flex-start);
+            max-height: 400px;
+            max-width: 600px;
+            overflow: auto;
+          }
+        }
     }
   }
   .remote-controller-menu{

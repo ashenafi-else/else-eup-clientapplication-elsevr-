@@ -2,8 +2,29 @@
     .box-sizing(border-box);
 }
 
+:root { font-size: 100% }
+
+html{
+    .screen-xs({
+        font-size: 0.875rem;
+    });
+    .screen-sm({
+        font-size: 1rem;
+    });
+    .screen-md({
+        font-size: 1.25rem;
+    });
+    .screen-lg({
+        font-size: 1.75rem;
+    });
+    .screen-hg({
+            font-size: 2.625rem;
+    });
+}
+
 #else-mainscreen-control{
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .top-panel{
@@ -93,6 +114,7 @@
         height: 50px;
         background-image: url(../img/header-divider.png);
         background-repeat: no-repeat;
+        background-size: contain;
     }
     #user_name{
         font-size: 32px;
@@ -133,7 +155,7 @@
 /* cameras */
 .camera-view{
     position: absolute;
-    background: url("../img/options/camera.png") center no-repeat;
+    background: url("../img/options/camera-main.png") center no-repeat;
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -141,8 +163,7 @@
 .camera-view.active{
     position:absolute;
     width: 50px;
-    height: 50px;
-    background: url("../img/options/camera_active.png") center no-repeat;
+    height: 63px;
     border: none!important;
     background-size: 130%;
     box-shadow: none!important;
@@ -353,6 +374,7 @@
 
 .active-item-rotating-round(){
     &:after{
+        z-index: 999;
         opacity: 1;
         content: '';
         @keyframes rotating {

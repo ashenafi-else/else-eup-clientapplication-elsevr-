@@ -187,33 +187,47 @@
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                <span class="factor-text">fitting factor</span>
-                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                        <span class="factor-text">fitting factor</span>
+                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                    </div>
+                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                        <span id="fitting-factor"
+                                              :class="getFittingClass()">
+                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                        </span>
+                                    </span> -->
+                                </div>
                             </div>
-                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                <span id="fitting-factor"
-                                      :class="getFittingClass()">
-                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                </span>
-                            </span> -->
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="main">
-                <div class="main-start">
-                    <div class="components-block">
-                        <div class="components-block">
-                            <div class="parts-block configurable-parts-block">
-                                <div class="title w-50per">{{tr("Configurable parts")}}</div>
-                                <div class="configurable-parts-container">
-                                    <div class="component"
-                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                         :id="'component-' + component.id"
-                                         v-if="component.configurable"
-                                         v-for="component in data.components">
-                                        <span class="name">{{tr(component.name)}}</span>
-                                        <div class="structure"></div>
+                    <div class="main">
+                        <div class="main-start">
+                            <div class="components-block">
+                                <div class="components-block">
+                                    <div class="parts-block heels blue-block"
+                                         :class="state.active_product.name"
+                                         v-if="state.products.length > 1">
+                                        <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                                        <div class="heels-list">
+                                            <div class="component heel"
+                                                 @click="changeProduct(product)"
+                                                 :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
+                                                 :id="'product-' + product.id"
+                                                 v-for="product in state.products">
+                                                <span class="name">{{tr(product.name)}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="parts-block configurable-parts-block">
+                                        <div class="title w-60per">{{tr("Configurable parts")}}</div>
+                                        <div class="configurable-parts-container">
+                                            <div class="component"
+                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                                 :id="'component-' + component.id"
+                                                 v-if="component.configurable"
+                                                 v-for="component in data.components">
+                                                <span class="name">{{tr(component.name)}}</span>
+                                                <div class="structure"></div>
 
                                                 <div class="structure-dropped" v-if="component.active">
                                                     <div class="structure-item component-item"
@@ -289,20 +303,52 @@
                             <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
                         <div class="main-middle">
-                            <div class="types-block">
-                                <div class="title w-50per">Dynamic types</div>
-                                <div class="types-block-container">
-                                    <div class="component-item active">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                            <div class="details-block">
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Place')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Type')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Detail')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -334,13 +380,30 @@
                                                 <div class="material-name">{{getMaterialName(material)}}</div>
                                             </div>
 
-                                    <div class="mc colors-block">
-                                        <div class="color-title"><span>Colors</span></div>
-                                        <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
-                                        <div class="color"
-                                             :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                             :class="[color.name ,(element.active_color == color.name)?'active':'']"
-                                             v-for="color in material.colors">
+                                            <div class="mc colors-block">
+                                                <div class="color-title w-70per"><span>Colors</span></div>
+                                                <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
+                                                <div class="color"
+                                                     :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     :class="[color.name ,(element.active_color == color.name)?'active':'']"
+                                                     v-for="color in material.colors">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="else-shoes"></div>-->
+                        <div class="wishlist" id="wish-list">
+                            <div class="wl-title">{{tr("Wishlist")}}</div>
+                            <div class="wl-container">
+                                <div class="wl-item">
+                                    <div class="item-description">
+                                    <img src="img/options/camera_active.png">
+                                        <div>
+                                            <span class="configuration-title">MY CONFIGURATION</span>
+                                            <span class="configuration-description">Descreiption of the model</span>
                                         </div>
                                     </div>
                                 </div>
@@ -348,37 +411,20 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="else-shoes"></div>-->
-                <div class="wishlist" id="wish-list">
-                    <div class="wl-title">{{tr("Wishlist")}}</div>
-                    <div class="wl-container">
-                        <div class="wl-item">
-                            <div class="item-description">
-                                <img src="img/options/camera_active.png">
-                                <div>
-                                    <span class="configuration-title">MY CONFIGURATION</span>
-                                    <span class="configuration-description">Description of the model</span>
-                                </div>
-                            </div>
+            </product-details>
+            <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+                <div id="product-preview-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="stylish-text">{{tr("Product Preview")}}</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
-        <div id="product-preview-screen">
-            <div class="header">
-                <div class="header-start" >
-                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                    <span class="stylish-text">{{tr("Product Preview")}}</span>
-                </div>
-                <div class="header-middle">
-                </div>
-                <div class="header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="go-account"></div>
-                        <span id="user_name">
+                        <div class="header-middle">
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                                <div class="go-account"></div>
+                                <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
@@ -399,6 +445,7 @@
                 </div>
             </div>
             <div class="product-area">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div class="default-cameras">
                     <div class="camera camera-view"
                          :id="camera"
@@ -473,6 +520,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"
@@ -544,6 +592,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"

@@ -543,9 +543,9 @@
                           <div class="register-input gender">
                             <label class="label">{{tr('Gender')}}</label>
                             <input type="radio" id="edit_female_gender" name="gender" value="0" selected="selected" v-model="accountData.gender">
-                            <label for="edit_female_gender"><span>{{tr('Female')}}</span></label>
+                            <label class="gender-label" for="edit_female_gender"><span>{{tr('Female')}}</span></label>
                             <input type="radio" id="edit_male_gender" name="gender" value="1" v-model="accountData.gender">
-                            <label for="edit_male_gender"><span>{{tr('Male')}}</span></label>
+                            <label class="gender-label" for="edit_male_gender"><span>{{tr('Male')}}</span></label>
                           </div>
                           <div class="register-input">
                             <label for="edit_phone" class="label">{{tr('Phone number')}}*</label>
@@ -667,11 +667,11 @@
                             <div class="register-input gender">
                                 <label class="label">{{tr("Gender")}}</label>
                                 <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected">
-                                <label for="register_female_gender">
+                                <label class="gender-label" for="register_female_gender">
                                     <span>{{tr("Female")}}</span>
                                 </label>
                                 <input type="radio" id="register_male_gender" v-model="customer.gender" name="gender" value="1">
-                                <label for="register_male_gender"><span>{{tr("Male")}}</span></label>
+                                <label class="gender-label" for="register_male_gender"><span>{{tr("Male")}}</span></label>
                             </div>
                             <div class="register-input">
                                 <label for="register_phone" class="label">{{tr("Phone number")}}*</label>

@@ -5,6 +5,47 @@
   width: 100%;
   .remote-controller-main{
     width: 88%;
+    .signedupuser-block{
+      width: 93%;
+      margin-left: 4%;
+      .edit-profile-form{
+        margin-top: 60px;
+        .register-input{
+          .flex-container();
+          .align-items(center);
+          .justify-content(flex-start);
+          label{
+            width: 18%;
+            font-weight: 600;
+            margin: 15px 85px 15px 70px;
+            font-size: 18px;
+          }
+          input:not([type=radio]), select, option{
+            background-color: #ebebeb;
+            .box-sizing(content-box);
+            color: #8e8e8d;
+            font-size: 16px;
+            width: 40%;
+            margin: 5px;
+            font-family: 'Lato', 'Verdana', sans-serif;
+            outline-color: #000000;
+          }
+        }
+        .edit-button-group{
+          .save-changes{
+            background-color: #000000;
+            color: #ffffff;
+            margin: 35px 0 0 338px;
+            height: 30px;
+            width: 150px;
+            font-size: 16px;
+          }
+        }
+        #edit_city, #edit_district {
+          width: 250px;
+        }
+      }
+    }
   }
   .remote-controller-menu{
     border: none;

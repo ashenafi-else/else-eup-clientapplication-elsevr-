@@ -204,6 +204,20 @@
                         <div class="main-start">
                             <div class="components-block">
                                 <div class="components-block">
+                                    <div class="parts-block heels blue-block"
+                                         :class="state.active_product.name"
+                                         v-if="state.products.length > 1">
+                                        <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                                        <div class="heels-list">
+                                            <div class="component heel"
+                                                 @click="changeProduct(product)"
+                                                 :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
+                                                 :id="'product-' + product.id"
+                                                 v-for="product in state.products">
+                                                <span class="name">{{tr(product.name)}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="parts-block configurable-parts-block">
                                         <div class="title w-60per">{{tr("Configurable parts")}}</div>
                                         <div class="configurable-parts-container">
@@ -289,20 +303,52 @@
                             <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
                         <div class="main-middle">
-                            <div class="types-block">
-                                <div class="title w-50per">Dynamic types</div>
-                                <div class="types-block-container">
-                                    <div class="component-item active">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                            <div class="details-block">
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Place')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Type')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Detail')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -335,7 +381,7 @@
                                             </div>
 
                                             <div class="mc colors-block">
-                                                <div class="color-title"><span>Colors</span></div>
+                                                <div class="color-title w-70per"><span>Colors</span></div>
                                                 <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"

@@ -79,7 +79,7 @@
             width: 70%;
             color: #ffffff;
             font-weight: 600;
-            font-size: 120%;
+            //font-size: 120%;
             background: rgba(88, 216, 240, 0.651);
         }
         .model-name:after {
@@ -279,11 +279,15 @@
     }
 }
 .material-head.active{
+    .active-item-rotating-round();
     .colors-block{
         display: block;
         background-color: rgba(12, 88, 128, 0.651);
         border: solid 1px rgba(0, 255, 255, 0.651);
         .color-title {
+            position: relative;
+            width: 60%;
+            margin-left: auto;
             text-align: right;
             padding: .4rem;
             font-size: 1rem;
@@ -296,9 +300,10 @@
             border-top-right-radius: .8rem;
         }
         .color-title::after {
+            bottom: 0;
             content: '';
             position: absolute;
-            right: 67.4%;
+            left: -2rem;
             margin-top: -7px;
             border: 1rem solid transparent;
             border-right: 1rem solid rgba(88, 216, 240, 0.651);
@@ -320,6 +325,7 @@
     justify-content: center;
     margin-left: -50px;
     width: 100%;
+    position: relative;
 }
 
 
@@ -417,9 +423,9 @@
         .flex-wrap(wrap);
     }
     .component{
-        height: 5rem;
-        width: 5rem;
-        margin: .4rem;
+        height: 6rem;
+        width: 6rem;
+        margin: .5rem;
         position: relative;
         display: flex;
         justify-content: flex-end;
@@ -469,7 +475,8 @@
                 background-image: url(../img/components/m-outsole.png);
             }
         }
-        &._Women_ {
+        &[class*='elsevr_women'] {
+            background-size: 80%;
             &.upper {
                 background-image: url(../img/components/w-upper.png);
             }
@@ -534,11 +541,21 @@
     .non-configurable-parts-container {
         .flex-wrap(nowrap);
     }
+    &.heels{
+        width: 22rem;
+        .heels-list{
+            .flex-container();
+        }
+        .heel{
+            width: 4rem;
+            height: 4rem;
+        }
+    }
 }
 
 .non-configurable-parts-container .component {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .types-block{
@@ -548,7 +565,7 @@
     z-index: 1;
     border: solid 1px rgba(0, 255, 255, 0.651);
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-left: 1rem;
     //width: 70%;
     max-width: 500px;
     .title{
@@ -570,16 +587,18 @@
 }
 
 .configurable-parts-block{
-    width: 18rem;
+    max-width: 90%;
+    width: 22rem;
     height:auto;
 }
 .non-configurable-parts-block{
-    width: 18rem;
+    max-width: 90%;
+    width: 22rem;
 }
 .main-start{
     width: 30%;
     padding: 0;
-    margin-top: 90px;
+    margin-top: 10vh;
     .flex-container();
     .flex-direction(column);
     .justify-content(flex-start);
@@ -592,7 +611,7 @@
     min-width: 420px;
     width: 30%;
     padding: 0;
-    margin-top: 90px;
+    margin-top: 10vh;
     z-index: 1;
     position: relative;
 }
@@ -666,5 +685,10 @@
     }
 }
 
+.details-block{
+    .flex-container();
+    .flex-wrap(nowrap);
+    margin-bottom: 2rem;
+}
 
 

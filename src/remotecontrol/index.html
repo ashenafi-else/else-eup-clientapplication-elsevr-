@@ -148,7 +148,7 @@
                          :class="state.active_product.name"
                          v-if="state.products.length > 1">
                         <div class="column_1 table-header">{{tr("Model")}}</div>
-                        <div class="product"
+                        <div class="component"
                              @click="changeProduct(product)"
                              :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
                              :id="'product-' + product.id"

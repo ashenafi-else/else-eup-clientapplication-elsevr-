@@ -436,9 +436,9 @@ span{
     position: absolute;
     right: 1px;
     margin-bottom: 0;
-    border: 18px solid transparent;
-    border-right: 18px solid rgba(255, 255, 255, 0.65);
-    border-bottom: 18px solid rgba(255, 255, 255, 0.65);
+    border: .9rem solid transparent;
+    border-right: .9rem solid rgba(255, 255, 255, 0.65);
+    border-bottom: .9rem solid rgba(255, 255, 255, 0.65);
     top:0.7px;
     border-top-right-radius: 10px;
 }

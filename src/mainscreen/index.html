@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="session-code">
-                <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                <img class="logo-chromium" src="img/neon-logo.png"/>
                 <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                 <img :src="qrImage"/>
                 <div class="element-border">
@@ -209,7 +209,7 @@
                                          v-if="state.products.length > 1">
                                         <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
                                         <div class="heels-list">
-                                            <div class="component heel"
+                                            <div class="component heel-height"
                                                  @click="changeProduct(product)"
                                                  :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
                                                  :id="'product-' + product.id"
@@ -219,7 +219,7 @@
                                         </div>
                                     </div>
                                     <div class="parts-block configurable-parts-block">
-                                        <div class="title w-60per">{{tr("Configurable parts")}}</div>
+                                        <div class="title w-80per">{{tr("Configurable parts")}}</div>
                                         <div class="configurable-parts-container">
                                             <div class="component"
                                                  :class="[component.name, state.active_product.name, component.active?'active':'']"
@@ -242,7 +242,7 @@
                                         </div>
                                     </div>
                                     <div class="parts-block non-configurable-parts-block">
-                                        <div class="title w-70per">{{tr("Non configurable parts")}}</div>
+                                        <div class="title w-80per">{{tr("Non configurable parts")}}</div>
                                         <div class="non-configurable-parts-container">
                                             <div class="component"
                                                  :class="[component.name, state.active_product.name, component.active?'active':'']"
@@ -1139,78 +1139,78 @@
                             </ul>
                         </li>
                     </div> -->
-                    <div class="best_sizes">
-                        <div class="prev_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
-                        </div>
-                        <div class="best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
-                        </div>
-                        <div class="next_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
-                        </div>
-                    </div>
-                    <div style="height: 350px;width: 600px;">
-                        <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
-                            <div class="username_profile userscans">User scans</div>
-                            <div class="left_scan">
-                                <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                    <div class="scans_elsa">
+                        <div style="height: 350px;width: 50%;">
+                            <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
+                                <div class="username_profile userscans">User scans</div>
+                                <div class="left_scan">
+                                    <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                                </div>
+                                <div class="right_scan">
+                                    <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                                </div>
                             </div>
-                            <div class="right_scan">
-                                <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
-                            </div>
+                        </div>
+                        <div class="elsa">
+                            <img src="img/ELSA.png">
                         </div>
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="product_info">
                     <div class="fitting-name">Virtual Fitting</div>
                     <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                    <div class="best_sizes">
+                        <div class="prev_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
+                            <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                        </div>
+                        <div class="best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                            <!--<img :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
+                        </div>
+                        <div class="next_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
+                            <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                        </div>
+                    </div>
                     <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
                         <span>{{tr('Size')}}</span>
                         <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
                     </div>
                     <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
                         <span>{{tr('Fitting factor')}}</span>
-                        <span>{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                        <span class="factor-score">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                     </div>
                 </div>
             </div>
             <div class="price-block">
                 <div class="diff-prices-container">
-                    <div class="model-name"><span></span></div>
+                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                         <div class="product"></div>
                     </div>
                     <div class="summary-block">
-
+                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                         <div class="accessories-summary"></div>
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
-                            <p class="extra-acc-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
-                            <p class="extra-mat-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
+                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
+                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
-                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                 </div>
             </div>
 

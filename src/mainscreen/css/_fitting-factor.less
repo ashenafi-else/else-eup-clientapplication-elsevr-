@@ -56,7 +56,7 @@
             background-image: url(../img/frame-fitting-factor.png);
             background-position: center;
             background-repeat: no-repeat;
-            background-size: 60px 50px;
+            background-size: 60px 56px;
             z-index: 99999;
             font-size: 18px;
             width: 50px;
@@ -118,6 +118,7 @@
           img{
             width: auto;
             height: 60%;
+            margin-top: 40%;
           }
         }
         .best_size.active{
@@ -140,9 +141,35 @@
           img{
             width: auto;
             height: 60%;
+            margin-top: 40%;
           }
         }
       }
+      .comparision_score{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .factor-score {
+          .flex-container();
+          .justify-content(center);
+          .align-items(center);
+          color: #ffffff;
+          background-image: url(/img/frame-fitting-factor.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 60px 56px;
+          z-index: 99999;
+          font-size: 18px;
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    .scans_elsa{
+      .flex-container();
+      .justify-content(center);
+      .align-items(center);
+      .flex-direction(row)
     }
   }
 }
@@ -157,8 +184,8 @@
     border: solid 1px rgba(0, 255, 255, 0.651);
     .blue-block();
     overflow: hidden;
-    width: 225px;
-    height: 250px;
+    height: 14rem;
+    width: 100%;
     border-radius: 10px;
     .model-name {
       text-align: left;
@@ -166,7 +193,6 @@
       width: 70%;
       color: #ffffff;
       font-weight: 600;
-      font-size: 120%;
       background: rgba(88, 216, 240, 0.651);
     }
     .model-name:after {

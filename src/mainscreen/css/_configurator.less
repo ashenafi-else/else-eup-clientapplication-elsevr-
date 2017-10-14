@@ -296,7 +296,6 @@
         display: block;
         background-color: rgba(12, 88, 128, 0.651);
         border: solid 1px rgba(0, 255, 255, 0.651);
-        padding-left: 10px;
         .color-title {
             position: relative;
             width: 60%;
@@ -371,7 +370,7 @@
         border: 0 solid rgb(0, 255, 242);
         width: 2.2rem;
         height: 2.2rem;
-        margin: .25rem;
+        margin: .15rem;
     }
     .color.active {
         border: solid #00ffff!important;
@@ -456,11 +455,11 @@
         background-position-x: center;
         background-position-y: -6px;
         background-repeat: no-repeat;
-        //&:after{
-        //    .transition(opacity 0.2s ease);
-        //    opacity: 0;
-        //    content: '';
-        //}
+        &:after{
+            .transition(opacity 0.2s ease);
+            opacity: 0;
+            content: '';
+        }
         &.active{
             .active-item-rotating-round();
         }
@@ -659,7 +658,6 @@
 }
 
 .wishlist {
-    z-index: 1;
     width: 15rem;
     //margin-bottom: 1rem;
     margin-bottom: 10px;
@@ -748,11 +746,6 @@
     }
 }
 
-.heel-height {
-    &.elsevr_women_1_1-1 {
-        background-image: url(../img/components/Shoe_10.png);
-    }
-    &.elsevr_women_1_1-2 {
-        background-image: url(../img/components/Shoe_8.png);
-    }
+.elsevr_women_1_1-1 {
+
 }

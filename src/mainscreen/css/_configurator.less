@@ -68,7 +68,7 @@
             .flex-container();
             .flex-direction(column);
             div:last-child{
-                margin-top: auto;
+                margin-bottom: auto;
             }
             border: solid 1px rgba(0, 255, 255, 0.651);
             .blue-block();
@@ -136,7 +136,7 @@
                 .price {
                     width: 95%;
                     p[class$='-price']{
-                        font-size: .8rem;
+                        font-size: .7rem;
                         font-weight: 400;
                         display: flex;
                         flex-direction: row;
@@ -163,7 +163,6 @@
             text-align: center;
             align-items: center;
             justify-content: space-between;
-            padding: .2rem 1rem;
             .delivery{
                 background:url("../img/delivery.png") center no-repeat;
                 background-size: 90%;
@@ -347,6 +346,7 @@
 
 
 .colors-block{
+    padding-left: 10px;
     width: 13rem;
     height: 20rem;
     //position: absolute;
@@ -370,7 +370,7 @@
         border: 0 solid rgb(0, 255, 242);
         width: 2.2rem;
         height: 2.2rem;
-        margin: .15rem;
+        margin: .25rem;
     }
     .color.active {
         border: solid #00ffff!important;
@@ -455,11 +455,6 @@
         background-position-x: center;
         background-position-y: -6px;
         background-repeat: no-repeat;
-        &:after{
-            .transition(opacity 0.2s ease);
-            opacity: 0;
-            content: '';
-        }
         &.active{
             .active-item-rotating-round();
         }
@@ -658,6 +653,7 @@
 }
 
 .wishlist {
+    z-index: 1;
     width: 15rem;
     //margin-bottom: 1rem;
     margin-bottom: 10px;
@@ -694,7 +690,6 @@
                 .object-fit(contain);
                 height: 4rem;
                 width: 4rem;
-
                 margin-right: 10px;
             }
             div {
@@ -706,7 +701,7 @@
                     margin-bottom: 10px;
                 }
                 .configuration-description{
-                    font-size: 0.8em;
+                    font-size: 0.7rem;
                     color: white;
                 }
             }
@@ -746,6 +741,11 @@
     }
 }
 
-.elsevr_women_1_1-1 {
-
+.heel-height {
+    &.elsevr_women_1_1-1 {
+        background: url(../img/components/Shoe_10.png) no-repeat;
+    }
+    &.elsevr_women_1_1-2 {
+        background: url(../img/components/Shoe_8.png) no-repeat;
+    }
 }

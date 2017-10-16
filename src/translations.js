@@ -302,8 +302,20 @@ window.translations = {
     'MAT_SUEDE_LIGHT-BLUE': {
         'en': 'light blue'
     },
+    'MAT_SUEDE_BLUE-ELECTRIC': {
+        'en': 'light blue'
+    },
+    'MAT_SUEDE_SKY-BLUE': {
+        'en': 'light blue'
+    },
+    'MAT_SUEDE_WHITE-MAN': {
+        'en': 'light blue'
+    },
     'MAT_LEATHER_DARK-BEIGE': {
         'en': 'dark beige'
+    },
+    'MAT_SUEDE_BLUE-ELECTRIC': {
+        'en': 'light blue'
     },
     'LEATHER+BUCKLE': {
     'en': 'Leather strap'

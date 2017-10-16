@@ -306,6 +306,6 @@ window.translations = {
         'en': 'dark beige'
     },
     'LEATHER+BUCKLE': {
-    'en': 'Leather strap'
+        'en': 'Leather strap'
     }
 };

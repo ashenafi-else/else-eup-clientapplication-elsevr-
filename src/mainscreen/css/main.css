@@ -389,7 +389,7 @@ ul.options>li.number-colors::before{
 
 .material-icon{
     width: auto;
-    /*height: 80px; ВКЛЮЧИТЬ ИКОНКИ МАТЕРИАЛОВ*/
+    height: 80px;
 }
 
 @keyframes blink {

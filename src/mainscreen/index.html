@@ -264,12 +264,8 @@
                                         <img class="live-image">
                                     </div>
                                     <div class="summary-block">
-                                        <div class="material-summary" v-if="data.active_material">
-                                            {{tr("Material")}}: <span>{{getMaterialName(data.active_material)}}</span>
-                                        </div>
-                                        <div class="color-summary" v-if="data.active_color">
-                                            {{tr("Color")}}: <span>{{getColorName(data.active_color)}}</span>
-                                        </div>
+                                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                                         <div class="accessories-summary"></div>
                                     </div>
                                     <div class="prices">
@@ -307,17 +303,17 @@
                                 <div class="types-block">
                                     <div class="title w-50per">{{tr('Place')}}</div>
                                     <div class="types-block-container">
+                                        <div class="component-item">
+                                            <img src="img/components/w-insole.png">
+                                            <span class="name">Insole</span>
+                                        </div>
                                         <div class="component-item active">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/w-application.png">
+                                            <span class="name">Applique</span>
                                         </div>
                                         <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
-                                        </div>
-                                        <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/w-outsole.png">
+                                            <span class="name">Outsole</span>
                                         </div>
                                     </div>
                                 </div>
@@ -325,12 +321,12 @@
                                     <div class="title w-50per">{{tr('Type')}}</div>
                                     <div class="types-block-container">
                                         <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/w-not_transparent_crystal.png">
+                                            <span class="name">Crystal</span>
                                         </div>
-                                        <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                        <div class="component-item active">
+                                            <img src="img/components/no-comp.png">
+                                            <span class="name">None</span>
                                         </div>
                                     </div>
                                 </div>
@@ -338,16 +334,16 @@
                                     <div class="title w-50per">{{tr('Detail')}}</div>
                                     <div class="types-block-container">
                                         <div class="component-item active">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/w-not_transparent_crystal.png">
+                                            <span class="name">Solid</span>
                                         </div>
                                         <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/w-transparent_crystal.png">
+                                            <span class="name">Trasparent</span>
                                         </div>
                                         <div class="component-item">
-                                            <img src="img/options/camera_active.png">
-                                            <span class="name">name</span>
+                                            <img src="img/components/Crystal_Base.png">
+                                            <span class="name">Base</span>
                                         </div>
                                     </div>
                                 </div>
@@ -463,7 +459,7 @@
             </div>
             <div class="price-block">
                 <div class="diff-prices-container">
-                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                             <img class="live-image">
                     </div>
@@ -538,7 +534,7 @@
             </div>
             <div class="price-block">
                 <div class="diff-prices-container">
-                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                             <img class="live-image">
                     </div>
@@ -610,7 +606,7 @@
             </div>
             <div class="price-block">
                 <div class="diff-prices-container">
-                    <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}}</span></div>
                     <div class="product-block">
                             <img class="live-image">
                     </div>
@@ -905,7 +901,7 @@
                     <div class="elsa-container"><img src="img/ELSA.png"/></div>
                     <div class="price-block">
                         <div class="diff-prices-container">
-                            <div class="model-name"><span>{{tr("Flat")}}</span></div>
+                            <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                             <div class="product-block">
                                     <img class="live-image">
                             </div>

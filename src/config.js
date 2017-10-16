@@ -12,7 +12,7 @@ window.config = {
     'default_scanner': 'Dome000018',
     'default_scanners': {
         '18': 'Dome000018',
-        '19': 'Dome000031'
+        '19': 'Dome000018'
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',

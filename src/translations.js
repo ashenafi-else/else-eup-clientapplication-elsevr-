@@ -315,6 +315,6 @@ window.translations = {
         'en': 'Heel 8.5cm'
     },
     'VELUKID-SUEDE': {
-        'en': 'Sued'
+        'en': 'Suede'
     }
 };

@@ -313,5 +313,8 @@ window.translations = {
     },
     'ELSEVR_WOMEN_1_1-2': {
         'en': 'Heel 8.5cm'
+    },
+    'VELUKID-SUEDE': {
+        'en': 'Sued'
     }
 };

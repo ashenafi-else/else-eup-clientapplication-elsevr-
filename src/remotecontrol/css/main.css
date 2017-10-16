@@ -795,15 +795,6 @@ input#register_female_gender, input#register_male_gender {
     height: 35px;
     border-radius: 5px;
 }
-.signedupuser-block .save-changes {
-    /* color:  red; */
-    background-color: #ba3f3f !important;
-    color: #ffffff !important;
-    margin: 35px 0 0 345px !important;
-    height: 30px !important;
-    width: 180px !important;
-    font-size: 16px !important;
-}
 .signedupuser-block .view-profile-info {
     pointer: cursor !important;
     background-color: white !important;
@@ -927,15 +918,6 @@ input.search-input {
     padding: 10px;
     box-sizing: content-box;
     border-radius: 5px;
-}
-.signedupuser-block .save-changes {
-    /* color:  red; */
-    background-color: #ba3f3f;
-    color: #ffffff;
-    margin: 35px 0 0 345px;
-    height: 30px;
-    width: 180px;
-    font-size: 16px;
 }
 .signedupuser-block .view-profile-info {
     pointer: cursor;

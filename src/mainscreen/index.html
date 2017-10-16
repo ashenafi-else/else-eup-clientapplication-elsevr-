@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="session-code">
-                <img class="logo-chromium" src="img/chromium-else-logo.png"/>
+                <img class="logo-chromium" src="img/neon-logo.png"/>
                 <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                 <img :src="qrImage"/>
                 <div class="element-border">
@@ -187,33 +187,47 @@
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                <span class="factor-text">fitting factor</span>
-                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                        <span class="factor-text">fitting factor</span>
+                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                    </div>
+                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                        <span id="fitting-factor"
+                                              :class="getFittingClass()">
+                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
+                                        </span>
+                                    </span> -->
+                                </div>
                             </div>
-                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                <span id="fitting-factor"
-                                      :class="getFittingClass()">
-                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                </span>
-                            </span> -->
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="main">
-                <div class="main-start">
-                    <div class="components-block">
-                        <div class="components-block">
-                            <div class="parts-block configurable-parts-block">
-                                <div class="title w-50per">{{tr("Configurable parts")}}</div>
-                                <div class="configurable-parts-container">
-                                    <div class="component"
-                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                         :id="'component-' + component.id"
-                                         v-if="component.configurable"
-                                         v-for="component in data.components">
-                                        <span class="name">{{tr(component.name)}}</span>
-                                        <div class="structure"></div>
+                    <div class="main">
+                        <div class="main-start">
+                            <div class="components-block">
+                                <div class="components-block">
+                                    <div class="parts-block heels blue-block"
+                                         :class="state.active_product.name"
+                                         v-if="state.products.length > 1">
+                                        <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                                        <div class="heels-list">
+                                            <div class="component heel-height"
+                                                 @click="changeProduct(product)"
+                                                 :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
+                                                 :id="'product-' + product.id"
+                                                 v-for="product in state.products">
+                                                <span class="name">{{tr(product.name)}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="parts-block configurable-parts-block">
+                                        <div class="title w-80per">{{tr("Configurable parts")}}</div>
+                                        <div class="configurable-parts-container">
+                                            <div class="component"
+                                                 :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                                 :id="'component-' + component.id"
+                                                 v-if="component.configurable"
+                                                 v-for="component in data.components">
+                                                <span class="name">{{tr(component.name)}}</span>
+                                                <div class="structure"></div>
 
                                                 <div class="structure-dropped" v-if="component.active">
                                                     <div class="structure-item component-item"
@@ -228,7 +242,7 @@
                                         </div>
                                     </div>
                                     <div class="parts-block non-configurable-parts-block">
-                                        <div class="title w-70per">{{tr("Non configurable parts")}}</div>
+                                        <div class="title w-80per">{{tr("Non configurable parts")}}</div>
                                         <div class="non-configurable-parts-container">
                                             <div class="component"
                                                  :class="[component.name, state.active_product.name, component.active?'active':'']"
@@ -245,9 +259,9 @@
                             </div>
                             <div class="price-block">
                                 <div class="diff-prices-container">
-                                    <div class="model-name"><span>{{state.active_product.name}}</span></div>
+                                    <div class="model-name"><span>{{tr(state.active_product.name)}}</span></div>
                                     <div class="product-block">
-                                        <div class="product"></div>
+                                        <img class="live-image">
                                     </div>
                                     <div class="summary-block">
                                         <div class="material-summary" v-if="data.active_material">
@@ -289,20 +303,52 @@
                             <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
                         <div class="main-middle">
-                            <div class="types-block">
-                                <div class="title w-50per">Dynamic types</div>
-                                <div class="types-block-container">
-                                    <div class="component-item active">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                            <div class="details-block">
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Place')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Type')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
-                                    <div class="component-item">
-                                        <img src="img/options/camera_active.png">
-                                        <span class="name">name</span>
+                                </div>
+                                <div class="types-block">
+                                    <div class="title w-50per">{{tr('Detail')}}</div>
+                                    <div class="types-block-container">
+                                        <div class="component-item active">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
+                                        <div class="component-item">
+                                            <img src="img/options/camera_active.png">
+                                            <span class="name">name</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -334,13 +380,34 @@
                                                 <div class="material-name">{{getMaterialName(material)}}</div>
                                             </div>
 
-                                    <div class="mc colors-block">
-                                        <div class="color-title"><span>Colors</span></div>
-                                        <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
-                                        <div class="color"
-                                             :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                             :class="[color.name ,(element.active_color == color.name)?'active':'']"
-                                             v-for="color in material.colors">
+                                            <div class="mc colors-block">
+                                                <div class="color-title w-70per"><span>Colors</span></div>
+                                                <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
+                                                <div class="color"
+                                                     :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     :class="[color.name ,(element.active_color == color.name)?'active':'']"
+                                                     v-for="color in material.colors">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="else-shoes"></div>-->
+                        <div class="wishlist" id="wish-list">
+                            <div class="wl-title">{{tr("Wishlist")}}</div>
+                            <div class="wl-container">
+                                <div class="wl-item">
+                                    <div class="item-description">
+                                    <img src="img/wl_image.png">
+                                        <div>
+                                            <span class="configuration-title">My shoe</span>
+                                            <span class="configuration-description">Model: 10cm heel</br>
+                                                Upper: Sued red
+                                                </br>Trim: Nappa Gold
+                                                <br>Applique: Patent Light Brown
+                                                <br>Applique accessory: Star</span>
                                         </div>
                                     </div>
                                 </div>
@@ -348,37 +415,20 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="else-shoes"></div>-->
-                <div class="wishlist" id="wish-list">
-                    <div class="wl-title">{{tr("Wishlist")}}</div>
-                    <div class="wl-container">
-                        <div class="wl-item">
-                            <div class="item-description">
-                                <img src="img/options/camera_active.png">
-                                <div>
-                                    <span class="configuration-title">MY CONFIGURATION</span>
-                                    <span class="configuration-description">Description of the model</span>
-                                </div>
-                            </div>
+            </product-details>
+            <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+                <div id="product-preview-screen">
+                    <div class="header">
+                        <div class="header-start" >
+                            <div class="centered logo-container"><img src="img/neon-logo.png"></div>
+                            <span class="stylish-text">{{tr("Product Preview")}}</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
-        <div id="product-preview-screen">
-            <div class="header">
-                <div class="header-start" >
-                    <div class="centered logo-container"><img src="img/neon-logo.png"></div>
-                    <span class="stylish-text">{{tr("Product Preview")}}</span>
-                </div>
-                <div class="header-middle">
-                </div>
-                <div class="header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="go-account"></div>
-                        <span id="user_name">
+                        <div class="header-middle">
+                        </div>
+                        <div class="header-end">
+                            <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                                <div class="go-account"></div>
+                                <span id="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
@@ -399,6 +449,7 @@
                 </div>
             </div>
             <div class="product-area">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div class="default-cameras">
                     <div class="camera camera-view"
                          :id="camera"
@@ -414,7 +465,7 @@
                 <div class="diff-prices-container">
                     <div class="model-name"><span>{{tr("Flat")}}</span></div>
                     <div class="product-block">
-                        <div class="product"></div>
+                            <img class="live-image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -473,6 +524,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"
@@ -488,7 +540,7 @@
                 <div class="diff-prices-container">
                     <div class="model-name"><span>{{tr("Flat")}}</span></div>
                     <div class="product-block">
-                        <div class="product"></div>
+                            <img class="live-image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -544,6 +596,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
+                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"
@@ -559,7 +612,7 @@
                 <div class="diff-prices-container">
                     <div class="model-name"><span>{{tr("Flat")}}</span></div>
                     <div class="product-block">
-                        <div class="product"></div>
+                            <img class="live-image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -854,7 +907,7 @@
                         <div class="diff-prices-container">
                             <div class="model-name"><span>{{tr("Flat")}}</span></div>
                             <div class="product-block">
-                                <img class="live-image">
+                                    <img class="live-image">
                             </div>
                             <div class="summary-block">
                                 <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -1098,78 +1151,78 @@
                             </ul>
                         </li>
                     </div> -->
-                    <div class="best_sizes">
-                        <div class="prev_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
-                        </div>
-                        <div class="best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.best_size.output_model">
-                        </div>
-                        <div class="next_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                            <img style="height: 300px" :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
-                        </div>
-                    </div>
-                    <div style="height: 350px;width: 600px;">
-                        <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
-                            <div class="username_profile userscans">User scans</div>
-                            <div class="left_scan">
-                                <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                    <div class="scans_elsa">
+                        <div style="height: 350px;width: 50%;">
+                            <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
+                                <div class="username_profile userscans">User scans</div>
+                                <div class="left_scan">
+                                    <img id="left_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                                </div>
+                                <div class="right_scan">
+                                    <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                                </div>
                             </div>
-                            <div class="right_scan">
-                                <img id="right_scan_image" style="height: 250px" :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
-                            </div>
+                        </div>
+                        <div class="elsa">
+                            <img src="img/ELSA.png">
                         </div>
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="product_info">
                     <div class="fitting-name">Virtual Fitting</div>
                     <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                    <div class="best_sizes">
+                        <div class="prev_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
+                            <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                        </div>
+                        <div class="best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                            <!--<img :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
+                        </div>
+                        <div class="next_best_size"
+                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
+                            <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                        </div>
+                    </div>
                     <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
                         <span>{{tr('Size')}}</span>
                         <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
                     </div>
                     <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
                         <span>{{tr('Fitting factor')}}</span>
-                        <span>{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                        <span class="factor-score">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                     </div>
                 </div>
             </div>
             <div class="price-block">
                 <div class="diff-prices-container">
-                    <div class="model-name"><span></span></div>
+                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
-                        <div class="product"></div>
+                        <img class="live-image">
                     </div>
                     <div class="summary-block">
-
+                        <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
+                        <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                         <div class="accessories-summary"></div>
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
-                            <p class="extra-acc-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
-                            <p class="extra-mat-price">
-                                : <span class="price-span">0,00<span class="bitcoin"></span></span>
-                            </p>
+                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
+                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
-                    <div class="total-price">0,00<span class="bitcoin"></span></div>
                 </div>
             </div>
 

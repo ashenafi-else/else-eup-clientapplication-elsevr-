@@ -148,7 +148,7 @@
                          :class="state.active_product.name"
                          v-if="state.products.length > 1">
                         <div class="column_1 table-header">{{tr("Model")}}</div>
-                        <div class="product"
+                        <div class="component"
                              @click="changeProduct(product)"
                              :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
                              :id="'product-' + product.id"
@@ -252,7 +252,7 @@
                     </div>
                     <div id="go-fitt" class="configurator-item select go-fitt"  @click="fitting">
                         <span class="fitt-icon"></span>
-                        <span class="text">{{tr("Fitting Factor")}}</span>
+                        <span class="text">{{tr("Virtual Fitting")}}</span>
                     </div>
                     <div id="go-wishlist" class="configurator-item select" >
                         <span class="wishlist-icon"></span>
@@ -548,9 +548,9 @@
                           <div class="register-input gender">
                             <label class="label">{{tr('Gender')}}</label>
                             <input type="radio" id="edit_female_gender" name="gender" value="0" selected="selected" v-model="accountData.gender">
-                            <label for="edit_female_gender"><span>{{tr('Female')}}</span></label>
+                            <label class="gender-label" for="edit_female_gender"><span>{{tr('Female')}}</span></label>
                             <input type="radio" id="edit_male_gender" name="gender" value="1" v-model="accountData.gender">
-                            <label for="edit_male_gender"><span>{{tr('Male')}}</span></label>
+                            <label class="gender-label" for="edit_male_gender"><span>{{tr('Male')}}</span></label>
                           </div>
                           <div class="register-input">
                             <label for="edit_phone" class="label">{{tr('Phone number')}}*</label>
@@ -677,11 +677,11 @@
                             <div class="register-input gender">
                                 <label class="label">{{tr("Gender")}}</label>
                                 <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected">
-                                <label for="register_female_gender">
+                                <label class="gender-label" for="register_female_gender">
                                     <span>{{tr("Female")}}</span>
                                 </label>
                                 <input type="radio" id="register_male_gender" v-model="customer.gender" name="gender" value="1">
-                                <label for="register_male_gender"><span>{{tr("Male")}}</span></label>
+                                <label class="gender-label" for="register_male_gender"><span>{{tr("Male")}}</span></label>
                             </div>
                             <div class="register-input">
                                 <label for="register_phone" class="label">{{tr("Phone number")}}*</label>

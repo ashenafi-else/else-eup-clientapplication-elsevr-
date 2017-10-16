@@ -61,7 +61,7 @@
     }
     .camera-view{
         position: absolute;
-        background: url("../img/options/camera.png") center no-repeat;
+        background: url("../img/options/camera-remote.png") center no-repeat;
         background-size: contain;
         width: 50px;
         height: 50px;
@@ -69,26 +69,25 @@
     .camera-view.active{
         width: 50px;
         height: 50px;
-        background: url("../img/options/camera_active.png") center no-repeat;
+        background: url("../img/options/camera-active.png") center no-repeat;
         border: none!important;
         background-size: 130%;
         box-shadow: none!important;
         border-bottom: 2px solid rgb(0, 255, 242);
     }
     .camera-view.cameraFRONT{
-        bottom: 22%;
+        bottom: 14%;
         left: 41%;
         transform: rotate(90deg);
     }
     .camera-view.cameraTOP{
-        bottom: 13%;
+        top: 14%;
         left: 41%;
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
     }
     .camera-view.cameraLEFT{
         bottom: 47%;
-        left: 18%;
-        transform: rotate(180deg) scale(1, -1);
+        right: 30%;
     }
     .camera-view.cameraLEFTp{
         bottom: 25%;
@@ -96,9 +95,9 @@
         transform: rotate(25deg);
     }
     .camera-view.cameraBOTTOM {
-        top: 14%;
-        left: 41%;
-        transform: rotate(-90deg);
+        top: 19%;
+        left: 25%;
+        transform: rotate(-120deg);
     }
     .camera-view.cameraBACK{
         top: 24%;
@@ -107,7 +106,8 @@
     }
     .camera-view.cameraRIGHT{
         bottom: 47%;
-        right: 30%;
+        left: 18%;
+        transform: rotate(180deg) scale(1, -1);
     }
     .camera-view.cameraRIGHTp{
         bottom: 25%;
@@ -255,7 +255,7 @@
     background-image: url("../img/materials/mat_mirrorpatent_gold.png")!important;
 }
 .mat_suede_indigo{
-    background-image: url("../img/materials/mat_mirrorpatent_gold.png")!important;
+    background-image: url("../img/materials/mat_suede_indigo.png")!important;
 }
 .mat_suede_green{
     background-image: url("../img/materials/mat_suede_green.png")!important;

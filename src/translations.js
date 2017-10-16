@@ -307,5 +307,11 @@ window.translations = {
     },
     'LEATHER+BUCKLE': {
         'en': 'Leather strap'
+    },
+    'ELSEVR_WOMEN_1_1-1': {
+        'en': 'Heel 10cm'
+    },
+    'ELSEVR_WOMEN_1_1-2': {
+        'en': 'Heel 8.5cm'
     }
 };

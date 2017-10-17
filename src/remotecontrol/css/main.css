@@ -360,7 +360,6 @@ span.rotation-icon {
     background-position: top 35% center;
     background-repeat: no-repeat;
     background-size: 50%;
-    overflow: scroll;
 }
 .material{
     text-transform: capitalize;

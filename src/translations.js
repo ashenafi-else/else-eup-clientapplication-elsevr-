@@ -314,9 +314,6 @@ window.translations = {
     'MAT_LEATHER_DARK-BEIGE': {
         'en': 'dark beige'
     },
-    'MAT_SUEDE_BLUE-ELECTRIC': {
-        'en': 'light blue'
-    },
     'LEATHER+BUCKLE': {
         'en': 'Leather strap'
     },
@@ -331,5 +328,11 @@ window.translations = {
     },
     'BACK PART': {
         'en': 'Facing'
+    },
+    'LEATHER+STONES 1': {
+        'en': 'Moonlight'
+    },
+    'LEATHER+STONES 2': {
+        'en': 'Gemstone'
     }
 };

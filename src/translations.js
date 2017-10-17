@@ -316,5 +316,8 @@ window.translations = {
     },
     'VELUKID-SUEDE': {
         'en': 'Suede'
+    },
+    'BACK PART': {
+        'en': 'Facing'
     }
 };

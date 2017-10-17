@@ -665,7 +665,7 @@ span{
     z-index: -1;
 }
 .user_scans{
-    margin: 30px 30px 30px 15px;
+    margin: 10px;
     height: 220px;
     display: flex;
     justify-content: space-around;
@@ -695,8 +695,9 @@ span.user_profile_name {
 .userscans {
     display: block!important;
     text-align: left;
-    margin: 19px 0 20px 0;
     width: 97%;
+    margin-bottom: 8px;
+    margin-left: 30px;
 }
 
 .username_profile::after{

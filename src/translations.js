@@ -272,6 +272,12 @@ window.translations = {
     'MAT_GRAIN-LEATHER_BLACK': {
         'en': 'black'
     },
+    'MAT_GRAIN-LEATHER_COBALT': {
+        'en': 'cobalt'
+    },
+    'MAT_GRAIN-LEATHER_RED': {
+        'en': 'red'
+    },
     'MAT_TRANSPARENT_TRANSPARENT': {
         'en': ''
     },

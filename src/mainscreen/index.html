@@ -428,19 +428,21 @@
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
-                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
-                                        <span id="rec-size">
-                                            {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
+                                <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                                    <div class="size-block" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                                    </span>
-                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
+                                        <span class="factor-text">fitting factor</span>
+                                        <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                                    </div>
+                                    <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
                                               :class="getFittingClass()">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
-                                    </span>
-                        </div>
+                                    </span> -->
+                                </div>
                     </div>
                 </div>
             </div>
@@ -509,12 +511,6 @@
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
-                            <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                <span id="fitting-factor"
-                                      :class="getFittingClass()">
-                                    {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                </span>
-                            </span> -->
                         </div>
                     </div>
                 </div>
@@ -576,17 +572,13 @@
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
-                                        <span id="rec-size">
-                                            {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
+                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                                    </span>
-                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                        <span id="fitting-factor"
-                                              :class="getFittingClass()">
-                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                        </span>
-                                    </span>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -710,17 +702,13 @@
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                        <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
-                                            <span id="rec-size">
-                                                {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
-                                            </span>
+                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                            <span id="fitting-factor"
-                                                  :class="getFittingClass()">
-                                                {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                            </span>
-                                        </span>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

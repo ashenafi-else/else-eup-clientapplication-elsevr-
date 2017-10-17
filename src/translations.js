@@ -312,10 +312,10 @@ window.translations = {
         'en': 'light blue'
     },
     'MAT_SUEDE_SKY-BLUE': {
-        'en': 'light blue'
+        'en': 'Sky blue'
     },
     'MAT_SUEDE_WHITE-MAN': {
-        'en': 'light blue'
+        'en': 'White'
     },
     'MAT_LEATHER_DARK-BEIGE': {
         'en': 'dark beige'
@@ -340,5 +340,8 @@ window.translations = {
     },
     'LEATHER+STONES 2': {
         'en': 'Gemstone'
+    },
+    'MAT_LEATHER_SKY-BLUE': {
+        'en': 'Sky Blue'
     }
 };

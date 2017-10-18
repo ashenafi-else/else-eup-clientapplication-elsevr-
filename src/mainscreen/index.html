@@ -298,38 +298,30 @@
                             </div>
                             <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
-                        <div class="main-middle">
+                        <div class="main-middle" v-if="data.active_component">
                             <div class="details-block">
-                                <div class="types-block">
+                                <!-- <div class="types-block" v-if="data.active_component.show_place">
                                     <div class="title w-50per">{{tr('Place')}}</div>
                                     <div class="types-block-container">
-                                        <div class="component-item">
-                                            <img src="img/components/w-insole.png">
-                                            <span class="name">Insole</span>
-                                        </div>
-                                        <div class="component-item active">
-                                            <img src="img/components/w-application.png">
-                                            <span class="name">Applique</span>
-                                        </div>
-                                        <div class="component-item">
-                                            <img src="img/components/w-outsole.png">
-                                            <span class="name">Outsole</span>
+                                        <div class="component-item"
+                                             :class="[component.component, (component.component == data.active_component.component) ? 'active' : '']"
+                                             v-if="component.show_place"
+                                             v-for="component in configuration.structure.config.components">
+                                            <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="types-block">
+                                </div> -->
+                                <!-- <div class="types-block" v-if="data.active_product.show_type">
                                     <div class="title w-50per">{{tr('Type')}}</div>
                                     <div class="types-block-container">
-                                        <div class="component-item">
-                                            <img src="img/components/w-not_transparent_crystal.png">
-                                            <span class="name">Crystal</span>
-                                        </div>
-                                        <div class="component-item active">
-                                            <img src="img/components/no-comp.png">
-                                            <span class="name">None</span>
+                                        <div class="component-item"
+                                             :class="[component.component, (component.component == data.active_component.component) ? 'active' : '']"
+                                             v-if="component.show_type"
+                                             v-for="component in configuration.structure.config.components">
+                                            <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="types-block">
                                     <div class="title w-50per">{{tr('Detail')}}</div>
                                     <div class="types-block-container">
@@ -724,8 +716,8 @@
                         <div class="user_info_line">
                             {{tr('Gender')}}:
                             <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
+                                {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                            </span>
                         </div>
                         <div class="user_info_line">
                             {{tr('Size')}}:
@@ -1085,8 +1077,8 @@
                         <div class="user_info_line">
                             {{tr('Gender')}}:
                             <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
+                                {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                            </span>
                         </div>
                         <div class="user_info_line">
                             {{tr('Size')}}:

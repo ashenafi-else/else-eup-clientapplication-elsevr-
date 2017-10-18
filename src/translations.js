@@ -340,5 +340,11 @@ window.translations = {
     },
     'LEATHER+STONES 2': {
         'en': 'Gemstone'
+    },
+    'GENDER_0': {
+        'en': 'Female'
+    },
+    'GENDER_1': {
+        'en': 'Male'
     }
 };

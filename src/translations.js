@@ -312,10 +312,10 @@ window.translations = {
         'en': 'light blue'
     },
     'MAT_SUEDE_SKY-BLUE': {
-        'en': 'light blue'
+        'en': 'Sky blue'
     },
     'MAT_SUEDE_WHITE-MAN': {
-        'en': 'light blue'
+        'en': 'White'
     },
     'MAT_LEATHER_DARK-BEIGE': {
         'en': 'dark beige'
@@ -324,10 +324,10 @@ window.translations = {
         'en': 'Leather strap'
     },
     'ELSEVR_WOMEN_1_1-1': {
-        'en': 'Heel 10cm'
+        'en': 'Heel 8.5cm'
     },
     'ELSEVR_WOMEN_1_1-2': {
-        'en': 'Heel 8.5cm'
+        'en': 'Heel 10cm'
     },
     'VELUKID-SUEDE': {
         'en': 'Suede'
@@ -346,5 +346,8 @@ window.translations = {
     },
     'GENDER_1': {
         'en': 'Male'
+    },
+    'MAT_LEATHER_SKY-BLUE': {
+        'en': 'Sky Blue'
     }
 };

@@ -18,43 +18,40 @@ window.config = {
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',
     'default_configuration': {
 
-        'elsevr_men_1_1': [
+        'elsevr_women_1_1': [
             {
                 'component': '1',
                 'structure': '1',
                 'element': '0',
                 'active_material': 'nappa',
                 'active_color': 'mat_nappa_red'
-            }
-        ],
-        'elsevr_women_1_1_1': [
+            },
             {
-                'component': '1',
-                'structure': '1',
-                'element': '0',
-                'active_color': 'mat_nappa_red'
-            }, {
                 'component': '2',
                 'structure': '1',
-                'element': '1',
-                'active_color': 'mat_plastic_red'
-            }, {
-                'component': '3',
-                'structure': '1',
-                'element': '2',
-                'active_color': 'mat_plastic_red'
-            }
-        ],
-        'elsevr_women_1_1_2': [
+                'element': '0',
+                'active_material': 'nappa',
+                'active_color': 'mat_nappa_gold'
+            },
             {
-                'component': '1',
+                'component': '3',
                 'structure': '1',
                 'element': '0',
                 'active_material': 'nappa',
-                'active_color': 'mat_nappa_red'
-            }
-        ],
-
+                'active_color': 'mat_nappa_gold'
+            },
+            {
+                'component': '4',
+                'structure': '0',
+            },
+            {
+                'component': '10',
+                'structure': '3',
+                'element': '0',
+                'active_material': 'patent',
+                'active_color': 'mat_patent_red'
+            },
+        ]
     },
     'product_tour_configuration': {
         'elsevr_women_1_1': {

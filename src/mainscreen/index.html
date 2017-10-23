@@ -300,7 +300,7 @@
                         </div>
                         <div class="main-middle" v-if="data.active_component">
                             <div class="details-block">
-                                <!-- <div class="types-block" v-if="data.active_component.show_place">
+                                <div class="types-block" v-if="data.active_component.show_place">
                                     <div class="title w-50per">{{tr('Place')}}</div>
                                     <div class="types-block-container">
                                         <div class="component-item"
@@ -310,8 +310,8 @@
                                             <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
-                                </div> -->
-                                <!-- <div class="types-block" v-if="data.active_product.show_type">
+                                </div>
+                                <div class="types-block" v-if="data.active_component.show_type">
                                     <div class="title w-50per">{{tr('Type')}}</div>
                                     <div class="types-block-container">
                                         <div class="component-item"
@@ -321,7 +321,7 @@
                                             <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="types-block">
                                     <div class="title w-50per">{{tr('Detail')}}</div>
                                     <div class="types-block-container">
@@ -357,7 +357,7 @@
                                 <div class="materials-color-block">
                                     <div class="title"><span>{{tr("Materials")}}</span></div>
                                     <div class="material-block"
-                                         :class="[state.active_product.name, material.name]"
+                                         :class="[state.active_product.name, material.name, element.active_color]"
                                          v-for="material in element.colors">
                                         <div class="material-head"
                                              :class="(element.active_material == material.name)?'active':''">

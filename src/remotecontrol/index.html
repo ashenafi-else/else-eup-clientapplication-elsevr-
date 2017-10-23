@@ -455,6 +455,7 @@
                                 <input class="update-scan-id" id="updated_scan_id" v-model.trim="newScanId" type="text" :placeholder="tr('New scan id')">
                             </div>
                             <input type="button" class="update-scan-button" :value="tr('Update scan')" @click="updateScan(newScanId)">
+                            <input type="button" class="update-scan-button" :value="tr('Update last scan')" @click="updateLastScan()">
                             <div id="update_scan_error" v-show="updateScanError">
                                 {{tr("Error! Scan couldn't be updated!")}}
                             </div>
@@ -565,10 +566,10 @@
                             <label for="edit_zip_code" class="label">{{tr('Zip Code')}}</label>
                             <input type="number" name="zip-code" id="edit_zip_code" v-model="accountData.addresses[0].postcode">
                           </div>
-                          <div class="register-input">
-                            <label for="edit_notes" class="label">Notes</label>
-                            <input type="text" name="edit_notes" id="edit_notes">
-                          </div>
+                            <div class="register-input">
+                                <label for="edit_notes" class="label">{{tr("Notes")}}</label>
+                                <input type="text" name="notes" v-model.trim="accountData.note" id="edit_notes">
+                            </div>
                           <div class="edit-button-group">
                             <input type="button" value="Save Changes" id="edit-profile" class="save-changes" @click="saveChanges(accountData)">
                             <input type="button" value="Cancel" class="view-profile-info" @click="back">

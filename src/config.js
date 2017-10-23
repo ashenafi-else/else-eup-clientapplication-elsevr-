@@ -59,6 +59,7 @@ window.config = {
         	'interval': 50
         }
     },
+    'update_last_scan_interval': 15,
     'component_cameras': {},
     'cameras_initial_settings': {},
     'home_state': 'PRODUCT_LIST',

@@ -357,12 +357,13 @@
                                 <div class="materials-color-block">
                                     <div class="title"><span>{{tr("Materials")}}</span></div>
                                     <div class="material-block"
-                                         :class="[state.active_product.name, material.name, element.active_color]"
+                                         :class="[state.active_product.name, material.name]"
                                          v-for="material in element.colors">
                                         <div class="material-head"
                                              :class="(element.active_material == material.name)?'active':''">
                                             <div class="material-start">
                                                 <div class="material-icon big-active-material"
+                                                     :class="[element.active_color]"
                                                      :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
                                                 </div>
                                                 <div class="material-name">{{getMaterialName(material)}}</div>

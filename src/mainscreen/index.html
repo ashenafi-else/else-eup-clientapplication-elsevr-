@@ -62,8 +62,8 @@
             </div>
             <div class="store-list">
                 <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
-                <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
-                    <a :id="store.id">{{tr(store.name)}}</a>
+                <div class="store" :class="store.code" :id="store.id" @click="setActiveStore(store.id)" v-for="store in store_list">
+                    <a >{{tr(store.name)}}</a>
                 </div>
             </div>
             <div class="bottom-panel">
@@ -82,7 +82,7 @@
             <div class="session-code">
                 <img class="logo-chromium" src="img/neon-logo.png"/>
                 <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
-                <img :src="qrImage"/>
+                <img class="qr-code" :src="qrImage"/>
                 <div class="element-border">
                     <img src="img/blue-border.svg"/>
                 </div>

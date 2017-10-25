@@ -3,6 +3,24 @@
 * */
 
 window.config = {
+    'auto_rotate_settings': {
+        'product_view': {
+            'default_on': true,
+            'speed': 0.5
+        },
+        'part_view': {
+            'default_on': true,
+            'speed': 0.5
+        },
+        'preview_view': {
+            'default_on': true,
+            'speed': 0.5
+        },
+        'material_view': {
+            'default_on': true,
+            'speed': 0.5
+        }
+    },
     'default_camera': 'cameraLEFTp',
     'default_material_camera': 'cameraLEFTp',
     'default_part_camera': 'cameraLEFTp',
@@ -12,7 +30,8 @@ window.config = {
     'default_scanner': 'Dome000018',
     'default_scanners': {
         '18': 'Dome000018',
-        '19': 'Dome000018'
+        '19': 'Dome000018',
+        '20': 'Dome000018'
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',

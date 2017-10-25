@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class="store-list" >
-                <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
-                    <a :id="store.id">{{tr(store.name)}}</a>
+                <div class="store" :class="store.code" :id="store.id" @click="setActiveStore(store.id)" v-for="store in store_list">
+                    <a>{{tr(store.name)}}</a>
                 </div>
             </div>
         </div>

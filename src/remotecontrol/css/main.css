@@ -356,11 +356,7 @@ span.rotation-icon {
 .component {
     justify-content: flex-start;
 }
-.structures .structure{
-    background-position: top 35% center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
+
 .material{
     text-transform: capitalize;
     font-size: 23px;

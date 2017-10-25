@@ -353,7 +353,21 @@ window.translations = {
     'NOT TRANSPARENT CRYSTAL': {
         'en': 'Opaque'
     },
-    'TRANSPARENT CRYSTAL': {
-        'en': 'Transluscent'
+    'MAT_CRYSTAL_ANTIQUEPINK-INSIDE': {
+        'en': 'Antique Pink'
+    },
+    'MAT_CRYSTAL_LIGHTTURQUISE-INSIDE': {
+        'en': 'Light Turquoise'
+    },
+    'MAT_CRYSTAL_SILVERSHADE-INSIDE': {
+        'en': 'Silver Shade'
+    },
+    'METAL-GOLD': {
+        'en': 'Gold'
+    },
+    'METAL-SILVER-BUCKLE': {
+        'en': 'Silver'
     }
+
+
 };

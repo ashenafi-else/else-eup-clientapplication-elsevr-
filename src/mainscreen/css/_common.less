@@ -157,69 +157,105 @@
     }
 }
 
-
-
-.top-panel{
-    .logo-container{
-        padding-top: 30px;
-        background: top/100% url(../img/header.svg) no-repeat;
-        .flex-container();
-        .justify-content(space-between);
-        .align-items(flex-start);
-        position: relative;
-    }
-    .elsa-container {
-        position: absolute;
-        top: 95px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        .flex-container();
-        .justify-content(center);
-        .align-items(center);
-        border: 1px solid rgb( 95, 236, 255 );
-        background-color: rgb( 12, 88, 128 );
-        border-radius: 7px;
-        opacity: 0.65;
-        width: 257px;
-        height: 159px;
-        img{
-            height: 100%;
+    .top-panel{
+        .logo-container{
+            padding-top: 30px;
+            background: top/100% url(../img/header.svg) no-repeat;
+            .flex-container();
+            .justify-content(space-between);
+            .align-items(flex-start);
+            position: relative;
         }
-    }
-    width: 100%;
-    min-width: 100%;
-}
-
-.bottom-panel{
-    position: absolute;
-    bottom: 0 ;
-    left: 0 ;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-bottom: 27PX;
-    &:before {
-        content: "";
-        position: absolute;
+        .elsa-container {
+            position: absolute;
+            top: 95px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            .flex-container();
+            .justify-content(center);
+            .align-items(center);
+            border: 1px solid rgb( 95, 236, 255 );
+            background-color: rgb( 12, 88, 128 );
+            border-radius: 7px;
+            opacity: 0.65;
+            width: 257px;
+            height: 159px;
+            img{
+                height: 100%;
+            }
+        }
         width: 100%;
-        height: 30px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        background: bottom/100% url(../img/header.svg) no-repeat;
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg);
+        min-width: 100%;
     }
-    z-index: 1;
-    text-align: center;
-    .logo-container{
-        img{
-            width: 220px;
+.store_20{
+    .bottom-panel{
+        position: absolute;
+        bottom: 0 ;
+        left: 0 ;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-bottom: 190px;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: bottom/100% url(../img/header.svg) no-repeat;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+        z-index: 1;
+        text-align: center;
+        .logo-container{
+            img{
+                width: 220px;
+            }
+        }
+    }
+    #stores-screen{
+        .bottom-panel{
+            padding-bottom: 30px;
         }
     }
 }
+
+    .bottom-panel{
+        position: absolute;
+        bottom: 0 ;
+        left: 0 ;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-bottom: 27PX;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: bottom/100% url(../img/header.svg) no-repeat;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+        z-index: 1;
+        text-align: center;
+        .logo-container{
+            img{
+                width: 220px;
+            }
+        }
+    }
+
+
 
 .header {
     display: flex;
@@ -308,6 +344,31 @@
     margin: 0 auto;
     -webkit-text-stroke: 1px white;
 }
+.store_20{
+    .logo-else{
+        width: 250px;
+        /* margin-right: auto; */
+        position: absolute;
+        left: 43%;
+        margin-left: -125px;
+        top: 90vh;
+    }
+    .logo-predit{
+        width: 250px;
+        /* margin-right: auto; */
+        position: absolute;
+        right: 37%;
+        margin-left: -125px;
+        top: 93vh;
+    }
+    .logo-predit-white{
+        width: 200px;
+        position: absolute;
+        right: 45%;
+        top: 55vh;
+    }
+}
+
 .logo-else{
     width: 250px;
     /* margin-right: auto; */
@@ -316,6 +377,8 @@
     margin-left: -125px;
     top: 76vh;
 }
+
+
 .logo-micam{
     width: 250px;
     margin-left: auto;

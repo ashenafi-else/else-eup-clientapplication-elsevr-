@@ -62,8 +62,8 @@
             </div>
             <div class="store-list">
                 <div class="storeselect-heading"><span>{{tr("Select a store")}}</span></div>
-                <div class="store" @click="setActiveStore(store.id)" v-for="store in store_list">
-                    <a :id="store.id">{{tr(store.name)}}</a>
+                <div class="store" :class="store.code" :id="store.id" @click="setActiveStore(store.id)" v-for="store in store_list">
+                    <a >{{tr(store.name)}}</a>
                 </div>
             </div>
             <div class="bottom-panel">
@@ -82,7 +82,7 @@
             <div class="session-code">
                 <img class="logo-chromium" src="img/neon-logo.png"/>
                 <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
-                <img :src="qrImage"/>
+                <img class="qr-code" :src="qrImage"/>
                 <div class="element-border">
                     <img src="img/blue-border.svg"/>
                 </div>
@@ -298,54 +298,27 @@
                             </div>
                             <!--<div class="diy"><span>DIY&AI</span></div>-->
                         </div>
-                        <div class="main-middle">
-                            <div class="monogram-block">
-                                <div class="title w-50per">{{tr('Monogram')}}</div>
-                                <div class="monogram-block-container">
-                                    <div class="monogram-symbols">
-                                        <span class="monogram-symbol">1</span>
-                                        <span class="monogram-symbol">9</span>
-                                        <span class="monogram-symbol">7</span>
-                                        <span class="monogram-symbol">6</span>
-                                    </div>
-                                    <div class="component-item active">
-                                        <img src="img/components/w-application.png">
-                                        <span class="name">Applique</span>
-                                    </div>
-                                    <div class="component-item">
-                                        <img src="img/components/w-outsole.png">
-                                        <span class="name">Outsole</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="main-middle" v-if="data.active_component">
                             <div class="details-block">
-                                <div class="types-block">
+                                <div class="types-block" v-if="data.active_component.show_place">
                                     <div class="title w-50per">{{tr('Place')}}</div>
                                     <div class="types-block-container">
-                                        <div class="component-item">
-                                            <img src="img/components/w-insole.png">
-                                            <span class="name">Insole</span>
-                                        </div>
-                                        <div class="component-item active">
-                                            <img src="img/components/w-application.png">
-                                            <span class="name">Applique</span>
-                                        </div>
-                                        <div class="component-item">
-                                            <img src="img/components/w-outsole.png">
-                                            <span class="name">Outsole</span>
+                                        <div class="component-item"
+                                             :class="[component.component, (component.component == data.active_component.component) ? 'active' : '']"
+                                             v-if="component.show_place"
+                                             v-for="component in configuration.structure.config.components">
+                                            <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="types-block">
+                                <div class="types-block" v-if="data.active_component.show_type">
                                     <div class="title w-50per">{{tr('Type')}}</div>
                                     <div class="types-block-container">
-                                        <div class="component-item">
-                                            <img src="img/components/w-not_transparent_crystal.png">
-                                            <span class="name">Crystal</span>
-                                        </div>
-                                        <div class="component-item active">
-                                            <img src="img/components/no-comp.png">
-                                            <span class="name">None</span>
+                                        <div class="component-item"
+                                             :class="[component.component, (component.component == data.active_component.component) ? 'active' : '']"
+                                             v-if="component.show_type"
+                                             v-for="component in configuration.structure.config.components">
+                                            <span class="name">{{tr(component.name)}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -387,9 +360,10 @@
                                          :class="[state.active_product.name, material.name]"
                                          v-for="material in element.colors">
                                         <div class="material-head"
-                                             :class="(element.active_material == material.name)?'active':''">
+                                             :class="[material.name,(element.active_material == material.name)?'active':'']">
                                             <div class="material-start">
                                                 <div class="material-icon big-active-material"
+                                                     :class="[element.active_color]"
                                                      :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
                                                 </div>
                                                 <div class="material-name">{{getMaterialName(material)}}</div>
@@ -743,8 +717,8 @@
                         <div class="user_info_line">
                             {{tr('Gender')}}:
                             <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
+                                {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                            </span>
                         </div>
                         <div class="user_info_line">
                             {{tr('Size')}}:
@@ -1104,11 +1078,11 @@
                         <div class="user_info_line">
                             {{tr('Gender')}}:
                             <span id="user_profile_sex">
-                                        {{states.customer_profile_view.active_customer.gender}}
-                                    </span>
+                                {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                            </span>
                         </div>
                         <div class="user_info_line">
-                            {{tr('Size')}}:
+                            {{tr('Standard Size')}}:
                             <span id="user_profile_size">
                                         {{states.customer_profile_view.active_customer.size}}
                                     </span>
@@ -1196,7 +1170,7 @@
                         </div>
                     </div>
                     <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
-                        <span>{{tr('Size')}}</span>
+                        <span>{{tr('Fitting size')}}</span>
                         <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
                     </div>
                     <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">

@@ -324,10 +324,10 @@ window.translations = {
         'en': 'Leather strap'
     },
     'ELSEVR_WOMEN_1_1-1': {
-        'en': 'Heel 10cm'
+        'en': 'Heel 8.5cm'
     },
     'ELSEVR_WOMEN_1_1-2': {
-        'en': 'Heel 8.5cm'
+        'en': 'Heel 10cm'
     },
     'VELUKID-SUEDE': {
         'en': 'Suede'
@@ -340,6 +340,12 @@ window.translations = {
     },
     'LEATHER+STONES 2': {
         'en': 'Gemstone'
+    },
+    'GENDER_0': {
+        'en': 'Female'
+    },
+    'GENDER_1': {
+        'en': 'Male'
     },
     'MAT_LEATHER_SKY-BLUE': {
         'en': 'Sky Blue'

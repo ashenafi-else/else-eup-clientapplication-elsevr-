@@ -343,5 +343,11 @@ window.translations = {
     },
     'MAT_LEATHER_SKY-BLUE': {
         'en': 'Sky Blue'
+    },
+    'NOT TRANSPARENT CRYSTAL': {
+        'en': 'Opaque'
+    },
+    'TRANSPARENT CRYSTAL': {
+        'en': 'Transluscent'
     }
 };

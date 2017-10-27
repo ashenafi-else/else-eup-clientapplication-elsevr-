@@ -1,21 +1,50 @@
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+    -webkit-animation: @name @duration @delay @ease;
+    -moz-animation:    @name @duration @delay @ease;
+    -ms-animation:     @name @duration @delay @ease;
+    animation:         @name @duration @delay @ease;
+}
+
+.appearance (@value) {
+    -webkit-appearance: @value;
+    -moz-appearance: @value;
+    appearance: @value;
+}
+
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius:    @radius;
+    border-radius:         @radius;
+
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing:    @type;
+    box-sizing:         @type;
+}
+
 .box-shadow (@string) {
     -webkit-box-shadow: @string;
     -moz-box-shadow:    @string;
     box-shadow:         @string;
 }
 
-.flex-container(){
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+.clip-path(@clip) {
+    -webkit-clip-path: @clip;
+    -moz-clip-path: @clip;
+    -ms-clip-path: @clip;
+    clip-path: @clip;
 }
 
-.flex-direction(@direction: row) {
-    -webkit-flex-direction: @direction;
-    -ms-flex-direction: @direction;
-    flex-direction: @direction;
+.mask-path(@url){
+    -webkit-mask: @url no-repeat 50% 50%;
+    mask: @url no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    mask-size: contain;
 }
 
 .object-fit(@fit: fill){
@@ -24,6 +53,44 @@
     font-family: 'object-fit: @{fit}';
 }
 
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform: 	 rotate(@deg);
+    -ms-transform: 		 rotate(@deg);
+    -o-transform: 		 rotate(@deg);
+}
+
+.transition (@transition) {
+    -webkit-transition: @transition;
+    -moz-transition:    @transition;
+    -ms-transition:     @transition;
+    -o-transition:      @transition;
+    transition:      @transition;
+}
+
+.user-select(@user-select) {
+    -webkit-touch-callout: @user-select;
+    -webkit-user-select: @user-select;
+    -khtml-user-select: @user-select;
+    -moz-user-select: @user-select;
+    -ms-user-select: @user-select;
+    user-select: @user-select;
+}
+
+//---------flex mixins -------------//
+
+.flex-container(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex-direction(@direction: row) {
+    -webkit-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    flex-direction: @direction;
+}
 .justify-content(@justify: flex-start) {
     -webkit-justify-content: @justify;
     -ms-justify-content: @justify;
@@ -38,23 +105,59 @@
     align-content: @align;
     -webkit-align-content: @align;
 }
-.box-sizing (@type: border-box) {
-    -webkit-box-sizing: @type;
-    -moz-box-sizing:    @type;
-    box-sizing:         @type;
-}
 .align-self(@align: auto) {
     -webkit-align-self: @align;
     -ms-align-self: @align;
     align-self: @align;
 }
-
-.border-radius (@radius: 5px) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius:    @radius;
-    border-radius:         @radius;
-
-    -moz-background-clip:    padding;
-    -webkit-background-clip: padding-box;
-    background-clip:         padding-box;
+.flex-wrap(@wrap: nowrap) {
+    -webkit-flex-wrap: @wrap;
+    -ms-flex-wrap: @wrap;
+    flex-wrap: @wrap;
 }
+
+//--------- end of flex mixins -------------//
+
+// -----------------media mixins ---------------//
+
+// xs only
+.screen-xs(@rules) {
+    @media (max-width: @screen-xs-max) { @rules(); }
+}
+
+// sm and larger
+.screen-sm-min(@rules) {
+    @media (min-width: @screen-sm-min) { @rules(); }
+}
+
+// sm only
+.screen-sm(@rules) {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { @rules(); }
+}
+
+// sm and smaller
+.screen-sm-max(@rules) {
+    @media (max-width: @screen-sm-max) { @rules(); }
+}
+
+// md and larger
+.screen-md-min(@rules) {
+    @media (min-width: @screen-md-min) { @rules(); }
+}
+
+// md only
+.screen-md(@rules) {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { @rules(); }
+}
+
+// md and smaller
+.screen-md-max(@rules) {
+    @media (max-width: @screen-md-max) { @rules(); }
+}
+
+// lg
+.screen-lg(@rules) {
+    @media (min-width: @screen-lg-min) { @rules(); }
+}
+
+// -----------------end of media mixins ---------------//

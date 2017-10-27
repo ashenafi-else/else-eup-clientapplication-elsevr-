@@ -14,25 +14,6 @@
 }
 @maintext-color: #f2f2f2;
 
-.top-panel{
-    .logo-container{
-        background: top/100% url(../img/header-divider.svg) no-repeat;
-        background-position-y: bottom;
-        position: relative;
-        .flex-container();
-        .justify-content(space-between);
-        .align-items(flex-start);
-        .logo-pwd{
-            width: 100px;
-            margin: 0px 10px 10px auto;
-        }
-        .logo-else-shoes{
-            margin-right: auto;
-        }
-    }
-    width: 100%;
-    min-width: 100%;
-}
 .controller-header{
     width: 100%;
     height: 8%;
@@ -381,4 +362,236 @@
     background-position: top 35% center;
     background-repeat: no-repeat;
     background-size: 50%;
+}
+
+
+// ---------------T Y P O G R A P H Y-----------//
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 600;
+}
+
+//h1 for main title of header
+h1{
+    font-size: 2.2rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+//h3 for header of helping blocks like materials
+h3{
+    font-size: 1.75rem;
+}
+h4{
+    font-size: 1.5rem;
+}
+h5{
+    font-size: 1.25rem;
+}
+h6{
+    font-size: 1rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+//------  [END] T Y P O G R A P H Y [END]------//
+
+
+//----------------- B L O C K S -----------------//
+
+.header {
+    .flex-container();
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.header-col {
+    .flex-container();
+    .align-items(center);
+    padding: 0.5rem 1rem;
+}
+
+.header-start {
+    .justify-content(flex-start);
+}
+
+.header-middle {
+    .justify-content(center);
+}
+
+.header-end {
+    .justify-content(flex-end);
+}
+
+.page {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    overflow: hidden;
+}
+
+.page-remote-screen,
+.page-mainscreen{
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.store-list {
+    z-index: 999;
+    .flex-container();
+    .justify-content(center);
+    .align-items(center);
+    .flex-direction(column);
+}
+
+.footer {
+
+}
+
+.logo {
+    max-height: 27rem;
+    .transition(all 0.2s);
+    img {
+        .object-fit(contain);
+        max-height: 27rem;
+        height: 100%;
+        max-width: 100%;
+    }
+    &.logo-pwd{
+        margin-top: auto;
+        img{
+            max-height: 8rem;
+        }
+    }
+    &.header-logo {
+        max-height: 100%;
+        height: 100%;
+        img {
+            max-height: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    &.button-block {
+        display: block;
+        width: 100%;
+    }
+    &.button-xxl {
+        font-size: 2rem;
+        padding: 1rem 1.3rem;
+    }
+    &.button-xl {
+        font-size: 1.2rem;
+    }
+}
+
+.qr-code{
+    max-height: 14rem;
+}
+
+.go-else{
+    video,
+    img{
+        max-height: 100%;
+        height: 100%;
+    }
+}
+
+//-------- [END] - B L O C K S - [END] ----------//
+
+// ------- M O D I F I C A T O R S --------//
+
+
+.h-10per {
+    height: 10%;
+}
+
+.h-20per {
+    height: 20%;
+}
+
+.h-30per {
+    height: 30%;
+}
+
+.h-40per {
+    height: 40%;
+}
+
+.h-50per {
+    height: 50%;
+}
+
+.h-60per {
+    height: 60%;
+}
+
+.h-70per {
+    height: 70%;
+}
+
+.h-80per {
+    height: 80%;
+}
+
+.h-90per {
+    height: 90%;
+}
+
+.h-100per {
+    height: 100%;
+}
+
+.mainscreen-header{
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        height: 50px;
+        background-image: url(../img/header-divider.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.centered-content{
+    .flex-container();
+    .align-items(center);
+    .justify-content(center);
+    .flex-direction(column);
+}
+
+.align-left{
+    .justify-content(flex-start);
+}
+.align-middle{
+    .justify-content(middle);
+}
+.align-right{
+    .justify-content(flex-end);
 }

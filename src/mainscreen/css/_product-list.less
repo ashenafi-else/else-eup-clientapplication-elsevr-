@@ -1,184 +1,195 @@
 .store_20 {
-    #product-list-screen {
-        background: url(../img/pi-apparel/bcgd_apparel.png) no-repeat;
+  #product-list-screen {
+    background: url(../img/pi-apparel/bcgd_apparel.png) no-repeat;
+    position: relative;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
+    .list-items {
+      .flex-container();
+      .justify-content(space-between);
+      height: 80%;
+      padding: 0 5%;
+      min-width: 100%;
+      .element-boot {
         position: relative;
-        background-size: cover;
-        min-height: 100vh;
-        overflow: hidden;
-        .list-items {
-            .flex-container();
-            .justify-content(space-between);
-            height: 80%;
-            padding: 0 5%;
-            min-width: 100%;
-            .element-boot {
-                position: relative;
-            }
-            .element {
-                .flex-container();
-                min-width: 35%;
-                position: relative;
-                flex-basis: 45%;
-                height: 80%;
-                margin-bottom: 60px;
-                flex-direction: column;
-                .name {
-                    border: 1px solid #5FECFF;
-                    border-radius: 7px;
-                    background-color: rgb(12, 88, 128);
-                    opacity: 0.65;
-                    width: 384px;
-                    height: 68px;
-                    font-size: 42px;
-                    color: white;
-                    margin: 70px auto 0 auto;
-                }
-                .collection-img {
-                    position: absolute;
-                    max-width: 100%;
-                    min-width: 100%;
-                    width: 100%;
-                    max-height: 80%;
-                    margin-bottom: 30%;
-                    bottom: 0;
-                    padding: 0 20%;
-                }
-                .active-picture {
-                    position: absolute;
-                    opacity: 0;
-                    visibility: hidden;
-                    .animation(rotating, 10s, linear, infinite);
-                }
-                @-webkit-keyframes rotating /* Safari and Chrome */
-                {
-                    from {
-                        .rotate(0deg);
-                    }
-                    to {
-                        .rotate(360deg);
-                    }
-                }
+      }
+      .element {
+        .flex-container();
+        min-width: 35%;
+        position: relative;
+        flex-basis: 45%;
+        height: 80%;
+        margin-bottom: 60px;
+        flex-direction: column;
+        .name {
+          border: 1px solid #5FECFF;
+          border-radius: 7px;
+          background-color: rgb(12, 88, 128);
+          opacity: 0.65;
+          width: 384px;
+          height: 68px;
+          font-size: 42px;
+          color: white;
+          margin: 70px auto 0 auto;
+        }
+        .collection-img {
+          position: absolute;
+          max-width: 100%;
+          min-width: 100%;
+          width: 100%;
+          max-height: 80%;
+          margin-bottom: 30%;
+          bottom: 0;
+          padding: 0 20%;
+        }
+        .active-picture {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          .animation(rotating, 10s, linear, infinite);
+        }
+        @-webkit-keyframes rotating /* Safari and Chrome */
+        {
+          from {
+            .rotate(0deg);
+          }
+          to {
+            .rotate(360deg);
+          }
+        }
 
-                @keyframes rotating {
-                    from {
-                        .rotate(0deg);
-                    }
-                    to {
-                        .rotate(360deg);
-                    }
-                }
-                &.active {
-                    .active-picture {
-                        opacity: 1;
-                        visibility: visible;
-                    }
-                }
-            }
+        @keyframes rotating {
+          from {
+            .rotate(0deg);
+          }
+          to {
+            .rotate(360deg);
+          }
         }
-        .element-border {
-            .flex-container();
-            .justify-content(center);
-            .align-items(center);
-            background: center/100% url(../img/white-shadow.png), center/80% url(../img/circle-shadow.png);
-            background-repeat: no-repeat;
-            width: 100%;
-            img {
-                .object-fit(contain);
-                width: 100%;
-                transition: 0.3s;
+        &.active {
+          .active-picture {
+            opacity: 1;
+            visibility: visible;
+          }
+          .element-border {
+            img:not(.active-picture) {
+              opacity: 0;
             }
+          }
         }
+      }
     }
+    .element-border {
+      .flex-container();
+      .justify-content(center);
+      .align-items(center);
+      background: center/100% url(../img/white-shadow.png), center/80% url(../img/circle-shadow.png);
+      background-repeat: no-repeat;
+      width: 100%;
+      img {
+        .object-fit(contain);
+        width: 100%;
+        transition: 0.3s;
+      }
+    }
+  }
 }
-.store_18, .store_19{
-    #product-list-screen {
-        background: url(../img/bg.png) no-repeat;
-        position: relative;
-        background-size: cover;
-        min-height: 100vh;
-        overflow: hidden;
-        .list-items {
-            .flex-container();
-            .justify-content(space-between);
-            height: 80%;
-            padding: 0 5%;
-            min-width: 100%;
-            .element-boot {
-                position: relative;
-            }
-            .element {
-                .flex-container();
-                min-width: 35%;
-                position: relative;
-                flex-basis: 45%;
-                height: 80%;
-                margin-bottom: 60px;
-                flex-direction: column;
-                .name {
-                    border: 1px solid #5FECFF;
-                    border-radius: 7px;
-                    background-color: rgb(12, 88, 128);
-                    opacity: 0.65;
-                    width: 382px;
-                    height: 62px;
-                    font-size: 42px;
-                    color: white;
-                    margin: 70px auto 0 auto;
-                }
-                .collection-img {
-                    position: absolute;
-                    max-width: 100%;
-                    min-width: 100%;
-                    width: 100%;
-                    max-height: 80%;
-                    margin-bottom: 30%;
-                    bottom: 0;
-                    padding: 0 20%;
-                }
-                .active-picture {
-                    position: absolute;
-                    opacity: 0;
-                    visibility: hidden;
-                    .animation(rotating, 10s, linear, infinite);
-                }
-                @-webkit-keyframes rotating /* Safari and Chrome */
-                {
-                    from {
-                        .rotate(0deg);
-                    }
-                    to {
-                        .rotate(360deg);
-                    }
-                }
 
-                @keyframes rotating {
-                    from {
-                        .rotate(0deg);
-                    }
-                    to {
-                        .rotate(360deg);
-                    }
-                }
-                &.active {
-                    .active-picture {
-                        opacity: 1;
-                        visibility: visible;
-                    }
-                }
-            }
+.store_18, .store_19 {
+  #product-list-screen {
+    background: url(../img/bg.png) no-repeat;
+    position: relative;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
+    .list-items {
+      .flex-container();
+      .justify-content(space-between);
+      height: 80%;
+      padding: 0 5%;
+      min-width: 100%;
+      .element-boot {
+        position: relative;
+      }
+      .element {
+        .flex-container();
+        min-width: 35%;
+        position: relative;
+        flex-basis: 45%;
+        height: 80%;
+        margin-bottom: 60px;
+        flex-direction: column;
+        .name {
+          border: 1px solid #5FECFF;
+          border-radius: 7px;
+          background-color: rgb(12, 88, 128);
+          opacity: 0.65;
+          width: 382px;
+          height: 62px;
+          font-size: 42px;
+          color: white;
+          margin: 70px auto 0 auto;
         }
-        .element-border {
-            .flex-container();
-            .justify-content(center);
-            .align-items(center);
-            background: center/100% url(../img/white-shadow.png), center/80% url(../img/circle-shadow.png);
-            background-repeat: no-repeat;
-            width: 100%;
-            img {
-                .object-fit(contain);
-                width: 100%;
-                transition: 0.3s;
-            }
+        .collection-img {
+          position: absolute;
+          max-width: 100%;
+          min-width: 100%;
+          width: 100%;
+          max-height: 80%;
+          margin-bottom: 30%;
+          bottom: 0;
+          padding: 0 20%;
         }
+        .active-picture {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          .animation(rotating, 10s, linear, infinite);
+        }
+        @-webkit-keyframes rotating /* Safari and Chrome */
+        {
+          from {
+            .rotate(0deg);
+          }
+          to {
+            .rotate(360deg);
+          }
+        }
+
+        @keyframes rotating {
+          from {
+            .rotate(0deg);
+          }
+          to {
+            .rotate(360deg);
+          }
+        }
+        &.active {
+          .active-picture {
+            opacity: 1;
+            visibility: visible;
+          }
+          .element-border {
+            img:not(.active-picture) {
+              opacity: 0;
+            }
+          }
+        }
+      }
     }
+    .element-border {
+      .flex-container();
+      .justify-content(center);
+      .align-items(center);
+      background: center/100% url(../img/white-shadow.png), center/80% url(../img/circle-shadow.png);
+      background-repeat: no-repeat;
+      width: 100%;
+      img {
+        .object-fit(contain);
+        width: 100%;
+        transition: 0.3s;
+      }
+    }
+  }
 }

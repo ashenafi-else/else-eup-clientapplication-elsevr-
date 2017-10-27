@@ -1,48 +1,38 @@
 #stores-screen{
-  background: url(../img/bg.png) no-repeat;
-  background-size: cover;
-  position: relative;
-  min-height: 100vh;
   .store-list {
     /* JUST FOR PI APPAREL EVENT - TO BE DELETED LATER*/
     .elsevr_else_vr_store{
       pointer-events: none;
     }
-    z-index: 999;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    .flex-container();
-    .justify-content(center);
-    .align-items(center);
-    flex-direction: column;
-    font-size: 24px;
+    font-size: 1.4rem;
     .storeselect-heading{
       text-shadow: 0 0 4px #0064db;
-      color: #f2f2f2;
-      font-size: 36px;
+      font-size: 2rem;
       font-family: Lato, Verdana, sans-serif;
       margin-bottom: 50px;
-      span{
-        text-decoration: underline;
-      }
     }
-    .store {
-      display: block;
-      margin: 20px 30px 20px 30px;
-      color: black;
-      text-align: center;
-      a{
-        color: #f2f2f2;
-        text-shadow: 0 0 4px #0064db;
-      }
-      a:hover {
-        color: #0064DB;
-      }
-    }
-    
+  }
+}
 
+
+.page-store-selection{
+  background: url(../img/header.svg), url(../img/bg.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%, cover;
+
+  color: #f2f2f2;
+}
+
+.store {
+  display: block;
+  margin: 1rem;
+  text-align: center;
+  a{
+    color: #f2f2f2;
+    text-shadow: 0 0 4px #0064db;
+  }
+  a:hover {
+    color: #0064DB;
   }
 }

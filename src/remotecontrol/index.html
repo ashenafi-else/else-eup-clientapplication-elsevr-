@@ -43,11 +43,17 @@
         </header>
     </header-component>
     <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
-        <div class="store-selection" id="stores-screen">
-            <div class="top-panel">
-                <div class="logo-container">
-                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
-                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+        <div class="page-store-selection" id="stores-screen">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+                    <div class="logo header-logo">
+                        <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    </div>
+                </div>
+                <div class="col header-col header-end">
+                    <div class="logo header-logo">
+                        <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                    </div>
                 </div>
             </div>
             <div class="store-list" >
@@ -58,11 +64,17 @@
         </div>
     </stores>
     <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
-        <div id="session-code-screen" class="session-code-screen">
-            <div class="top-panel">
-                <div class="logo-container">
-                    <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
-                    <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+        <div id="session-code-screen" class="page-session-code">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+                    <div class="logo header-logo">
+                        <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    </div>
+                </div>
+                <div class="col header-col header-end">
+                    <div class="logo header-logo">
+                        <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                    </div>
                 </div>
             </div>
             <div class="session-code">

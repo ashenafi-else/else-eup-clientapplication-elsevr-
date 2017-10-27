@@ -1,103 +1,61 @@
-.store_20{
-  #session-code-screen{
-    background: url(../img/pi-apparel/bcgd_apparel.png) no-repeat;
-    background-size: cover;
-    position: relative;
-    min-height: 100vh;
-    .session-code{
-      height: 58%;
-      min-width: 25%;
-      .flex-container();
-      .justify-content(center);
-      .align-items(center);
-      flex-direction: column;
-      position: absolute;
-      top: 44%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      background:  center/70% url(../img/pi-apparel/shadow-circle.png), center/100% url(../img/white-shadow.png);
-      background-repeat: no-repeat;
-      -webkit-background-size: contain;
-      background-size: contain;
-      width: 100%;
-      .code{
-        color: white;
-      }
-      .logo-chromium{
-        content:url("../img/pi-apparel/pi-apparel-logo-white.png");
-        width: auto;
-        margin-bottom: 2%;
-        height: 200px;
-      }
-      .qr-code {
-        display: block;
-        margin-top: 2vh;
-        height: 300px;
-        width: auto;
-      }
-    }
-    .element-border{
-      .flex-container();
-      .justify-content(center);
-      .align-items(center);
-      width: 49%;
-      img{
-        width: 75%;
-        margin-bottom: 57%;
-      }
-    }
-    .logo-pwd-else{
-      width: 130px;
-      position: absolute;
-      right: 10px;
-      bottom: 25px;
-    }
+.page-session-code{
+  .session-code{
+    min-width: 25%;
+    width: 100%;
+  }
+  .code {
+    color: white;
+    font-size: 1rem;
+  }
+  .logo-pwd-else {
+    width: 130px;
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+  }
+  .qr-code{
+    margin-top: 1rem;
+  }
+  img{
+    display: block;
   }
 }
-.store_19, .store_18 {
-  #session-code-screen{
-    background: url(../img/bg.png) no-repeat;
-    background-size: cover;
-    position: relative;
-    min-height: 100vh;
-    .session-code{
-      height: 80%;
-      min-width: 25%;
-      .flex-container();
-      .justify-content(center);
-      .align-items(center);
-      flex-direction: column;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      background:  center/80% url(../img/circle-shadow.png), center/100% url(../img/white-shadow.png);
-      background-repeat: no-repeat;
-      -webkit-background-size: contain;
-      background-size: contain;
-      width: 100%;
-      img {
-        display: block;
-        margin-top: 2vh;
-      }
-    }
-    .element-border{
-      .flex-container();
-      .justify-content(center);
-      .align-items(center);
-      width: 49%;
-      img{
-        width: 100%;
-        margin-bottom: 73%;
-      }
-    }
-    .logo-pwd-else{
-      width: 130px;
-      position: absolute;
-      right: 10px;
-      bottom: 25px;
-    }
+
+.store_20 {
+  .session-code {
+    background: url(../img/blue-border.svg), url(../img/pi-apparel/shadow-circle.png);
+    background-size: auto 100% , auto 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .logo-chromium {
+    content: url("../img/pi-apparel/pi-apparel-logo-white.png");
+    width: auto;
+    margin-bottom: 2%;
+    height: 200px;
+  }
+}
+
+.store_18, .store_19 {
+  .page-session-code {
+    background: url(../img/header.svg), url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%, cover;
+  }
+  .session-code {
+    background: url(../img/blue-border.svg), url(../img/circle-shadow.png), url(../img/white-shadow.png);
+    background-size: auto 100% , auto 80%, auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.store_20 {
+  .page-session-code {
+    background: url(../img/header.svg), url(../img/pi-apparel/bcgd_apparel.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%, cover;
   }
 }

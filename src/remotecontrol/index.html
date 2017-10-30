@@ -897,6 +897,13 @@
                         </div>
                     </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
+                    <div class="default-cameras">
+                        <div class="camera camera-view"
+                             :id="camera"
+                             :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
+                             @click="changeCamera(camera)"
+                             v-for="camera in states.customer_fitting_view.cameras"></div>
+                    </div>
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>

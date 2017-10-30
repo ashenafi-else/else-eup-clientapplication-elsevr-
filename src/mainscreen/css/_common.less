@@ -228,41 +228,6 @@
   .account_info {
     .flex-container();
     flex-direction: row;
-    .size-block {
-      .flex-container();
-      flex-direction: row;
-      .align-items(center);
-      width: 200px;
-      margin: 0 50px;
-      .fitting-size {
-        background-image: url(../img/icon-header-size.png);
-        background-repeat: no-repeat;
-        color: #ffffff;
-        background-size: 55px 40px;
-        background-position-y: bottom;
-        width: 50px;
-        height: 50px;
-        margin-top: 15px;
-      }
-      .factor-text {
-        color: #ffffff;
-        max-width: 80px;
-      }
-      .factor-score {
-        .flex-container();
-        .justify-content(center);
-        .align-items(center);
-        color: #ffffff;
-        background-image: url(../img/frame-fitting-factor.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 60px 56px;
-        z-index: 99999;
-        font-size: 18px;
-        width: 50px;
-        height: 50px;
-      }
-    }
   }
 }
 
@@ -271,20 +236,7 @@
 }
 
 .store_20 {
-  .logo-predit {
-    width: 250px;
-    /* margin-right: auto; */
-    position: absolute;
-    right: 37%;
-    margin-left: -125px;
-    top: 93vh;
-  }
-  .logo-predit-white {
-    width: 200px;
-    position: absolute;
-    right: 45%;
-    top: 55vh;
-  }
+
 }
 
 .logo-micam {
@@ -293,7 +245,7 @@
 }
 
 .logo-chromium {
-  width: 290px;
+  max-height: 10rem;
 }
 
 //CAMERAS
@@ -612,11 +564,51 @@ h6{
 
 //----------------- B L O C K S -----------------//
 
+
+.main{
+  .flex-container();
+  .flex-wrap(nowrap);
+  .justify-content(space-between);
+  height: 100vh;
+  width: 100%;
+}
+
+.main-start{
+  width: 30%;
+  padding: 0;
+  .flex-container();
+  .flex-direction(column);
+  .justify-content(flex-start);
+  z-index: 1;
+}
+.main-end {
+  .flex-container();
+  .flex-direction(column);
+  .justify-content(flex-start);
+  min-width: 420px;
+  width: 30%;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+}
+.main-middle{
+  .flex-container();
+  .flex-direction(column);
+  .justify-content(flex-end);
+  .align-items(center);
+  width: 40%;
+}
+
 .header {
   .flex-container();
+  position: relative;
   width: 100%;
   min-width: 100%;
   max-width: 100%;
+}
+
+.header + .main{
+  height: 90vh;
 }
 
 .header-col {
@@ -691,6 +683,42 @@ h6{
   }
 }
 
+.size-block-header {
+  .flex-container();
+  flex-direction: row;
+  .align-items(center);
+  width: 200px;
+  margin: 0 50px;
+  .fitting-size {
+    background-image: url(../img/icon-header-size.png);
+    background-repeat: no-repeat;
+    color: #ffffff;
+    background-size: 55px 40px;
+    background-position-y: bottom;
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+  }
+  .factor-text {
+    color: #ffffff;
+    max-width: 80px;
+  }
+  .factor-score {
+    .flex-container();
+    .justify-content(center);
+    .align-items(center);
+    color: #ffffff;
+    background-image: url(../img/frame-fitting-factor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60px 56px;
+    z-index: 99999;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .button {
   display: inline-block;
   cursor: pointer;
@@ -725,6 +753,20 @@ h6{
   }
 }
 
+.best-fit {
+  .flex-container();
+  .flex-direction(row);
+  .align-items(flex-start);
+  .justify-content(flex-start);
+  position: relative;
+  font-size: 0.8em;
+  left:0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+}
+
 .elsa-container{
   position: absolute;
   margin-top: 10px;
@@ -739,6 +781,22 @@ h6{
 
 // ------- M O D I F I C A T O R S --------//
 
+
+.w-50per{
+  width: 50%;
+}
+
+.w-60per{
+  width: 60%;
+}
+
+.w-70per{
+  width: 70%;
+}
+
+.w-80per{
+  width: 80%;
+}
 
 .h-10per {
   height: 10%;
@@ -785,9 +843,9 @@ h6{
     content: '';
     display: block;
     position: absolute;
-    top: 70px;
+    bottom: 0;
+    min-height: 20px;
     width: 100%;
-    height: 50px;
     background-image: url(../img/header-divider.png);
     background-repeat: no-repeat;
     background-size: contain;

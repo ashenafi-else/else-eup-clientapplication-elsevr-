@@ -93,7 +93,7 @@
             </div>
             <div class="main">
                 <div class="h-80per session-code centered-content">
-                    <img class="logo-chromium" src="img/neon-logo.png"/>
+                    <img class="logo-chromium h-40per" src="img/neon-logo.png"/>
                     <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                     <img class="qr-code h-50per" :src="qrImage"/>
                 </div>
@@ -134,7 +134,8 @@
         </div>
     </product-start-screen>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
-        <div class="container" id="product-list-screen">
+        <div class="page page-product-list" id="product-list-screen">
+            <div class="elsa-container"><img src="img/elsa-small.png"/></div>
             <div class="header vr-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -152,22 +153,21 @@
                     </div>
                 </div>
             </div>
-            <div class="elsa-container"><img src="img/elsa-small.png"/></div>
-            <div class="virtual-catalog">
+            <div class="main virtual-catalog">
                 <div class="list-items">
                     <div class="element"
                          :class="[product.active?'active':'', product.name]"
                          :id="product.id"
                          v-for="product in states.product_list_view.products">
-                        <div class="element-boot">
+                        <div class="element-boot h-80per">
                             <!--<div class="product_fitt_score"-->
                             <!--:class="getFittingClass()"-->
                             <!--v-if="product.fit_score != null">{{product.fit_score}}</div>-->
                             <div class="element-border">
-                                <img src="img/blue-border.svg"/>
+                                <img class="blue-border-picture" src="img/blue-border.svg"/>
                                 <img class="active-picture" src="img/active-border.svg"/>
+                                <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
                             </div>
-                            <img class="collection-img"  v-show="!product.active || !product.tour_360" :src="product.image" :alt="product.name"/>
                             <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
                                 <img class="collection-img" v-show="img.active" :src="img.url" v-for="img in product.tour_360">
                             </div>
@@ -190,7 +190,7 @@
                      :data="api2Data"
                      v-if="states.product_view.active">
         <div class="content mainscreen-app" id="product-details-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="header-start" >
                     <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                     <span class="vr-stylish-text">3D Product Configurator</span>
@@ -207,7 +207,7 @@
                                     {{getUserName()}}
                                 </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -446,7 +446,7 @@
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
                                 <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <div class="size-block" v-if="getFittingValues().best_size != null">
+                                    <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -521,7 +521,7 @@
                                 </span>
 
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -589,7 +589,7 @@
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -719,7 +719,7 @@
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -1059,7 +1059,7 @@
     <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen" :visible="visible"
                       :states="states" :configurator="configuration" inline-template>
         <div class="container" id="customer-fitting-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="header-start" >
                     <div class="centered logo-container"><img src="img/neon-logo.png"></div>
                     <span class="screen-name vr-stylish-text">{{tr("Virtual Fitting")}}</span>
@@ -1068,13 +1068,13 @@
                 </div>
                 <div class="header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="go-account"></div>
+                        <div class="go-acc  ount"></div>
                         <span id="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
@@ -1091,7 +1091,7 @@
                     </div>
                 </div>
             </div>
-            <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
+            <div class="main best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params">
                     <div class="user_info">
                         <div class="user_info_line username_profile">{{tr('Name')}}:

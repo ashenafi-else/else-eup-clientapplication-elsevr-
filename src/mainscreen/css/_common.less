@@ -12,7 +12,7 @@
   .screen-md({ font-size: 1.15rem; });
   .screen-lg({ font-size: 1.2rem; //to be checked!
   });
-  .screen-hg({ font-size: 2rem; });
+  .screen-hg({ font-size: 1.4rem; });
 }
 
 #else-mainscreen-control {
@@ -613,6 +613,9 @@ h6{
 
 .header-middle {
   .justify-content(center);
+  .elsa-container{
+    margin-top: 2rem;
+  }
 }
 
 .header-end {
@@ -688,6 +691,7 @@ h6{
     width: 50px;
     height: 50px;
     margin-top: 15px;
+    margin-right: 1rem;
   }
   .factor-text {
     color: #ffffff;
@@ -834,11 +838,13 @@ h6{
     display: block;
     position: absolute;
     bottom: 0;
-    min-height: 20px;
+    left: 0;
+    right: 0;
+    min-height: 25px;
     width: 100%;
     background-image: url(../img/header-divider.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
 }
 

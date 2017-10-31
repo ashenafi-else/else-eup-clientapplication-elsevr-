@@ -439,7 +439,7 @@
     <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states"
                      inline-template>
         <div id="product-preview-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img src="img/neon-logo.png">
@@ -516,7 +516,7 @@
     <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states"
                       inline-template>
         <div id="material-preview-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo"><img src="img/neon-logo.png"></div>
                     <span class="vr-stylish-text">{{tr("Material Preview")}}</span>
@@ -585,7 +585,7 @@
     </material-preview>
     <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
         <div id="part-preview-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo"><img src="img/neon-logo.png"></div>
                     <span class="vr-stylish-text">{{tr("Detail Preview")}}</span>
@@ -1207,36 +1207,38 @@
                         </div>
                     </div>
                 </div>  <!-- ./user-info end -->
-                <div class="product_info">
-                    <div class="fitting-name">Virtual Fitting</div>
-                    <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
-                    <div class="best_sizes">
-                        <div class="prev_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                            <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                <div class="block-virtual-fitting">
+                    <div class="product_info">
+                        <div class="fitting-name">Virtual Fitting</div>
+                        <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                        <div class="best_sizes">
+                            <div class="prev_best_size"
+                                 :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
+                                 v-if="states.customer_fitting_view.best_sizes.prev_best_size">
+                                <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
+                                <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
+                            </div>
+                            <div class="best_size"
+                                 :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
+                                 v-if="states.customer_fitting_view.best_sizes.best_size">
+                                <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
+                                <!--<img :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
+                            </div>
+                            <div class="next_best_size"
+                                 :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
+                                 v-if="states.customer_fitting_view.best_sizes.next_best_size">
+                                <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
+                                <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                            </div>
                         </div>
-                        <div class="best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                            <!--<img :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
+                        <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
+                            <span>{{tr('Fitting size')}}</span>
+                            <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
                         </div>
-                        <div class="next_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                            <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                        <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
+                            <span>{{tr('Fitting factor')}}</span>
+                            <span class="factor-score">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                         </div>
-                    </div>
-                    <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
-                        <span>{{tr('Fitting size')}}</span>
-                        <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
-                    </div>
-                    <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
-                        <span>{{tr('Fitting factor')}}</span>
-                        <span class="factor-score">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                     </div>
                 </div>
             </div>

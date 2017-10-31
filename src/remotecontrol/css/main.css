@@ -65,8 +65,8 @@ footer {
 
 .virtual-catalog .go-else video,
 .store-password-screen .go-else video,
-.store-selection .go-else video,
-.session-code-screen .go-else video{
+.page-store-selection .go-else video,
+.page-session-code .go-else video{
     position: absolute;
     right: 48%;
     bottom: 20px;
@@ -118,32 +118,32 @@ footer {
 }
 
 /* REYREY - STORE-SELECTION & STORE-PASSWORD & SESSION CODE SCREENS */
-.store-selection, .store-password-screen{
+.page-store-selection, .store-password-screen{
     flex: auto;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.store-selection .logo-section, .store-password-screen .logo-section,
-.session-code-screen .logo-section {
+.page-store-selection .logo-section, .store-password-screen .logo-section,
+.page-session-code .logo-section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.store-selection .logo-section .reyrey-logo,
+.page-store-selection .logo-section .reyrey-logo,
 .store-password-screen .logo-section .reyrey-logo,
-.session-code-screen .logo-section .reyrey-logo {
+.page-session-code .logo-section .reyrey-logo {
     width: 480px;
     height: 160px;
     margin-top: 20px;
 }
 
 
-.store-selection .logo-line,
+.page-store-selection .logo-line,
 .store-password-screen  .logo-line,
-.session-code-screen .logo-line {
+.page-session-code .logo-line {
     content: '';
     width: 600px;
     margin: 10px;
@@ -153,7 +153,7 @@ footer {
     background: #000000;
 }
 
-.store-selection .store-list {
+.page-store-selection .store-list {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -165,25 +165,25 @@ footer {
     align-items: center;
     cursor: pointer;
 }
-.store-selection .store-list a:hover {
+.page-store-selection .store-list a:hover {
     color: #0064DB;
 }
 
-.store-selection .storeselect-heading{
+.page-store-selection .storeselect-heading{
     font-size: 36px;
     /* overflow: hidden; */
     font-family: Lato, Verdana, sans-serif;
     margin-bottom: 50px;
 }
 
-.store-selection .store-list .store {
+.page-store-selection .store-list .store {
     display: block;
     margin: 20px 30px 0px 30px;
     color: black;
     text-align: center;
 }
 
-.store-password-screen .store-password, .session-code-screen .session-code {
+.store-password-screen .store-password, .page-session-code .session-code {
     position: absolute;
     top: 55%;
     left: 50%;
@@ -198,7 +198,7 @@ footer {
 
 
 .store-password-screen .store-password .password-input,
-.session-code-screen .session-code .input{
+.page-session-code .session-code .input{
     display: flex;
     padding: 10px;
     border-radius: 5px;
@@ -207,7 +207,7 @@ footer {
 }
 
 .store-password-screen .store-password .password-input span,
-.session-code-screen .session-code .input span {
+.page-session-code .session-code .input span {
     background: #F3F3F3;
     display: block;
     padding: 6px;

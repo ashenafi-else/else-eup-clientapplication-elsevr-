@@ -20,20 +20,6 @@ html, body{
     /*margin-top: 20px;*/
 /*}*/
 
-.header-end {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: auto;
-}
-.header-middle {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 40px;
-}
 .header-end img{
     max-height: 100%;
 }
@@ -70,13 +56,7 @@ html, body{
 
 
 /* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN */
-.virtual-catalog {
-    flex: auto;
-    display: flex;
-    height: 93%;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .virtual-catalog .logo-section .reyrey-logo {
     width: 550px;
@@ -203,7 +183,7 @@ ul.options>li.number-colors::before{
 
 .virtual-catalog .go-else video,
 .store-password-screen .go-else video,
-.session-code-screen .go-else video{
+.page-session-code .go-else video{
     position: absolute;
     right: 48%;
     bottom: 20px;
@@ -214,33 +194,33 @@ ul.options>li.number-colors::before{
 /* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN  END*/
 
 /* STORE SELECTION & PASSWORD & SESSION CODE SCREENS */
-.store-selection, .store-password-screen, .session-code-screen{
+.page-store-selection, .store-password-screen, .page-session-code {
     flex: auto;
     display: flex;
     flex-direction: column;
     height: 95%;
 }
-.store-selection .store-list{
+.page-store-selection .store-list{
     height: 40%;
 }
-.store-selection .image-section{
+.page-store-selection .image-section{
     height: 420px;
 }
-.store-selection .reyrey-store-image {
+.page-store-selection .reyrey-store-image {
     width: 100%;
     height: 99%;
 }
 
-.store-selection .logo-section, .store-password-screen .logo-section,
-.session-code-screen .logo-section {
+.page-store-selection .logo-section, .store-password-screen .logo-section,
+.page-session-code .logo-section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.store-selection .logo-section .reyrey-logo,
+.page-store-selection .logo-section .reyrey-logo,
 .store-password-screen .logo-section .reyrey-logo,
-.session-code-screen .logo-section .reyrey-logo {
+.page-session-code .logo-section .reyrey-logo {
     margin-top: 30px;
     width: 530px;
     height: 180px;
@@ -255,7 +235,7 @@ ul.options>li.number-colors::before{
     background: #000000;
     display: block;
 }
-.store-password-screen .store-password, .session-code-screen .session-code {
+.store-password-screen .store-password {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -267,14 +247,14 @@ ul.options>li.number-colors::before{
 }
 
 .store-password-screen .store-password .password-input,
-.session-code-screen .session-code .input{
+.page-session-code .session-code .input{
     display: block;
     padding: 10px;
     border-radius: 5px;
 }
 
 .store-password-screen .store-password .password-input label,
-.session-code-screen .session-code .input label {
+.page-session-code .session-code .input label {
     display: block;
     margin-bottom: 10px;
     height: 28px;
@@ -287,7 +267,7 @@ ul.options>li.number-colors::before{
 }
 
 .store-password-screen .store-password .password-input input,
-.session-code-screen  .session-code .input input {
+.page-session-code .session-code .input input {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -320,7 +300,7 @@ ul.options>li.number-colors::before{
 }
 
 .store-password-screen .store-password .password-input button,
-.session-code-screen .session-code .input button {
+.page-session-code .session-code .input button {
     background: #000000;
     border: none;
     font-size: 24px;
@@ -607,21 +587,7 @@ span{
 }
 
 /* REYREY - BEST FIT SCREEN */
-.best-fit {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    font-size: 0.8em;
-    top: 90px;
-    left:0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 88%;
-    z-index: 999;
-}
+
 .user_scans,
 .left_scan,
 .right_scan {
@@ -791,32 +757,32 @@ footer {
     bottom: 0;
     width: 100%;
 }
-.store-selection, .store-password-screen, .session-code-screen{
+.page-store-selection, .store-password-screen, .page-session-code {
     flex: auto;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.store-selection .logo-section, .store-password-screen .logo-section,
-.session-code-screen .logo-section {
+.page-store-selection .logo-section, .store-password-screen .logo-section,
+.page-session-code .logo-section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.store-selection .logo-section .reyrey-logo,
+.page-store-selection .logo-section .reyrey-logo,
 .store-password-screen .logo-section .reyrey-logo,
-.session-code-screen .logo-section .reyrey-logo {
+.page-session-code .logo-section .reyrey-logo {
     width: 480px;
     height: 160px;
     margin-top: 20px;
 }
 
 
-.store-selection .logo-line,
+.page-store-selection .logo-line,
 .store-password-screen  .logo-line,
-.session-code-screen .logo-line {
+.page-session-code .logo-line {
     content: '';
     width: 600px;
     margin: 10px;
@@ -826,7 +792,7 @@ footer {
     background: #000000;
 }
 
-.store-selection .store-list {
+.page-store-selection .store-list {
     z-index: 999;
     position: absolute;
     top: 50%;
@@ -839,18 +805,18 @@ footer {
     align-items: center;
     cursor: pointer;
 }
-.store-selection .store-list a:hover {
+.page-store-selection .store-list a:hover {
     color: #0064DB;
 }
 
-.store-selection .storeselect-heading{
+.page-store-selection .storeselect-heading{
     font-size: 36px;
     /* overflow: hidden; */
     font-family: Lato, Verdana, sans-serif;
     margin-bottom: 50px;
 }
 
-.store-selection .store-list .store {
+.page-store-selection .store-list .store {
     display: block;
     margin: 20px 30px 0 30px;
     color: black;
@@ -859,8 +825,8 @@ footer {
 
 .virtual-catalog .go-else video,
 .store-password-screen .go-else video,
-.store-selection .go-else video,
-.session-code-screen .go-else video{
+.page-store-selection .go-else video,
+.page-session-code .go-else video{
     position: absolute;
     right: 48%;
     bottom: 20px;

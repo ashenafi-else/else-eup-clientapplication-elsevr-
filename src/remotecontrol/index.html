@@ -876,26 +876,6 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="comparison_toggle">
-                        <div class="prev_best_size_toggle"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                             @click="updateComparision(states.customer_fitting_view.best_sizes.prev_best_size)"
-                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                            <span>{{tr(states.customer_fitting_view.best_sizes.prev_best_size.size)}}</span>
-                        </div>
-                        <div class="best_size_toggle"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                             @click="updateComparision(states.customer_fitting_view.best_sizes.best_size)"
-                             v-if="states.customer_fitting_view.best_sizes.best_size">
-                            <span>{{tr(states.customer_fitting_view.best_sizes.best_size.size)}}</span>
-                        </div>
-                        <div class="next_best_size_toggle"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                             @click="updateComparision(states.customer_fitting_view.best_sizes.next_best_size)"
-                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                            <span>{{tr(states.customer_fitting_view.best_sizes.next_best_size.size)}}</span>
-                        </div>
-                    </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                     <div class="default-cameras">
                         <div class="camera camera-view"
@@ -903,6 +883,18 @@
                              :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
                              @click="changeCamera(camera)"
                              v-for="camera in states.customer_fitting_view.cameras"></div>
+                    </div>
+                    <div class="comparison_toggle" v-if="active_comparision">
+                        <div class="prev_toggle"
+                             @click="updateComparision(active_comparision.prev)"
+                             v-if="active_comparision.prev">
+                            <span>{{tr('Previous size')}}</span>
+                        </div>
+                        <div class="next_toggle"
+                             @click="updateComparision(active_comparision.next)"
+                             v-if="active_comparision.next">
+                            <span>{{tr('Next size')}}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="summary-footer">

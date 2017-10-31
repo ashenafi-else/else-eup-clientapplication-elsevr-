@@ -1154,22 +1154,12 @@
                     <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
                     <div class="best_sizes">
                         <div class="prev_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.prev_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.prev_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.prev_best_size.size}}</div>
-                            <img :src="states.customer_fitting_view.best_sizes.prev_best_size.output_model">
-                        </div>
-                        <div class="best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.best_size.size}}</div>
-                            <!--<img :src="states.customer_fitting_view.best_sizes.best_size.output_model">-->
+                             v-if="states.customer_fitting_view.active_comparision.prev">
+                            <div>-0.5&lt</div>
                         </div>
                         <div class="next_best_size"
-                             :class="states.customer_fitting_view.active_comparision == states.customer_fitting_view.best_sizes.next_best_size ? 'active' : ''"
-                             v-if="states.customer_fitting_view.best_sizes.next_best_size">
-                            <div>{{states.customer_fitting_view.best_sizes.next_best_size.size}}</div>
-                            <img :src="states.customer_fitting_view.best_sizes.next_best_size.output_model">
+                             v-if="states.customer_fitting_view.active_comparision.next">
+                            <div>&gt+0.5</div>
                         </div>
                     </div>
                     <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">

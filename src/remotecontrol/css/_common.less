@@ -582,3 +582,24 @@ h6{
 .align-right{
     .justify-content(flex-end);
 }
+
+// ---  S C R O L L --- //
+.scroll-area::-webkit-scrollbar{
+    width: 5px;
+    background-color: #F5F5F5;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #dfdfdf;
+}
+.scroll-area::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+.scroll-area{
+    overflow-y: scroll;
+    .flex-container();
+    .flex-direction(column);
+    height: 100%;
+}
+// --- END - S C R O L L - END --- //

@@ -171,32 +171,36 @@
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
                         <div class="column_1 table-header">{{tr("Component")}}</div>
-                        <div class="component"
-                             @click="changeComponent(component)"
-                             :class="[component.name, setClass(component.id, 'component'), component.active?'control-active':'']"
-                             :id="'component-' + component.id"
-                             v-if="component.visible"
-                             v-for="component in data.components">
-                            {{tr(component.name)}}
+                        <div class="scroll-area">
+                            <div class="component"
+                                 @click="changeComponent(component)"
+                                 :class="[component.name, setClass(component.id, 'component'), component.active?'control-active':'']"
+                                 :id="'component-' + component.id"
+                                 v-if="component.visible"
+                                 v-for="component in data.components">
+                                {{tr(component.name)}}
+                            </div>
                         </div>
                     </div>
                     <div class="structures vertical-bar"
                          :class="setClass(data.active_component_id, 'component')"
                          v-if="data.active_component.configurable && data.active_structure.visible">
                         <div class="column_1 table-header">{{tr("Structure")}}</div>
-                        <div class="structure empty-strucutre"
-                             @click="changeStructure(0)"
-                             v-if="data.active_component.optional"
-                             :class="[setClass(0, 'structure'), data.active_structure_id==0?'control-active':'']"
-                             id="structure-0">
-                            {{tr("None")}}
-                        </div>
-                        <div class="structure"
-                             @click="changeStructure(structure)"
-                             :class="[structure.name, setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
-                             :id="'structure-' + structure.structure"
-                             v-for="structure in data.structures">
-                            {{tr(structure.name)}}
+                        <div class="scroll-area">
+                            <div class="structure empty-strucutre"
+                                 @click="changeStructure(0)"
+                                 v-if="data.active_component.optional"
+                                 :class="[setClass(0, 'structure'), data.active_structure_id==0?'control-active':'']"
+                                 id="structure-0">
+                                {{tr("None")}}
+                            </div>
+                            <div class="structure"
+                                 @click="changeStructure(structure)"
+                                 :class="[structure.name, setClass(structure.structure, 'structure'), structure.active?'control-active':'']"
+                                 :id="'structure-' + structure.structure"
+                                 v-for="structure in data.structures">
+                                {{tr(structure.name)}}
+                            </div>
                         </div>
                     </div>
                     <div class="elements vaertical-bar"
@@ -206,20 +210,24 @@
                         <div class="materials vertical-bar"
                              :class="state.active_product.name">
                             <div class="column_1 table-header">{{tr("Material")}}</div>
-                            <div class="material"
-                                 @click.self="changeMaterial(element, material)"
-                                 :class="[material.name, 'colors-'+material.colors.length, (element.active_material == material.name)?'control-active':'']"
-                                 :id="material.name"
-                                 v-for="material in element.colors">
-                                {{tr(material.name)}}
-                                <div class="colors vertical-bar" v-if="element.active_material == material.name">
-                                    <div class="column_1 table-header">{{tr("Color")}}</div>
-                                    <div class="color"
-                                         @click.stop="changeColor(element, material, color)"
-                                         :id="color.id"
-                                         :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
-                                         v-for="color in material.colors">
-                                        {{tr(color.name)}}
+                            <div class="scroll-area">
+                                <div class="material"
+                                     @click.self="changeMaterial(element, material)"
+                                     :class="[material.name, 'colors-'+material.colors.length, (element.active_material == material.name)?'control-active':'']"
+                                     :id="material.name"
+                                     v-for="material in element.colors">
+                                    {{tr(material.name)}}
+                                    <div class="colors vertical-bar" v-if="element.active_material == material.name">
+                                        <div class="column_1 table-header">{{tr("Color")}}</div>
+                                        <div class="scroll-area">
+                                            <div class="color"
+                                                 @click.stop="changeColor(element, material, color)"
+                                                 :id="color.id"
+                                                 :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
+                                                 v-for="color in material.colors">
+                                                {{tr(color.name)}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

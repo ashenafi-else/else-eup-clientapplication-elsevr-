@@ -506,7 +506,7 @@
                 </div>
             </div>
             <div class="price-block">
-                <div class="diff-prices-container">
+                <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                         <img class="live-image">
@@ -576,7 +576,7 @@
                 </div>
             </div>
             <div class="price-block">
-                <div class="diff-prices-container">
+                <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                         <img class="live-image">
@@ -644,7 +644,7 @@
                 </div>
             </div>
             <div class="price-block">
-                <div class="diff-prices-container">
+                <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}}</span></div>
                     <div class="product-block">
                         <img class="live-image">
@@ -743,7 +743,7 @@
     <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active"
                       class="customer-profile">
         <div class="container" id="customer-profile-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo"><img src="img/neon-logo.png"></div>
                     <span class="vr-stylish-text">{{tr("User Profile")}}</span>
@@ -838,7 +838,7 @@
     <customer-edit-profile inline-template :visible="visible" :states="states"
                            v-if="states.customer_edit_profile_view.active">
         <div class="remote-configuration" id="customer-edit-profile-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                             <span class="back-to">
                                 <a>{{getCollectionName()}}</a>
@@ -915,7 +915,7 @@
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" inline-template>
         <div class="content mainscreen-app" id="customer-order-screen">
-            <div class="header vr-header">
+            <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo"><img src="img/neon-logo.png"></div>
                     <span class="screen-name vr-stylish-text">{{tr("Order")}}</span>
@@ -948,7 +948,7 @@
                 <div class="main-start">
                     <div class="elsa-container"><img src="img/ELSA.png"/></div>
                     <div class="price-block">
-                        <div class="diff-prices-container">
+                        <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                             <div class="product-block">
                                 <img class="live-image">
@@ -1252,7 +1252,7 @@
                 </div>
             </div>
             <div class="price-block">
-                <div class="diff-prices-container">
+                <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-block">
                         <img class="live-image">

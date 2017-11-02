@@ -377,12 +377,6 @@ ul.options>li.number-colors::before{
     50% { border-color:  rgba(0, 255, 255, 0.5); }
 }
 
-.product-block {
-    width: 100%;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.65);
-}
-
 .price {
     width: 95%;
 }
@@ -407,21 +401,6 @@ span{
     margin-left: -25px;
 }
 
-.product-block .product{
-    background-image: url(../img/Wedge_VC.png);
-}
-
-.product-block::after {
-    content: '';
-    position: absolute;
-    right: 1px;
-    margin-bottom: 0;
-    border: .9rem solid transparent;
-    border-right: .9rem solid rgba(255, 255, 255, 0.65);
-    border-bottom: .9rem solid rgba(255, 255, 255, 0.65);
-    top:0.7px;
-    border-top-right-radius: 10px;
-}
 
 .components-block.wedge .component{
     background: center top 14px no-repeat;

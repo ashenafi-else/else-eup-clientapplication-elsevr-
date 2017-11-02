@@ -1,28 +1,92 @@
-.vr-header{
-  height: 10vh;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 100%;
-}
-.vr-stylish-text {
-  font-size: 1.625rem;
-  color: #0c5880;
-  font-weight: bold;
-  padding: 0;
-  -webkit-text-stroke: 1px white;
-}
-
-.text-blue-bordered{
-  text-shadow: 0 0 4px #0064db;
-}
 
 .store_18, .store_19, .store_20{
+  .vr-header{
+    height: 10vh;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+  }
+  .vr-stylish-text {
+    font-size: 1.625rem;
+    color: #0c5880;
+    font-weight: bold;
+    padding: 0;
+    -webkit-text-stroke: 1px white;
+  }
+  .text-blue-bordered{
+    text-shadow: 0 0 4px #0064db;
+  }
+  .element{
+    .name{ //better to add theme modificator class
+      border: 1px solid #5FECFF;
+      border-radius: .3rem;
+      background-color: rgb(12, 88, 128);
+      opacity: 0.65;
+      color: white;
+      margin: 70px auto 0 auto;
+    }
+  }
+  .bottom-panel{
+    &:before{
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: bottom/100% url(../img/header.svg) no-repeat;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.store_18, .store_19, .store_20, .stroe_23{
   .header-start{
     .header-logo{
       flex: 1 1 20%;
     }
     .vr-stylish-text{
       flex: 2 2 80%;
+    }
+  }
+}
+
+.store_23{
+  .vr-stylish-text {
+    font-size: 1.625rem;
+    color: #d3061a;
+    font-weight: bold;
+    padding: 0;
+  }
+  .page-mainscreen {
+    .box-shadow(inset 0 0 0 10px #d3061a);
+  }
+  .code{
+    color: black;
+  }
+  .element-border{
+    background: none;
+    border: 5px solid black;
+    img:not(.collection-img){
+      display: none;
+    }
+  }
+  #product-list-screen {
+    button.name{
+      margin: -4px auto 0 auto;
+      background: white;
+      border: 5px solid black;
+    }
+    .element.active{
+      button.name{
+        background-color: #d3061a;
+        color: white;
+      }
     }
   }
 }

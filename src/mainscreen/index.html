@@ -108,7 +108,7 @@
         </div>
     </session-code>
     <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
-        <div class="content mainscreen-app virtual-catalog" id="product-start-screen">
+        <div class="page content page-mainscreen virtual-catalog" id="product-start-screen">
             <div class="logo-section">
                 <img class="logo" src="img/logo.png">
                 <span class="logo-line"></span>
@@ -137,7 +137,7 @@
         </div>
     </product-start-screen>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
-        <div class="page page-product-list" id="product-list-screen">
+        <div class="page page-mainscreen page-product-list" id="product-list-screen">
             <div class="header vr-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -194,7 +194,7 @@
                      :state="states.product_view"
                      :data="api2Data"
                      v-if="states.product_view.active">
-        <div class="content mainscreen-app" id="product-details-screen">
+        <div class="page page-mainscreen" id="product-details-screen">
             <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo"><img src="img/neon-logo.png"></div>

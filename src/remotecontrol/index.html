@@ -369,7 +369,7 @@
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                     <div class="rotation"
-                         :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         :class="states.material_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}
@@ -415,7 +415,7 @@
                 <div class="back-to-config">
                     <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
                     <div class="rotation"
-                         :class="states.preview_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
+                         :class="states.part_view.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
                         <span class="rotation-icon"></span>
                         {{tr('Rotate/Stop')}}

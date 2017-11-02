@@ -56,7 +56,7 @@
     </header-component>
     <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
         <div class="page page-mainscreen vr-page-mainscreen page-store-selection" id="stores-screen">
-            <div class="header vr-header">
+            <div class="header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="" src="img/Logo_ELSE.png"/>
@@ -82,7 +82,7 @@
     </stores>
     <session-code inline-template v-if="states.login_view.active">
         <div class="page page-mainscreen vr-page-mainscreen page-session-code" id="session-code-screen">
-            <div class="header vr-header">
+            <div class="header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="" src="img/Logo_ELSE.png"/>
@@ -138,7 +138,7 @@
     </product-start-screen>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
         <div class="page page-mainscreen page-product-list" id="product-list-screen">
-            <div class="header vr-header">
+            <div class="header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="" src="img/Logo_ELSE.png"/>
@@ -231,7 +231,7 @@
                 <div class="main-start">
                     <div class="components-block">
                         <div class="components-block">
-                            <div class="parts-block heels blue-block"
+                            <div class="parts-block ac-parts-block vr-parts-block heels blue-block"
                                  :class="state.active_product.name"
                                  v-if="state.products.length > 1">
                                 <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
@@ -245,8 +245,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="parts-block configurable-parts-block">
-                                <div class="title w-80per">{{tr("Configurable parts")}}</div>
+                            <div class="parts-block ac-parts-block vr-parts-block configurable-parts-block">
+                                <div class="title vr-block-title ac-block-title w-80per">{{tr("Configurable parts")}}</div>
                                 <div class="configurable-parts-container">
                                     <div class="component"
                                          :class="[component.name, state.active_product.name, component.active?'active':'']"
@@ -268,8 +268,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="parts-block non-configurable-parts-block">
-                                <div class="title w-80per">{{tr("Non configurable parts")}}</div>
+                            <div class="parts-block ac-parts-block vr-parts-block non-configurable-parts-block">
+                                <div class="title vr-block-title ac-block-title w-80per">{{tr("Non configurable parts")}}</div>
                                 <div class="non-configurable-parts-container">
                                     <div class="component"
                                          :class="[component.name, state.active_product.name, component.active?'active':'']"
@@ -285,9 +285,9 @@
                         </div>
                     </div>
                     <div class="price-block">
-                        <div class="diff-prices-container">
-                            <div class="model-name"><span>{{tr(state.active_product.name)}}</span></div>
-                            <div class="product-block">
+                        <div class="parts-block vr-parts-block ac-parts-block diff-prices-container">
+                            <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>
+                            <div class="product-preview vr-product-preview ac-product-preview">
                                 <img class="live-image">
                             </div>
                             <div class="summary-block">

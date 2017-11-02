@@ -168,6 +168,22 @@
   padding-bottom: 27PX;
   z-index: 1;
   text-align: center;
+  &:before{
+    content: "";
+    height: 30px;
+    z-index: -1;
+    background: bottom/100% url(../img/header.svg) no-repeat;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  .stylish-text{
+    font-size: 44px;
+    color: #0c5880;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 auto;
+    -webkit-text-stroke: 1px #fff
+  }
 }
 
 .header {

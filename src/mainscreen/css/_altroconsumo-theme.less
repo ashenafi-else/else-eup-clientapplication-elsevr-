@@ -38,7 +38,7 @@
   }
 
 
-  .neon-logo{
+  .logo-elsa-neon{
     display:none;
   }
   .vr-stylish-text {
@@ -83,7 +83,7 @@
     }
   }
   #part-preview, #preview-screen, #material-screen,
-  #customer-order-screen, #customer-profile-screen{
+  #customer-order-screen, #customer-profile-screen, #customer-fitting-screen{
     background: none;
     .box-shadow(inset 0 0 0 10px #d3061a);
     min-height: 100vh;
@@ -91,7 +91,23 @@
       display: none;
     }
   }
-
+  #customer-order-screen{
+    .order-form{
+      form{
+        position: absolute;
+        border-radius: 0px;
+        right: 20px;
+        width: 400px;
+        padding: 35px;
+        margin-top: 30px;
+        background-color: #d3061a;
+        input, select{
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
   .element-border{
     background: none;
     border: 5px solid black;
@@ -135,6 +151,19 @@
       }
       .logo-else-corp{
         right: 38%;
+      }
+    }
+  }
+  #customer-fitting-screen{
+    .user_profile_params{
+      border: 2px solid black;
+      background-color: white;
+      .user_info_line{
+        color: #d3061a;
+      }
+      .userscans{
+        color: #d3061a;
+        .box-shadow(none);
       }
     }
   }

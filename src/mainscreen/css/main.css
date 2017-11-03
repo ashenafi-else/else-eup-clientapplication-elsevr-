@@ -488,7 +488,6 @@ span{
 .order-form form {
     position: absolute;
     width: 18%;
-    border-radius: 10px;
     right: 5px;
     padding: 20px;
     background-color: #ffffff ;
@@ -816,9 +815,11 @@ footer {
 #canvas_container_id.product_view,
 #canvas_container_id.material_view,
 #canvas_container_id.part_view,
-#canvas_container_id.preview_view {
+#canvas_container_id.preview_view,
+#canvas_container_id.customer_order_view{
     width: 100%;
     left: 0;
+    top: -5%;
 }
 
 #canvas_container_id.customer_edit_profile_view,

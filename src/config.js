@@ -25,7 +25,7 @@ window.config = {
     'default_material_camera': 'cameraLEFTp',
     'default_part_camera': 'cameraLEFTp',
     'default_preview_camera': 'cameraLEFTp',
-    'default_fitting_camera': 'cameraLEFTp',
+    'default_fitting_camera': 'cameraRIGHTp',
     'camera_animation_time': 1000,
     'default_language': 'en',
     'default_scanner': 'Dome000018',

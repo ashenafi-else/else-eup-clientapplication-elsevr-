@@ -37,7 +37,11 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
-                use: 'file-loader?name=img/[name].[ext]',
+                use: 'file-loader?name=img/[name].[ext]'
+            },
+            {
+                test: /\.(ttf|eot|otf|TTF)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader?name=fonts/[name].[ext]"
             }
         ]
     },

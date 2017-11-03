@@ -1,3 +1,6 @@
+
+
+
 .mainscreen-header{
   height: 10vh;
   background-repeat: no-repeat;
@@ -158,6 +161,16 @@
   .factor-text{
     color: #ffffff;
   }
+  .user_profile_params {
+
+    &.vr-user_profile_params {
+      box-shadow: 0 0 10px #777777;
+      margin: 20px 10px 30px 10px;
+      background-color: rgba(11, 73, 104, 0.72);
+      color: #ffffff;
+      border-radius: 10px;
+    }
+  }
 }
 
 .store_18, .store_19, .store_20, .store_23{
@@ -216,6 +229,8 @@
     }
   }
   .ac-block-title{
+    font-family: "Prelo", sans-serif;
+    font-weight: 600;
     width: 100% !important;
     border-radius: 0 !important;
     color: white;
@@ -262,5 +277,10 @@
   }
   .factor-text{
     color: black;
+  }
+  .user_profile_params {
+    &.ac-user_profile_params {
+      border: 5px solid black;
+    }
   }
 }

@@ -824,9 +824,9 @@
                     </div>
                 </div>
             </div>
-            <div class="best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
+            <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params">
-                    <div class="title ac-title vr-title">{{tr('Name')}}:</div>
+                    <div class="title ac-block-title vr-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
                         <div class="hidden vr-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -886,7 +886,9 @@
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
-                    <div class="your-scans_profile">Your Scans</div>
+                    <div class="your-scans_profile ac-your-scans_profile vr-your-scans_profile">
+                        <div class="title ac-block-title vr-block-title">Your Scans</div>
+                    </div>
                 </div>
             </div>
         </div>

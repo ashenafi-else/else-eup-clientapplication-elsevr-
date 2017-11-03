@@ -466,6 +466,9 @@
                     <span class="vr-stylish-text">{{tr("Product Preview")}}</span>
                 </div>
                 <div class="col header-col header-middle">
+                    <div class="logo header-logo">
+                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                    </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -507,8 +510,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
-                    <div class="product-block">
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image">
                     </div>
                     <div class="summary-block">
@@ -518,15 +521,25 @@
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                            <p class="base-mod-price">
+                                {{tr("Base model")}}: <span
+                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-acc-price">
+                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-mat-price">
+                                {{tr("Extra materials")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
-                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
+                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -544,6 +557,9 @@
                     <span class="vr-stylish-text">{{tr("Material Preview")}}</span>
                 </div>
                 <div class="col header-col header-middle">
+                    <div class="logo header-logo">
+                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                    </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -580,8 +596,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
-                    <div class="product-block">
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image">
                     </div>
                     <div class="summary-block">
@@ -591,15 +607,25 @@
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                            <p class="base-mod-price">
+                                {{tr("Base model")}}: <span
+                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-acc-price">
+                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-mat-price">
+                                {{tr("Extra materials")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
-                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
+                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -616,6 +642,9 @@
                     <span class="vr-stylish-text">{{tr("Detail Preview")}}</span>
                 </div>
                 <div class="col header-col header-middle">
+                    <div class="logo header-logo">
+                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                    </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -651,8 +680,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}}</span></div>
-                    <div class="product-block">
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image">
                     </div>
                     <div class="summary-block">
@@ -662,15 +691,25 @@
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                            <p class="base-mod-price">
+                                {{tr("Base model")}}: <span
+                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-acc-price">
+                                {{tr("Extra accessories")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
+                            <p class="extra-mat-price">
+                                {{tr("Extra materials")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
-                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
+                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -758,6 +797,9 @@
                     <span class="vr-stylish-text">{{tr("User Profile")}}</span>
                 </div>
                 <div class="col header-col header-middle">
+                    <div class="logo header-logo">
+                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                    </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
@@ -926,40 +968,46 @@
         <div class="content mainscreen-app" id="customer-order-screen">
             <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
-                    <div class="logo header-logo"><img src="img/neon-logo.png"></div>
+                    <div class="logo header-logo">
+                        <img class="vr-logo-img" src="img/neon-logo.png">
+                        <img class="ac-logo-img" src="img/altroconsumo/chromium_else.png">
+                    </div>
                     <span class="screen-name vr-stylish-text">{{tr("Order")}}</span>
                 </div>
-                <div class="col header-col header-middle"></div>
+                <div class="col header-col header-middle">
+                    <div class="logo header-logo">
+                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                    </div>
+                </div>
                 <div class="col header-col header-end">
                     <div class="login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
-                                </span>
+                        </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
-                                        <span id="rec-size">
-                                            {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
                                         </span>
-                                    </span>
-                            <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
-                                        <span id="fitting-factor"
-                                              :class="getFittingClass()">
-                                            {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
-                                        </span>
-                                    </span>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score">{{getFittingValues().best_size.score}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="main">
                 <div class="main-start">
-                    <div class="elsa-container"><img src="img/ELSA.png"/></div>
+                    <div class="elsa-container">
+                        <img class="logo-elsa-neon" src="img/elsa-small.png"/>
+                        <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                    </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                            <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
-                            <div class="product-block">
+                            <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                            <div class="product-preview vr-product-preview ac-product-preview">
                                 <img class="live-image">
                             </div>
                             <div class="summary-block">
@@ -989,7 +1037,7 @@
                     </div>
                 </div>
                 <div class="main-end" v-if="account_data">
-                    <div id="product-order" class="order-form" v-show="states.customer_order_view.active">
+                    <div id="product-order" class="order-form ac-configurator-block" v-show="states.customer_order_view.active">
                         <form>
                             <div class="input-label">
                                 <label class="label">{{tr('Full Name')}}</label>
@@ -1234,7 +1282,9 @@
                             </div>
                         </div>
                         <div class="elsa">
-                            <img src="img/ELSA.png">
+                            <!-- <img src="img/ELSA.png"> -->
+                            <img class="logo-elsa-neon" src="img/elsa-small.png"/>
+                            <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
                         </div>
                     </div>
                 </div>  <!-- ./user-info end -->
@@ -1265,8 +1315,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="model-name"><span>{{tr(states.product_view.active_product.name)}}</span></div>
-                    <div class="product-block">
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image">
                     </div>
                     <div class="summary-block">
@@ -1276,15 +1326,18 @@
                     </div>
                     <div class="prices">
                         <div class="price">
-                            <p class="base-mod-price">{{tr("Base model")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span>0,00&#8364;</span></p>
-                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span>0,00&#8364;</span></p>
+                            <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span></p>
+                            <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span
+                                    class="euro"></span></span></p>
+                            <p class="extra-mat-price">{{tr("Extra materials")}}: <span
+                                    class="price-span">0,00<span class="euro"></span></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="delivery-time">
-                    <div class="total-price">0,00&#8364;</div>
                     <div class="delivery"></div>
+                    <div class="total-price">0,00<span class="euro"></span></div>
                 </div>
             </div>
 

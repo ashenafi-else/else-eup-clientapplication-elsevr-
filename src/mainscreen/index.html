@@ -208,7 +208,10 @@
                         <img class="vr-logo-img" src="img/neon-logo.png">
                         <img class="ac-logo-img" src="img/chromium-else-logo.png">
                     </div>
-                    <span class="vr-stylish-text">3D Product Configurator</span>
+                    <span class="vr-stylish-text">
+                        <span class="hidden vr-show">{{tr('3D Product Configurator')}}</span>
+                        <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
+                    </span>
                     <span class="back-to">
                                 <!--<a>{{getCollectionName()}}</a>-->
                             </span>
@@ -219,7 +222,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">{{getUserName()}}</span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
@@ -239,7 +242,7 @@
                         </div>
                     </div>
                     <div class="logo header-logo">
-                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -247,10 +250,11 @@
                 <div class="main-start">
                     <div class="components-block">
                         <div class="components-block">
-                            <div class="configurator-block ac-configurator-block vr-configurator-block heels blue-block"
+                            <div class="configurator-block ac-configurator-block vr-configurator-block heels"
                                  :class="state.active_product.name"
                                  v-if="state.products.length > 1">
                                 <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                                <div class="title vr-block-title ac-block-title w-80per">{{tr("Heel height")}}</div>
                                 <div class="heels-list">
                                     <div class="component heel-height"
                                          @click="changeProduct(product)"
@@ -467,7 +471,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                                 <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -542,7 +546,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -611,7 +615,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -750,7 +754,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -846,7 +850,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -921,7 +925,7 @@
                 </div>
                 <div class="col header-col header-middle"></div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -1120,7 +1124,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-acc  ount"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}

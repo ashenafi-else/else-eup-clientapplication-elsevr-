@@ -177,7 +177,7 @@ window.translations = {
         'en': ''
     },
     'MAT_CRYSTAL_METALLICBLUE': {
-        'en': ''
+        'en': 'Metallic Blue'
     },
     'MAT_METAL_TR-SILVER': {
         'en': 'Silver'

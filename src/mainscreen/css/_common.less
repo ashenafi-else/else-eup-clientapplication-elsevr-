@@ -404,6 +404,9 @@ img{
   .mat_patent_10675 {
     background-image: url("../img/materials/mat_patent_10675.png") !important;
   }
+  .mat_patent_10679 {
+    background-image: url("../img/materials/mat_patent_10679.png") !important;
+  }
   .mat_mirrorpatent_silver {
     background-image: url("../img/materials/mat_mirrorpatent_silver.png") !important;
   }
@@ -669,12 +672,14 @@ h6{
   width: 200px;
   margin: 0 50px;
   .fitting-size {
+    .flex-container();
+    .justify-content(center);
     background-image: url(../img/icon-header-size.png);
     background-repeat: no-repeat;
     color: #ffffff;
-    background-size: 55px 40px;
+    background-size: 60px 40px;
     background-position-y: bottom;
-    width: 50px;
+    width: 60px;
     height: 50px;
     margin-top: 15px;
     margin-right: 1rem;
@@ -687,7 +692,12 @@ h6{
     .justify-content(center);
     .align-items(center);
     color: #ffffff;
-    background-image: url(../img/frame-fitting-factor.png);
+    .store_23{
+      background-image: url(../img/altroconsumo/frame-fitting-factor.png);
+    }
+    .store_18, .store_19, .store_20{
+      background-image: url(../img/frame-fitting-factor.png);
+    }
     background-position: center;
     background-repeat: no-repeat;
     background-size: 60px 56px;
@@ -735,7 +745,7 @@ h6{
 .login{
   .flex-container();
   .justify-content(space-between);
-
+  .align-items(center);
 }
 
 .best-fit {

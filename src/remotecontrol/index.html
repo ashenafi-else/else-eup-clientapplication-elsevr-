@@ -476,11 +476,11 @@
                             </div>
                             <input type="button" class="update-scan-button" :value="tr('Update scan')" @click="updateScan(newScanId)">
                             <input type="button" class="update-scan-button" :value="tr('Update last scan')" @click="updateLastScan()">
-                            <div id="update_scan_error" v-show="updateScanError">
+                            <div class="error-scanupdate" id="update_scan_error" v-show="updateScanError">
                                 {{tr("Error! Scan couldn't be updated!")}}
                             </div>
-                            <div id="update_scan_success" v-show="updateScanSuccess">
-                                {{tr('Scan successfully updated!')}}
+                            <div class="success-scanupdate" id="update_scan_success" v-show="updateScanSuccess">
+                                {{tr('Scan updated successfully!')}}
                             </div>
                         </div>
                     </div>

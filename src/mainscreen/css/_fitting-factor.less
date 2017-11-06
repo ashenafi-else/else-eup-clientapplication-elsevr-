@@ -100,10 +100,11 @@
     flex-wrap: nowrap;
     height: 100%;
     .prev_best_size {
+      display: none; //can be changed later
       width: 18%;
       margin: 1%;
       padding: 15px;
-      display: flex;
+      //display: flex;
       background-color: rgba(255, 255, 255, 0.15);
       flex-direction: column;
       align-items: center;
@@ -123,10 +124,11 @@
       align-items: center;
     }
     .next_best_size {
+      display: none; //can be changed later
       width: 18%;
       margin: 1%;
       padding: 15px;
-      display: flex;
+      //display: flex;
       background-color: rgba(255, 255, 255, 0.15);
       flex-direction: column;
       align-items: center;
@@ -146,7 +148,12 @@
       .justify-content(center);
       .align-items(center);
       color: #ffffff;
-      background-image: url(../img/frame-fitting-factor.png);
+      .store_23{
+        background-image: url(../img/altroconsumo/frame-fitting-factor.png);
+      }
+      .store_18, .store_19, .store_20{
+        background-image: url(../img/frame-fitting-factor.png);
+      }
       background-position: center;
       background-repeat: no-repeat;
       background-size: 60px 56px;

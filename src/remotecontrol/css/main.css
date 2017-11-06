@@ -971,7 +971,7 @@ input.search-input {
 }
 
 .scan-list, .update-scan-id{
-    outline-color: #ba3f3f;
+    outline-color: rgba(11, 73, 104, 0.72);
     background-color: #e9e9e9;
 }
 

@@ -207,14 +207,14 @@
                      :data="api2Data"
                      v-if="states.product_view.active">
         <div class="page page-mainscreen" id="product-details-screen">
-            <div class="header vr-header mainscreen-header">
+            <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
-                        <img class="vr-logo-img" src="img/neon-logo.png">
-                        <img class="ac-logo-img" src="img/altroconsumo/chromium_else.png">
+                        <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
+                        <img class="hidden ac-show acc-show ac-logo-img" src="img/altroconsumo/chromium_else.png">
                     </div>
                     <span class="vr-stylish-text">
-                        <span class="hidden vr-show">{{tr('3D Product Configurator')}}</span>
+                        <span class="hidden vr-show acc-show">{{tr('3D Product Configurator')}}</span>
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
                     <span class="back-to">
@@ -223,7 +223,8 @@
                 </div>
                 <div class="col header-col header-middle">
                     <div class="logo header-logo">
-                        <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -413,7 +414,7 @@
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="configurator-block vr-configurator-block ac-configurator-block materials-color-block">
-                            <div class="title vr-block-title ac-block-title "><span>{{tr("Materials")}}</span></div>
+                            <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span></div>
                             <div class="material-block diff-prices-container"
                                  :class="[state.active_product.name, material.name]"
                                  v-for="material in element.colors">

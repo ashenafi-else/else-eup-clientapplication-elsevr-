@@ -1,4 +1,16 @@
 .store_25{
+
+  @font-face {
+    font-family: 'Lato';
+    src: url(../img/accenture/fonts/Lato-Regular.ttf);
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Lato';
+    src: url(../img/accenture/fonts/Lato-Black.ttf);
+    font-weight: 600;
+  }
+
   .page{
     background: url(../img/accenture/bcgd-app.png) no-repeat center;
     background-size: cover;
@@ -25,5 +37,50 @@
   }
   .acc-logos{
     height: 50px;
+  }
+  .acc-header{
+    background-color: rebeccapurple;
+    .box-shadow(inset 0 -6px 0 0 #00ff00);
+  }
+  .header-start{
+    .vr-stylish-text{
+      font-size: 1.5rem;
+      color: white;
+      margin-left: 20px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+    }
+  }
+  .configurator-block{
+    border: 3px solid black;
+    background-color: white;
+    .title{
+      width: 100% !important;
+      color: white;
+      border-radius: 0 !important;
+      background-color: rebeccapurple;
+      &.acc-title{
+        width: 100%;
+        border-radius: 0 !important;
+        background-color: rebeccapurple;
+      }
+    }
+  }
+  .materials-color-block{
+    .material-name{
+      color: black;
+    }
+  }
+  .colors-block{
+    top: calc(~"10vh + 20px");
+    right: 127px;
+  }
+  .configurator-block{
+    .component.active{
+      .active-item-rotating-green-round();
+    }
+  }
+  .configurable-parts-block{
+    margin-top: 20px;
   }
 }

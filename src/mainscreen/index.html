@@ -85,19 +85,19 @@
             <div class="header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
-                        <img class="logo-else-neon" src="img/Logo_ELSE.png"/>
+                        <img class="hidden vr-show logo-else-neon" src="img/Logo_ELSE.png"/>
                     </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="logo header-logo">
-                        <img class="logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
+                        <img class="hidden vr-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
                     </div>
                 </div>
             </div>
             <div class="main">
                 <div class="h-80per session-code centered-content">
-                    <img class="logo-chromium h-40per" src="img/neon-logo.png"/>
-                    <img class="logo-altroconsumo-big h-40per" src="img/altroconsumo/big_block.png"/>
+                    <img class="hidden vr-show logo-chromium h-40per" src="img/neon-logo.png"/>
+                    <img class="hidden ac-show logo-altroconsumo-big h-40per" src="img/altroconsumo/big_block.png"/>
                     <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
                     <img class="qr-code h-50per" :src="qrImage"/>
                 </div>
@@ -105,10 +105,10 @@
             <div class="bottom-panel">
                 <div class="vr-stylish-text">{{tr("PI Apparel Berlin 2017")}}</div>
                 <div class="stylish-text">{{tr("3D Retail Revolution")}}</div>
-                <img class="logo-else-neon" src="img/Logo_ELSE.png"/>
-                <img class="logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                <img class="logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
-                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+                <img class="hidden vr-show logo-else-neon" src="img/Logo_ELSE.png"/>
+                <img class="hidden ac-show logo-altroconsumo" src="img/altroconsumo/logo-altroconsumo.png"/>
+                <img class="hidden ac-show logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
+                <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
             </div>
         </div>
     </session-code>

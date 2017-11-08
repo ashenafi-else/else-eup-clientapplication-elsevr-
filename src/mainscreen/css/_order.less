@@ -1,25 +1,25 @@
-.store_18, .store_19, .store_20{
-#customer-order-screen {
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  .main {
-    flex: 2;
-    .flex-container();
-    height: 100vh;
+.store_18, .store_19, .store_20 {
+  #customer-order-screen {
+    height: 100%;
     width: 100%;
-    .main-start {
-      .elsa-container {
-        position: absolute;
-        margin-top: 10px;
-        margin-left: 10px;
-        img {
-          width: auto;
-          height: 150px;
+    min-height: 100vh;
+    .main {
+      flex: 2;
+      .flex-container();
+      height: 100vh;
+      width: 100%;
+      .main-start {
+        .elsa-container {
+          position: absolute;
+          margin-top: 10px;
+          margin-left: 10px;
+          img {
+            width: auto;
+            height: 150px;
+          }
         }
       }
-    }
-    .main-end {
+      .main-end {
         .order-form {
           z-index: 99999;
           .flex-container();
@@ -34,83 +34,83 @@
             background-color: rgba(12, 88, 128, 0.651);
           }
         }
+      }
     }
-  }
-  .model-name {
-    text-align: left;
-    padding: 8px;
-    width: 70%;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 120%;
-    background: rgba(88, 216, 240, 0.651);
-  }
-  .model-name:after {
-    content: '';
-    position: absolute;
-    left: 70%;
-    margin-top: -8px;
-    border: 16px solid transparent;
-    border-left: 16px solid rgba(88, 216, 240, 0.651);
-    border-top: 16px solid rgba(88, 216, 240, 0.651);
-  }
-  .model-name span {
-    padding-top: 10px;
-  }
+    .model-name {
+      text-align: left;
+      padding: 8px;
+      width: 70%;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 120%;
+      background: rgba(88, 216, 240, 0.651);
+    }
+    .model-name:after {
+      content: '';
+      position: absolute;
+      left: 70%;
+      margin-top: -8px;
+      border: 16px solid transparent;
+      border-left: 16px solid rgba(88, 216, 240, 0.651);
+      border-top: 16px solid rgba(88, 216, 240, 0.651);
+    }
+    .model-name span {
+      padding-top: 10px;
+    }
 
-  .price-block {
-    font-size: 13px;
-    position: absolute;
-    left: 10px;
-    bottom: 24px;
-    color: #696969;
-    .delivery-time {
-      margin-top: 20px;
-      background-color: #000000;
-      color: white;
-      border-radius: 10px;
-      border: 1px solid white;
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px 0 47px;
+    .price-block {
+      font-size: 13px;
+      position: absolute;
+      left: 10px;
+      bottom: 24px;
+      color: #696969;
+      .delivery-time {
+        margin-top: 20px;
+        background-color: #000000;
+        color: white;
+        border-radius: 10px;
+        border: 1px solid white;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px 0 47px;
+      }
+      .total-price {
+        display: flex;
+        justify-content: space-around;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+      .bitcoin, .euro {
+        display: inline-block;
+        width: 1.2em;
+        height: 1.2em;
+        margin-left: 3px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .bitcoin {
+        background-image: url(../img/options/bitcoin.png);
+      }
+      .euro {
+        background-image: url(../img/options/euro.png);
+      }
+      .price-span {
+        display: flex;
+        align-items: center;
+      }
     }
-    .total-price {
-      display: flex;
-      justify-content: space-around;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
+    .fullname-block {
+      .flex-container();
+      .flex-direction(row);
     }
-    .bitcoin, .euro {
-      display: inline-block;
-      width: 1.2em;
-      height: 1.2em;
-      margin-left: 3px;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-    .bitcoin{
-      background-image: url(../img/options/bitcoin.png);
-    }
-    .euro{
-      background-image: url(../img/options/euro.png);
-    }
-    .price-span {
-      display: flex;
-      align-items: center;
-    }
-  }
-  .fullname-block {
-    .flex-container();
-    .flex-direction(row);
   }
 }
 
-}
 .store_18, .store_19 {
   #customer-order-screen {
     background: url(../img/shadow-configurator.svg) no-repeat center, url(../img/bg.png) no-repeat no-repeat 100%;

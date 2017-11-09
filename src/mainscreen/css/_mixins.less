@@ -248,4 +248,29 @@
     background: url(../img/active-border.svg) no-repeat center;
   }
 }
+.active-item-rotating-green-round() {
+  &:after {
+    z-index: 999;
+    opacity: 1;
+    content: '';
+    @keyframes rotating {
+      from {
+        .rotate(0deg);
+      }
+      to {
+        .rotate(360deg);
+      }
+    }
+    .animation(rotating, 10s, linear, infinite);
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    position: absolute;
+    min-width: 70px;
+    min-height: 70px;
+    background: url(../img/accenture/active-border-green.png) no-repeat center;
+  }
+}
+
 

@@ -113,4 +113,69 @@
     }
   }
 
+  .user_profile_params {
+    &.acc-user_profile_params {
+      margin: 20px;
+      border: 3px solid black;
+      background: white;
+      .title{
+        font-size: 24px;
+        color: #5f0095;
+      }
+    }
+  }
+  .acc-your-scans_profile{
+    color: #5f0095;
+    background: white;
+    border: 3px solid black;
+  }
+
+  .total_user_profile{
+    width: 100%;
+    height: 100%;
+  }
+  .total_user_profile table{
+    overflow: scroll;
+    height: 34%;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    border-bottom:none;
+  }
+  .total_user_profile tr th, .total_user_profile tr td{
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px;
+  }
+  .total_user_profile tr th{
+    background-color: black;
+    font-weight: bold;
+  }
+  .total_user_profile tr:nth-of-type(even){
+    background-color: #8abad4 !important;
+    height: 33px;
+  }
+  .total_user_profile tr:nth-of-type(odd){
+    background-color: #a4d8de !important;
+    height: 20px;
+    color: black !important;
+  }
+  .total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
+    border-right: none !important;
+    border: none !important;
+  }
+  table tr:nth-child(even) td{
+    background: transparent !important;
+    color: black !important;
+    font-weight: 500;
+  }
+  table tr:nth-child(odd) td{
+    background: transparent !important;
+    color: black !important;
+    font-weight: 500;
+  }
+
+  .components-block{
+    margin-left: 7px;
+  }
 }

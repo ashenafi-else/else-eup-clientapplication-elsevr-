@@ -63,6 +63,9 @@
         width: 100%;
         border-radius: 0 !important;
         background-color: rebeccapurple;
+        &.wl-title{
+          border-bottom: none;
+        }
       }
     }
   }
@@ -79,6 +82,9 @@
     .component.active{
       .active-item-rotating-green-round();
     }
+  }
+  .material-head.active {
+    .active-item-rotating-green-round();
   }
   .configurable-parts-block{
     margin-top: 20px;
@@ -114,10 +120,31 @@
       margin: 0;
     }
   }
+  #product-details-screen{
+    .summary-block, .prices .price p[class$='-price']{
+      color: black;
+    }
+  }
   .acc-stylish-title{
     color: rebeccapurple;
     font-family: "Lato", sans-serif;
     font-weight: 600;
     font-size: 2rem;
+  }
+  .user_name{
+    text-decoration: underline;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+  }
+  .colors-block{
+    .color.active {
+      border: solid #00ff00 !important;
+      animation: blink 1s linear infinite alternate;
+      box-shadow: 0 0 1px 1px #00ff00;
+    }
+  }
+  .acc-hidden{
+    display: none;
   }
 }

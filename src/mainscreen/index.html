@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="header-right">
-                    <div class="login">
+                    <div class="login acc-login">
                         <div class="go-account" v-if="visible.header_customer_profile_button">
                                     <span class="user-name">
                                         {{states.customer_login_view.active_customer.firstname}}
@@ -155,7 +155,8 @@
                     <span class="hidden acc-show acc-stylish-title">{{tr('Virtual Catalogue 3D')}}</span>
                     <div class="elsa-container">
                         <img class="hidden micam-show apparel-show vr-show logo-elsa-neon" src="img/elsa-small.png"/>
-                        <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                        <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                        <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/>
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -230,7 +231,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">{{getUserName()}}</span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
@@ -316,7 +317,7 @@
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>
                             <div class="product-preview vr-product-preview ac-product-preview">
-                                <img class="live-image">
+                                <img class="live-image" :src="states.product_view.preview_image">
                             </div>
                             <div class="summary-block">
                                 <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -350,7 +351,7 @@
                         <!-- <img src="img/configurations.png"> -->
                         <ul class="col-16">
                             <ul id="description4" class="options">
-                                <li class="number-configurations">2601</li>
+                                <li class="number-configurations">918</li>
                                 <li class="number-elements">3</li>
                                 <li class="number-materials">6</li>
                                 <li class="number-colors">51</li>
@@ -445,12 +446,13 @@
                     </div>
                 </div>
                 <!--<div class="else-shoes"></div>-->
-                <div class="wishlist vr-wishlist ac-wishlist " id="wish-list">
-                    <div class="wl-title">{{tr("Wishlist")}}</div>
+                <div class="wishlist  configurator-block vr-wishlist ac-wishlist " id="wish-list">
+                    <div class="title acc-title wl-title">{{tr("Wishlist")}}</div>
                     <div class="wl-container">
                         <div class="wl-item">
                             <div class="item-description">
-                                <img src="img/wl_image.png">
+                                <img class="acc-hidden " src="img/wl_image.png">
+                                <img class="hidden acc-show" src="img/accenture/elsa-green.png">
                                 <div>
                                     <span class="configuration-title">My shoe</span>
                                             <span class="configuration-description">Model: 10cm heel</br>
@@ -466,7 +468,7 @@
             </div>
         </div>
     </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states"
+    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states"
                      inline-template>
         <div id="product-preview-screen">
             <div class="header vr-header acc-header mainscreen-header">
@@ -484,7 +486,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                                 <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -504,6 +506,9 @@
                                     {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                 </span>
                             </span> -->
+                        </div>
+                        <div class="logo header-logo">
+                            <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                         </div>
                     </div>
                 </div>
@@ -525,7 +530,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image">
+                        <img class="live-image" :src="states.product_view.preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -560,7 +565,7 @@
     </product-preview>
     <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states"
                       inline-template>
-        <div id="material-preview-screen">
+        <div id="material-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -576,7 +581,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -592,6 +597,9 @@
                                 <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -612,7 +620,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image">
+                        <img class="live-image" :src="states.product_view.preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -645,8 +653,8 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
-        <div id="part-preview-screen">
+    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" inline-template>
+        <div id="part-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -662,7 +670,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -697,7 +705,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image">
+                        <img class="live-image" :src="states.product_view.preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -802,7 +810,7 @@
     </total-look>
     <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active"
                       class="customer-profile">
-        <div class="container" id="customer-profile-screen">
+        <div class="container page" id="customer-profile-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -818,7 +826,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -837,8 +845,8 @@
                 </div>
             </div>
             <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
-                <div class="user_profile_params vr-user_profile_params ac-user_profile_params">
-                    <div class="title ac-block-title vr-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params">
+                    <div class="title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
                         <div class="hidden vr-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -883,23 +891,23 @@
                     <div class="total_user_profile">
                         <table id="user_profile_table">
                             <tbody>
-                            <tr>
-                                <th>{{tr('Measure')}}</th>
-                                <th>{{tr('Left Foot')}}</th>
-                                <th>{{tr('Right Foot')}}</th>
-                            </tr>
-                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                <td>{{tr(metric.name)}}</td>
-                                <td>{{tr(metric.LEFT_FOOT)}}</td>
-                                <td>{{tr(metric.RIGHT_FOOT)}}</td>
-                            </tr>
+                                <tr>
+                                    <th>{{tr('Measure')}}</th>
+                                    <th>{{tr('Left Foot')}}</th>
+                                    <th>{{tr('Right Foot')}}</th>
+                                </tr>
+                                <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                    <td>{{tr(metric.name)}}</td>
+                                    <td>{{tr(metric.LEFT_FOOT)}}</td>
+                                    <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
-                    <div class="your-scans_profile ac-your-scans_profile vr-your-scans_profile">
-                        <div class="title ac-block-title vr-block-title">Your Scans</div>
+                    <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile vr-your-scans_profile">
+                        <div class="title ac-block-title vr-block-title acc-block-title">Your Scans</div>
                     </div>
                 </div>
             </div>
@@ -907,7 +915,7 @@
     </customer-profile>
     <customer-edit-profile inline-template :visible="visible" :states="states"
                            v-if="states.customer_edit_profile_view.active">
-        <div class="remote-configuration" id="customer-edit-profile-screen">
+        <div class="remote-configuration page" id="customer-edit-profile-screen">
             <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                             <span class="back-to">
@@ -917,7 +925,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -984,7 +992,7 @@
     </customer-login>
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" inline-template>
-        <div class="content mainscreen-app" id="customer-order-screen">
+        <div class="content mainscreen-app page" id="customer-order-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -1000,7 +1008,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -1022,13 +1030,15 @@
                 <div class="main-start">
                     <div class="elsa-container">
                         <img class="logo-elsa-neon" src="img/elsa-small.png"/>
-                        <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                        <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                        <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/>
+
                     </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                             <div class="product-preview vr-product-preview ac-product-preview">
-                                <img class="live-image">
+                                <img class="live-image" :src="states.product_view.preview_image">
                             </div>
                             <div class="summary-block">
                                 <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -1189,7 +1199,7 @@
     <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen"
                       :visible="visible"
                       :states="states" :configurator="configuration" inline-template>
-        <div class="container" id="customer-fitting-screen">
+        <div class="container page" id="customer-fitting-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -1205,7 +1215,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-acc  ount"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1316,7 +1326,7 @@
                     <div class="product_info">
                         <div class="fitting-name">Virtual Fitting</div>
                         <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
-                        <!-- <div class="best_sizes">
+                        <div class="best_sizes">
                             <div class="prev_best_size"
                                  v-if="states.customer_fitting_view.active_comparision.prev">
                                 <div>-0.5&lt</div>
@@ -1325,7 +1335,7 @@
                                  v-if="states.customer_fitting_view.active_comparision.next">
                                 <div>&gt+0.5</div>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
                             <span>{{tr('Fitting size')}}</span>
                             <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
@@ -1341,7 +1351,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image">
+                        <img class="live-image" :src="states.product_view.preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>

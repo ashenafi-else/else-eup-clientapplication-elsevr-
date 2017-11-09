@@ -39,7 +39,10 @@
     height: 50px;
   }
   .acc-header{
-    background-color: rebeccapurple;
+    background: rgb(147,0,254);
+    background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+    background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+    background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
     .box-shadow(inset 0 -6px 0 0 #00ff00);
   }
   .header-start{
@@ -58,11 +61,20 @@
       width: 100% !important;
       color: white;
       border-radius: 0 !important;
-      background-color: rebeccapurple;
+      background: rgb(147,0,254);
+      background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+      background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+      background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
       &.acc-title{
         width: 100%;
         border-radius: 0 !important;
-        background-color: rebeccapurple;
+        background: rgb(147,0,254);
+        background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+        background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        &.wl-title{
+          border-bottom: none;
+        }
       }
     }
   }
@@ -79,6 +91,12 @@
     .component.active{
       .active-item-rotating-green-round();
     }
+    .component.control-active{
+      .active-item-rotating-green-round();
+    }
+  }
+  .material-head.active {
+    .active-item-rotating-green-round();
   }
   .configurable-parts-block{
     margin-top: 20px;
@@ -100,7 +118,10 @@
     }
     .element.active{
       button.name{
-        background-color: rebeccapurple;
+        background: rgb(147,0,254);
+        background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+        background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
         color: #00ff00;
       }
     }
@@ -109,11 +130,56 @@
         height: 50px;
       }
     }
+    .elsa-container{
+      top: 150%;
+      margin: 0;
+    }
+  }
+  #product-details-screen,
+  #customer-order-screen,
+  #material-screen,
+  #preview-screen,
+  #part-preview,
+  #customer-fitting-screen
+  {
+    .summary-block, .prices .price p[class$='-price']{
+      color: black !important;
+    }
   }
   .acc-stylish-title{
     color: rebeccapurple;
     font-family: "Lato", sans-serif;
     font-weight: 600;
     font-size: 2rem;
+  }
+  .acc-block-title{
+    background: rgb(147,0,254);
+    background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+    background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+    background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+    color: white;
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+  }
+  .user_name{
+    text-decoration: underline;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+  }
+  .user_info{
+    span{
+      margin-left: 20px;
+    }
+  }
+  .colors-block{
+    .color.active {
+      border: solid #00ff00 !important;
+      animation: blink 1s linear infinite alternate;
+      box-shadow: 0 0 1px 1px #00ff00;
+    }
+  }
+  .acc-hidden{
+    display: none;
   }
 }

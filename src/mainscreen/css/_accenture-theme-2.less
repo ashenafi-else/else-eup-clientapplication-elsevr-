@@ -1,0 +1,86 @@
+.store_25 {
+  font-face {
+    font-family: 'Lato';
+    src: url(../img/accenture/Lato-Regular.ttf);
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Prelo';
+    src: url(../img/accenture/Lato-Black.ttf);
+    font-weight: 600;
+  }
+  .logo-elsa-neon{
+    display:none;
+  }
+
+  #customer-order-screen{
+    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background-size: cover;
+    .order-form{
+      form{
+        position: absolute;
+        border-radius: 0;
+        right: 20px;
+        width: 320px;
+        padding: 35px;
+        margin-top: 30px;
+        background-color: #5f0095;
+        input, select{
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
+
+  #customer-fitting-screen{
+    .user_profile_params{
+      border-radius: 0;
+      border: 2px solid black;
+      background-color: white;
+      box-shadow: none;
+      margin-left: 15px;
+      .user_scans{
+        margin-top: 40px;
+        height: 200px;
+        width: 220px;
+      }
+      .user_info_line{
+        color: black;
+      }
+      .username_profile{
+        color: #d3061a;
+      }
+      .userscans{
+        color: #d3061a;
+        .box-shadow(none);
+      }
+    }
+    .product_info{
+      border-radius: 0;
+      color: #d3061a;
+      box-shadow: none;
+      border: 2px solid black;
+      background-color: white;
+      .product_name, .comparision_size, .comparision_score{
+        color: black;
+        font-size: 20px;
+      }
+      .factor-score{
+        color: black;
+        background-size: 50px;
+        background-image: url(../img/altroconsumo/frame-fitting-factor.png);
+
+      }
+
+    }
+    .prev_best_size, .next_best_size{
+      display: none;
+    }
+    .elsa{
+      margin-right: 30px;
+    }
+  }
+
+
+}

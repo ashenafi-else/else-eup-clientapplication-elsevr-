@@ -468,7 +468,7 @@
             </div>
         </div>
     </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states"
+    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states"
                      inline-template>
         <div id="product-preview-screen">
             <div class="header vr-header acc-header mainscreen-header">
@@ -565,7 +565,7 @@
     </product-preview>
     <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states"
                       inline-template>
-        <div id="material-preview-screen">
+        <div id="material-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -653,8 +653,8 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
-        <div id="part-preview-screen">
+    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" inline-template>
+        <div id="part-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -810,7 +810,7 @@
     </total-look>
     <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active"
                       class="customer-profile">
-        <div class="container" id="customer-profile-screen">
+        <div class="container page" id="customer-profile-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -915,7 +915,7 @@
     </customer-profile>
     <customer-edit-profile inline-template :visible="visible" :states="states"
                            v-if="states.customer_edit_profile_view.active">
-        <div class="remote-configuration" id="customer-edit-profile-screen">
+        <div class="remote-configuration page" id="customer-edit-profile-screen">
             <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
                             <span class="back-to">
@@ -992,7 +992,7 @@
     </customer-login>
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" inline-template>
-        <div class="content mainscreen-app" id="customer-order-screen">
+        <div class="content mainscreen-app page" id="customer-order-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -1199,7 +1199,7 @@
     <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen"
                       :visible="visible"
                       :states="states" :configurator="configuration" inline-template>
-        <div class="container" id="customer-fitting-screen">
+        <div class="container page" id="customer-fitting-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">

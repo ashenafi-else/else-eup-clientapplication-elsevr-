@@ -846,7 +846,7 @@
             </div>
             <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params">
-                    <div class="title ac-block-title vr-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
                         <div class="hidden vr-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -891,23 +891,23 @@
                     <div class="total_user_profile">
                         <table id="user_profile_table">
                             <tbody>
-                            <tr>
-                                <th>{{tr('Measure')}}</th>
-                                <th>{{tr('Left Foot')}}</th>
-                                <th>{{tr('Right Foot')}}</th>
-                            </tr>
-                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                <td>{{tr(metric.name)}}</td>
-                                <td>{{tr(metric.LEFT_FOOT)}}</td>
-                                <td>{{tr(metric.RIGHT_FOOT)}}</td>
-                            </tr>
+                                <tr>
+                                    <th>{{tr('Measure')}}</th>
+                                    <th>{{tr('Left Foot')}}</th>
+                                    <th>{{tr('Right Foot')}}</th>
+                                </tr>
+                                <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                    <td>{{tr(metric.name)}}</td>
+                                    <td>{{tr(metric.LEFT_FOOT)}}</td>
+                                    <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
                     <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile vr-your-scans_profile">
-                        <div class="title ac-block-title vr-block-title">Your Scans</div>
+                        <div class="title ac-block-title vr-block-title acc-block-title">Your Scans</div>
                     </div>
                 </div>
             </div>

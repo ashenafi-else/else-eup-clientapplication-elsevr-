@@ -36,17 +36,18 @@ window.config = {
         '23': 'Dome000018',
         '25': 'Dome000058'
     },
+    'product_tour_configuration': {
+        'elsevr_men_1_3': {
+            'type':'video',
+            'src': './img/accenture/1-2.mp4'
+        }
+    },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',
     'default_configuration': {
 
     },
-    'product_tour_configuration': {
-        'elsevr_women_1_1': {
-        	'name': 'micam v2 model 1.2 (Product tour 122877)',
-        	'interval': 50
-        }
-    },
+
     'update_last_scan_interval': 15,
     'component_cameras': {},
     'cameras_initial_settings': {},

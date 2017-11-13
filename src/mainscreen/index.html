@@ -90,7 +90,7 @@
                 </div>
                 <div class="col header-col header-end">
                     <div class="logo header-logo">
-                        <img class="hidden vr-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
+                        <img class="hidden ac-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,9 @@
                             <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
                                 <img class="collection-img" v-show="img.active" :src="img.url"
                                      v-for="img in product.tour_360">
+                            </div>
+                            <div class="product_tour video-container" v-show="product.active" v-if="product.video">
+                                <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
                             </div>
                         </div>
                         <button class="name">

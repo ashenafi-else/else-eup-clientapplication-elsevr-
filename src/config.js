@@ -25,7 +25,7 @@ window.config = {
     'default_material_camera': 'cameraLEFTp',
     'default_part_camera': 'cameraLEFTp',
     'default_preview_camera': 'cameraLEFTp',
-    'default_fitting_camera': 'cameraRIGHTp',
+    'default_fitting_camera': 'cameraTOP',
     'camera_animation_time': 1000,
     'default_language': 'en',
     'default_scanner': 'Dome000018',
@@ -37,9 +37,9 @@ window.config = {
         '25': 'Dome000058'
     },
     'product_tour_configuration': {
-        'elsevr_men_1_3': {
+        'elsevr_men_1_1': {
             'type':'video',
-            'src': './img/accenture/1-2.mp4'
+            'src': './img/Women_Tour_2.mov'
         }
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',

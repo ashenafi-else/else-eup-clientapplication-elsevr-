@@ -182,4 +182,184 @@
   .acc-hidden{
     display: none;
   }
+
+
+  .logo-elsa-neon{
+    display:none;
+  }
+
+  #customer-order-screen{
+    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background-size: cover;
+    .order-form{
+      form{
+        position: absolute;
+        border-radius: 0;
+        right: 20px;
+        width: 320px;
+        padding: 35px;
+        margin-top: 30px;
+        background: rgb(147,0,254);
+        background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
+        background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        input, select{
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
+
+  #customer-fitting-screen{
+    .user_profile_params{
+      border-radius: 0;
+      border: 2px solid black;
+      background-color: white;
+      box-shadow: none;
+      margin-left: 15px;
+      .user_scans{
+        margin-top: 40px;
+        height: 200px;
+        width: 220px;
+      }
+      .user_info_line{
+        color: black;
+      }
+      .username_profile{
+        color: #5f0095;
+      }
+      .userscans{
+        color: #5f0095;
+        .box-shadow(none);
+      }
+    }
+    .product_info{
+      border-radius: 0;
+      color: #5f0095;
+      box-shadow: none;
+      border: 2px solid black;
+      background-color: white;
+      .product_name, .comparision_size, .comparision_score{
+        color: black;
+        font-size: 20px;
+      }
+      .factor-score{
+        color: black;
+        background-size: 50px;
+        background-image: url(../img/accenture/frame-fitting-factor.png);
+
+      }
+
+    }
+    .prev_best_size, .next_best_size{
+      display: none;
+    }
+    .elsa{
+      margin-right: 30px;
+    }
+  }
+
+  #part-preview, #preview-screen, #material-screen,
+  #customer-order-screen, #customer-profile-screen, #customer-fitting-screen{
+    .elsa-help-block{
+      display: none;
+    }
+  }
+
+  .acc-login{
+    .align-items(center);
+    .fitting-size {
+      background-image: url(../img/accenture/small_shoe.png);
+      background-repeat: no-repeat;
+      color: white;
+      background-size: 50px 20px;
+      background-position-y: bottom;
+      width: 50px;
+      height: 50px;
+      margin-right: 1rem;
+    }
+    .factor-text {
+      color: white;
+    }
+    .factor-score{
+      background-image: url(../img/accenture/ff-hexagon.png);
+      color: white;
+      background-size: 50px;
+    }
+    .user_name{
+      color: #d3061a;
+      text-shadow: none;
+      width: 100%;
+    }
+    .user_name{
+      text-decoration: underline;
+      color: white;
+    }
+  }
+
+  .user_profile_params {
+    &.acc-user_profile_params {
+      margin: 20px;
+      border: 3px solid black;
+      background: white;
+      .title{
+        font-size: 24px;
+      }
+    }
+  }
+  .acc-your-scans_profile{
+    color: #5f0095;
+    background: white;
+    border: 3px solid black;
+  }
+
+  .total_user_profile{
+    width: 100%;
+    height: 100%;
+  }
+  .total_user_profile table{
+    overflow: scroll;
+    height: 34%;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    border-bottom:none;
+  }
+  .total_user_profile tr th, .total_user_profile tr td{
+    border-bottom: 1px solid #d9d9d9;
+    padding: 3px;
+  }
+  .total_user_profile tr th{
+    background-color: black;
+    font-weight: bold;
+  }
+  .total_user_profile tr:nth-of-type(even){
+    background-color: white !important;
+    height: 33px;
+  }
+  .total_user_profile tr:nth-of-type(odd){
+    background-color: #9de489 !important;
+    height: 20px;
+    color: black !important;
+  }
+  .total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
+    border-right: none !important;
+    border: none !important;
+  }
+  table tr:nth-child(even) td{
+    background: transparent !important;
+    color: black !important;
+    font-weight: 500;
+  }
+  table tr:nth-child(odd) td{
+    background: transparent !important;
+    color: black !important;
+    font-weight: 500;
+  }
+
+  .components-block{
+    margin-left: 7px;
+  }
 }

@@ -851,7 +851,7 @@
             </div>
             <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params">
-                    <div class="title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
                         <div class="hidden vr-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -1028,6 +1028,9 @@
                                 <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>

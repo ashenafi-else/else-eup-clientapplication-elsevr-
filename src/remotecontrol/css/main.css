@@ -1,4 +1,3 @@
-/* ReyRey RemoteControl CSS */
 html, body {
     font-family: 'Lato', 'Verdana', sans-serif;
     -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -74,9 +73,6 @@ footer {
     width: 70px;
     z-index: 1;
 }
-
-/* REYREY - VIRTUALCATALOG-SCREEN */
-
 .virtual-catalog{
     flex: auto;
     justify-content: space-between;
@@ -102,22 +98,7 @@ footer {
     text-align: center;
     color: #000000;
 }
-.element.Flat img.collection-img {
-    height: 50%;
-    margin-top: 37%;
-}
 
-.element.Wedge {
-    background-color: #FCF9F5;
-}
-.element.reyrey_12, .element.Joker {
-    background-color: #F8FBFF;
-}
-.element.Flat{
-    background-color: #FFFCFA;
-}
-
-/* REYREY - STORE-SELECTION & STORE-PASSWORD & SESSION CODE SCREENS */
 .page-store-selection, .store-password-screen{
     flex: auto;
     display: flex;
@@ -131,13 +112,6 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-.page-store-selection .logo-section .reyrey-logo,
-.store-password-screen .logo-section .reyrey-logo,
-.page-session-code .logo-section .reyrey-logo {
-    width: 480px;
-    height: 160px;
-    margin-top: 20px;
 }
 
 
@@ -230,7 +204,6 @@ footer {
     width: 60%;
 }
 
-/* REYREY - REMOTE CONTROL MAIN CONFIGURATION */
 .remote-configuration{
     flex: auto;
     display: flex;
@@ -331,7 +304,6 @@ span.rotation-icon {
 }
 
 
-/* REYREY - WINDOW BLOCK */
 .configuration-main{
     width: 100%;
     height: 92%;
@@ -528,7 +500,6 @@ hr {
     margin-left: 65px;
 }
 
-/*REYREY - BEST FIT */
 .fitting-screen{
     flex: auto;
     justify-content: space-between;
@@ -662,7 +633,6 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-/* REYREY - SIGNIN REGISTER*/
 .signin-register-screen {
     display: flex;
     flex-direction: column;
@@ -872,7 +842,6 @@ input.search-input {
     border: 1px solid black;
 }
 
-/* REYREY - PROFILE */
 .user-left {
     display: flex;
     align-items: center;
@@ -958,6 +927,7 @@ input.search-input {
     box-sizing: content-box;
     color: #8e8e8d;
     font-size: 1.1em;
+    text-indent: 10px;
     margin: 5px;
     outline-color: #03A9F4;
     border-radius: 5px;

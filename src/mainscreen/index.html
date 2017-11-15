@@ -355,7 +355,9 @@
                     <div class="description-product">
                         <!-- <img src="img/configurations.png"> -->
                         <ul class="col-16">
-                            <ul id="description4" class="options">
+                            <ul id="description4" class="options"
+                                :class="[collection.active?'active':'', collection.name]"
+                                v-for="collection in states.collection_view.collections">
                                 <li class="number-configurations">918</li>
                                 <li class="number-elements">3</li>
                                 <li class="number-materials">6</li>

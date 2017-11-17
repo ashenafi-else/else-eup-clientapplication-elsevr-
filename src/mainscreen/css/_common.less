@@ -163,6 +163,30 @@ img{
   }
 }
 
+.mcpc {
+  display: none;
+}
+
+.store_18, .store_19 {
+  #else-mainscreen-control{
+    .bottom-panel {
+      .mcpc {
+        display: block !important;
+        position: absolute;
+        width: 102px;
+        height: auto;
+        left: 50%;
+        bottom: 100px;
+        margin-left: -51px;
+      }
+    }
+  }
+}
+
+#mcpc_sm {
+  max-height: 90%;
+}
+
 .bottom-panel {
   min-height: 70px;
   max-height: 30%;
@@ -175,14 +199,19 @@ img{
   padding-bottom: 27px;
   z-index: 1;
   text-align: center;
-  &:before{
-    content: "";
-    height: 30px;
-    z-index: -1;
-    background: bottom/100% url(../img/header.svg) no-repeat;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
+
+
+  background: 0!important;
+  -webkit-transform: rotate(0deg)!important;
+  transform: rotate(0deg)!important;
+  //&:before{
+  //  content: "";
+  //  height: 30px;
+  //  z-index: -1;
+  //  background: bottom/100% url(../img/header.svg) no-repeat;
+  //  -webkit-transform: rotate(180deg);
+  //  transform: rotate(180deg);
+  //}
   .stylish-text{
     font-size: 44px;
     color: #0c5880;
@@ -212,6 +241,7 @@ img{
 
 
 .logo-micam {
+  margin-top: 50px;
   width: 250px;
   margin-left: auto;
 }
@@ -219,6 +249,16 @@ img{
 .logo-chromium {
   max-height: 10rem;
 }
+
+.atom-logos {
+  position: absolute;
+  left: 50%;
+  margin-left: -187px;
+}
+
+
+
+
 
 //CAMERAS
 /* cameras */

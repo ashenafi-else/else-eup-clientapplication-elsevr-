@@ -522,8 +522,7 @@ span{
     color: #feffff;
     padding: 3px 0 4px 10px;
     font-size: 15px;
-    margin: 5px 0;
-    /* outline-color: #ba3f3f; */
+    margin: 5px 5px;
     font-family: 'Lato','Verdana', sans-serif;
 }
 .input-label input.active, .input-label textarea.active,.input-label select.active{

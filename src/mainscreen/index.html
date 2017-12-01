@@ -65,7 +65,7 @@
                 <div class="col-1 header-col header-end">
                     <div class="logo header-logo">
                         <!--<img class="logo-micam" src="img/Logo_Micam.png">-->
-                        <img class="logo-micam" src="img/logo_mcpc.png">
+                        <!-- <img class="logo-micam" src="img/logo_mcpc.png"> -->
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                 <div class="col header-col header-end">
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
-                        <img class="logo-micam" src="img/logo_mcpc.png">
+                        <!-- <img class="logo-micam" src="img/logo_mcpc.png"> -->
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                 <img class="hidden ac-show logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
                 <img class="hidden apparel-show micam-show logo-else-neon" src="img/Logo_ELSE.png"/>
                 <img class="atom-logos" src="img/logos_atom.png">
-                <img class="mcpc" src="img/logo_mcpc.png">
+                <!-- <img class="mcpc" src="img/logo_mcpc.png"> -->
             </div>
         </div>
     </product-list>
@@ -219,7 +219,8 @@
                      :states="states"
                      :state="states.product_view"
                      :data="api2Data"
-                     v-if="states.product_view.active">
+                     v-if="states.product_view.active"
+                     :preview_image="preview_image">
         <div class="page page-mainscreen" id="product-details-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -228,7 +229,7 @@
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
                     </div>
                     <span class="vr-stylish-text">
-                        <span class="hidden vr-show acc-show">{{tr('3D Product Configurator')}}</span>
+                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}}</span>
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
                     <span class="back-to">
@@ -239,7 +240,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -329,7 +330,7 @@
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>
                             <div class="product-preview vr-product-preview ac-product-preview">
-                                <img class="live-image" :src="states.product_view.preview_image">
+                                <img class="live-image" :src="preview_image">
                             </div>
                             <div class="summary-block">
                                 <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -482,7 +483,7 @@
             </div>
         </div>
     </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states"
+    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states" :preview_image="preview_image"
                      inline-template>
         <div id="product-preview-screen">
             <div class="header vr-header acc-header mainscreen-header">
@@ -497,7 +498,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -545,7 +546,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image" :src="states.product_view.preview_image">
+                        <img class="live-image" :src="preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -578,7 +579,7 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </product-preview>
-    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states"
+    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" :preview_image="preview_image"
                       inline-template>
         <div id="material-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
@@ -593,7 +594,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -636,7 +637,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image" :src="states.product_view.preview_image">
+                        <img class="live-image" :src="preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -669,7 +670,7 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" inline-template>
+    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" :preview_image="preview_image" :preview_image="preview_image" inline-template>
         <div id="part-preview-screen" class="page">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -683,7 +684,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -722,7 +723,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image" :src="states.product_view.preview_image">
+                        <img class="live-image" :src="preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -840,7 +841,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -1009,7 +1010,7 @@
         </div>
     </customer-login>
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
-                    :states="states" :configurator="configuration" inline-template>
+                    :states="states" :configurator="configuration" :preview_image="preview_image" inline-template>
         <div class="content mainscreen-app page" id="customer-order-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -1060,7 +1061,7 @@
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                             <div class="product-preview vr-product-preview ac-product-preview">
-                                <img class="live-image" :src="states.product_view.preview_image">
+                                <img class="live-image" :src="preview_image">
                             </div>
                             <div class="summary-block">
                                 <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
@@ -1080,7 +1081,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">0,00<span class="euro"></span></div>
+                            <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
                         </div>
                     </div>
                 </div>
@@ -1220,7 +1221,7 @@
     </customer-order>
     <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen"
                       :visible="visible"
-                      :states="states" :configurator="configuration" inline-template>
+                      :states="states" :configurator="configuration"  :preview_image="preview_image" inline-template>
         <div class="container page" id="customer-fitting-screen">
             <div class="header vr-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -1234,7 +1235,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                        <!--<img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -1374,7 +1375,7 @@
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                     <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
-                        <img class="live-image" :src="states.product_view.preview_image">
+                        <img class="live-image" :src="preview_image">
                     </div>
                     <div class="summary-block">
                         <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>

@@ -416,7 +416,7 @@ span.rotation-icon {
 .order-button-block .input-label .label {
     width: 20%;
     font-size: 1.3em;
-    font-weight: 300;
+    font-weight: normal;
     margin: 15px 15px 15px 107px;
 }
 

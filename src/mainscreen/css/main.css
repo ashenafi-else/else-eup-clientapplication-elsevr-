@@ -17,7 +17,7 @@ html, body{
 /* HEADER */
 
 /*.header span.screen-name {*/
-    /*margin-top: 20px;*/
+/*margin-top: 20px;*/
 /*}*/
 
 .header-end .go-account{
@@ -409,40 +409,6 @@ span{
 }
 
 
-/* product#1 joker */
-.components-block.joker .component.Upper {
-    background-image: url('../img/components/wedge/body.png');
-}
-.components-block.joker .reyrey_11_part_2 {
-    background-image: url('../img/components/wedge/heel.png');
-}
-.components-block.joker .reyrey_11_part_3 {
-    background-image: url('../img/components/wedge/lining.png');
-}
-.components-block.joker .reyrey_12_part_4 {
-    background-image: url('../img/components/wedge/insole.png');
-}
-.components-block.joker .reyrey_12_part_5 {
-    background-image: url('../img/components/wedge/sole.png');
-}
-
-/* product#2 wedge */
-.components-block.wedge .component.Upper {
-    background-image: url('../img/components/wedge/body.png');
-}
-.components-block.wedge .component.Heel {
-    background-image: url('../img/components/wedge/heel.png');
-}
-.components-block.wedge .component.Lining {
-    background-image: url('../img/components/wedge/lining.png');
-}
-.components-block.wedge .component.Insole {
-    background-image: url('../img/components/wedge/insole.png');
-}
-.components-block.wedge .component.Outsole {
-    background-image: url('../img/components/wedge/sole.png');
-}
-
 /*REYREY - PREVIEW SCREEN */
 .preview_area {
     flex:2;
@@ -728,19 +694,6 @@ footer {
     background: #000000;
 }
 
-.page-store-selection .store-list {
-    z-index: 999;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
 .page-store-selection .store-list a:hover {
     color: #0064DB;
 }

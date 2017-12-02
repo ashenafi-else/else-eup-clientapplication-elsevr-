@@ -523,9 +523,9 @@
                                 </span>
                             </span> -->
                         </div>
-                        <div class="logo header-logo">
-                            <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
-                        </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -536,10 +536,6 @@
                          :id="camera"
                          :class="[tr(camera), states.preview_view.active_camera==camera?'active':'']"
                          v-for="camera in states.preview_view.cameras"></div>
-                    <div class="rotation-zoom">
-                        <div class="rott"></div>
-                        <div class="zoom"></div>
-                    </div>
                 </div>
             </div>
             <div class="price-block">
@@ -627,10 +623,6 @@
                          :id="camera"
                          :class="[tr(camera), states.material_view.active_camera==camera?'active':'']"
                          v-for="camera in states.material_view.cameras"></div>
-                    <div class="rotation-zoom">
-                        <div class="rott"></div>
-                        <div class="zoom"></div>
-                    </div>
                 </div>
             </div>
             <div class="price-block">
@@ -704,6 +696,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
+                    </div>
                 </div>
             </div>
             <div class="preview-area on_detail">
@@ -713,10 +708,6 @@
                          :id="camera"
                          :class="[tr(camera), states.part_view.active_camera==camera?'active':'']"
                          v-for="camera in states.part_view.cameras"></div>
-                    <div class="rotation-zoom">
-                        <div class="rott"></div>
-                        <div class="zoom"></div>
-                    </div>
                 </div>
             </div>
             <div class="price-block">
@@ -756,76 +747,6 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </part-preview>
-    <total-look inline-template :states="states" v-if="states.sets_view.active" id="total-look-screen">
-        <div class="total-look" id="total-look-screen">
-            <div class="total-look-left">
-
-                <div class="icon-shirt">
-                    <img src="img/jacket/total-look/prod_3_shirt.png">
-                </div>
-                <div class="icon-jacket">
-                    <img src="img/jacket/total-look/prod_1_jacket.png">
-                </div>
-                <div class="icon-waistcoat">
-                    <img src="img/jacket/total-look/prod_4_waistcoat.png">
-                </div>
-                <div class="icon-trousers">
-                    <img src="img/jacket/total-look/prod_2_trousers.png">
-                </div>
-
-                <div class="total-look-price-block">
-                    <div class="delivery-time">
-                        <div class="small-man">
-                            <img src="img/small-man.png">
-                        </div>
-                        <div class="delivery"></div>
-                        <div class="days"><span>{{tr("Delivery")}}</span></div>
-                    </div>
-                    <div class="prices">
-                        <div class="tl-model-name">
-                            <p>{{tr("CLASSIC")}}</p>
-                        </div>
-                        <div class="price">
-                            <div class="base-mod-price">{{tr("Jacket")}}<span>0,00<span class="euro"></span></span>
-                            </div>
-                            <div class="base-mod-price">{{tr("Waistcoat")}}<span>0,00<span
-                                    class="euro"></span></span></div>
-                            <div class="extra-acc-price">{{tr("Trousers")}}<span>0,00<span
-                                    class="euro"></span></span></div>
-                            <div class="extra-mat-price">{{tr("Shirt")}}<span>0,00<span class="euro"></span></span>
-                            </div>
-                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="euro"></span></span>
-                            </div>
-                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="euro"></span></span>
-                            </div>
-                            <div class="extra-mat-price">{{tr("Shoes")}}<span>0,00<span class="euro"></span></span>
-                            </div>
-                            <div class="total-price">{{tr("TOTAL LOOK")}}<span>0.00<span class="euro"></span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="total-look-center"></div>
-            <div class="total-look-right">
-                <div class="icon-tie">
-                    <img src="img/jacket/total-look/prod_5_tie.png">
-                </div>
-                <div class="icon-shawl">
-                    <img src="img/jacket/total-look/prod_7_shawl.png">
-                </div>
-                <div class="icon-cufflink active">
-                    <img src="img/jacket/total-look/prod_6_cufflinks-active.png">
-                </div>
-                <div class="icon-shoes">
-                    <img src="img/jacket/total-look/prod_8_shoe.png">
-                </div>
-                <div class="v-couture">
-                    <img src="img/options/logo_vc.png">
-                </div>
-            </div>
-        </div>
-    </total-look>
     <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active"
                       class="customer-profile">
         <div class="container page" id="customer-profile-screen">
@@ -860,6 +781,9 @@
                                 <span class="factor-score">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -1024,7 +948,7 @@
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
-                        <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/>
+                       <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -1240,7 +1164,7 @@
                 </div>
                 <div class="col header-col header-end">
                     <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
-                        <div class="go-acc  ount"></div>
+                        <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
                                         {{states.customer_profile_view.active_customer.lastname}}
@@ -1260,6 +1184,9 @@
                                 </span>
                             </span> -->
                         </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -1339,11 +1266,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="elsa">
-                            <!-- <img src="img/ELSA.png"> -->
+                        <!-- <div class="elsa">
+                            <img src="img/ELSA.png">
                             <img class="logo-elsa-neon" src="img/elsa-small.png"/>
                             <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
-                        </div>
+                        </div> -->
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="block-virtual-fitting">

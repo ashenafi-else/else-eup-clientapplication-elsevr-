@@ -79,6 +79,7 @@
             <div class="bottom-panel">
                 <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
                 <img class="atom-logos" src="img/logos_atom.png">
+                <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
             </div>
         </div>
     </stores>
@@ -189,14 +190,15 @@
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
                                 <img class="collection-img" v-show="!product.active || !product.tour_360"
                                      :src="product.image" :alt="product.name"/>
+                                <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
+                                    <img class="collection-img" v-show="img.active" :src="img.url"
+                                         v-for="img in product.tour_360">
+                                </div>
+                                <div class="product_tour video-container" v-show="product.active" v-if="product.video">
+                                    <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
+                                </div>
                             </div>
-                            <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
-                                <img class="collection-img" v-show="img.active" :src="img.url"
-                                     v-for="img in product.tour_360">
-                            </div>
-                            <div class="product_tour video-container" v-show="product.active" v-if="product.video">
-                                <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
-                            </div>
+
                         </div>
                         <button class="name">
                             <span>{{tr(product.name)}}</span>
@@ -210,6 +212,7 @@
                 <img class="hidden ac-show logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
                 <img class="hidden apparel-show micam-show logo-else-neon" src="img/Logo_ELSE.png"/>
                 <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
+                <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
                 <img class="atom-logos" src="img/logos_atom.png">
                 <!-- <img class="mcpc" src="img/logo_mcpc.png"> -->
             </div>
@@ -463,7 +466,7 @@
                 </div>
                 <!--<div class="else-shoes"></div>-->
                 <div class="wishlist  configurator-block vr-wishlist ac-wishlist " id="wish-list">
-                    <div class="title acc-title wl-title">{{tr("Wishlist")}}</div>
+                    <div class="title acc-title wl-title">{{tr("Wishlist (1)")}}</div>
                     <div class="wl-container">
                         <div class="wl-item">
                             <div class="item-description">
@@ -472,7 +475,7 @@
                                 <div>
                                     <span class="configuration-title">My shoe</span>
                                             <span class="configuration-description">Model: 10cm heel</br>
-                                                Upper: Sued red
+                                                Upper: Suede red
                                                 </br>Trim: Nappa Gold
                                                 <br>Applique: Patent Light Brown
                                                 <br>Applique accessory: Star</span>

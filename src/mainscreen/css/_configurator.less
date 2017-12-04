@@ -58,6 +58,9 @@
   ul.options.elsevr_women_1_1-1>li.number-elements::before{
       background-image: url("./../img/women_acc.png");
   }
+  ul.options.elsevr_women_1_1-2>li.number-elements::before{
+    background-image: url("./../img/women_acc.png");
+  }
   ul.options._Men_>li.number-elements::before{
     background-image: url("./../img/men_acc.png");
   }
@@ -144,6 +147,7 @@
   }
 }
 
+
 .material-block {
   display: flex;
   flex-direction: row;
@@ -196,6 +200,11 @@
     border: solid #00ffff !important;
     animation: blink 1s linear infinite alternate;
     box-shadow: 0 0 1px 1px #00ffff;
+  }
+}
+.material-head.crystal.active{
+  .colors-block {
+    height: 8.2rem;
   }
 }
 
@@ -299,6 +308,9 @@
         background-image: url(../img/components/m-outsole.png);
       }
       &.back {
+        background-image: url(../img/components/m-back-strap.png);
+      }
+      &#component-3 {
         background-image: url(../img/components/m-upper-facing.png);
       }
       &.laces {
@@ -338,8 +350,11 @@
         display: none;
         //background-image: url(../img/components/w-insole.png);
       }
-      &.outsole {
+      &.outsole{
         background-image: url(../img/components/w-outsole.png);
+      }
+      &.outsole.crystal {
+        background-image: url(../img/components/w-not_transparent_crystal.png);
       }
     }
     span.name {
@@ -573,13 +588,13 @@
 
 .heel-height {
   &.elsevr_women_1_1-1 {
-    background: url(../img/components/Shoe_10.png) no-repeat;
+    background: url(../img/components/Shoe_8.png) no-repeat;
     height: 4.5rem;
     width: 4rem;
     background-size: 100%;
   }
   &.elsevr_women_1_1-2 {
-    background: url(../img/components/Shoe_8.png) no-repeat;
+    background: url(../img/components/Shoe_10.png) no-repeat;
     height: 4.5rem;
     width: 4rem;
     background-size: 100%;

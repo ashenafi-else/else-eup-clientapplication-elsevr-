@@ -209,6 +209,7 @@
                 <img class="logo-altroconsumo hidden ac-show h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
                 <img class="hidden ac-show logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
                 <img class="hidden apparel-show micam-show logo-else-neon" src="img/Logo_ELSE.png"/>
+                <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
                 <img class="atom-logos" src="img/logos_atom.png">
                 <!-- <img class="mcpc" src="img/logo_mcpc.png"> -->
             </div>
@@ -367,8 +368,7 @@
                         <!-- <img src="img/configurations.png"> -->
                         <ul class="col-16">
                             <ul id="description4" class="options"
-                                :class="[collection.active?'active':'', collection.name]"
-                                v-for="collection in states.collection_view.collections">
+                                :class="state.active_product.name">
                                 <li class="number-configurations">918</li>
                                 <li class="number-elements">3</li>
                                 <li class="number-materials">6</li>

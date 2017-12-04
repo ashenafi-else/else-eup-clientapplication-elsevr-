@@ -367,6 +367,9 @@ window.translations = {
     },
     'METAL-SILVER-BUCKLE': {
         'en': 'Silver'
+    },
+    'WINGED TOE CAP': {
+        'en': 'W. Toe Cap'
     }
 
 

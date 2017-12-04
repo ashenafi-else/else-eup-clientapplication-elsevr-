@@ -473,13 +473,13 @@ span{
 }
 
 .input-label input::-webkit-input-placeholder{
-    color: #696969 !important;
+    color: white !important;
 }
 .input-label input::-moz-placeholder{
-    color: #696969 !important;
+    color: white !important;
 }
 .input-label input:-moz-placeholder, .input-label input:-ms-input-placeholder {
-    color: #696969 !important;
+    color: white !important;
 }
 
 .input-label input, .input-label textarea,.input-label select, .input-label select>option{
@@ -502,11 +502,11 @@ span{
 }
 .input-label select + .dropdown-btn{
     background: url(../img/arrowdown.png) center top no-repeat;
-    background-size: 23px 18px;
-    width: 23px;
+    background-size: 23px 20px;
+    width: 25px;
     height: 30px;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     right: 10px;
     display: block;
     opacity: 0.5;

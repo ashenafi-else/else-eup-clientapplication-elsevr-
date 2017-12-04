@@ -37,10 +37,14 @@ window.config = {
         '25': 'Dome000058'
     },
     'product_tour_configuration': {
-        'elsevr_men_1_1': {
+        'elsevr_man_1_1': {
             'type':'video',
-            'src': './img/Women_Tour_2.mov'
-        }
+            'src': './img/Women_Tour_1.mp4'
+        },
+        'elsevr_women_1_1': {
+            'type':'video',
+            'src': './img/video/1.2.gif'
+        },
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',

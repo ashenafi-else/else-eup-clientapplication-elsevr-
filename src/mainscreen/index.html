@@ -342,7 +342,7 @@
                                 <div class="price">
                                     <p class="base-mod-price">
                                         {{tr("Base model")}}: <span
-                                            class="price-span">{{state.active_product.price}}
+                                            class="price-span">{{state.active_product.price}},00
                                         <span class="euro"></span>
                                     </span>
                                     </p>
@@ -361,7 +361,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{state.active_product.price}}<span class="euro"></span></div>
+                            <div class="total-price">{{state.active_product.price}},00<span class="euro"></span></div>
                         </div>
                     </div>
                     <div class="description-product">
@@ -557,7 +557,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -573,7 +573,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -644,7 +644,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -660,7 +660,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -729,7 +729,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -745,7 +745,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -998,7 +998,7 @@
                             </div>
                             <div class="prices">
                                 <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">{{states.product_view.active_product.price}}<span
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">{{states.product_view.active_product.price}},00<span
                                             class="euro"></span></span></p>
                                     <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span
                                             class="euro"></span></span></p>
@@ -1009,7 +1009,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                            <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                         </div>
                     </div>
                 </div>
@@ -1229,7 +1229,7 @@
                         <div class="user_info_line">
                             {{tr('Delivery address')}}:
                             <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.gender}}
+                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
                                     </span>
                         </div>
                         <div class="user_info_line">
@@ -1280,7 +1280,7 @@
                 <div class="block-virtual-fitting">
                     <div class="product_info">
                         <div class="fitting-name">Virtual Fitting</div>
-                        <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                        <!-- <div class="product_name">{{tr(states.product_view.active_product.name)}}</div> -->
                         <div class="best_sizes">
                             <div class="prev_best_size"
                                  v-if="states.customer_fitting_view.active_comparision.prev">

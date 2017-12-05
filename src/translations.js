@@ -138,7 +138,7 @@ window.translations = {
         'en': 'Gold'
     },
     'MAT_RUBBER_BROWN': {
-        'en': ''
+        'en': 'Brown'
     },
     'MAT_METAL_GOLD': {
         'en': 'Bronze'

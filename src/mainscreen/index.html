@@ -79,7 +79,7 @@
             <div class="bottom-panel">
                 <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
                 <img class="atom-logos" src="img/logos_atom.png">
-                <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
             </div>
         </div>
     </stores>
@@ -233,7 +233,8 @@
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
                     </div>
                     <span class="vr-stylish-text">
-                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}}</span>
+                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}}</span> -
+                        <span class="hidden vr-show acc-show component-name">{{tr(data.active_component.name)}}</span>
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
                     <span class="back-to">
@@ -470,7 +471,7 @@
                     <div class="wl-container">
                         <div class="wl-item">
                             <div class="item-description">
-                                <img class="acc-hidden vr-show " src="img/wl_image.png">
+                                <img class="acc-hidden vr-show" :class="state.active_product.name" src="img/wl_image.png">
                                 <img class="hidden acc-show" src="img/accenture/elsa-green.png">
                                 <div>
                                     <span class="configuration-title">My shoe</span>

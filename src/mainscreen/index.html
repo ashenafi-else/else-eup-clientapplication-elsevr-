@@ -79,6 +79,7 @@
             <div class="bottom-panel">
                 <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
                 <img class="atom-logos" src="img/logos_atom.png">
+                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
             </div>
         </div>
     </stores>
@@ -114,7 +115,7 @@
                 <img class="hidden ac-show logo-else-corp" src="img/altroconsumo/logo-else-corp.png"/>
                 <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
                 <img class="hidden acc-show acc-logos" src="img/accenture/logos.png">
-                <img class="atom-logos" src="img/logos_atom.png">
+                <img class="hidden acc-hidden vr-show atom-logos" src="img/logos_atom.png">
             </div>
         </div>
     </session-code>
@@ -189,14 +190,15 @@
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
                                 <img class="collection-img" v-show="!product.active || !product.tour_360"
                                      :src="product.image" :alt="product.name"/>
+                                <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
+                                    <img class="collection-img" v-show="img.active" :src="img.url"
+                                         v-for="img in product.tour_360">
+                                </div>
+                                <div class="product_tour video-container" v-show="product.active" v-if="product.video">
+                                    <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
+                                </div>
                             </div>
-                            <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
-                                <img class="collection-img" v-show="img.active" :src="img.url"
-                                     v-for="img in product.tour_360">
-                            </div>
-                            <div class="product_tour video-container" v-show="product.active" v-if="product.video">
-                                <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
-                            </div>
+
                         </div>
                         <button class="name">
                             <span>{{tr(product.name)}}</span>
@@ -210,7 +212,8 @@
                 <img class="hidden ac-show logo-else-corp h-40per" src="img/altroconsumo/logo-else-corp.png"/>
                 <img class="hidden apparel-show micam-show logo-else-neon" src="img/Logo_ELSE.png"/>
                 <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
-                <img class="atom-logos" src="img/logos_atom.png">
+                <img class="hidden vr-show logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+                <img class="hidden vr-show atom-logos" src="img/logos_atom.png">
                 <!-- <img class="mcpc" src="img/logo_mcpc.png"> -->
             </div>
         </div>
@@ -230,7 +233,8 @@
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
                     </div>
                     <span class="vr-stylish-text">
-                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}}</span>
+                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}}</span> -
+                        <span class="hidden vr-show acc-show component-name">{{tr(data.active_component.name)}}</span>
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
                     <span class="back-to">
@@ -271,7 +275,6 @@
             </div>
             <div class="main">
                 <div class="main-start">
-                    <div class="components-block">
                         <div class="components-block">
                             <div class="configurator-block ac-configurator-block vr-configurator-block heels"
                                  :class="state.active_product.name"
@@ -325,7 +328,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
@@ -342,7 +344,7 @@
                                 <div class="price">
                                     <p class="base-mod-price">
                                         {{tr("Base model")}}: <span
-                                            class="price-span">{{state.active_product.price}}
+                                            class="price-span">{{state.active_product.price}},00
                                         <span class="euro"></span>
                                     </span>
                                     </p>
@@ -361,7 +363,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{state.active_product.price}}<span class="euro"></span></div>
+                            <div class="total-price">{{state.active_product.price}},00<span class="euro"></span></div>
                         </div>
                     </div>
                     <div class="description-product">
@@ -464,17 +466,17 @@
                     </div>
                 </div>
                 <!--<div class="else-shoes"></div>-->
-                <div class="wishlist  configurator-block vr-wishlist ac-wishlist " id="wish-list">
-                    <div class="title acc-title wl-title">{{tr("Wishlist")}}</div>
+                <div class="wishlist configurator-block vr-wishlist ac-wishlist " id="wish-list">
+                    <div class="title acc-title wl-title">{{tr("Wishlist (1)")}}</div>
                     <div class="wl-container">
                         <div class="wl-item">
                             <div class="item-description">
-                                <img class="acc-hidden " src="img/wl_image.png">
+                                <img class="acc-hidden vr-show" :class="state.active_product.name" src="img/wl_image.png">
                                 <img class="hidden acc-show" src="img/accenture/elsa-green.png">
                                 <div>
                                     <span class="configuration-title">My shoe</span>
                                             <span class="configuration-description">Model: 10cm heel</br>
-                                                Upper: Sued red
+                                                Upper: Suede red
                                                 </br>Trim: Nappa Gold
                                                 <br>Applique: Patent Light Brown
                                                 <br>Applique accessory: Star</span>
@@ -557,7 +559,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -573,7 +575,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -644,7 +646,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -660,7 +662,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -729,7 +731,7 @@
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
-                                    class="price-span">{{states.product_view.active_product.price}}<span
+                                    class="price-span">{{states.product_view.active_product.price}},00<span
                                     class="euro"></span></span>
                             </p>
                             <p class="extra-acc-price">
@@ -745,7 +747,7 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                    <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -998,7 +1000,7 @@
                             </div>
                             <div class="prices">
                                 <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">{{states.product_view.active_product.price}}<span
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">{{states.product_view.active_product.price}},00<span
                                             class="euro"></span></span></p>
                                     <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00<span
                                             class="euro"></span></span></p>
@@ -1009,7 +1011,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{states.product_view.active_product.price}}<span class="euro"></span></div>
+                            <div class="total-price">{{states.product_view.active_product.price}},00<span class="euro"></span></div>
                         </div>
                     </div>
                 </div>
@@ -1229,7 +1231,7 @@
                         <div class="user_info_line">
                             {{tr('Delivery address')}}:
                             <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.gender}}
+                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
                                     </span>
                         </div>
                         <div class="user_info_line">
@@ -1280,7 +1282,7 @@
                 <div class="block-virtual-fitting">
                     <div class="product_info">
                         <div class="fitting-name">Virtual Fitting</div>
-                        <div class="product_name">{{tr(states.product_view.active_product.name)}}</div>
+                        <!-- <div class="product_name">{{tr(states.product_view.active_product.name)}}</div> -->
                         <div class="best_sizes">
                             <div class="prev_best_size"
                                  v-if="states.customer_fitting_view.active_comparision.prev">

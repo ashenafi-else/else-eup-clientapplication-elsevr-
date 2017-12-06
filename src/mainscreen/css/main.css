@@ -49,61 +49,11 @@ html, body{
 /* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN */
 
 
-.virtual-catalog .logo-section .reyrey-logo {
-    width: 550px;
-    height: 170px;
-}
-.virtual-catalog .logo-section .logo-line {
-    content: '';
-    width: 600px;
-    margin-bottom: 20px;
-    padding: 2px 0 0 0;
-    height: 0;
-    display: block;
-    background: #000000;
-}
-.element.active video {
-    margin-top: 15%;
-    display: flex;
-    height: 350px;
-    width: 550px;
-    align-self: center;
-    /* justify-content: center; */
-}
-.flat .collection-img{
-    height: 200px;
-    margin-top: 250px;
-}
-
 span.collection-heading {
     color: #B7B7B7;
     font-size: 1.3em;
 }
 
-.element.Wedge {
-    background-color: #FCF9F5;
-}
-.element.Joker, .element.reyrey_12 {
-    background-color: #F8FBFF;
-}
-.element.Flat{
-    background-color: #FFFCFA;
-}
-
-/*.element .name, .materials .name{*/
-/*margin-top: 10px;*/
-/*font-size: 24px;*/
-/*text-align: center;*/
-/*color: #000000;*/
-/*}*/
-/*.element .name::after{*/
-/*content: " ";*/
-/*display: block;*/
-/*width: 95%;*/
-/*height: 1px;*/
-/*background-color: #000000;*/
-/*margin: 5px auto;*/
-/*}*/
 
 .element.active .name::after{
     background-color: #000;
@@ -529,8 +479,12 @@ span{
 }
 
 .user_info{
-    margin: 35px 0 30px 0;
+    margin: 22px 0 30px 0;
     z-index: -1;
+    background: url(../img/elsa-white.png) no-repeat;
+    background-size: 17%;
+    background-position-x: right;
+    background-position-y: 120%;
 }
 .user_scans{
     margin: 10px;
@@ -573,7 +527,7 @@ span.user_profile_name {
     display: block;
     width:100%;
     height: 1px;
-    margin: 7px -15px 7px;
+    margin: 11px -24px 7px;
     border-bottom: 1.5px dotted grey;
 }
 .personal-params{

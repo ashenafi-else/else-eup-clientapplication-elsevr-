@@ -32,7 +32,7 @@
   }
   height: 50px;
   position: fixed;
-  top: 6rem;
+  top: 5rem;
   width: 320px;
   left: 50%;
   margin-left: -160px;
@@ -57,6 +57,9 @@
   }
   ul.options.elsevr_women_1_1-1>li.number-elements::before{
       background-image: url("./../img/women_acc.png");
+  }
+  ul.options.elsevr_women_1_1-2>li.number-elements::before{
+    background-image: url("./../img/women_acc.png");
   }
   ul.options._Men_>li.number-elements::before{
     background-image: url("./../img/men_acc.png");
@@ -144,6 +147,7 @@
   }
 }
 
+
 .material-block {
   display: flex;
   flex-direction: row;
@@ -183,9 +187,9 @@
     border-radius: 30%;
     cursor: pointer;
     border: 0 solid rgb(0, 255, 242);
-    width: 2.2rem;
-    height: 2.2rem;
-    margin: .25rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: .4rem;
   }
   div[class*="crystal"]{
     .box-shadow(none);
@@ -196,6 +200,11 @@
     border: solid #00ffff !important;
     animation: blink 1s linear infinite alternate;
     box-shadow: 0 0 1px 1px #00ffff;
+  }
+}
+.material-head.crystal.active{
+  .colors-block {
+    height: 8.2rem;
   }
 }
 
@@ -299,10 +308,13 @@
         background-image: url(../img/components/m-outsole.png);
       }
       &.back {
+        background-image: url(../img/components/m-back-strap.png);
+      }
+      &#component-3 {
         background-image: url(../img/components/m-upper-facing.png);
       }
       &.laces {
-        background-image: url(../img/components/laces.png);
+        background-image: url(../img/components/laces_new.png);
       }
     }
     &[class*='elsevr_women'] {
@@ -338,8 +350,11 @@
         display: none;
         //background-image: url(../img/components/w-insole.png);
       }
-      &.outsole {
+      &.outsole{
         background-image: url(../img/components/w-outsole.png);
+      }
+      &.outsole.crystal {
+        background-image: url(../img/components/w-not_transparent_crystal.png);
       }
     }
     span.name {
@@ -365,6 +380,9 @@
     &.active {
       .box-shadow(inset 0 0 0 2px #00ffff);
     }
+  }
+  &.materials-color-block {
+    margin-right: 10px;
   }
 }
 
@@ -520,6 +538,9 @@
         height: 4rem;
         width: 4rem;
         margin-right: 10px;
+        &._Men_{
+          content: url(../img/wl_image_m.png);
+        }
       }
       div {
         display: flex;
@@ -570,13 +591,13 @@
 
 .heel-height {
   &.elsevr_women_1_1-1 {
-    background: url(../img/components/Shoe_10.png) no-repeat;
+    background: url(../img/components/Shoe_8.png) no-repeat;
     height: 4.5rem;
     width: 4rem;
     background-size: 100%;
   }
   &.elsevr_women_1_1-2 {
-    background: url(../img/components/Shoe_8.png) no-repeat;
+    background: url(../img/components/Shoe_10.png) no-repeat;
     height: 4.5rem;
     width: 4rem;
     background-size: 100%;
@@ -587,7 +608,7 @@
   display: none;
 }
 .wl-elsa{
-  background: url(../img/elsa-block.png) no-repeat;
+  background: url(../img/wishlist-elsa.png) no-repeat;
   width: 166px;
   height: 240px;
   position: absolute;
@@ -595,3 +616,9 @@
   bottom: 10px;
   background-size: contain;
 }
+
+.mc {
+  margin-top: 0!important;
+  margin-right: 10px;
+}
+

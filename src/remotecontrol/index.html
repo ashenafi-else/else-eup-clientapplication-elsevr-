@@ -904,15 +904,15 @@
                              @click="changeCamera(camera)"
                              v-for="camera in states.customer_fitting_view.cameras"></div>
                     </div>
-                    <div class="comparison_toggle" v-if="active_comparision">
+                    <div class="comparison_toggle" v-if="states.customer_fitting_view.active_comparision">
                         <div class="prev_toggle"
-                             @click="updateComparision(active_comparision.prev)"
-                             v-if="active_comparision.prev">
+                             @click="updateComparision(states.customer_fitting_view.order_mapping.previous)"
+                             v-if="states.customer_fitting_view.order_mapping.previous">
                             <span>{{tr('Previous size')}}</span>
                         </div>
                         <div class="next_toggle"
-                             @click="updateComparision(active_comparision.next)"
-                             v-if="active_comparision.next">
+                             @click="updateComparision(states.customer_fitting_view.order_mapping.next)"
+                             v-if="states.customer_fitting_view.order_mapping.next">
                             <span>{{tr('Next size')}}</span>
                         </div>
                     </div>

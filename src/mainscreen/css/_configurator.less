@@ -18,60 +18,68 @@
   }
 }
 
-.description-product {
-  li{
+
+.store_22{
+  #product-details-screen {
+    background: url(../img/st-gallen/bcgd.png) no-repeat 100%;
+    background-size: cover;
+  }
+}
+
+  .description-product {
+    li{
+      .flex-container();
+      .justify-content(center);
+      .align-items(center);
+      text-align:center;
+      margin-left: 10px;
+    }
+    img {
+      width: auto;
+      height: 67%;
+    }
+    height: 50px;
+    position: fixed;
+    top: 5rem;
+    width: 320px;
+    left: 50%;
+    margin-left: -160px;
     .flex-container();
     .justify-content(center);
-    .align-items(center);
-    text-align:center;
-    margin-left: 10px;
-  }
-  img {
-    width: auto;
-    height: 67%;
-  }
-  height: 50px;
-  position: fixed;
-  top: 5rem;
-  width: 320px;
-  left: 50%;
-  margin-left: -160px;
-  .flex-container();
-  .justify-content(center);
-  .options {
-    .flex-container();
-    .justify-content(center);
-  }
-  ul.options > li::before {
-    content: " ";
-    width: 40px;
-    margin-right: 5px;
-    height: 40px;
-    display: inline-block;
-    vertical-align: middle;
-    background: center center no-repeat;
-    background-size: contain;
-  }
-  ul.options>li.number-configurations::before{
+    .options {
+      .flex-container();
+      .justify-content(center);
+    }
+    ul.options > li::before {
+      content: " ";
+      width: 40px;
+      margin-right: 5px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      background: center center no-repeat;
+      background-size: contain;
+    }
+    ul.options>li.number-configurations::before{
       background-image: url("./../img/tot_config.png");
-  }
-  ul.options.elsevr_women_1_1-1>li.number-elements::before{
+    }
+    ul.options.elsevr_women_1_1-1>li.number-elements::before{
       background-image: url("./../img/women_acc.png");
-  }
-  ul.options.elsevr_women_1_1-2>li.number-elements::before{
-    background-image: url("./../img/women_acc.png");
-  }
-  ul.options._Men_>li.number-elements::before{
-    background-image: url("./../img/men_acc.png");
-  }
-  ul.options>li.number-materials::before{
+    }
+    ul.options.elsevr_women_1_1-2>li.number-elements::before{
+      background-image: url("./../img/women_acc.png");
+    }
+    ul.options._Men_>li.number-elements::before{
+      background-image: url("./../img/men_acc.png");
+    }
+    ul.options>li.number-materials::before{
       background-image: url("./../img/mat.png");
-  }
-  ul.options>li.number-colors::before {
+    }
+    ul.options>li.number-colors::before {
       background-image: url("./../img/col.png");
+    }
   }
 
-}
 
 .diy {
   height: 35px;

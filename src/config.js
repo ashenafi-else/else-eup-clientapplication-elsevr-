@@ -34,7 +34,8 @@ window.config = {
         '19': 'Dome000018',
         '20': 'Dome000018',
         '23': 'Dome000018',
-        '25': 'Dome000058'
+        '25': 'Dome000058',
+        "22": 'Dome000018'
     },
     'product_tour_configuration': {
         'elsevr_men_1_1': {

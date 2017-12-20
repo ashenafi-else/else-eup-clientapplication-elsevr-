@@ -68,7 +68,7 @@
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
-                        <img class="logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                        <img class="stgallen-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -76,6 +76,9 @@
                         <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
                     </div>
                 </div>
+            </div>
+            <div class="image-block">
+                <img class="hidden stgallen-show stgallen-logo-img h-50per" src="img/st-gallen/logos-block.png"/>
             </div>
             <div class="session-code">
                 <div class="cam">
@@ -94,7 +97,7 @@
         <div class="container" id="product-start-screen">
             <div class="virtual-catalog">
                 <div class="logo-section">
-                    <img class="logo" src="img/logo.png">
+                    <img class="stgallen-hidden logo" src="img/logo.png">
                 </div>
                 <div class="list-items">
                     <div class="element"
@@ -115,7 +118,7 @@
         <div class="container" id="product-list-screen">
             <div class="start-screen virtual-catalog">
                 <div class="logo-section">
-                    <img class="logo" src="img/logo.svg">
+                    <img class="stgallen-hidden logo" src="img/logo.svg">
                     <span>Virtual catalogue</span>
                 </div>
                 <div class="list-items">
@@ -149,7 +152,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Product Configurator</span>
                     </div>
                 </div>
@@ -317,7 +320,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Product Preview</span>
                     </div>
                 </div>
@@ -363,7 +366,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Material Preview</span>
                     </div>
                 </div>
@@ -409,7 +412,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Detail Preview</span>
                     </div>
                 </div>
@@ -471,7 +474,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Profile</span>
                     </div>
                 </div>
@@ -541,7 +544,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Edit Profile</span>
                     </div>
                 </div>
@@ -646,7 +649,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Registration</span>
                     </div>
                 </div>
@@ -772,7 +775,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Order</span>
                     </div>
                 </div>
@@ -908,7 +911,7 @@
             <div class="remote-controller-main">
                 <div class="controller-header">
                     <div class="go-home" @click="home()">
-                        <img src="img/logo-else-shoes-black.png">
+                        <img class="stgallen-hidden" src="img/logo-else-shoes-black.png">
                         <span class="header-text">Virtual Fitting</span>
                     </div>
                 </div>
@@ -941,6 +944,18 @@
                     </div>
                 </div>
                 </div>
+                <div class="remote-controller-menu">
+                    <div class="back-to-config">
+                        <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
+                        <div class="configurator-item rotation">
+                            <span class="rotation-icon"></span>
+                            <span class="text">{{tr("Rotate/Stop")}}</span>
+                        </div>
+                        <div class="stgallen-hidden elsa">
+                            <img src="img/elsa-black-white.png">
+                        </div>
+                    </div>
+                </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
                     <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
@@ -952,19 +967,6 @@
                     </div>
                 </div>
             </div>
-            <div class="remote-controller-menu">
-                <div class="back-to-config">
-                    <div class="close back-to-config-button" @click="back">&lt;&lt;{{tr('Back')}}</div>
-                    <div class="configurator-item rotation">
-                        <span class="rotation-icon"></span>
-                        <span class="text">{{tr("Rotate/Stop")}}</span>
-                    </div>
-                    <div class="stgallen-hidden elsa">
-                        <img src="img/elsa-black-white.png">
-                    </div>
-                </div>
-            </div>
-        </div>
     </customer-fitting>
     <material-library v-if="states.material_library_view.active" id="material-library-screen">
         <div id="material-library-screen"></div>

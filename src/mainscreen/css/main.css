@@ -44,17 +44,6 @@ html, body{
 }
 
 /* HEADER END */
-
-
-/* REYREY-MAINSCREEN - VIRTUAL CATALOG SCREEN */
-
-
-span.collection-heading {
-    color: #B7B7B7;
-    font-size: 1.3em;
-}
-
-
 .element.active .name::after{
     background-color: #000;
 }
@@ -91,37 +80,6 @@ ul ul.options{
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 3px 3px 10px #000;
 }
-
-.element .description>
-ul ul>li>span{
-    padding: 5px;
-    color: #000000;
-}
-.description
-ul.options>li::before{
-    content: " ";
-    width: 30px;
-    margin-right: 5px;
-    height: 30px;
-    display: inline-block;
-    vertical-align: middle;
-    background: center center no-repeat;
-    background-size: contain;
-}
-ul.options>li.number-configurations::before{
-    background-image: url("./../img/cube.png");
-}
-ul.options>li.number-elements::before{
-    background-image: url("./../img/elements.png");
-}
-ul.options>li.number-materials::before{
-    background-image: url("./../img/materials.png");
-}
-ul.options>li.number-colors::before{
-    background-image: url("./../img/colors.png");
-}
-
-
 .virtual-catalog .go-else video,
 .store-password-screen .go-else video,
 .page-session-code .go-else video{

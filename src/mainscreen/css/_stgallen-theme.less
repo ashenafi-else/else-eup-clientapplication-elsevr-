@@ -54,7 +54,7 @@
     }
   }
   .configurator-block{
-    border: 3px solid black;
+    .box-shadow(0px 0px 5px 2px #d9d9d9);
     background-color: white;
     .title{
       width: 100% !important;
@@ -70,6 +70,9 @@
         }
       }
     }
+    .stgalllen-block-title{
+      padding: 0.4rem 1rem;
+    }
   }
   .materials-color-block{
     .material-name{
@@ -77,8 +80,8 @@
     }
   }
   .colors-block{
-    top: calc(~"10vh + 10px");
-    right: 127px;
+    top: calc(~"10vh + 9px");
+    right: 132px;
     height: auto;
   }
   .configurator-block{
@@ -93,7 +96,7 @@
     .active-item-rotating-round();
   }
   .configurable-parts-block{
-    margin-top: 20px;
+    margin-top: 2px;
   }
   .element-border{
     background: white;
@@ -108,7 +111,7 @@
       font-weight: 600;
       margin: 0px auto 0 auto;
       background: white;
-      border: 3px solid black;
+      .box-shadow(0px 0px 5px 2px #d9d9d9);
     }
     .element.active{
       button.name{
@@ -117,6 +120,15 @@
       }
       .element-border{
         .box-shadow(inset 0 0 0 5px #00ffff);
+      }
+      video {
+        .flex-container();
+        margin-top: -5%;
+        height: 350px;
+        width: auto;
+        align-self: center;
+        margin-left: 0px;
+        box-shadow: none;
       }
     }
     .bottom-panel{
@@ -153,11 +165,6 @@
     font-family: 'Lato', sans-serif;
     font-size: 1.2rem;
   }
-  .user_info{
-    span{
-      margin-left: 20px;
-    }
-  }
   .price-block{
     .product-preview{
       margin: 0;
@@ -179,19 +186,29 @@
     background-size: cover;
     .order-form{
       form{
+        .fullname-block{
+          .flex-container();
+        }
+        .box-shadow(0px 0px 5px 2px #d9d9d9);
         position: absolute;
         border-radius: 0;
         right: 20px;
         width: 320px;
         padding: 35px;
         margin-top: 30px;
-        background: rgb(147,0,254);
-        background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
-        background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-        input, select{
-          background-color: white;
+        background: white;
+        label, .label{
           color: black;
+        }
+        input, select{
+          background-color: #0042a387;
+          color: white;
+        }
+        .order-button{
+          display: none;
+        }
+        .notesfield{
+          height: 80px;
         }
       }
     }
@@ -209,20 +226,16 @@
         height: 200px;
         width: 220px;
       }
-      .user_info_line{
+      .user_info_line, .username_profile, .userscans{
         color: black;
       }
-      .username_profile{
-        color: #5f0095;
-      }
       .userscans{
-        color: #5f0095;
         .box-shadow(none);
       }
     }
     .product_info{
       border-radius: 0;
-      color: #5f0095;
+      color: black;
       box-shadow: none;
       border: 2px solid black;
       background-color: white;
@@ -252,13 +265,16 @@
       display: none;
     }
   }
+  #customer-profile-screen{
 
-  .acc-login{
+  }
+
+  .stgallen-login{
     .align-items(center);
     .fitting-size {
-      background-image: url(../img/accenture/small_shoe.png);
+      background-image: url(../img/st-gallen/icon-shoe.png);
       background-repeat: no-repeat;
-      color: white;
+      color: black;
       background-size: 50px 20px;
       background-position-y: bottom;
       width: 50px;
@@ -266,40 +282,41 @@
       margin-right: 1rem;
     }
     .factor-text {
-      color: white;
+      color: black;
     }
     .factor-score{
-      background-image: url(../img/accenture/ff-hexagon.png);
-      color: white;
+      background-image: url(../img/frame-fitting-factor-black.png);
+      color: black;
       background-size: 50px;
     }
     .user_name{
-      color: #d3061a;
       text-shadow: none;
       width: 100%;
-    }
-    .user_name{
       text-decoration: underline;
-      color: white;
+      color: black;
     }
   }
 
   .user_profile_params {
-    &.acc-user_profile_params {
+    &.stgallen-user_profile_params {
       margin: 20px;
-      border: 3px solid black;
+      .box-shadow(0px 0px 5px 2px #d9d9d9);
       background: white;
       .title{
         font-size: 24px;
       }
     }
   }
-  .acc-your-scans_profile{
-    color: #5f0095;
-    background: white;
-    border: 3px solid black;
-  }
 
+  .stgallen-your-scans_profile{
+    color: #0042a3;
+    background: white;
+    .box-shadow(0px 0px 5px 2px #d9d9d9);
+    margin: 20px;
+  }
+  .user_info{
+    background: none;
+  }
   .total_user_profile{
     width: 100%;
     height: 100%;
@@ -318,7 +335,6 @@
     padding: 3px;
   }
   .total_user_profile tr th{
-    background-color: black;
     font-weight: bold;
   }
   .total_user_profile tr:nth-of-type(even){
@@ -326,7 +342,7 @@
     height: 33px;
   }
   .total_user_profile tr:nth-of-type(odd){
-    background-color: #9de489 !important;
+    background-color: #0042a387 !important;
     height: 20px;
     color: black !important;
   }
@@ -351,7 +367,7 @@
   }
   .camera-view {
     position: absolute;
-    background: url("../img/st-gallen/camera-main.png") center no-repeat;
+    background: url("../img/st-gallen/camera-blue.png") center no-repeat;
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -359,10 +375,33 @@
   .camera-view.active {
     width: 50px;
     height: 50px;
-    background: url("../img/st-gallen/camera-main.png") center no-repeat;
+    background: url("../img/st-gallen/camera-blue.png") center no-repeat;
     border: none !important;
     background-size: 130%;
     box-shadow: none !important;
     border-bottom: 2px solid rgb(0, 255, 242);
   }
+
+  .description-product{
+    top: 6rem;
+  }
+  ul.options>li.number-configurations::before{
+    background-image: url("./../img/st-gallen/config_number.png");
+  }
+  ul.options.elsevr_women_1_1-1>li.number-elements::before{
+    background-image: url("./../img/st-gallen/women_acce.png");
+  }
+  ul.options.elsevr_women_1_1-2>li.number-elements::before{
+    background-image: url("./../img/st-gallen/women_acce.png");
+  }
+  ul.options._Men_>li.number-elements::before{
+    background-image: url("./../img/st-gallen/men_acce.png");
+  }
+  ul.options>li.number-materials::before{
+    background-image: url("./../img/st-gallen/material.png");
+  }
+  ul.options>li.number-colors::before {
+    background-image: url("./../img/st-gallen/colors.png");
+  }
+
 }

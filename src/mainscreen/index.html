@@ -259,7 +259,7 @@
                     </span>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">{{getUserName()}}</span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
@@ -447,7 +447,7 @@
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="configurator-block vr-configurator-block ac-configurator-block materials-color-block">
-                            <div class="title vr-block-title ac-block-title acc-title stgallen-title"><span>{{tr("Materials")}}</span></div>
+                            <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span></div>
                             <div class="material-block diff-prices-container"
                                  :class="[state.active_product.name, material.name]"
                                  v-for="material in element.colors">
@@ -523,7 +523,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                                 <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -620,7 +620,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -711,7 +711,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -802,7 +802,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -824,10 +824,10 @@
                 </div>
             </div>
             <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
-                <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params">
+                <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
                     <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
-                        <div class="hidden vr-show user_info_line username_profile">{{tr('Name')}}:
+                        <div class="hidden vr-show stgallen-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
                                     </span>
@@ -885,8 +885,8 @@
                     </div>
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
-                    <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile vr-your-scans_profile">
-                        <div class="title ac-block-title vr-block-title acc-block-title">Your Scans</div>
+                    <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile stgallen-your-scans_profile vr-your-scans_profile">
+                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your Scans</div>
                     </div>
                 </div>
             </div>
@@ -904,7 +904,7 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -993,7 +993,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -1163,7 +1163,7 @@
                             </div>
                             <div class="input-label">
                                 <label class="label" for="notes">{{tr('Notes')}}</label>
-                                <input type="text" name="notes" id="notes" notrequired="true"/>
+                                <input class="notesfield" type="text" name="notes" id="notes" notrequired="true"/>
                             </div>
                             <div class="order-button"></div>
                             <div class="order-success" style="display:none;">
@@ -1206,7 +1206,7 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1343,7 +1343,7 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="vr-model-name title vr-block-title ac-block-title stgallen-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
                     <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image" :src="preview_image">
                     </div>

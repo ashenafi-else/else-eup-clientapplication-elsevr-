@@ -566,6 +566,8 @@
                           <div class="register-input">
                              <label for="edit_size" class="label">{{tr('Size')}}*</label>
                              <select name="size" id="edit_size" v-model="accountData.size">
+                                <option value="34">{{tr("Size 34")}}</option>
+                                <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
                                 <option value="35.5">{{tr("Size 35.5")}}</option>
                                 <option value="36">{{tr("Size 36")}}</option>
@@ -589,6 +591,8 @@
                                 <option value="45">{{tr('Size')}} 45</option>
                                 <option value="45.5">{{tr('Size')}} 45.5</option>
                                 <option value="46">{{tr('Size')}} 46</option>
+                                <option value="46.5">{{tr('Size')}} 46.5</option>
+                                <option value="47">{{tr('Size')}} 47</option>
                              </select>
                              <a class="dropdown-btn"></a>
                           </div>
@@ -695,6 +699,8 @@
                             <div class="register-input">
                                 <label for="register_size" class="label">{{tr("Size")}}*</label>
                                 <select name="size" id="register_size" v-model.trim="customer.size">
+                                    <option value="34">{{tr("Size 34")}}</option>
+                                    <option value="34.5">{{tr("Size 34.5")}}</option>
                                     <option value="35">{{tr("Size 35")}}</option>
                                     <option value="35.5">{{tr("Size 35.5")}}</option>
                                     <option value="36">{{tr("Size 36")}}</option>
@@ -718,6 +724,8 @@
                                     <option value="45">{{tr('Size')}} 45</option>
                                     <option value="45.5">{{tr('Size')}} 45.5</option>
                                     <option value="46">{{tr('Size')}} 46</option>
+                                    <option value="46.5">{{tr('Size')}} 46.5</option>
+                                    <option value="47">{{tr('Size')}} 47</option>
                                 </select>
                                 <a class="dropdown-btn"></a>
                             </div>
@@ -794,6 +802,8 @@
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Base Size")}}</label>
                             <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
+                                <option value="34">{{tr("Size 34")}}</option>
+                                <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
                                 <option value="35.5">{{tr("Size 35.5")}}</option>
                                 <option value="36">{{tr("Size 36")}}</option>
@@ -817,12 +827,17 @@
                                 <option value="45">{{tr('Size')}} 45</option>
                                 <option value="45.5">{{tr('Size')}} 45.5</option>
                                 <option value="46">{{tr('Size')}} 46</option>
+                                <option value="46.5">{{tr('Size')}} 46.5</option>
+                                <option value="47">{{tr('Size')}} 47</option>
+
                             </select>
                             <a class="dropdown-btn"></a>
                         </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
                             <select name="size" id="fitted_size" v-model.trim="account_data.size" @input="updateData">
+                                <option value="34">{{tr("Size 34")}}</option>
+                                <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
                                 <option value="35.5">{{tr("Size 35.5")}}</option>
                                 <option value="36">{{tr("Size 36")}}</option>
@@ -846,6 +861,9 @@
                                 <option value="45">{{tr('Size')}} 45</option>
                                 <option value="45.5">{{tr('Size')}} 45.5</option>
                                 <option value="46">{{tr('Size')}} 46</option>
+                                <option value="46.5">{{tr('Size')}} 46.5</option>
+                                <option value="47">{{tr('Size')}} 47</option>
+
                             </select>
                             <a class="dropdown-btn"></a>
                             </div>

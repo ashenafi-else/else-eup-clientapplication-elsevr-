@@ -227,9 +227,7 @@
       box-shadow: none;
       margin-left: 15px;
       .user_scans{
-        margin-top: 40px;
-        height: 200px;
-        width: 220px;
+        height: 255px;
       }
       .user_info_line, .username_profile, .userscans{
         color: black;
@@ -348,7 +346,7 @@
     height: 33px;
   }
   .total_user_profile tr:nth-of-type(odd){
-    background-color: #0042a387 !important;
+    background-color: #bfd0e8 !important;
     height: 20px;
     color: black !important;
   }
@@ -410,4 +408,19 @@
     background-image: url("./../img/st-gallen/colors.png");
   }
 
+  .component {
+    &._Men_ {
+      &.monogram{
+        display: none;
+      }
+    }
+    &[class*='elsevr_women'] {
+      &.monogram {
+        display: none;
+      }
+    }
+  }
+
+
 }
+

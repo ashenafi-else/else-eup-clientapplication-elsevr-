@@ -40,11 +40,11 @@ window.config = {
     'product_tour_configuration': {
         'elsevr_men_1_1': {
             'type':'video',
-            'src': './img/video/1-3.mp4'
+            'src': './img/video/1-3-test.mp4'
         },
         'elsevr_women_1_1': {
             'type':'video',
-            'src': './img/video/1-2.mp4'
+            'src': './img/video/1-2-test.mp4'
         },
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',

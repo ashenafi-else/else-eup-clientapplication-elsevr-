@@ -30,7 +30,7 @@ window.config = {
     'default_language': 'en',
     'default_scanner': 'Dome000018',
     'default_scanners': {
-        '18': 'Dome000018',
+        '18': 'Dome000058',
         '19': 'Dome000018',
         '20': 'Dome000018',
         '23': 'Dome000018',

@@ -257,7 +257,7 @@
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                     <span class="stgallen-title">
-                        <span class="hidden stgallen-show">{{tr('3D Product Configurator')}}</span> -
+                        <span class="hidden stgallen-show">{{tr('3D Product Configurator')}} -</span>
                         <span class="hidden stgallen-show component-name">{{tr(data.active_component.name)}}</span>
                     </span>
                 </div>
@@ -554,7 +554,7 @@
                 </div>
             </div>
             <div class="product-area">
-                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
+                <!-- <div class="elsa-help-block"><img src="img/Elsa-block.png"></div> -->
                 <div class="default-cameras">
                     <div class="camera camera-view"
                          :id="camera"
@@ -646,7 +646,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
-                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
+                <!-- <div class="elsa-help-block"><img src="img/elsa-small.png"></div> -->
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"
@@ -736,7 +736,7 @@
                 </div>
             </div>
             <div class="preview-area on_detail">
-                <div class="elsa-help-block"><img src="img/Elsa-block.png"></div>
+                <!-- <div class="elsa-help-block"><img src="img/Elsa-block.png"></div> -->
                 <div id="product-cameras" style="">
                     <div class="camera camera-view"
                          :id="camera"
@@ -914,7 +914,7 @@
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                                    <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}
+                                    <span v-if="getFittingValues().best_size != null">{{tr('Best size')}}<
                                         <span id="rec-size">
                                             {{getFittingValues().best_size.size}}:{{getFittingValues().best_size.score}}
                                         </span>
@@ -1023,7 +1023,6 @@
                         <img class="logo-elsa-neon" src="img/elsa-small.png"/>
                         <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
                         <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/>
-
                     </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">

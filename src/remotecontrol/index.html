@@ -63,6 +63,31 @@
             </div>
         </div>
     </stores>
+    <login-screen inline-template :states="states" :visible="visible" v-if="states.staff_login_view.active">
+        <div class="page-staff-login main">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+                    <div class="logo header-logo">
+                        <img class="stgallen-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    </div>
+                </div>
+                <div class="col header-col header-end">
+                    <div class="logo header-logo">
+                        <img class="logo-pwd" src="img/Powered_by_ELSE_transparent.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="staff-login centered-content">
+                <label>{{tr("Enter your username")}}</label>
+                <input type="text" v-model="staffUserName">
+                <label>{{tr("Enter your store password")}}</label>
+                <input type="password" v-model="staffPassword">
+                <button v-on:click="checkLogin(staffUserName, staffPassword)">Login to Store</button>
+                <br>
+                <label v-if="error.visible">{{error.text}}</label>
+            </div>
+        </div>
+    </login-screen>
     <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
         <div id="session-code-screen" class="page-session-code">
             <div class="header vr-header remote-screen-header">
@@ -248,8 +273,8 @@
                                      v-for="(values, option) in data.active_structure.monogram.options"
                                      v-if="isArray(values)"
                                      :class="option">
-                                    <label for="{{option}}">{{tr(option)}}</label>
-                                    <select id="{{option}}"
+                                    <label :for="option">{{tr(option)}}</label>
+                                    <select :id="option"
                                             v-model="data.active_structure.monogram.defaults[option]"
                                             class="monogram-select">
                                         <option v-for="value in values">{{value}}</option>
@@ -296,13 +321,20 @@
                         <span class="material-icon"></span>
                         <span class="text">{{tr("Material Preview")}}</span>
                     </div>
+                    <!-- <div id="go-wishlist" class="stgallen-hidden configurator-item select" v-show="states.customer_profile_view.active_customer.id" >
+                        <span class="wishlist-icon"></span>
+                        <span class="text">{{tr("Wishlist")}}</span>
+                    </div-->
+                    <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
+                        <div class="stgallen-hidden add-to-wishlist wishlist-icon select" @click="showSaveWishForm()"></div>
+                        <div id="go-wishlist" class="stgallen-hidden view-wishlist select" @click="showWishList(true)">
+                            <span class="wishlist-list-icon"></span>
+                            <span class="text">{{tr("Wishlist")}}</span>
+                        </div>
+                    </div>
                     <div id="go-fitt" class="configurator-item select go-fitt"  @click="fitting" v-show="states.customer_profile_view.active_customer.id">
                         <span class="fitt-icon"></span>
                         <span class="text">{{tr("Virtual Fitting")}}</span>
-                    </div>
-                    <div id="go-wishlist" class="stgallen-hidden configurator-item select" v-show="states.customer_profile_view.active_customer.id" >
-                        <span class="wishlist-icon"></span>
-                        <span class="text">{{tr("Wishlist")}}</span>
                     </div>
                     <div class="stgallen-hidden elsa">
                         <img src="img/elsa-black-white.png">
@@ -513,6 +545,8 @@
                     <div class="foot_toggle">
                         <input type="radio" id="left_foot_toggle" name="foot" value="left" v-model="chosenFoot"/>
                         <label for="left_foot_toggle" :class="chosenFoot == 'left' ? 'active' : ''"><span>{{tr('Left Foot')}}</span></label>
+                        <input type="button" id="reset_position" name="reset-position" />
+                        <label for="reset_position"><span>{{tr('Reset Position')}}</span></label>
                         <input type="radio" id="right_foot_toggle" name="foot" value="right" v-model="chosenFoot"/>
                         <label for="right_foot_toggle" :class="chosenFoot == 'right' ? 'active' : ''"><span>{{tr('Right Foot')}}</span></label>
                     </div>

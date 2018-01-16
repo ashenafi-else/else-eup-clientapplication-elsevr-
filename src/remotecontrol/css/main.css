@@ -271,37 +271,6 @@ span.rotation-icon {
     background-size: 24px;
 }
 
-.fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
-    background: center center no-repeat;
-    background-size: contain;
-    width: 34px;
-    height: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.fitt-icon{
-    background-image: url("../img/options/fitting.png");
-}
-.material-icon{
-    background-image: url("../img/options/material.png");
-}
-.product-part-icon {
-    background-image: url("../img/options/det_preview.png");
-}
-.advanced-icon {
-    background-image: url("../img/options/preview.png");
-}
-.wishlist-icon{
-    background-image: url("../img/options/wishlist.png");
-}
-.order-icon {
-    background: url("../img/options/order.png") center no-repeat;
-    background-size: contain;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 60px;
-    height: 60px;
-}
 
 
 .configuration-main{

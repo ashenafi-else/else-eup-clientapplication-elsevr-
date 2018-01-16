@@ -353,16 +353,16 @@
                                 <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                                 <div class="accessories-summary"></div>
                             </div>
-                            <div class="prices">
+                            <div class="prices" v-if="state.current_configuration_price">
                                 <div class="price">
                                     <p class="base-mod-price">
                                         {{tr("Base model")}}: <span
-                                            class="price-span">{{state.active_product.price}},00
+                                            class="price-span">{{state.current_configuration_price.base}},00
                                         <span class="euro"></span>
                                     </span>
                                     </p>
-                                    <p class="extra-acc-price">
-                                        {{tr("Extra accessories")}}: <span class="price-span">0,00
+                                    <p class="extra-acc-price"  v-for="value, name in state.current_configuration_price.details">
+                                        {{tr(name)}}: <span class="price-span">{{tr(value)}},00
                                         <span class="euro"></span>
                                     </span>
                                     </p>
@@ -376,7 +376,7 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{state.active_product.price}},00<span class="euro"></span></div>
+                            <div class="total-price">{{state.current_configuration_price.total}},00<span class="euro"></span></div>
                         </div>
                     </div>
                     <div class="description-product">
@@ -480,19 +480,25 @@
                 </div>
                 <!--<div class="else-shoes"></div>-->
                 <div class="stgallen-hidden wishlist configurator-block vr-wishlist ac-wishlist " id="wish-list">
-                    <div class="title acc-title wl-title">{{tr("Wishlist (1)")}}</div>
-                    <div class="wl-container">
+                    <div class="title acc-title wl-title">{{tr("Wishlist")}}{{state.wishlist.list.length}}</div>
+                    <div class="wl-container" v-if="state.wishlist.active_wish" v-show="state.wishlist.show">
                         <div class="wl-item">
                             <div class="item-description">
-                                <img class="acc-hidden vr-show" :class="state.active_product.name" src="img/wl_image.png">
+                                <img class="acc-hidden vr-show" :class="state.active_product.name" :src="state.wishlist.active_wish.wish.img">
                                 <img class="hidden acc-show" src="img/accenture/elsa-green.png">
                                 <div>
-                                    <span class="configuration-title">My shoe</span>
-                                            <span class="configuration-description">Model: 10cm heel</br>
+                                    <div>{{tr(state.wishlist.active_wish.wish.name)}}</div>
+                                    <span class="configuration-title">{{tr(state.wishlist.active_wish.wish.name)}}
+                                         <div v-for="component in state.wishlist.active_wish.wish.configuration.structure.config.components"
+                                              v-if="component.visible && component.configurable && component.path">
+                                             {{tr(component.name)}}:{{component.path}}
+                                        </div>
+                                    </span>
+                                            <!-- <span class="configuration-description">Model: 10cm heel</br>
                                                 Upper: Suede red
                                                 </br>Trim: Nappa Gold
                                                 <br>Applique: Patent Light Brown
-                                                <br>Applique accessory: Star</span>
+                                                <br>Applique accessory: Star</span> -->
                                 </div>
                             </div>
                         </div>
@@ -835,40 +841,59 @@
                                         {{states.customer_profile_view.active_customer.firstname}}
                                     </span>
                         </div>
-                        <div class="user_info_line">
-                            {{tr('Gender')}}:
-                            <span id="user_profile_sex">
-                                {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
-                            </span>
-                        </div>
-                        <div class="user_info_line">
-                            {{tr('Size')}}:
-                            <span id="user_profile_size">
-                                        {{states.customer_profile_view.active_customer.size}}
+                        <div class="info-section">
+                            <div class="user-info-section">
+                                <div class="user_info_line">
+                                    {{tr('Gender')}}:
+                                    <span id="user_profile_sex">
+                                    {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                                </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Size')}}:
+                                    <span id="user_profile_size">
+                                            {{states.customer_profile_view.active_customer.size}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Email')}}:
+                                    <span id="user_profile_email">
+                                            {{states.customer_profile_view.active_customer.email}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Phone')}}:
+                                    <span id="user_profile_phone">
+                                            {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Delivery address')}}:
+                                    <span id="user_profile_address">
+                                            {{states.customer_profile_view.active_customer.addresses[0].city}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    Notes:
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="scan-section">
+                                <div class="user_info_line">
+                                    {{tr('Current Scan ID')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.scan_id}}
                                     </span>
-                        </div>
-                        <div class="user_info_line">
-                            {{tr('Email')}}:
-                            <span id="user_profile_email">
-                                        {{states.customer_profile_view.active_customer.email}}
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Scanning Date Time')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.created_date}}
                                     </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="user_info_line">
-                            {{tr('Phone')}}:
-                            <span id="user_profile_phone">
-                                        {{states.customer_profile_view.active_customer.addresses[0].telephone}}
-                                    </span>
-                        </div>
-                        <div class="user_info_line">
-                            {{tr('Delivery address')}}:
-                            <span id="user_profile_address">
-                                        {{states.customer_profile_view.active_customer.addresses[0].city}}
-                                    </span>
-                        </div>
-                        <div class="user_info_line">
-                            Notes:
-                            <span></span>
-                        </div>
+
                     </div>
                     <div class="total_user_profile">
                         <table id="user_profile_table">

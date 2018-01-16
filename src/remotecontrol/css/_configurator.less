@@ -36,6 +36,46 @@
             height: 200px;
         }
     }
+    .wishlist-item{
+        .flex-container();
+        .align-items(center);
+        width: 95%;
+        height: 58px;
+        .justify-content(space-around);
+        margin-top: 15px;
+        .add-to-wishlist{
+            .flex-container();
+            .flex-direction(row);
+            .align-items(center);
+            font-size: 0.9rem;
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            width: 30%;
+            height: 58px;
+            background-size: 40px
+        }
+        .view-wishlist{
+            .flex-container();
+            font-size: 0.9rem;
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: white;
+            height: 58px;
+            min-height: 58px;
+            cursor: pointer;
+            width: 70%;
+            .wishlist-list-icon{
+                background: url("../img/options/wishlist_list.png");
+                background-repeat:  no-repeat;
+                width: 50px;
+                height: 50px;
+                background-size: 30px;
+                background-position: center;
+            }
+        }
+    }
 }
 .remote-controller-menu{
     border: none;

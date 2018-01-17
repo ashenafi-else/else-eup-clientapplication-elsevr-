@@ -297,6 +297,36 @@
                 </div>
             </div>
         </div>
+        <div class="configuration-wishlist" v-show="state.wishlist.show">
+            <div class="wishlist">
+                <div class="wish"
+                     :class="wish==state.wishlist.active_wish ? 'active' : ''"
+                     @click="selectWish(wish)"
+                     v-for="wish in state.wishlist.list">
+                    <div class="wish-name">{{wish.wish.name}}</div>
+                    <div class="wish-created">{{wish.created}}</div>
+                </div>
+            </div>
+            <div class="show_delete_wish_message" v-if="state.wishlist.active_wish" v-show="state.wishlist.show_drop_wish_message">
+                <span>{{tr('Do you want to remove')}} {{state.wishlist.active_wish.wish.name}} {{tr('forever?')}}</span>
+                <div class="cancel_delete" @click="cancelDeletingWish()">< {{tr('Back')}}</div>
+                <div class="delete" @click="removeFromWishList(state.wishlist.active_wish)">{{tr('Remove')}}</div>
+            </div>
+
+            <div class="actions">
+                <div class="apply_wish" @click="loadWish()">{{tr('Load')}}</div>
+                <div class="remove_wish" @click="showDropWishMessage()">{{tr('Remove')}}</div>
+            </div>
+        </div>
+        <div class="save_wish_form" v-show="state.wishlist.save_wish_form.show">
+            <span>{{tr('Enter a name of your configuration')}}</span>
+            <input type="text" v-model="state.wishlist.save_wish_form.name">
+            <input type="button" @click="addToWishList(state.wishlist.save_wish_form.name, configuration)" :value="tr('Save')">
+            <div @click="skipWishSaving()">{{tr('Skip >')}}</div>
+        </div>
+        <div class="show_save_success_message" v-show="state.wishlist.show_save_success_message">
+            <span>{{tr('Your configuration is saved in your Wishlist')}}</span>
+        </div>
         <div class="remote-controller-menu">
                 <div class="configurator">
                     <div class="configurator-item go-account" @click="goAccount">

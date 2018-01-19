@@ -579,8 +579,8 @@
                     <div class="foot_toggle">
                         <input type="radio" id="left_foot_toggle" name="foot" value="left" v-model="chosenFoot"/>
                         <label for="left_foot_toggle" :class="chosenFoot == 'left' ? 'active' : ''"><span>{{tr('Left Foot')}}</span></label>
-                        <input type="button" id="reset_position" name="reset-position" />
-                        <label for="reset_position"><span>{{tr('Reset Position')}}</span></label>
+                        <input type="button" id="reset_feet_position" name="reset-position" />
+                        <label for="reset_feet_position"><span>{{tr('Reset Position')}}</span></label>
                         <input type="radio" id="right_foot_toggle" name="foot" value="right" v-model="chosenFoot"/>
                         <label for="right_foot_toggle" :class="chosenFoot == 'right' ? 'active' : ''"><span>{{tr('Right Foot')}}</span></label>
                     </div>
@@ -690,7 +690,7 @@
                             </div>
                           <div class="edit-button-group">
                             <input type="button" value="Save Changes" id="edit-profile" class="save-changes" @click="saveChanges(accountData)">
-                            <input type="button" value="Cancel" class="view-profile-info" @click="back">
+                            <input type="button" value="Cancel" class="btn-cancel" @click="back">
                           </div>
                        </form>
                     </div>

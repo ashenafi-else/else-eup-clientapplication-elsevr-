@@ -1,4 +1,4 @@
-#customer-edit-profile-screen{
+  #customer-edit-profile-screen{
   .flex-container();
   .flex-direction(row);
   height: 100%;
@@ -8,6 +8,21 @@
     .signedupuser-block{
       width: 93%;
       margin-left: 4%;
+      .input{
+        border: 1px solid #adaeae;
+        font-size: 18px;
+        height: 20px;
+        padding: 10px;
+        box-sizing: content-box;
+        border-radius: 5px;
+      }
+      .btn-cancel{
+        pointer: cursor;
+        background-color: white;
+        height: 30px;
+        width: 150px;
+        margin-top: 35px;
+      }
       .edit-profile-form{
         margin-top: 60px;
         .register-input{
@@ -17,8 +32,14 @@
           label{
             width: 18%;
             font-weight: 600;
-            margin: 15px 85px 15px 70px;
             font-size: 18px;
+            span{
+              font-weight: normal;
+              font-size: 18px;
+            }
+          }
+          input:not([type=radio]){
+            width: 25px;
           }
           input:not([type=radio]), select, option{
             background-color: #ebebeb;
@@ -30,6 +51,7 @@
             font-family: 'Lato', 'Verdana', sans-serif;
             outline-color: #000000;
           }
+
         }
         .edit-button-group{
           .save-changes{

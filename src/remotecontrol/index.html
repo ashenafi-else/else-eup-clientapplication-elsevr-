@@ -212,6 +212,10 @@
                                  v-for="component in data.components">
                                 {{tr(component.name)}}
                             </div>
+                            <div class="configurator__element--remote component"
+                                 @click="qrScannerDetails">
+                                <a> {{tr("QR code scanner")}} </a>
+                            </div>
                         </div>
                     </div>
                     <div class="structures vertical-bar"
@@ -261,6 +265,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="configurator__element--remote component"
+                                     @click="qrScannerColor">
+                                    <a> {{tr("QR code scanner")}} </a>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +337,7 @@
             <div @click="skipWishSaving()">{{tr('Skip >')}}</div>
         </div>
         <div class="show_save_success_message" v-show="state.wishlist.show_save_success_message">
-            <span>{{tr('Your configuration is saved in your Wishlist')}}</span>
+            <span>{{tr('Selected configuration added to wishlist successfully!')}}</span>
         </div>
         <div class="remote-controller-menu">
                 <div class="configurator">
@@ -381,6 +389,7 @@
             </div>
         </div>
     </product-details>
+
     <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
         <div class="remote-configuration" id="product-preview-screen">
             <div class="remote-controller-main">

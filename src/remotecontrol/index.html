@@ -203,6 +203,11 @@
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
                         <div class="column_1 table-header">{{tr("Component")}}</div>
+                        <div class="configurator__element--remote component qrscanner"
+                             @click="qrScannerDetails">
+                            <img class="qrcode" src="img/qrcode.png">
+                            <a> {{tr("Scan component")}} </a>
+                        </div>
                         <div class="scroll-area">
                             <div class="component"
                                  @click="changeComponent(component)"
@@ -211,10 +216,6 @@
                                  v-if="component.visible"
                                  v-for="component in data.components">
                                 {{tr(component.name)}}
-                            </div>
-                            <div class="configurator__element--remote component"
-                                 @click="qrScannerDetails">
-                                <a> {{tr("QR code scanner")}} </a>
                             </div>
                         </div>
                     </div>
@@ -246,6 +247,11 @@
                         <div class="materials vertical-bar"
                              :class="state.active_product.name">
                             <div class="column_1 table-header">{{tr("Material")}}</div>
+                            <div class="configurator__element--remote material qrscanner"
+                                 @click="qrScannerColor">
+                                <img class="qrcode" src="img/qrcode.png">
+                                <a> {{tr("Scan material")}} </a>
+                            </div>
                             <div class="scroll-area">
                                 <div class="material"
                                      @click.self="changeMaterial(element, material)"
@@ -266,17 +272,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="configurator__element--remote component"
-                                     @click="qrScannerColor">
-                                    <a> {{tr("QR code scanner")}} </a>
-                                </div>
                             </div>
                         </div>
                      </div>
                     <div class="monogram vaertical-bar"
                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="column_1 table-header">{{tr("Monogram")}}</div>
-                        <div class=" vertical-bar">
+                        <div class="">
                             <div class="scroll-area">
                                 <input type="text"
                                        v-model="data.active_structure.monogram.default_text"

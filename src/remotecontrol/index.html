@@ -113,7 +113,7 @@
                 <div class="input">
                     <label>{{tr("or enter your session code")}}</label>
                     <input type="text" v-model="session_code" maxlength="4">
-                    <button @click="join">{{tr("Continue")}}</button>
+                    <button @click="join">{{tr("Connect")}}</button>
                 </div>
             </div>
         </div>
@@ -123,10 +123,6 @@
             <div class="virtual-catalog">
                 <div class="logo-section">
                     <img class="stgallen-hidden logo" src="img/logo.png">
-                    <div class="logout-block" @click="states.store_view">
-                        <span class="logout-text">Logout from the store</span>
-                        <img src="img/store-logout.png" class="logo-logout">
-                    </div>
                 </div>
                 <div class="list-items">
                     <div class="element"
@@ -149,6 +145,10 @@
                 <div class="logo-section">
                     <img class="stgallen-hidden logo" src="img/logo.svg">
                     <span>Virtual catalogue</span>
+                    <div class="logout-block" @click="home()"> <!-- to be updated -->
+                        <span class="logout-text">Logout from the store</span>
+                        <img src="img/store-logout.png" class="logo-logout">
+                    </div>
                 </div>
                 <div class="list-items">
                     <div class="element"

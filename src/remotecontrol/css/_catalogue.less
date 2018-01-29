@@ -31,6 +31,7 @@
     padding: 10px 50px 10px 50px;
     border-radius: 6px;
     color: white;
+    text-transform: capitalize;
 }
 
 .list-items{
@@ -53,6 +54,20 @@
             height: 50px;
             + span{
                 font-size: 24px;
+            }
+        }
+        .logout-block{
+            position: absolute;
+            right: 5%;
+            top: 3%;
+            .flex-container();
+            .align-items(center);
+            .logout-text{
+                margin-right: 15px;
+            }
+            .logo-logout{
+                width: auto;
+                height: 35px;
             }
         }
     }

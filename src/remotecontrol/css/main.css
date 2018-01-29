@@ -686,10 +686,6 @@ input:checked + .slider:before {
 .register-input label>span {
     font-size: 1em;
 }
-input#register_female_gender, input#register_male_gender {
-    width: 20px;
-    height: 20px;
-}
 
 .register-block input:not([type=radio]),
 .register-block select,
@@ -764,12 +760,12 @@ input#register_female_gender, input#register_male_gender {
     -moz-border-radius:5px;
     border-radius: 5px;
 }
-.register-block input:focus,
+/* .register-block input:focus,
 #singuppedUser input:focus,
 .edit-profile-form select:focus,
 .edit-profile-form option:focus{
     background-color: #ffffff;
-}
+}*/
 
 input.search-input {
     height: 40px;

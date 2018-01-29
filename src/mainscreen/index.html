@@ -384,10 +384,10 @@
                         <ul class="col-16">
                             <ul id="description4" class="options"
                                 :class="state.active_product.name">
-                                <li class="number-configurations">918</li>
-                                <li class="number-elements">3</li>
-                                <li class="number-materials">6</li>
-                                <li class="number-colors">51</li>
+                                <li class="number-configurations">{{configuration.structure.structures_count*configuration.structure.materials_count*configuration.structure.colors_count}}</li>
+                                <li class="number-elements">{{configuration.structure.structures_count}}</li>
+                                <li class="number-materials">{{configuration.structure.materials_count}}</li>
+                                <li class="number-colors">{{configuration.structure.colors_count}}</li>
                             </ul>
                         </ul>
                     </div>

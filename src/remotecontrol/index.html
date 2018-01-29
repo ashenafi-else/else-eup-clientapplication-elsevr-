@@ -267,7 +267,7 @@
                                                  :id="color.id"
                                                  :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
                                                  v-for="color in material.colors">
-                                                {{tr(color.name)}}
+                                                <span class="color-label"> {{tr(color.name)}} </span>
                                             </div>
                                         </div>
                                     </div>

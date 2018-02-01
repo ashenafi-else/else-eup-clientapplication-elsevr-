@@ -129,6 +129,13 @@
   justify-content: center;
   font-size: 1.2em;
 }
+.qr-back{
+  color: white;
+  background-color: #000000;
+  box-shadow: none;
+  border: none;
+  width: 35%;
+}
 
 .summary-footer {
   position: absolute;
@@ -532,6 +539,26 @@ h6 {
   .flex-direction(column);
 }
 
+.qr-scanner{
+  .flex-container();
+  .justify-content(center);
+  .align-items(center);
+  .flex-direction(column);
+  .back-to-config-button{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+}
+
+.main{
+  .flex-container();
+  .flex-wrap(nowrap);
+  .justify-content(space-between);
+  height: 100vh;
+  width: 100%;
+}
+
 .footer {
 
 }
@@ -687,13 +714,16 @@ h6 {
 
 // --- ICONS --- ///
 
-.fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
+.qr-icon, .fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
   background: center center no-repeat;
   background-size: contain;
   width: 34px;
   height: 40px;
   margin-right: 10px;
   margin-left: 10px;
+}
+.qr-icon{
+  background-image: url("../img/options/qrcode.png");
 }
 .fitt-icon{
   background-image: url("../img/options/fitting.png");

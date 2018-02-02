@@ -376,7 +376,10 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{state.current_configuration_price.total}},00<span class="euro"></span></div>
+                            <div class="total-price" v-if="state.current_configuration_price">
+                                {{state.current_configuration_price.total}},00
+                                <span class="euro"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="description-product">
@@ -875,10 +878,12 @@
                                 </div>
                                 <div class="user_info_line">
                                     Notes:
-                                    <span></span>
+                                    <span>
+                                        {{states.customer_profile_view.active_customer.note}}
+                                    </span>
                                 </div>
                             </div>
-                            <div class="scan-section">
+                            <div class="scan-section" v-if="states.customer_profile_view.active_scan">
                                 <div class="user_info_line">
                                     {{tr('Current Scan ID')}}:
                                     <span>
@@ -1098,7 +1103,7 @@
                                 <input type="email" :value="account_data.email" name="email" id="email-order"/>
                             </div>
                             <div class="input-label">
-                                <label class="label" for="size">{{tr('Base Size')}}</label>
+                                <label class="label" for="size">{{tr('Standard Size')}}</label>
                                 <select size="1" :value="account_data.size" name="size" id="size">
                                     <option value="34">{{tr('Size')}} 34</option>
                                     <option value="34.5">{{tr('Size')}} 34.5</option>

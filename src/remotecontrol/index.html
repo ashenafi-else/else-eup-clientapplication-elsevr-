@@ -77,6 +77,9 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="store" :class="store.code" :id="store.id"  v-for="store in store_list">
+                <a>{{tr(store.name)}}</a>
+            </div> -->
             <div class="staff-login centered-content">
                 <label>{{tr("Enter your username")}}</label>
                 <input type="text" v-model="staffUserName">
@@ -84,7 +87,7 @@
                 <input type="password" v-model="staffPassword">
                 <button v-on:click="checkLogin(staffUserName, staffPassword)">Login to Store</button>
                 <br>
-                <label v-if="error.visible">{{error.text}}</label>
+                <label class="error-message" v-if="error.visible">{{error.text}}</label>
             </div>
         </div>
     </login-screen>
@@ -114,6 +117,8 @@
                     <label>{{tr("or enter your session code")}}</label>
                     <input type="text" v-model="session_code" maxlength="4">
                     <button @click="join">{{tr("Connect")}}</button>
+                    <br>
+                    <!-- <label class="error-message" v-if="error.visible">{{error.text}}</label> -->
                 </div>
             </div>
         </div>
@@ -145,7 +150,7 @@
                 <div class="logo-section">
                     <img class="stgallen-hidden logo" src="img/chromium_else.png">
                     <span>Virtual catalogue</span>
-                    <div class="logout-block" @click="home()"> <!-- to be updated -->
+                    <div class="logout-block" @click="logOutFromTheStore()">
                         <span class="logout-text">Logout from the store</span>
                         <img src="img/store-logout--.png" class="logo-logout">
                     </div>
@@ -377,6 +382,10 @@
                         <span class="material-icon"></span>
                         <span class="text">{{tr("Material Preview")}}</span>
                     </div>
+                    <button class="configurator-item" @click="qrScannerConfig">
+                        <span class="qr-icon"></span>
+                        <span class="text">{{tr("Scan Configuration")}}</span>
+                    </button>
                     <!-- <div id="go-wishlist" class="stgallen-hidden configurator-item select" v-show="states.customer_profile_view.active_customer.id" >
                         <span class="wishlist-icon"></span>
                         <span class="text">{{tr("Wishlist")}}</span>
@@ -392,9 +401,6 @@
                         <span class="fitt-icon"></span>
                         <span class="text">{{tr("Virtual Fitting")}}</span>
                     </div>
-                    <button class="button button--on-color button--size-m button--width-available" @click="qrScannerConfig">
-                        <span class="text">{{tr("QR code scanner")}}</span>
-                    </button>
                     <div class="stgallen-hidden elsa">
                         <img src="img/elsa-black-white.png">
                     </div>
@@ -408,21 +414,21 @@
     </product-details>
     <product-det-qr-code inline-template :states="states" :visible="visible"
                          v-if="states.qr_code_scanner_details.active">
-        <div class="page page--remotescreen page--session-code">
+        <div class="page page-remote-screen page--qr-scanner">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+
+                </div>
+                <div class="col header-col header-end">
+                    <button class="qr-back back-to-config-button" @click="returnToDetails">&lt;&lt;{{tr("Back")}}
+                    </button>
+                </div>
+            </div>
             <main class="main centered-content">
-                <div class="session-code session-code--remotescreen">
+                <div class="qr-scanner qr-scanner--remotescreen">
                     <div class="cam centered-content">
-                        <h5 class="h5 session-code__title">{{tr("Scan the code")}}</h5>
+                            <h5 class="h5 session-code__title">{{tr("Scan the QR code to apply component")}}</h5>
                         <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
-                    </div>
-                    <div class="session-code-enter centered-content">
-                        <h5 class="h5 session-code__title">{{tr("or enter your qr code")}}</h5>
-                        <input class="input input__size-l" type="text" v-model="qrText">
-                        <button class="button button--size-l button--on-white" @click="checkQrCode">{{tr("Continue")}}</button>
-                    </div>
-                    <div class="session-code-enter centered-content">
-                        <button class="button button--size-l button--on-white" @click="returnToDetails">{{tr("Back")}}
-                        </button>
                     </div>
                 </div>
                 <div class="session-code-enter centered-content">
@@ -433,21 +439,21 @@
     </product-det-qr-code>
     <product-color-qr-code inline-template :states="states" :visible="visible"
                            v-if="states.qr_code_scanner_color.active">
-        <div class="page page--remotescreen page--session-code">
+        <div class="page page-remote-screen page--qr-scanner">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+
+                </div>
+                <div class="col header-col header-end">
+                    <button class="qr-back back-to-config-button" @click="returnToDetails">&lt;&lt;{{tr("Back")}}
+                    </button>
+                </div>
+            </div>
             <main class="main centered-content">
-                <div class="session-code session-code--remotescreen">
+                <div class="qr-scanner qr-scanner--remotescreen">
                     <div class="cam centered-content">
-                        <h5 class="h5 session-code__title">{{tr("Scan the code")}}</h5>
+                        <h5 class="h5 session-code__title">{{tr("Scan the QR code to apply material&color")}}</h5>
                         <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
-                    </div>
-                    <div class="session-code-enter centered-content">
-                        <h5 class="h5 session-code__title">{{tr("or enter your qr code")}}</h5>
-                        <input class="input input__size-l" type="text" v-model="qrText">
-                        <button class="button button--size-l button--on-white" @click="checkQrCode">{{tr("Continue")}}</button>
-                    </div>
-                    <div class="session-code-enter centered-content">
-                        <button class="button button--size-l button--on-white" @click="returnToDetails">{{tr("Back")}}
-                        </button>
                     </div>
                 </div>
                 <div class="session-code-enter centered-content">
@@ -458,24 +464,24 @@
     </product-color-qr-code>
     <product-config-qr-code inline-template :states="states" :visible="visible"
                             v-if="states.qr_code_scanner_config.active">
-        <div class="page page--remotescreen page--session-code">
+        <div class="page page-remote-screen page--qr-scanner">
+            <div class="header vr-header remote-screen-header">
+                <div class="col header-col header-start">
+
+                </div>
+                <div class="col header-col header-end">
+                    <button class="qr-back back-to-config-button" @click="returnToDetails">&lt;&lt;{{tr("Back")}}
+                    </button>
+                </div>
+            </div>
             <main class="main centered-content">
-                <div class="session-code session-code--remotescreen">
+                <div class="qr-scanner qr-scanner--remotescreen">
                     <div class="cam centered-content">
-                        <h5 class="h5 session-code__title">{{tr("Scan the code")}}</h5>
+                        <h5 class="h5 session-code__title">{{tr("Scan the QR code to apply configuration")}}</h5>
                         <video id="camera_on" autoplay style="width: 320px;height: 240px;"/>
                     </div>
-                    <div class="session-code-enter centered-content">
-                        <h5 class="h5 session-code__title">{{tr("or enter your qr code")}}</h5>
-                        <input class="input input__size-l" type="text" v-model="qrText">
-                        <button class="button button--size-l button--on-white" @click="configureProduct">{{tr("Continue")}}</button>
-                    </div>
-                    <div class="session-code-enter centered-content">
-                        <button class="button button--size-l button--on-white" @click="returnToDetails">{{tr("Back")}}
-                        </button>
-                    </div>
                 </div>
-                <div class="session-code-enter centered-content">
+                <div class="qr-scanner-enter centered-content">
                     <label v-if="error">{{tr(error)}}</label>
                 </div>
             </main>
@@ -968,7 +974,7 @@
                             <input type="email" v-model.trim="account_data.email" @input="updateData" name="email" id="email-order">
                         </div>
                         <div class="input-label">
-                            <label for="size" class="label">{{tr("Base Size")}}</label>
+                            <label for="size" class="label">{{tr("Standard Size")}}</label>
                             <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
@@ -1165,7 +1171,7 @@
 <!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
- <!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
+<!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
 <!--<script src="http://localhost:9000/detector.js"></script>-->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>

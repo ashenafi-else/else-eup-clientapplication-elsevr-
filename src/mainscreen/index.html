@@ -78,7 +78,7 @@
             </div>
             <div class="bottom-panel">
                 <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
-                <img class="atom-logos" src="img/logos_atom.png">
+                <img class="atom-logos" src="img/logos_atom--.png">
                 <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
             </div>
         </div>
@@ -376,7 +376,10 @@
                         </div>
                         <div class="delivery-time">
                             <div class="delivery"></div>
-                            <div class="total-price">{{state.current_configuration_price.total}},00<span class="euro"></span></div>
+                            <div class="total-price" v-if="state.current_configuration_price">
+                                {{state.current_configuration_price.total}},00
+                                <span class="euro"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="description-product">
@@ -880,7 +883,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="scan-section">
+                            <div class="scan-section" v-if="states.customer_profile_view.active_scan">
                                 <div class="user_info_line">
                                     {{tr('Current Scan ID')}}:
                                     <span>

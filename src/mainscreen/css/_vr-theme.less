@@ -6,11 +6,42 @@
 }
 
 .store_18{
-   .vr-show{
-     display: inline-block;
-   }
+  line-height: normal;
+  .vr-show{
+    display: inline-block;
+  }
   .material-head.active {
     .active-item-rotating-round();
+  }
+  .element.active{
+    .name{
+      border: 2px solid #5FECFF;
+      opacity: 1;
+      transition: 800ms;
+    }
+  }
+  .button-order {
+    display: block;
+    width: 235px;
+    height: 70px;
+    background: black;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: solid 1px white;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+    padding: 18px 78px;
+  }
+  .wishlist {
+    display: none;
+  }
+  .wl-elsa {
+    display: none;
+  }
+  .header + .main{
+    height: 94vh;
   }
 }
 
@@ -310,6 +341,7 @@
 .header-start{
   .header-logo{
     flex: 1 1 20%;
+    text-align: left;
   }
   .vr-stylish-text{
     flex: 2 2 80%;
@@ -318,6 +350,8 @@
 .header-end{
   .header-logo{
     height: 80%;
+    text-align: right;
+    margin-right: 10px;
   }
 }
 

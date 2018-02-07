@@ -50,7 +50,9 @@ module.exports = {
         port: 8000,
         compress: true,
         hotOnly: true,
-        inline: true
+        inline: true,
+        https: true,
+        host: '0.0.0.0'
     },
     devtool: 'source-map',
     plugins: [

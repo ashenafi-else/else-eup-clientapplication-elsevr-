@@ -314,6 +314,15 @@
                                          v-if="component.configurable"
                                          v-for="component in data.components">
                                         <span class="name">{{tr(component.name)}}</span>
+                                        <div class="configurable-parts-container">
+                                            <div class="active_element"
+                                                 :class="active_element.name == data.active_element.name?'active':''"
+                                                 v-if="component.name == data.active_component.name && active_element.configurable"
+                                                 v-for="active_element in data.active_structure.elements">
+                                                {{tr(active_element.name)}}
+                                            </div>
+                                        </div>
+
                                         <div class="structure"></div>
 
                                         <div class="structure-dropped" v-if="component.active">

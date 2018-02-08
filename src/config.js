@@ -58,6 +58,5 @@ window.config = {
     'cameras_initial_settings': {},
     'home_state': 'PRODUCT_LIST',
     'render_quality': 'AUTO',
-    'staff_login': true
 
 };

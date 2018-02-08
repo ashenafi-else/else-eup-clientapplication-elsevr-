@@ -81,9 +81,9 @@
                 <a>{{tr(store.name)}}</a>
             </div> -->
             <div class="staff-login centered-content">
-                <label>{{tr("Enter your username")}}</label>
+                <label>{{tr("User ID")}}</label>
                 <input type="text" v-model="staffUserName">
-                <label>{{tr("Enter your store password")}}</label>
+                <label>{{tr("Password")}}</label>
                 <input type="password" v-model="staffPassword">
                 <button v-on:click="checkLogin(staffUserName, staffPassword)">Login to Store</button>
                 <br>
@@ -211,7 +211,7 @@
                         <div class="configurator__element--remote component qrscanner"
                                                            @click="qrScannerDetails">
                             <img class="qrcode" src="img/qrcode.png">
-                            <a> {{tr("Scan component")}} </a>
+                            <a> {{tr("Scan Component")}} </a>
                         </div>
                             <div class="scroll-area">
                             <div class="component"
@@ -267,7 +267,7 @@
                             <div class="configurator__element--remote material qrscanner"
                                  @click="qrScannerColor">
                                 <img class="qrcode" src="img/qrcode.png">
-                                <a> {{tr("Scan material")}} </a>
+                                <a> {{tr("Scan Material Sample")}} </a>
                             </div>
                             <div class="scroll-area">
                                 <div class="material"
@@ -295,7 +295,7 @@
                     <div class="monogram vaertical-bar"
                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="column_1 table-header">{{tr("Monogram")}}</div>
-                        <div class="">
+                        <div class="monogram-area">
                             <div class="scroll-area">
                                 <input type="text"
                                        v-model="data.active_structure.monogram.default_text"
@@ -311,8 +311,8 @@
                                         <option v-for="value in values">{{value}}</option>
                                     </select>
                                 </div>
-                                <span @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</span>
                             </div>
+                            <button class="btn-apply-monogram" @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
                         </div>
                      </div>
                 </div>

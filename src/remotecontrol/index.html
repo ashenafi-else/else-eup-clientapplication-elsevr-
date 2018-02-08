@@ -81,9 +81,9 @@
                 <a>{{tr(store.name)}}</a>
             </div> -->
             <div class="staff-login centered-content">
-                <label>{{tr("Enter your username")}}</label>
+                <label>{{tr("User ID")}}</label>
                 <input type="text" v-model="staffUserName">
-                <label>{{tr("Enter your store password")}}</label>
+                <label>{{tr("Password")}}</label>
                 <input type="password" v-model="staffPassword">
                 <button v-on:click="checkLogin(staffUserName, staffPassword)">Login to Store</button>
                 <br>
@@ -211,7 +211,7 @@
                         <div class="configurator__element--remote component qrscanner"
                                                            @click="qrScannerDetails">
                             <img class="qrcode" src="img/qrcode.png">
-                            <a> {{tr("Scan component")}} </a>
+                            <a> {{tr("Scan Component")}} </a>
                         </div>
                             <div class="scroll-area">
                             <div class="component"
@@ -245,44 +245,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elements vaertical-bar"
+                    <div class="elements vertical-bar"
                          :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-show="data.configurable_elements_count > 1">
                         <div class="column_1 table-header">{{tr("Element")}}</div>
                         <div class="element"
                              @click="changeElement(element)"
-                             :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), element.active ? 'active-control' : '']"
+                             :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), data.active_element.element == element.element ? 'control-active' : '']"
                              v-if="data.active_component.configurable && element.configurable"
                              v-for="element in data.active_structure.elements">
                             {{tr(element.name)}}
                         </div>
                     </div>
-                    <div class="elements vaertical-bar"
-                         :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
-                         v-if="data.active_component.configurable && element.configurable"
-                         v-for="element in data.active_structure.elements">
+                    <div class="elements vertical-bar"
+                         :class="[data.active_element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
                         <div class="materials vertical-bar"
                              :class="state.active_product.name">
                             <div class="column_1 table-header">{{tr("Material")}}</div>
                             <div class="configurator__element--remote material qrscanner"
                                  @click="qrScannerColor">
                                 <img class="qrcode" src="img/qrcode.png">
-                                <a> {{tr("Scan material")}} </a>
+                                <a> {{tr("Scan Material Sample")}} </a>
                             </div>
                             <div class="scroll-area">
                                 <div class="material"
-                                     @click.self="changeMaterial(element, material)"
-                                     :class="[material.name, 'colors-'+material.colors.length, (element.active_material == material.name)?'control-active':'']"
+                                     @click.self="changeMaterial(data.active_element, material)"
+                                     :class="[material.name, 'colors-'+material.colors.length, (data.active_element.active_material == material.name)?'control-active':'']"
                                      :id="material.name"
-                                     v-for="material in element.colors">
+                                     v-for="material in data.active_element.colors">
                                     {{tr(material.name)}}
-                                    <div class="colors vertical-bar" v-if="element.active_material == material.name">
+                                    <div class="colors vertical-bar" v-if="data.active_element.active_material == material.name">
                                         <div class="column_1 table-header">{{tr("Color")}}</div>
                                         <div class="scroll-area">
                                             <div class="color"
-                                                 @click.stop="changeColor(element, material, color)"
+                                                 @click.stop="changeColor(data.active_element, material, color)"
                                                  :id="color.id"
-                                                 :class="[state.active_product.name, color.name, (element.active_color == color.name)?'control-active':'']"
+                                                 :class="[state.active_product.name, color.name, (data.active_element.active_color == color.name)?'control-active':'']"
                                                  v-for="color in material.colors">
                                                 <span class="color-label"> {{tr(color.name)}} </span>
                                             </div>
@@ -292,10 +290,10 @@
                             </div>
                         </div>
                      </div>
-                    <div class="monogram vaertical-bar"
+                    <div class="monogram vertical-bar"
                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="column_1 table-header">{{tr("Monogram")}}</div>
-                        <div class="">
+                        <div class="monogram-area">
                             <div class="scroll-area">
                                 <input type="text"
                                        v-model="data.active_structure.monogram.default_text"
@@ -311,8 +309,8 @@
                                         <option v-for="value in values">{{value}}</option>
                                     </select>
                                 </div>
-                                <span @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</span>
                             </div>
+                            <button class="btn-apply-monogram" @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
                         </div>
                      </div>
                 </div>
@@ -1168,7 +1166,7 @@
 <script id="brandId" value="13"></script>
 
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
-<!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/detector.js"></script>
 <!--<script src="http://localhost:9000/remotecontrol-ui-sdk.js"></script>-->

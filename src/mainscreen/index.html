@@ -453,7 +453,7 @@
                             <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span></div>
                             <div class="material-block diff-prices-container"
                                  :class="[state.active_product.name, material.name]"
-                                 v-for="material in element.colors">
+                                 v-for="material in data.active_element.colors">
                                 <div class="material-head"
                                      :class="[material.name,(element.active_material == material.name)?'active':'']">
                                     <div class="material-start">
@@ -1409,7 +1409,7 @@
 <script id="brandId" value="13"></script>
 
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
-<!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
  <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
 

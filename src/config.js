@@ -55,7 +55,10 @@ window.config = {
 
     'update_last_scan_interval': 15,
     'component_cameras': {},
-    'cameras_initial_settings': {},
+    'cameras_initial_settings': {
+        'cameraTOP':    {'scale': 0, 'rotate': {'phi': 0, 'theta': 0}},
+        'camera-for-monogram':    {'scale': 6, 'rotate': {'phi': 0, 'theta': 0}},
+    },
     'home_state': 'PRODUCT_LIST',
     'render_quality': 'LOW',
     'staff_login': true

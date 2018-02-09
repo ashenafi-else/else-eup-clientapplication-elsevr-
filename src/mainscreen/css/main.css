@@ -451,8 +451,8 @@ span{
     justify-content: space-around;
 }
 .left_scan, .right_scan{
-    width: 40%;
-    margin: 10px 10px 0;
+    /*width: 40%;*/
+    margin-top: -50px;
     text-align: center;
 }
 

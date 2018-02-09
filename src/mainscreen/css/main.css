@@ -20,6 +20,10 @@ html, body{
 /*margin-top: 20px;*/
 /*}*/
 
+.header{
+    z-index: 9999;
+}
+
 .header-end .go-account{
     background-image: url("../img/user.png");
     width: 24px;

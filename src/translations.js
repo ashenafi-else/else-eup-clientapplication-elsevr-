@@ -218,6 +218,9 @@ window.translations = {
     'MAT_SUEDE_BLUE-MAN': {
         'en': 'blue'
     },
+    'MAT_SUEDE_BROWN': {
+        'en': 'brown'
+    },
     'MAT_SUEDE_BLACK-MAN': {
         'en': 'black'
     },

@@ -307,7 +307,7 @@
                                     <select :id="option"
                                             v-model="data.active_structure.monogram.defaults[option]"
                                             class="monogram-select">
-                                        <option v-for="value in values">{{value}}</option>
+                                        <option v-for="value in values" value="{{value}}">{{tr(value)}}</option>
                                     </select>
                                 </div>
                             </div>

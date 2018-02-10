@@ -126,10 +126,33 @@
         width: 21%;
         flex:2;
         margin-right: 20px;
+        .element{
+            background-color: #E8E8E8;
+            background-size: cover;
+            color: #adaeae;
+            cursor: pointer;
+            font-size: 17px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            min-height: 125px;
+        }
     }
 }
 .structures{
     overflow: scroll;
+    .structure.elsevr_women_1_1-1_structure_3{
+        display: none;
+    }
 }
 .structures::-webkit-scrollbar, .colors::-webkit-scrollbar{
     width: 5px;
@@ -146,6 +169,12 @@
 .elements{
     &.metal{
         display: none!important;
+    }
+    .element.border.elsevr_women_1_1-1_structure_2{
+        display: none;
+    }
+    .element.flower, .element.star{
+        display: none;
     }
     width: 21%;
     flex:2;
@@ -249,10 +278,10 @@
 
 .color{
     .color-label{
-        margin-right: 55%;
+        margin-right: 40%;
         background-color: #E8E8E8;
         height: 40px;
-        width: 45%;
+        width: 60%;
         display: flex;
         justify-content: center;
         align-items: center;

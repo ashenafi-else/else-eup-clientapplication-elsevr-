@@ -249,12 +249,14 @@
                          :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-show="data.configurable_elements_count > 1">
                         <div class="column_1 table-header">{{tr("Element")}}</div>
-                        <div class="element"
-                             @click="changeElement(element)"
-                             :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), data.active_element.element == element.element ? 'control-active' : '']"
-                             v-if="data.active_component.configurable && element.configurable"
-                             v-for="element in data.active_structure.elements">
-                            {{tr(element.name)}}
+                        <div class="scroll-area">
+                            <div class="element"
+                                 @click="changeElement(element)"
+                                 :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), data.active_element.element == element.element ? 'control-active' : '']"
+                                 v-if="data.active_component.configurable && element.configurable"
+                                 v-for="element in data.active_structure.elements">
+                                {{tr(element.name)}}
+                            </div>
                         </div>
                     </div>
                     <div class="elements vertical-bar"
@@ -307,7 +309,7 @@
                                     <select :id="option"
                                             v-model="data.active_structure.monogram.defaults[option]"
                                             class="monogram-select">
-                                        <option v-for="value in values" value="{{value}}">{{tr(value)}}</option>
+                                        <option v-for="value in values">{{value}}</option>
                                     </select>
                                 </div>
                             </div>

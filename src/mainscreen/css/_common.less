@@ -456,6 +456,9 @@ img{
   .mat_suede_red {
     background-image: url("../img/materials/mat_suede_red.png") !important;
   }
+  .mat_suede_brown{
+    background-image: url("../img/materials/mat_suede_brown.png") !important;
+  }
   .mat_suede_sky-blue {
     background-image: url("../img/materials/mat_suede_lightblue.png") !important;
   }
@@ -651,7 +654,8 @@ h6{
 
 .title{
   padding: .4rem 1rem;
-  text-shadow: #00000050 0 1px 6px;
+  font-weight: 700;
+  text-shadow: #004c9a 0 0 4px;
 }
 
 //------  [END] T Y P O G R A P H Y [END]------//
@@ -809,28 +813,29 @@ h6{
   .factor-text {
     max-width: 55px;
   }
-  .factor-score {
-    .flex-container();
-    .justify-content(center);
-    .align-items(flex-start);
-    color: #ffffff;
-    background-position-x: center;
-    background-position-y: 90%;
-    background-repeat: no-repeat;
-    background-size: 80%;
-    z-index: 99999;
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    &.fitt_score_80{
-      background-image: url(../img/high.png);
-    }
-    &.fitt_score_60{
-      background-image: url(../img/mid.png);
-    }
-    &.fitt_score_40{
-      background-image: url(../img/low.png);
-    }
+}
+
+.factor-score {
+  .flex-container();
+  .justify-content(center);
+  .align-items(flex-start);
+  color: #ffffff;
+  background-position-x: center;
+  background-position-y: 90%;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  z-index: 99999;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  &.fitt_score_80{
+    background-image: url(../img/high.png);
+  }
+  &.fitt_score_60{
+    background-image: url(../img/mid.png);
+  }
+  &.fitt_score_40{
+    background-image: url(../img/low.png);
   }
 }
 
@@ -1004,3 +1009,19 @@ h6{
   height: 100%;
 }
 // --- END - S C R O L L - END --- //
+
+
+
+
+
+// ---  H I D D E N  E L E M E N T S --- //
+
+.mat_suede_blue-man {
+  display: none!important;
+}
+
+.configurable-parts-container {
+  .configurable-parts-container {
+    display: none !important;
+  }
+}

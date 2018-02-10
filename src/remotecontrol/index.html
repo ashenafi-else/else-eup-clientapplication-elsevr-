@@ -227,7 +227,7 @@
                     <div class="structures vertical-bar"
                          :class="setClass(data.active_component_id, 'component')"
                          v-if="data.active_component.configurable && data.active_structure.visible">
-                        <div class="column_1 table-header">{{tr("Structure")}}</div>
+                        <div class="column_1 table-header">{{tr("Type")}}</div>
                         <div class="scroll-area">
                             <div class="structure empty-strucutre"
                                  @click="changeStructure(0)"
@@ -249,12 +249,14 @@
                          :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]"
                          v-show="data.configurable_elements_count > 1">
                         <div class="column_1 table-header">{{tr("Element")}}</div>
-                        <div class="element"
-                             @click="changeElement(element)"
-                             :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), data.active_element.element == element.element ? 'control-active' : '']"
-                             v-if="data.active_component.configurable && element.configurable"
-                             v-for="element in data.active_structure.elements">
-                            {{tr(element.name)}}
+                        <div class="scroll-area">
+                            <div class="element"
+                                 @click="changeElement(element)"
+                                 :class="[element.name, state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure'), data.active_element.element == element.element ? 'control-active' : '']"
+                                 v-if="data.active_component.configurable && element.configurable"
+                                 v-for="element in data.active_structure.elements">
+                                {{tr(element.name)}}
+                            </div>
                         </div>
                     </div>
                     <div class="elements vertical-bar"
@@ -307,7 +309,7 @@
                                     <select :id="option"
                                             v-model="data.active_structure.monogram.defaults[option]"
                                             class="monogram-select">
-                                        <option v-for="value in values">{{value}}</option>
+                                        <option v-for="value in values" value="{{value}}">{{tr(value)}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -385,17 +387,13 @@
                         <span class="qr-icon"></span>
                         <span class="text">{{tr("Scan Configuration")}}</span>
                     </button>
-                    <!-- <div id="go-wishlist" class="stgallen-hidden configurator-item select" v-show="states.customer_profile_view.active_customer.id" >
-                        <span class="wishlist-icon"></span>
-                        <span class="text">{{tr("Wishlist")}}</span>
-                    </div-->
-                    <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
+                   <!-- <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
                         <div class="stgallen-hidden add-to-wishlist wishlist-icon select" @click="showSaveWishForm()"></div>
                         <div id="go-wishlist" class="stgallen-hidden view-wishlist select" @click="showWishList(true)">
                             <span class="wishlist-list-icon"></span>
                             <span class="text">{{tr("Wishlist")}}</span>
                         </div>
-                    </div>
+                    </div> -->
                     <div id="go-fitt" class="configurator-item select go-fitt"  @click="fitting" v-show="states.customer_profile_view.active_customer.id">
                         <span class="fitt-icon"></span>
                         <span class="text">{{tr("Virtual Fitting")}}</span>
@@ -686,8 +684,8 @@
                     <div class="foot_toggle">
                         <input type="radio" id="left_foot_toggle" name="foot" value="left" v-model="chosenFoot"/>
                         <label for="left_foot_toggle" :class="chosenFoot == 'left' ? 'active' : ''"><span>{{tr('Left Foot')}}</span></label>
-                        <input type="button" id="reset_feet_position" name="reset-position" />
-                        <label for="reset_feet_position"><span>{{tr('Reset Position')}}</span></label>
+                        <!-- <input type="button" id="reset_feet_position" name="reset-position" />
+                        <label for="reset_feet_position"><span>{{tr('Reset Position')}}</span></label> -->
                         <input type="radio" id="right_foot_toggle" name="foot" value="right" v-model="chosenFoot"/>
                         <label for="right_foot_toggle" :class="chosenFoot == 'right' ? 'active' : ''"><span>{{tr('Right Foot')}}</span></label>
                     </div>

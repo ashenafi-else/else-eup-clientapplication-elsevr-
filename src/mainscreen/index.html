@@ -248,7 +248,7 @@
                 </div>
                 <div class="col header-col header-middle">
                     <span class="vr-stylish-text">
-                        <span class="hidden vr-show acc-show">{{tr('Product Configurator')}} -</span>
+                        <!--<span class="hidden vr-show acc-show">{{tr('Product Configurator')}} -</span>-->
                         <span class="hidden vr-show acc-show component-name">{{tr(data.active_component.name)}}</span>
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
@@ -1267,7 +1267,8 @@
                                             {{tr(states.customer_fitting_view.best_size.size)}}
                                         </span>
                                 <span class="factor-text">fitting factor</span>
-                                <span class="factor-score">{{tr(states.customer_fitting_view.best_style.score)}}</span>
+                                <span class="factor-score"
+                                      :class="getFittingClass()">{{tr(states.customer_fitting_view.best_style.score)}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
@@ -1284,7 +1285,7 @@
             </div>
             <div class="main best-fit" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params">
-                    <div class="user_info">
+                    <div class="user_info bcgd-elsa">
                         <div class="user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1344,28 +1345,46 @@
                             </ul>
                         </li>
                     </div> -->
-                    <div class="username_profile userscans">User scans</div>
-                    <div class="scans_elsa">
-                        <div style="height: 300px;width: 150%;">
-                            <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
 
-                                <div class="left_scan">
-                                    <img id="left_scan_image" style="height: 250px"
-                                         :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
-                                </div>
-                                <div class="right_scan">
-                                    <img id="right_scan_image" style="height: 250px"
-                                         :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                    <div class="user_info">
+
+                        <div class="username_profile user_info_line">User scans</div>
+                        <div class="scans_elsa">
+                            <div>
+                                <div class="user_scans" v-if="states.customer_profile_view.mtm.scan_image">
+
+                                    <div class="left_scan">
+                                        <img id="left_scan_image" style="height: 250px"
+                                             :src="states.customer_profile_view.mtm.scan_image.LEFT_FOOT">
+                                    </div>
+                                    <div class="right_scan">
+                                        <img id="right_scan_image" style="height: 250px"
+                                             :src="states.customer_profile_view.mtm.scan_image.RIGHT_FOOT">
+                                    </div>
                                 </div>
                             </div>
+                            <!-- <div class="elsa">
+                                <img src="img/ELSA.png">
+                                <img class="logo-elsa-neon" src="img/elsa-small.png"/>
+                                <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                            </div> -->
                         </div>
-                        <!-- <div class="elsa">
-                            <img src="img/ELSA.png">
-                            <img class="logo-elsa-neon" src="img/elsa-small.png"/>
-                            <img class="logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
-                        </div> -->
-                    </div>
-                </div>  <!-- ./user-info end -->
+                        <div class="scan-section" v-if="states.customer_profile_view.active_scan">
+                            <div class="user_info_line">
+                                {{tr('Current Scan ID')}}:
+                                <span>
+                                            {{states.customer_profile_view.active_scan.scan_id}}
+                                        </span>
+                            </div>
+                            <div class="user_info_line">
+                                {{tr('Scanning Date Time')}}:
+                                <span>
+                                            {{states.customer_profile_view.active_scan.created_date}}
+                                        </span>
+                            </div>
+                        </div>
+                    </div> <!-- ./user-info end -->
+                </div>
                 <div class="block-virtual-fitting">
                     <div class="product_info">
                         <div class="fitting-name">Virtual Fitting</div>
@@ -1387,7 +1406,8 @@
                         </div>
                         <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
                             <span>{{tr('Fitting factor')}}</span>
-                            <span class="factor-score">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                            <span class="factor-score"
+                                  :class="getFittingClass()">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                         </div>
                     </div>
                 </div>

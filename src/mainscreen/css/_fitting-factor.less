@@ -4,16 +4,21 @@
   height: 100%;
   width: 100%;
   min-height: 100vh;
+
+  .scan-section {
+    margin: -30px 0 20px;
+  }
+
   .best-fit {
     .user_profile_params {
       width: 20%;
       min-width: 250px;
-      height: 570px;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       align-items: stretch;
       box-shadow: 0 0 10px #777777;
-      margin: 20px 10px 30px 10px;
+      margin: 20px 0 30px 10px;
       background-color: rgba(11, 73, 104, 0.72);
       z-index: -1;
       color: #ffffff;
@@ -29,10 +34,8 @@
       .flex-direction(row)
     }
   }
-  .user_info{
-    background: none;
-  }
 }
+
 
 .store_20 {
   .customer-fitting {
@@ -65,10 +68,10 @@
 //}
 
 #canvas_container_id.customer_fitting_view {
-  width: 50%;
-  left: 35%;
-  top: 10%;
-  z-index: 9999;
+  width: 74%;
+  left: 21%;
+  top: 7%;
+  z-index: 999;
 }
 
 .fitting-name {
@@ -112,6 +115,12 @@
     flex-direction: row;
     flex-wrap: nowrap;
     height: 100%;
+
+    background: url(../img/camera-view.png) no-repeat;
+    background-size: 80%;
+    background-position-x: center;
+    background-position-y: center;
+
     .prev_best_size {
       display: none; //can be changed later
       width: 18%;
@@ -161,13 +170,17 @@
       .justify-content(center);
       .align-items(center);
       color: #ffffff;
-      background-position: center;
+      //background-position: center;
       background-repeat: no-repeat;
-      background-size: 60px 56px;
+      //background-size: 60px 56px;
+      background-position-x: 50%;
+      background-position-y: 90%;
+      background-size: 80%;
       z-index: 99999;
-      font-size: 20px;
+      align-items: flex-start;
+      height: 42px;
+      font-size: 24px;
       width: 50px;
-      height: 50px;
     }
   }
 }

@@ -120,13 +120,39 @@
         &.metal{
             display: none!important;
         }
+        &.elsevr_men_1_1_component_11 {
+            display: none;
+        }
         width: 21%;
         flex:2;
         margin-right: 20px;
+        .element{
+            background-color: #E8E8E8;
+            background-size: cover;
+            color: #adaeae;
+            cursor: pointer;
+            font-size: 17px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            min-height: 125px;
+        }
     }
 }
 .structures{
     overflow: scroll;
+    .structure.elsevr_women_1_1-1_structure_3{
+        display: none;
+    }
 }
 .structures::-webkit-scrollbar, .colors::-webkit-scrollbar{
     width: 5px;
@@ -143,6 +169,12 @@
 .elements{
     &.metal{
         display: none!important;
+    }
+    .element.border.elsevr_women_1_1-1_structure_2{
+        display: none;
+    }
+    .element.flower, .element.star{
+        display: none;
     }
     width: 21%;
     flex:2;
@@ -191,13 +223,15 @@
         }
         .monogram-option{
             label{
-                margin-left: 25%;
+                margin-left: 10%;
                 margin-right: 25px;
+                height: 30px;
             }
             select{
-                margin-right: 25%;
+                margin-right: 10%;
                 font-size: 18px;
-                width: 25%;
+                width: 40%;
+                height: 26px;
             }
             .flex-container();
             .justify-content(space-between);
@@ -208,7 +242,7 @@
     }
     .btn-apply-monogram{
         .flex-container();
-        width: 40%;
+        width: 60%;
         height: 40px;
         background: black;
         border: solid 1px white;
@@ -218,7 +252,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 10%;
-        margin-left: 30%;
+        margin-left: 25%;
     }
 }
 .component,.structure, .material, .color{
@@ -244,10 +278,10 @@
 
 .color{
     .color-label{
-        margin-right: 55%;
+        margin-right: 40%;
         background-color: #E8E8E8;
         height: 40px;
-        width: 45%;
+        width: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -366,64 +400,64 @@
         background-size: 60px 60px;
     }
 
-    &.upper{
+    &.Upper{
         &:before{
-            background-image: url(../img/components/m-upper-facing.png);
+            background-image: url(../img/components/m-upper-facing-dark.png);
         }
     }
     &.winged.toe.cap{
         &:before{
-            background-image: url(../img/components/m-front.png);
+            background-image: url(../img/components/m-front-dark.png);
         }
     }
     &.vamp{
         &:before{
-            background-image: url(../img/components/m-middle.png);
+            background-image: url(../img/components/m-middle-dark.png);
         }
     }
     &.tongue{
         &:before{
-            background-image: url(../img/components/m-tongue.png);
+            background-image: url(../img/components/m-tongue-dark.png);
         }
     }
     &.back.strap{
         &:before{
-            background-image: url(../img/components/m-back-strap.png);
+            background-image: url(../img/components/m-back-strap-dark.png);
         }
     }
     &.heel{
         &:before{
-            background-image: url(../img/components/m-heel.png);
+            background-image: url(../img/components/m-heel-dark.png);
         }
     }
     &.lining{
         &:before{
-            background-image: url(../img/components/m-lining.png);
+            background-image: url(../img/components/m-lining-dark.png);
         }
     }
     &.insole{
         &:before{
-            background-image: url(../img/components/m-insole.png);
+            background-image: url(../img/components/m-insole-dark.png);
         }
     }
     &.outsole{
         &:before{
-            background-image: url(../img/components/m-outsole.png);
+            background-image: url(../img/components/m-outsole-dark.png);
         }
     }
     &.back {
         &:before{
-        background-image: url(../img/components/m-back-strap.png);
+        background-image: url(../img/components/m-back-strap-dark.png);
         }
     }
     &.laces {
         &:before{
-        background-image: url(../img/components/laces_new.png);
+        background-image: url(../img/components/laces_new-dark.png);
         }
     }
     &.monogram {
         &:before{
-            background-image: url(../img/components/m-monogram.png);
+            background-image: url(../img/components/m-monogram-dark.png);
             //display: none;
         }
     }

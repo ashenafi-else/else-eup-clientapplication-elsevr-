@@ -26,7 +26,7 @@ window.config = {
     'default_part_camera': 'cameraLEFTp',
     'default_preview_camera': 'cameraLEFTp',
     'default_fitting_camera': 'cameraLEFTp',
-    'camera_animation_time': 1000,
+    'camera_animation_time': 0,
     'default_language': 'en',
     'default_scanner': 'Dome000018',
     'default_scanners': {
@@ -54,8 +54,21 @@ window.config = {
     },
 
     'update_last_scan_interval': 15,
-    'component_cameras': {},
-    'cameras_initial_settings': {},
+    'component_cameras': {
+        'elsevr_men_1_1': {
+            '11': 'camera-for-monogram'
+        },
+        /* '1': 'prod_1_1cameraBODY',
+        '2': 'prod_1_1cameraEMBROIDERY',
+        '4': 'prod_1_1cameraLINING',
+        '6': 'prod_1_1cameraOUTSOLE',
+        '3': 'prod_1_1cameraTRIM_INSOLE',
+        '5': 'prod_1_1cameraTRIM_INSOLE',*/
+    },
+    'cameras_initial_settings': {
+        'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
+        'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
+    },
     'home_state': 'PRODUCT_LIST',
     'render_quality': 'LOW',
     'staff_login': true

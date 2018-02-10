@@ -20,6 +20,10 @@ html, body{
 /*margin-top: 20px;*/
 /*}*/
 
+.header{
+    z-index: 9999;
+}
+
 .header-end .go-account{
     background-image: url("../img/user.png");
     width: 24px;
@@ -451,8 +455,8 @@ span{
     justify-content: space-around;
 }
 .left_scan, .right_scan{
-    width: 40%;
-    margin: 10px 10px 0;
+    /*width: 40%;*/
+    margin-top: -50px;
     text-align: center;
 }
 
@@ -643,7 +647,7 @@ footer {
 #canvas_container_id.customer_order_view{
     width: 100%;
     left: 0;
-    top: -5%;
+    top: -7%;
 }
 
 #canvas_container_id.customer_edit_profile_view,

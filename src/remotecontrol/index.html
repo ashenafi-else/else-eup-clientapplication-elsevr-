@@ -906,7 +906,7 @@
                             <label v-show="errors.has('size')">{{ errors.first('size') }}</label>
                             <div class="register-input gender">
                                 <label class="label">{{tr("Gender")}}*</label>
-                                <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected" v-validate="'required|in:1,2'">
+                                <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected" v-validate="'required|in:0,1'">
                                 <label class="gender-label" for="register_female_gender">
                                     <span>{{tr("Female")}}</span>
                                 </label>

@@ -44,7 +44,7 @@
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
-                                      :class="getFittingClass()">
+                                      :class="getFittingClass(getFittingValues().best_size.score)">
                                     {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                 </span>
                             </span> -->
@@ -189,7 +189,7 @@
                          v-for="product in states.product_list_view.products">
                         <div class="element-boot h-80per">
                             <!--<div class="product_fitt_score"-->
-                            <!--:class="getFittingClass()"-->
+                            <!--:class="getFittingClass(getFittingValues().best_size.score)"-->
                             <!--v-if="product.fit_score != null">{{product.fit_score}}</div>-->
                             <div class="element-border">
                                 <img class="blue-border-picture" src="img/blue-border.svg"/>
@@ -273,7 +273,7 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
@@ -557,11 +557,11 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
-                                      :class="getFittingClass()">
+                                      :class="getFittingClass(getFittingValues().best_size.score)">
                                     {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                 </span>
                             </span> -->
@@ -654,7 +654,7 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
                     </div>
@@ -743,7 +743,7 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
                     </div>
@@ -833,7 +833,7 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
                     </div>
@@ -958,7 +958,7 @@
                                     </span>
                             <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                         <span id="fitting-factor"
-                                              :class="getFittingClass()">
+                                              :class="getFittingClass(getFittingValues().best_size.score)">
                                             {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                         </span>
                                     </span>
@@ -1046,7 +1046,7 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
                             </div>
                         </div>
                     </div>
@@ -1263,11 +1263,11 @@
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass()">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                                      :class="getFittingClass(getFittingValues().best_size.score)">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
-                                      :class="getFittingClass()">
+                                      :class="getFittingClass(getFittingValues().best_size.score)">
                                     {{getFittingValues().best_style.size}}:{{getFittingValues().best_style.score}}
                                 </span>
                             </span> -->
@@ -1401,7 +1401,7 @@
                         <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
                             <span>{{tr('Fitting factor')}}</span>
                             <span class="factor-score"
-                                  :class="getFittingClass()">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                                  :class="getFittingClass(getFittingValues().best_size.score)">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
                         </div>
                     </div>
                 </div>
@@ -1446,7 +1446,7 @@
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
 <!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
- <!--<script src="https://localhost:9000/mainscreen-ui-sdk.js"></script>-->
+ <!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
 
 <div id="canvas_container_id"></div>
 </body>

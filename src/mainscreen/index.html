@@ -100,8 +100,8 @@
             </div>
             <div class="main">
                 <div class="h-80per session-code centered-content">
-                    <img class="hidden acc-show accenture-logo-img h-40per" src="img/accenture/logo_block.png">
-                    <img class="hidden vr-show logo-chromium h-40per" src="img/neon-logo.png"/>
+                    <img class="hidden acc-show accenture-logo-img h-40per" src="img/accenture/logo_acin.png">
+                    <img class="hidden vr-show logo-chromium h-40per" src="img/chromium-else-logo.png"/>
                     <img class="hidden ac-show logo-altroconsumo-big h-40per" src="img/altroconsumo/big_block.png"/>
                     <img class="hidden stgallen-show stgallen-logo-img  h-50per" src="img/st-gallen/logos-block.png"/>
                     <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
@@ -204,6 +204,14 @@
                                 <div class="product_tour video-container" v-show="product.active" v-if="product.video">
                                     <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
                                 </div>
+
+                                <div class="optional-video-container-men">
+                                    <video src="./img/video/1-3.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
+                                </div>
+                                <div class="optional-video-container-women">
+                                    <video src="./img/video/1-2.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
+                                </div>
+
                             </div>
 
                         </div>

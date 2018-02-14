@@ -381,6 +381,42 @@
         //background-image: url(../img/components/bright/w-monogram-bright.png);
         display: none;
       }
+      .structure-item{
+        &.active {
+          .active-item-rotating-round();
+          box-shadow: none;
+        }
+        &.applique{
+          background-image: url(../img/components/bright/applique.png);
+        }
+        &.rhinestone{
+          background-image: url(../img/components/bright/applique_rhinestone.png);
+        }
+        &.flower{
+          background-image: url(../img/components/bright/applique_flower.png);
+        }
+        &.star{
+          background-image: url(../img/components/bright/applique_star.png);
+        }
+        &.Strap {
+          background-image: url(../img/components/bright/strap_1.png);
+        }
+        &.Light {
+          background-image: url(../img/components/bright/strap_2.png);
+        }
+        &.Flamy {
+          background-image: url(../img/components/bright/strap_3.png);
+        }
+        &.original {
+          background-image: url(../img/components/bright/heel_1.png);
+        }
+        &.straight {
+          background-image: url(../img/components/bright/heel_2.png);
+        }
+        &.Crystal{
+          background-image: url(../img/components/bright/crystal.png);
+        }
+      }
     }
 
     span.name {
@@ -390,6 +426,7 @@
     }
   }
   .structure-dropped {
+    transition: 2s;
     .flex-container();
     .flex-direction(row);
     position: absolute;
@@ -399,7 +436,7 @@
     z-index: 9999;
     padding: 5px;
     left: -11px;
-    top: -6px;
+    top: -5px;
     border-radius: 54px;
     .blue-block();
     .structure-item{
@@ -410,7 +447,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-size: 80%;
+      background-size: 70%;
       background-position-x: center;
       background-repeat: no-repeat;
       border-radius: inherit;

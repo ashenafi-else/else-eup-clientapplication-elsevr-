@@ -141,8 +141,8 @@
         video {
           .flex-container();
           margin-top: 8.5px;
-          height: 430px;
-          width: auto;
+          height: auto;
+          width: 100%;
           align-self: center;
           margin-left: 0;
           box-shadow: none;
@@ -245,20 +245,24 @@
     background-image: url("../img/accenture/colors.png");
   }
 
-  .factor-score{
-    align-items: center;
-  }
-  .fitting-size{
-    background-size: 40px auto;
-    background-position-y: 80%;
-    background-position-x: center;
-  }
+  //.factor-score{
+  //  align-items: center;
+  //}
+  //.fitting-size{
+  //  background-size: 40px auto;
+  //  background-position-y: 80%;
+  //  background-position-x: center;
+  //}
 
   .user_info{
-    background: url(../img/elsa-white.png) no-repeat;
+    background: white;
     background-size: 12%;
     background-position-x: right;
     background-position-y: 0%;
+  }
+
+  .header + .main{
+    height: 93vh;
   }
 
   #product-details-screen,
@@ -339,9 +343,11 @@
       box-shadow: none;
       margin-left: 15px;
       .user_scans{
-        margin-top: 40px;
-        height: 200px;
-        width: 220px;
+        margin: 10px;
+        height: 220px;
+        display: flex;
+        justify-content: space-around;
+        width: auto;
       }
       .user_info_line{
         color: black;
@@ -366,11 +372,9 @@
       }
       .factor-score{
         color: black;
-        background-size: 50px;
-        background-image: url(../img/accenture/frame-fitting-factor.png);
-
+        //background-size: 50px;
+        //background-image: url(../img/accenture/frame-fitting-factor.png);
       }
-
     }
     .prev_best_size, .next_best_size{
       display: none;
@@ -388,24 +392,21 @@
   }
 
   .acc-login{
-    .align-items(center);
+    //.align-items(center);
     .fitting-size {
       background-image: url(../img/accenture/small_shoe.png);
+      background-position-x: center;
+      background-size: 70%;
+      background-position-y: 72%;
       background-repeat: no-repeat;
-      color: white;
-      background-size: 50px 20px;
-      background-position-y: bottom;
-      width: 50px;
-      height: 50px;
-      margin-right: 1rem;
     }
     .factor-text {
       color: white;
     }
     .factor-score{
-      background-image: url(../img/accenture/ff-hexagon.png);
-      color: white;
-      background-size: 50px;
+      //background-image: url(../img/accenture/ff-hexagon.png);
+      //color: white;
+      //background-size: 50px;
     }
     .user_name{
       color: #d3061a;
@@ -418,6 +419,11 @@
     }
   }
 
+  .ac-block-title{
+    &.hidden {
+      display: block !important;
+    }
+  }
   .user_profile_params {
     margin: 20px;
     border: 3px solid black;
@@ -442,14 +448,14 @@
     overflow: scroll;
     height: 34%;
     width: 95%;
-    margin: 0 auto;
+    margin: 15px auto;
     text-align: center;
     border: 1px solid #d9d9d9;
     border-bottom:none;
   }
   .total_user_profile tr th, .total_user_profile tr td{
     border-bottom: 1px solid #d9d9d9;
-    padding: px;
+    padding: 7px;
   }
   .total_user_profile tr th{
     background-color: black;
@@ -457,15 +463,14 @@
   }
   .total_user_profile tr:nth-of-type(even){
     background-color: white !important;
-    height: 33px;
+    height: 30px;
   }
   .total_user_profile tr:nth-of-type(odd){
     background-color: #9de489 !important;
-    height: 20px;
+    height: 30px;
     color: black !important;
   }
   .total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
-    border-right: none !important;
     border: none !important;
   }
   table tr:nth-child(even) td{
@@ -481,6 +486,10 @@
 
   .components-block{
     margin-left: 10px;
+  }
+
+  .your-scans_profile:after{
+    display: none;
   }
 
 

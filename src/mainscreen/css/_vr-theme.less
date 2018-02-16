@@ -21,6 +21,46 @@
       box-shadow: #00ffff 0 0 14px;
     }
   }
+
+  #product-list-screen {
+    .header{
+      .logo-else-neon{
+        display: none;
+      }
+    }
+    .logo-else-neon{
+      position: absolute;
+      bottom: 100px;
+      left: 45%;
+    }
+    .element-border {
+      border: none;
+      top: 2%;
+      left: 1%;
+      width: 98%;
+      height: 98%;
+      box-shadow: none;
+      align-items: center;
+      background: url(../img/white-shadow.png);
+      background-position: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      //img:not(.collection-img) {
+      //  display: none;
+      //}
+    }
+    .product_tour {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .product_tour_video {
+        mask: url(../img/mask-circle.svg);
+        -webkit-mask-box-image: url(../img/mask-circle.svg);
+      }
+    }
+  }
+
+
   .button-order {
     display: block;
     width: 200px;
@@ -79,18 +119,7 @@
       }
     }
   }
-  #product-list-screen{
-    .header{
-      .logo-else-neon{
-        display: none;
-      }
-    }
-    .logo-else-neon{
-      position: absolute;
-      bottom: 100px;
-      left: 45%;
-    }
-  }
+
 
   .logo-altroconsumo-big, .logo-altroconsumo,
   .logo-else-corp, .logo-predit, .logo-elsa-ac, .chromium-logo {

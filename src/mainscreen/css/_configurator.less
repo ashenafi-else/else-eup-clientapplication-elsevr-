@@ -337,6 +337,18 @@
       &.monogram{
         background-image: url(../img/components/bright/m-monogram-bright.png);
       }
+      .structure-item{
+        &.active {
+          .active-item-rotating-round();
+          box-shadow: none;
+        }
+        &.Non-perforated{
+          background-image: url(../img/components/bright/m-toe-1.png);
+        }
+        &.Perforated{
+          background-image: url(../img/components/bright/m-toe-2.png);
+        }
+      }
     }
     &[class*='elsevr_women'] {
       background-size: 80%;
@@ -418,13 +430,36 @@
         }
       }
     }
-
-    span.name {
-      font-size: .75rem;
-      text-transform: capitalize;
-      text-align: center;
+    &.larusmiani_1 {
+      &.Upper {
+        background-image: url(../img/components/bright/h-upper.png);
+      }
+      &.lining {
+        background-image: url(../img/components/bright/h-lining.png);
+      }
+      &.trim {
+        background-image: url(../img/components/bright/h-trim.png);
+      }
+      &.lower {
+        background-image: url(../img/components/bright/h-lower-trim.png);
+      }
+      &.insole {
+        background-image: url(../img/components/bright/h-insole.png);
+      }
+      &.outsole {
+        background-image: url(../img/components/bright/h-outsole.png);
+      }
+      &.logo {
+        background-image: url(../img/components/bright/h-outsole.png);
+      }
     }
   }
+  span.name {
+    font-size: .75rem;
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
   .structure-dropped {
     transition: 2s;
     .flex-container();
@@ -466,7 +501,7 @@
   &.materials-color-block {
     margin-right: 10px;
   }
-}
+
 
 .configurator-block {
   .non-configurable-parts-container {

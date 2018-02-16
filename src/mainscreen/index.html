@@ -1325,7 +1325,10 @@
                                     </span>
                         </div>
                         <div class="user_info_line">
-                            Notes:
+                            {{tr('Notes')}}:
+                            <span id="user_profile_notes">
+                                {{states.customer_profile_view.active_customer.note}}
+                            </span>
                             <span></span>
                         </div>
                     </div>

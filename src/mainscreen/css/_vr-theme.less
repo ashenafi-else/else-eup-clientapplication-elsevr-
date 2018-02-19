@@ -23,6 +23,64 @@
   }
 
   #product-list-screen {
+    .element {
+      .collection-img{
+        max-height: 80%;
+      }
+      &.active {
+        &._Men_ {
+          .optional-video-container-men {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        &._Women_ {
+          .optional-video-container-women {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        &.larusmiani_1 {
+          .optional-video-container-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        video {
+          .flex-container();
+          margin-top: 8.5px;
+          height: auto;
+          width: 100%;
+          align-self: center;
+          margin-left: 0;
+          box-shadow: none;
+        }
+        .product_tour {
+          display: none;
+        }
+      }
+    }
     .header{
       .logo-else-neon{
         display: none;
@@ -369,6 +427,9 @@
     background-image: url("./../img/women_acc.png");
   }
   ul.options._Men_ > li.number-elements::before {
+    background-image: url("./../img/men_acc.png");
+  }
+  ul.options.larusmiani_1 > li.number-elements::before {
     background-image: url("./../img/men_acc.png");
   }
   ul.options > li.number-materials::before {

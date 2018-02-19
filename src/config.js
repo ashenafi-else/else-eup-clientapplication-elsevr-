@@ -71,6 +71,6 @@ window.config = {
     },
     'home_state': 'PRODUCT_LIST',
     'render_quality': 'LOW',
-    'staff_login': false
+    'staff_login': true
 
 };

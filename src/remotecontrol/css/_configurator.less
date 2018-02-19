@@ -179,9 +179,40 @@
     &.metal{
         display: none!important;
     }
-    .element.border.elsevr_women_1_1-1_structure_2{
-        display: none;
+    &.elsevr_women_1_1-1_structure_1, &.elsevr_women_1_1-1_structure_2{
+        &.elsevr_women_1_1-1{
+            &.elsevr_women_1_1-1_component_4{
+                display: none;
+                &.strap{
+                    display: block;
+                }
+            }
+        }
     }
+    &.elsevr_women_1_1-1_structure_4, &.elsevr_women_1_1-1_structure_5{
+        &.elsevr_women_1_1-1_component_10{
+            display: none;
+            &.applique{
+                display: block;
+            }
+        }
+    }
+
+    &.elsevr_women_1_1-1_structure_2{
+        flex:1;
+        &.applique, &.rhinestone, &.heel, &.strap{
+            flex:2;
+        }
+    }
+
+
+
+    .element.elsevr_women_1_1-1_structure_2{
+        &.border {
+            display: none;
+        }
+    }
+
     .element.flower, .element.star{
         display: none;
     }

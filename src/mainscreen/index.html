@@ -1083,8 +1083,8 @@
                             </div>
                             <div class="prices">
                                 <div class="price">
-                                    <p class="base-mod-price">{{tr("Base model")}}:
-                                        <span class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;</span>
+                                    <!-- <p class="base-mod-price">{{tr("Base model")}}:
+                                         <span class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;</span>
                                     </p>
                                     <p class="extra-acc-price"  v-for="value, name in state.current_configuration_price.details">
                                         {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
@@ -1092,7 +1092,11 @@
                                     </p>
                                     <p class="extra-mat-price">{{tr("Extra materials")}}:
                                         <span class="price-span">0,00 &#8364;</span>
-                                    </p>
+                                    </p> -->
+                                    <p class="base-mod-price">{{tr("Base model")}}: <span class="price-span">0,00 &#8364;</span></p>
+                                    <p class="extra-acc-price">{{tr("Extra accessories")}}: <span class="price-span">0,00 &#8364;</span></p>
+                                    <p class="extra-mat-price">{{tr("Extra materials")}}: <span
+                                            class="price-span">0,00 &#8364;</span></p>
                                 </div>
                             </div>
                         </div>

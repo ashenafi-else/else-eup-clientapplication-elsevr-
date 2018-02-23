@@ -50,7 +50,8 @@ img{
       margin-bottom: auto;
     }
     overflow: hidden;
-    height: 15rem;
+    max-height: 15rem;
+    min-height: 13rem;
     width: 100%;
     .vr-model-name span {
       padding-top: 10px;
@@ -88,7 +89,7 @@ img{
 
     }
     .prices {
-      padding: 0 10px 10px;
+      padding:10px;
       color: white;
       display: flex;
       flex-direction: column;
@@ -413,6 +414,25 @@ img{
                         }
                       }
 
+.material-head.velvet{
+  .material-icon{
+    background-image: url("../img/materials/mat_velvet_EB4689.png") !important;
+    background-size: contain;
+  }
+}
+.material-head.denim{
+  .material-icon{
+    background-image: url("../img/materials/mat_denim_6EAEFF.png") !important;
+    background-size: contain;
+  }
+}
+.material-head.pattern-fabric{
+  .material-icon{
+    background-image: url("../img/materials/mat_pattern-fabric_EC2417.png") !important;
+    background-size: contain;
+  }
+}
+
 /* .material-head.crystal{
   .material-icon{
     background-image: url("../img/materials/mat_crystal_metalliclightgold.png") !important;
@@ -613,6 +633,31 @@ img{
   .mat_suede_dark-beige {
     background-image: url("../img/materials/mat_suede_darkbeige.png") !important;
   }
+  .mat_velvet_191A1B{
+    background-image: url("../img/materials/mat_velvet_191A1B.png") !important;
+  }
+  .mat_velvet_232A3C{
+    background-image: url("../img/materials/mat_velvet_232A3C.png") !important;
+  }
+  .mat_velvet_D3AB2F{
+    background-image: url("../img/materials/mat_velvet_FFB831.png") !important;
+  }
+
+  .mat_velvet_002725{
+    background-image: url("../img/materials/mat_velvet_002725.png") !important;
+  }
+  .mat_velvet_EB4689{
+    background-image: url("../img/materials/mat_velvet_EB4689.png") !important;
+  }
+  .mat_denim_blue{
+    background-image: url("../img/materials/mat_denim_6EAEFF.png") !important;
+  }
+  .mat_denim_blue{
+    background-image: url("../img/materials/mat_denim_6EAEFF.png") !important;
+  }
+  .mat_pattern-fabric_EC2417{
+    background-image: url("../img/materials/mat_pattern-fabric_EC2417.png") !important;
+  }
 }
 
 
@@ -656,7 +701,6 @@ h6{
 .title{
   padding: .4rem 1rem;
   font-weight: 700;
-  text-shadow: #004c9a 0 0 4px;
 }
 
 //------  [END] T Y P O G R A P H Y [END]------//
@@ -783,6 +827,7 @@ h6{
     img {
       max-height: 100%;
       height: 100%;
+      margin-right: 10px;
     }
     .logo-pwd-else {
       max-width: 100px;
@@ -1034,4 +1079,29 @@ h6{
 
 .extra-mat-price{
   display: none !important;
+}
+
+.accenture-logo-img{
+  display: none;
+}
+
+.optional-video-container-men, .optional-video-container-women, .optional-video-container-home{
+  display: none;
+}
+
+
+.outsole {
+  .structure-dropped {
+    opacity:0;
+  }
+}
+
+.structure-dropped {
+  .structure-item {
+    &.applique {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
 }

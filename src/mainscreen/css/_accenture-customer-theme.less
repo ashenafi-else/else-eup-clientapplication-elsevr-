@@ -11,6 +11,26 @@
     font-weight: 600;
   }
 
+  .component-name, .vr-stylish-text{
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .header-start {
+    .header-logo {
+      padding: 7px;
+      margin-right: 10px;
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+  .session-code-screen{
+    .logo-chromium{
+      display: block!important;
+    }
+  }
+
   .page{
     background: url(../img/accenture/bcgd-app.png) no-repeat center;
     background-size: cover;
@@ -83,10 +103,8 @@
       color: black;
     }
   }
-  .colors-block{
-    top: calc(~"10vh + 20px");
-    right: 127px;
-  }
+
+
   .configurator-block{
     .component.active{
       .active-item-rotating-green-round();
@@ -104,17 +122,60 @@
   .element-border{
     background: white;
     border: 5px solid black;
+    top: 2%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
+    box-shadow: #00000045 0 5px 22px;
     img:not(.collection-img){
       display: none;
     }
   }
   #product-list-screen {
+    .element {
+      .collection-img{
+        max-height: 80%;
+      }
+      &.active {
+        &._Men_ {
+          .optional-video-container-men {
+            display: block;
+          }
+        }
+        &._Women_ {
+          .optional-video-container-women {
+            display: block;
+          }
+        }
+        &.larusmiani_1 {
+          .optional-video-container-home {
+            display: block;
+          }
+        }
+        video {
+          .flex-container();
+          margin-top: 8.5px;
+          height: auto;
+          width: 100%;
+          align-self: center;
+          margin-left: 0;
+          box-shadow: none;
+        }
+        .product_tour {
+          display: none;
+        }
+      }
+    }
+
+
+
     button.name{
       font-family: "Lato", sans-serif;
       font-weight: 600;
       margin: -4px auto 0 auto;
       background: white;
       border: 5px solid black;
+      box-shadow: #00000045 0px 5px 22px;
     }
     .element.active{
       button.name{
@@ -131,10 +192,98 @@
       }
     }
     .elsa-container{
-      top: 150%;
+      top: 100%;
       margin: 0;
+      img{
+        width: auto;
+        height: 120px;
+      }
     }
   }
+
+  #product-details-screen{
+    .elsevr_women_1_1-1.heels{
+      margin-top: 20px;
+    }
+    .structure-dropped{
+      background-color: white!important;
+      border: none;
+      box-shadow: #00000050 2px 2px 32px;
+      .structure-item{
+        &.active {
+          box-shadow: none;
+          .active-item-rotating-green-round();
+        }
+      }
+    }
+    .colors-block{
+      top: calc(~"7vh + 20px");
+      right: 127px;
+      width: 13.2rem;
+      .color.active {
+        border: solid #00ff00 !important;
+        animation: blink 1s linear infinite alternate;
+        box-shadow: 0 0 1px 1px #00ff00;
+      }
+    }
+    .wl-elsa{
+      display: none;
+    }
+    .wl-title{
+      position: initial;
+    }
+  }
+
+
+  //    S U M M A R Y
+
+  .product-preview {
+    img {
+      .object-fit(cover)!important;
+    }
+  }
+
+  //    C O U N T E R S
+
+  ul.options>li.number-configurations::before{
+    background-image: url("../img/accenture/config_number.png");
+  }
+  ul.options.elsevr_women_1_1-1>li.number-elements::before{
+    background-image: url("../img/accenture/women_acce.png");
+  }
+  ul.options.elsevr_women_1_1-2>li.number-elements::before{
+    background-image: url("../img/accenture/women_acce.png");
+  }
+  ul.options._Men_>li.number-elements::before{
+    background-image: url("../img/accenture/men_acce.png");
+  }
+  ul.options>li.number-materials::before{
+    background-image: url("../img/accenture/material.png");
+  }
+  ul.options>li.number-colors::before {
+    background-image: url("../img/accenture/colors.png");
+  }
+
+  //.factor-score{
+  //  align-items: center;
+  //}
+  //.fitting-size{
+  //  background-size: 40px auto;
+  //  background-position-y: 80%;
+  //  background-position-x: center;
+  //}
+
+  .user_info{
+    background: white;
+    background-size: 12%;
+    background-position-x: right;
+    background-position-y: 0%;
+  }
+
+  .header + .main{
+    height: 93vh;
+  }
+
   #product-details-screen,
   #customer-order-screen,
   #material-screen,
@@ -172,13 +321,7 @@
       margin-left: 20px;
     }
   }
-  .colors-block{
-    .color.active {
-      border: solid #00ff00 !important;
-      animation: blink 1s linear infinite alternate;
-      box-shadow: 0 0 1px 1px #00ff00;
-    }
-  }
+
   .acc-hidden{
     display: none;
   }
@@ -219,9 +362,11 @@
       box-shadow: none;
       margin-left: 15px;
       .user_scans{
-        margin-top: 40px;
-        height: 200px;
-        width: 220px;
+        margin: 10px;
+        height: 220px;
+        display: flex;
+        justify-content: space-around;
+        width: auto;
       }
       .user_info_line{
         color: black;
@@ -246,11 +391,9 @@
       }
       .factor-score{
         color: black;
-        background-size: 50px;
-        background-image: url(../img/accenture/frame-fitting-factor.png);
-
+        //background-size: 50px;
+        //background-image: url(../img/accenture/frame-fitting-factor.png);
       }
-
     }
     .prev_best_size, .next_best_size{
       display: none;
@@ -268,24 +411,21 @@
   }
 
   .acc-login{
-    .align-items(center);
+    //.align-items(center);
     .fitting-size {
       background-image: url(../img/accenture/small_shoe.png);
+      background-position-x: center;
+      background-size: 70%;
+      background-position-y: 72%;
       background-repeat: no-repeat;
-      color: white;
-      background-size: 50px 20px;
-      background-position-y: bottom;
-      width: 50px;
-      height: 50px;
-      margin-right: 1rem;
     }
     .factor-text {
       color: white;
     }
     .factor-score{
-      background-image: url(../img/accenture/ff-hexagon.png);
-      color: white;
-      background-size: 50px;
+      //background-image: url(../img/accenture/ff-hexagon.png);
+      //color: white;
+      //background-size: 50px;
     }
     .user_name{
       color: #d3061a;
@@ -298,20 +438,25 @@
     }
   }
 
+  .ac-block-title{
+    &.hidden {
+      display: block !important;
+    }
+  }
   .user_profile_params {
-    &.acc-user_profile_params {
-      margin: 20px;
-      border: 3px solid black;
-      background: white;
-      .title{
-        font-size: 24px;
-      }
+    margin: 20px;
+    border: 3px solid black;
+    background: white;
+    .title{
+      font-size: 24px;
     }
   }
   .acc-your-scans_profile{
     color: #5f0095;
     background: white;
-    border: 3px solid black;
+  }
+  .info-section{
+    line-height: 1.2em;
   }
 
   .total_user_profile{
@@ -322,14 +467,14 @@
     overflow: scroll;
     height: 34%;
     width: 95%;
-    margin: 0 auto;
+    margin: 15px auto;
     text-align: center;
     border: 1px solid #d9d9d9;
     border-bottom:none;
   }
   .total_user_profile tr th, .total_user_profile tr td{
     border-bottom: 1px solid #d9d9d9;
-    padding: 3px;
+    padding: 7px;
   }
   .total_user_profile tr th{
     background-color: black;
@@ -337,15 +482,14 @@
   }
   .total_user_profile tr:nth-of-type(even){
     background-color: white !important;
-    height: 33px;
+    height: 30px;
   }
   .total_user_profile tr:nth-of-type(odd){
     background-color: #9de489 !important;
-    height: 20px;
+    height: 30px;
     color: black !important;
   }
   .total_user_profile tr th:not(last-child),.total_user_profile tr td:not(last-child){
-    border-right: none !important;
     border: none !important;
   }
   table tr:nth-child(even) td{
@@ -361,5 +505,175 @@
 
   .components-block{
     margin-left: 10px;
+  }
+
+  .your-scans_profile:after{
+    display: none;
+  }
+
+
+  .component {
+    height: 5rem;
+    width: 4.5rem;
+    margin: .5rem;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    background-size: contain;
+    background-position-x: center;
+    //background-position-y: -6px;
+    background-repeat: no-repeat;
+    &.active {
+      .active-item-rotating-round();
+    }
+    &._Men_ {
+      &.upper {
+        background-image: url(../img/components/dark/m-upper-facing-dark.png);
+      }
+      &.winged {
+        background-image: url(../img/components/dark/m-front-dark.png);
+      }
+      &.vamp {
+        background-image: url(../img/components/dark/m-middle-dark.png);
+      }
+      &.tongue {
+        background-image: url(../img/components/dark/m-tongue-dark.png);
+      }
+      &.strap {
+        background-image: url(../img/components/dark/m-back-strap-dark.png);
+      }
+      &.monogram {
+        background-image: url(../img/components/dark/m-monogram-dark.png);
+      }
+      &.heel {
+        background-image: url(../img/components/dark/m-heel-dark.png);
+      }
+      &.lining {
+        background-image: url(../img/components/dark/m-lining-dark.png);
+      }
+      &.insole {
+        background-image: url(../img/components/dark/m-insole-dark.png);
+      }
+      &.outsole {
+        background-image: url(../img/components/dark/m-outsole-dark.png);
+      }
+      &.back {
+        background-image: url(../img/components/dark/m-back-strap-dark.png);
+      }
+      &#component-3 {
+        background-image: url(../img/components/dark/m-upper-facing-dark.png);
+      }
+      &.laces {
+        background-image: url(../img/components/dark/laces_new-dark.png);
+      }
+      &.monogram {
+        background-image: url(../img/components/dark/m-monogram-dark.png);
+      }
+    }
+    &[class*='elsevr_women'] {
+      background-size: 80%;
+      &.upper {
+        background-image: url(../img/components/dark/w-upper-dark.png);
+      }
+      &.trim {
+        background-image: url(../img/components/dark/w-trim-dark.png);
+      }
+      &.applique {
+        background-image: url(../img/components/dark/w-application-dark.png);
+      }
+      &.strap {
+        background-image: url(../img/components/dark/w-strap-dark.png);
+      }
+      &.heel {
+        background-image: url(../img/components/dark/w-heel-dark.png);
+      }
+      &.accessory {
+        background-image: url(../img/components/dark/w-accessory-dark.png);
+      }
+      &.crystal {
+        background-image: url(../img/components/dark/w-transparent_crystal-dark.png);
+      }
+      &.lining {
+        background-image: url(../img/components/dark/w-lining-dark.png);
+      }
+      &.insole {
+        background-image: url(../img/components/dark/w-insole-dark.png);
+      }
+      &.sole {
+        display: none;
+        //background-image: url(../img/components/w-insole.png);
+      }
+      &.outsole {
+        background-image: url(../img/components/dark/w-outsole-dark.png);
+      }
+      &.outsole.crystal {
+        background-image: url(../img/components/dark/w-not_transparent_crystal-dark.png);
+      }
+      &.monogram {
+        //background-image: url(../img/components/dark/w-monogram-dark.png);
+        display: none;
+      }
+      .structure-item {
+        &.active {
+          .active-item-rotating-round();
+          box-shadow: none;
+        }
+        &.applique {
+          background-image: url(../img/components/dark/applique-dark.png);
+        }
+        &.rhinestone {
+          background-image: url(../img/components/dark/applique_rhinestone-dark.png);
+        }
+        &.flower {
+          background-image: url(../img/components/dark/applique_flower-dark.png);
+        }
+        &.star {
+          background-image: url(../img/components/dark/applique_star-dark.png);
+        }
+        &.Strap {
+          background-image: url(../img/components/dark/strap_1-dark.png);
+        }
+        &.Light {
+          background-image: url(../img/components/dark/strap_2-dark.png);
+        }
+        &.Flamy {
+          background-image: url(../img/components/dark/strap_3-dark.png);
+        }
+        &.original {
+          background-image: url(../img/components/dark/heel_1-dark.png);
+        }
+        &.straight {
+          background-image: url(../img/components/dark/heel_2-dark.png);
+        }
+        &.Crystal {
+          background-image: url(../img/components/dark/crystal.png);
+        }
+      }
+    }
+    &.larusmiani_1 {
+      &.Upper {
+        background-image: url(../img/components/dark/h-upper-dark.png);
+      }
+      &.lining {
+        background-image: url(../img/components/dark/h-lining-dark.png);
+      }
+      &.trim {
+        background-image: url(../img/components/dark/h-trim-dark.png);
+      }
+      &.lower {
+        background-image: url(../img/components/dark/h-lower-trim-dark.png);
+      }
+      &.insole {
+        background-image: url(../img/components/dark/h-insole-dark.png);
+      }
+      &.outsole {
+        background-image: url(../img/components/dark/h-outsole-dark.png);
+      }
+      &.logo {
+        background-image: url(../img/components/dark/h-outsole-dark.png);
+      }
+    }
   }
 }

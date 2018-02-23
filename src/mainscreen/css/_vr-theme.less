@@ -21,6 +21,104 @@
       box-shadow: #00ffff 0 0 14px;
     }
   }
+
+  #product-list-screen {
+    .element {
+      .collection-img{
+        max-height: 80%;
+      }
+      &.active {
+        &._Men_ {
+          .optional-video-container-men {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        &._Women_ {
+          .optional-video-container-women {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        &.larusmiani_1 {
+          .optional-video-container-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            video{
+              mask: url(../img/mask-circle.svg);
+              -webkit-mask-box-image: url(../img/mask-circle.svg);
+              margin-top: 0;
+              width:74%;
+            }
+          }
+        }
+        video {
+          .flex-container();
+          margin-top: 8.5px;
+          height: auto;
+          width: 100%;
+          align-self: center;
+          margin-left: 0;
+          box-shadow: none;
+        }
+        .product_tour {
+          display: none;
+        }
+      }
+    }
+    .header{
+      .logo-else-neon{
+        display: none;
+      }
+    }
+    .logo-else-neon{
+      position: absolute;
+      bottom: 100px;
+      left: 45%;
+    }
+    .element-border {
+      border: none;
+      top: 2%;
+      left: 1%;
+      width: 98%;
+      height: 98%;
+      box-shadow: none;
+      align-items: center;
+      background: url(../img/white-shadow.png);
+      background-position: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      //img:not(.collection-img) {
+      //  display: none;
+      //}
+    }
+    .product_tour {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .product_tour_video {
+        mask: url(../img/mask-circle.svg);
+        -webkit-mask-box-image: url(../img/mask-circle.svg);
+      }
+    }
+  }
+
+
   .button-order {
     display: block;
     width: 200px;
@@ -79,18 +177,7 @@
       }
     }
   }
-  #product-list-screen{
-    .header{
-      .logo-else-neon{
-        display: none;
-      }
-    }
-    .logo-else-neon{
-      position: absolute;
-      bottom: 100px;
-      left: 45%;
-    }
-  }
+
 
   .logo-altroconsumo-big, .logo-altroconsumo,
   .logo-else-corp, .logo-predit, .logo-elsa-ac, .chromium-logo {
@@ -342,6 +429,9 @@
   ul.options._Men_ > li.number-elements::before {
     background-image: url("./../img/men_acc.png");
   }
+  ul.options.larusmiani_1 > li.number-elements::before {
+    background-image: url("./../img/men_acc.png");
+  }
   ul.options > li.number-materials::before {
     background-image: url("./../img/mat.png");
   }
@@ -356,6 +446,9 @@
   .header-logo{
     flex: 1 1 20%;
     text-align: left;
+    img {
+      margin-right: 10px;
+    }
   }
   .vr-stylish-text{
     flex: 2 2 80%;

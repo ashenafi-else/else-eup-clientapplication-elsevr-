@@ -337,6 +337,18 @@
       &.monogram{
         background-image: url(../img/components/bright/m-monogram-bright.png);
       }
+      .structure-item{
+        &.active {
+          .active-item-rotating-round();
+          box-shadow: none;
+        }
+        &.Non-perforated{
+          background-image: url(../img/components/bright/m-toe-1.png);
+        }
+        &.Perforated{
+          background-image: url(../img/components/bright/m-toe-2.png);
+        }
+      }
     }
     &[class*='elsevr_women'] {
       background-size: 80%;
@@ -381,36 +393,115 @@
         //background-image: url(../img/components/bright/w-monogram-bright.png);
         display: none;
       }
+      .structure-item{
+        &.active {
+          .active-item-rotating-round();
+          box-shadow: none;
+        }
+        &.applique{
+          background-image: url(../img/components/bright/applique.png);
+        }
+        &.rhinestone{
+          background-image: url(../img/components/bright/applique_rhinestone.png);
+        }
+        &.flower{
+          background-image: url(../img/components/bright/applique_flower.png);
+        }
+        &.star{
+          background-image: url(../img/components/bright/applique_star.png);
+        }
+        &.Strap {
+          background-image: url(../img/components/bright/strap_1.png);
+        }
+        &.Light {
+          background-image: url(../img/components/bright/strap_2.png);
+        }
+        &.Flamy {
+          background-image: url(../img/components/bright/strap_3.png);
+        }
+        &.original {
+          background-image: url(../img/components/bright/heel_1.png);
+        }
+        &.straight {
+          background-image: url(../img/components/bright/heel_2.png);
+        }
+        &.Crystal{
+          background-image: url(../img/components/bright/crystal.png);
+        }
+      }
     }
-
-    span.name {
-      font-size: .75rem;
-      text-transform: capitalize;
-      text-align: center;
+    &.larusmiani_1 {
+      &.Upper {
+        background-image: url(../img/components/bright/h-upper.png);
+      }
+      &.lining {
+        background-image: url(../img/components/bright/h-lining.png);
+      }
+      &.trim {
+        background-image: url(../img/components/bright/h-trim.png);
+      }
+      &.lower {
+        background-image: url(../img/components/bright/h-lower-trim.png);
+      }
+      &.insole {
+        background-image: url(../img/components/bright/h-insole.png);
+      }
+      &.outsole {
+        background-image: url(../img/components/bright/h-outsole.png);
+      }
+      &.logo {
+        background-image: url(../img/components/bright/h-outsole.png);
+      }
     }
   }
+  span.name {
+    font-size: .75rem;
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
   .structure-dropped {
+    transition: 2s;
     .flex-container();
     .flex-direction(row);
     position: absolute;
-    left: 90%;
     border: solid 1px rgba(0, 255, 255, 0.651);
-    border-radius: 4px;
+    background-color: rgba(12,88,128,0.95)!important;
+    box-shadow: black 2px 2px 32px;
+    z-index: 9999;
+    padding: 5px;
+    left: -11px;
+    top: -5px;
+    border-radius: 54px;
     .blue-block();
+    .structure-item{
+      height: 5rem;
+      width: 5rem;
+      /* margin: .5rem; */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-size: 70%;
+      background-position-x: center;
+      background-repeat: no-repeat;
+      border-radius: inherit;
+      justify-content: flex-start;
+      padding-top: 70px;
+      span.name{
+        font-size: 0.65rem!important;
+      }
+    }
   }
   .structure-item {
-    border-radius: 3px;
-    margin: 3px;
-    height: 60px;
-    width: 80px;
     &.active {
-      .box-shadow(inset 0 0 0 2px #00ffff);
+      .box-shadow(0 0 0 2px #00ffff);
     }
   }
   &.materials-color-block {
     margin-right: 10px;
   }
-}
+
 
 .configurator-block {
   .non-configurable-parts-container {

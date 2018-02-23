@@ -373,7 +373,13 @@ window.translations = {
     },
     'WINGED TOE CAP': {
         'en': 'W. Toe Cap'
-    }
+    },
 
+    'STRAIGHT': {
+        'en': 'Italian'
+    },
+    'ORIGINAL': {
+        'en': 'Stiletto'
+    }
 
 };

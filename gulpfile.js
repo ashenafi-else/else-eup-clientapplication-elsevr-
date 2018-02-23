@@ -31,5 +31,6 @@ gulp.task('deploy-stage', function () {
 });
 
 gulp.task('deploy', function () {
+    // _deploy(dist_dir, 'dev', containerName, container, containerKey)
     _deploy(dist_dir, 'dev', containerName, container, containerKey)
 });

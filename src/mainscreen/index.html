@@ -238,6 +238,7 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
@@ -246,7 +247,7 @@
                                 <!--<a>{{getCollectionName()}}</a>-->
                             </span>
                 </div>
-                <div class="col header-col header-middle">
+                <div class="col header-col header-middle" v-if="data.active_component">
                     <span class="vr-stylish-text">
                         <!--<span class="hidden vr-show acc-show">{{tr('Product Configurator')}} -</span>-->
                         <span class="hidden vr-show acc-show component-name">{{tr(data.active_component.name)}}</span>
@@ -258,7 +259,7 @@
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                     <span class="stgallen-title">
-                        <span class="hidden stgallen-show">{{tr('3D Product Configurator')}} -</span>
+                        <!--<span class="hidden stgallen-show">{{tr('3D Product Configurator')}} -</span>-->
                         <span class="hidden stgallen-show component-name">{{tr(data.active_component.name)}}</span>
                     </span>
                 </div>
@@ -436,7 +437,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-end">
+                <div class="main-end" v-if="data.active_structure">
                     <!--<div class="product-options">-->
                     <!--<ul class="options">-->
                     <!--<li class="number-configurations">{{configuration.structure.configurations_count}}</li>-->
@@ -907,8 +908,7 @@
                                 </tr>
                                 <tr v-for="metric in states.customer_profile_view.mtm.metrics">
                                     <td>{{tr(metric.name)}}</td>
-                                    <td>{{tr(metric.LEFT_FOOT)}}</td>
-                                    <td>{{tr(metric.RIGHT_FOOT)}}</td>
+                                    <td v-for="value in metric.values">{{tr(value.value)}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1217,9 +1217,15 @@
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
         </div>
     </customer-order>
-    <customer-fitting v-if="states.customer_fitting_view.active" class="customer-fitting" id="customer-fitting-screen"
+    <customer-fitting v-if="states.customer_fitting_view.active"
+                      class="customer-fitting"
+                      id="customer-fitting-screen"
                       :visible="visible"
-                      :states="states" :configurator="configuration"  :preview_image="preview_image" inline-template>
+                      :states="states"
+                      :configurator="configuration"
+                      :preview_image="preview_image"
+                      :state="states.customer_fitting_view"
+                      inline-template>
         <div class="container page" id="customer-fitting-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -1247,9 +1253,9 @@
                                         {{states.customer_profile_view.active_customer.lastname}}
                                     </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="states.customer_fitting_view.active_comparision">
                                         <span id="rec-size" class="fitting-size">
-                                            {{tr(states.customer_fitting_view.active_comparision.size)}}
+                                            {{tr(states.customer_fitting_view.best_size.size)}}
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
@@ -1374,13 +1380,14 @@
                     <div class="product_info">
                         <div class="fitting-name">Virtual Fitting</div>
                         <!-- <div class="product_name">{{tr(states.product_view.active_product.name)}}</div> -->
-                        <div class="best_sizes">
+                        <div class="best_sizes"
+                             v-if="states.customer_fitting_view.order_mapping">
                             <div class="prev_best_size"
-                                 v-if="states.customer_fitting_view.active_comparision.prev">
+                                 v-if="states.customer_fitting_view.order_mapping.previous">
                                 <div>-0.5&lt</div>
                             </div>
                             <div class="next_best_size"
-                                 v-if="states.customer_fitting_view.active_comparision.next">
+                                 v-if="states.customer_fitting_view.order_mapping.next">
                                 <div>&gt+0.5</div>
                             </div>
                         </div>
@@ -1433,10 +1440,10 @@
 <script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
 
-<script src="https://sdk.else.shoes/else.js.client.sdk/4.2.0/js/else.js.client.sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
 <!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.0.0/mainscreen-ui-sdk.js"></script>
- <!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/mainscreen-ui-sdk.js"></script>
+<!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
 
 <div id="canvas_container_id"></div>
 </body>

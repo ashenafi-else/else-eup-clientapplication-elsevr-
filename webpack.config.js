@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var webpack = require('webpack');
 var path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -72,6 +73,7 @@ module.exports = {
                 to: path.resolve(__dirname, './dist/remotecontrol')
             }],
             { ignore: ['*.js', '*.less']}
-        )
+        ),
+        new CaseSensitivePathsPlugin()
     ]
 };

@@ -422,5 +422,8 @@ window.translations = {
     },
     'MAT_RUBBER_F3EFE3': {
         'en': 'white'
+    },
+    'LARUSMIANI_1': {
+        'en': '_Home_'
     }
 };

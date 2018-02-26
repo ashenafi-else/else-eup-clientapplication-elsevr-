@@ -18,10 +18,10 @@
   }
   .header-start {
     .header-logo {
-      padding: 7px;
+      padding: 10px;
       margin-right: 10px;
       img {
-        margin-right: 10px;
+        margin-right: 20px;
       }
     }
   }
@@ -32,7 +32,8 @@
   }
 
   .page{
-    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    //background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background-color: white;
     background-size: cover;
   }
   .page-session-code{
@@ -75,6 +76,7 @@
     }
   }
   .configurator-block{
+    border-radius: 4px;
     border: 3px solid black;
     background-color: white;
     .title{
@@ -99,6 +101,7 @@
     }
   }
   .materials-color-block{
+    margin-left: 10px;
     .material-name{
       color: black;
     }
@@ -118,6 +121,9 @@
   }
   .configurable-parts-block{
     margin-top: 20px;
+  }
+  .non-configurable-parts-block{
+    margin-top: 10px;
   }
   .element-border{
     background: white;
@@ -218,7 +224,7 @@
     }
     .colors-block{
       top: calc(~"7vh + 20px");
-      right: 127px;
+      right: 137px;
       width: 13.2rem;
       .color.active {
         border: solid #00ff00 !important;
@@ -255,6 +261,9 @@
     background-image: url("../img/accenture/women_acce.png");
   }
   ul.options._Men_>li.number-elements::before{
+    background-image: url("../img/accenture/men_acce.png");
+  }
+  ul.options.larusmiani_1>li.number-elements::before{
     background-image: url("../img/accenture/men_acce.png");
   }
   ul.options>li.number-materials::before{
@@ -675,5 +684,18 @@
         background-image: url(../img/components/dark/h-outsole-dark.png);
       }
     }
+  }
+  .price-block {
+    .diff-prices-container{
+      .product-preview{
+        img{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  #canvas_container_id.product_view, #canvas_container_id.material_view, #canvas_container_id.part_view, #canvas_container_id.preview_view, #canvas_container_id.customer_order_view {
+    top: 12%;
   }
 }

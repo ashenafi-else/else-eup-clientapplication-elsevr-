@@ -501,29 +501,55 @@
             //display: none;
         }
     }
-    /* &.larusmiani_1 {
-        &.Upper {
+
+}
+[class*='larusmiani_1_component'][id*='component-'] {
+    min-height: 125px;
+    &:before {
+        margin-right: 3px;
+        margin-left: 10%;
+        content: '';
+        z-index: 10;
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        background-size: 60px 60px;
+    }
+    &.Upper {
+        &:before {
             background-image: url(../img/components/h-upper-dark.png);
         }
-        &.lining {
+    }
+    &.lining {
+        &:before {
             background-image: url(../img/components/h-lining-dark.png);
         }
-        &.trim {
+    }
+    &.trim {
+        &:before {
             background-image: url(../img/components/h-trim-dark.png);
         }
-        &.lower {
+    }
+    &.lower {
+        &:before {
             background-image: url(../img/components/h-lower-trim-dark.png);
         }
-        &.insole {
+    }
+    &.insole {
+        &:before {
             background-image: url(../img/components/h-insole-dark.png);
         }
-        &.outsole {
+    }
+    &.outsole {
+        &:before {
             background-image: url(../img/components/h-outsole-dark.png);
         }
-        &.logo {
+    }
+    &.logo {
+        &:before {
             background-image: url(../img/components/h-outsole-dark.png);
         }
-    } */
+    }
 }
 
 // right panel

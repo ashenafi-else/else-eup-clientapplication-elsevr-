@@ -380,6 +380,47 @@ window.translations = {
     },
     'ORIGINAL': {
         'en': 'Stiletto'
+    },
+    'MAT_VELVET_191A1B': {
+        'en': 'black'
+    },
+    'MAT_VELVET_232A3C': {
+        'en': 'blue'
+    },
+    'MAT_VELVET_002725': {
+        'en': 'green'
+    },
+    'MAT_VELVET_EB4689': {
+        'en': 'shocking pink'
+    },
+    'MAT_VELVET_D3AB2F': {
+        'en': 'yellow'
+    },
+    'MAT_DENIM_BLUE': {
+        'en': 'blue denim'
+    },
+    'MAT_PATTERN-FABRIC_EC2417': {
+        'en': 'red'
+    },
+    'MAT_CORDURA_191A1B': {
+        'en': 'black'
+    },
+    'MAT_CORDURA_232A3C': {
+        'en': 'blue'
+    },
+    'MAT_CORDURA_002725': {
+        'en': 'green'
+    },
+    'MAT_CORDURA_EB4689': {
+        'en': 'shocking pink'
+    },
+    'MAT_CORDURA_FFB831': {
+        'en': 'yellow'
+    },
+    'MAT_RUBBER_191A1B': {
+        'en': 'black'
+    },
+    'MAT_RUBBER_F3EFE3': {
+        'en': 'white'
     }
-
 };

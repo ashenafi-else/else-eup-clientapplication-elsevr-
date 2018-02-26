@@ -26,7 +26,6 @@
                 <div class="header-center">
                     <span class="screen-name">{{tr(active_state)}}</span>
                 </div>
-
                 <div class="header-right">
                     <div class="login acc-login">
                         <div class="go-account" v-if="visible.header_customer_profile_button">
@@ -130,15 +129,16 @@
             </div>
             <div class="list-items">
                 <div class="element"
+                     @click="setActive(collection.id)"
                      :class="[collection.active?'active':'', collection.name]"
                      :id="collection.id"
                      v-for="collection in states.collection_view.collections">
                     <div class="name">
                         <span>{{collection.name}}</span>
                     </div>
-                    <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
-                    <img class="collection-img" :src="collection.image"/>
-
+                    <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
+                    <img class="collection-img" :src="collection.image"/> -->
+                    <button class="" @click="continueAction">{{tr('Continue')}}</button>
                     <div class="description">
                         <!-- <ul class="col-16">
                             <ul id="description4" class="options">

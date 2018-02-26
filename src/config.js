@@ -57,19 +57,6 @@ window.config = {
             "active_material": 'calfskin',
             'active_color': 'mat_leather_sky-blue'
         } */
-        'elsevr_men_1_1': [{
-            'component': '1',
-            'structure': '1',
-            'element': '0',
-            'active_material': 'calfskin',
-            'active_color': 'mat_leather_black-man'
-        }, {
-            'component': '2',
-            'structure': '1',
-            'element': '0',
-            'active_material': 'suede',
-            'active_color': 'mat_suede_beige'
-        }],
     },
 
     'update_last_scan_interval': 15,

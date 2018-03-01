@@ -122,37 +122,57 @@
     </session-code>
     <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
         <div class="page content page-mainscreen virtual-catalog" id="product-start-screen">
-
-            <div class="logo-section">
+             <!-- <div class="logo-section">
                 <img class="logo" src="img/logo.png">
                 <span class="logo-line"></span>
-            </div>
-            <div class="list-items">
-                <div class="element"
-                     @click="setActive(collection.id)"
-                     :class="[collection.active?'active':'', collection.name]"
-                     :id="collection.id"
-                     v-for="collection in states.collection_view.collections">
-                    <div class="name">
-                        <span>{{collection.name}}</span>
+            </div> -->
+            <div class="header mainscreen-header">
+                <div class="col header-col header-start">
+                    <div class="logo header-logo">
+                        <!-- <img class="hidden vr-show logo-else-neon" src="img/Logo_ELSE.png"/> -->
                     </div>
-                    <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
-                    <img class="collection-img" :src="collection.image"/> -->
-                    <button class="" @click="continueAction">{{tr('Continue')}}</button>
-                    <div class="description">
-                        <!-- <ul class="col-16">
-                            <ul id="description4" class="options">
-                                <li class="number-configurations">2601</li>
-                                <li class="number-elements">3</li>
-                                <li class="number-materials">6</li>
-                                <li class="number-colors">51</li>
-                            </ul>
-                        </ul> -->
+                </div>
+                <div class="col header-col header-end">
+                    <div class="logo header-logo">
+                        <img class="hidden ac-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
+                        <!-- <img class="logo-micam" src="img/logo_mcpc.png"> -->
                     </div>
                 </div>
             </div>
+            <div class="main">
+                <div class="collections centered-content">
+                    <h2 class="underline text-blue-bordered">{{tr("Select a collection")}}</h2>
+                    <div class="element"
+                         @click="setActive(collection.id)"
+                         :class="[collection.active?'active':'', collection.name]"
+                         :id="collection.id"
+                         v-for="collection in states.collection_view.collections">
+                        <div class="name">
+                            <span>{{collection.name}}</span>
+                        </div>
+                        <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
+                        <img class="collection-img" :src="collection.image"/> -->
+                        <!-- <button class="" @click="continueAction">{{tr('Continue')}}</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-panel">
+                <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
+                <img class="atom-logos" src="img/logos_atom.png">
+                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+            </div>
         </div>
     </product-start-screen>
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+        <div class="page" id="product-config-nfc">
+            <div class="main">
+                <div class="h-80per nfc-config centered-content">
+                    <h2 class="underline text-blue-bordered">{{tr("Place the shoe on the NFC platform to start configure")}}</h2>
+                    <img class="" src="img/nfc.png">
+                </div>
+            </div>
+        </div>
+    </product-config-nfc>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
         <div class="page page-mainscreen page-product-list" id="product-list-screen">
             <div class="header mainscreen-header stgallen-header">
@@ -242,7 +262,7 @@
                      :states="states"
                      :state="states.product_view"
                      :data="api2Data"
-                     v-if="states.product_view.active"
+                     v-if="states.product_view.show_on_main"
                      :preview_image="preview_image">
         <div class="page page-mainscreen" id="product-details-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -1005,11 +1025,11 @@
             </div>
         </div>
     </customer-edit-profile>
-    <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
+    <!-- <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
         <div id="customer-login-screen">
             {{tr("no customer login on main screen")}}
         </div>
-    </customer-login>
+    </customer-login> -->
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" :preview_image="preview_image" inline-template>
         <div class="content mainscreen-app page" id="customer-order-screen">

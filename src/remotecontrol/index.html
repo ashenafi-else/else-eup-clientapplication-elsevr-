@@ -128,7 +128,12 @@
         <div class="container" id="product-start-screen">
             <div class="virtual-catalog">
                 <div class="logo-section">
-                    <img class="stgallen-hidden logo" src="img/logo.png">
+                    <img class="logo" src="img/chromium_else.png">
+                    <span>Collections</span>
+                    <div class="logout-block" @click="logOutFromTheStore()">
+                        <span class="logout-text">Logout from the store</span>
+                        <img src="img/store-logout--.png" class="logo-logout">
+                    </div>
                 </div>
                 <div class="list-items">
                     <div class="element"
@@ -151,9 +156,13 @@
                 <div class="logo-section">
                     <img class="logo" src="img/chromium_else.png">
                     <span>Virtual catalogue</span>
-                    <div class="logout-block" @click="logOutFromTheStore()">
+                    <!-- <div class="logout-block" @click="logOutFromTheStore()">
                         <span class="logout-text">Logout from the store</span>
                         <img src="img/store-logout--.png" class="logo-logout">
+                    </div> -->
+                    <div class="logout-block" @click="back">
+                        <span class="logout-text">&lt;&lt;{{tr("Back to Collections")}}</span>
+                        <!-- <img src="img/store-logout--.png" class="logo-logout"> -->
                     </div>
                 </div>
                 <div class="list-items">
@@ -174,6 +183,7 @@
                     </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
+                <button class="continue-to-configurator" @click="goToNFC()">{{tr('Direct NFC Integration')}}</button>
             </div>
         </div>
     </product-list>
@@ -485,6 +495,28 @@
             </main>
         </div>
     </product-config-qr-code>
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+        <div class="page" id="product-config-nfc">
+            <div class="logo-section">
+                <img class="logo" src="img/chromium_else.png">
+                <span>Direct NFC</span>
+                <!-- <div class="logout-block" @click="logOutFromTheStore()">
+                    <span class="logout-text">Logout from the store</span>
+                    <img src="img/store-logout--.png" class="logo-logout">
+                </div> -->
+                <div class="logout-block" @click="back">
+                    <span class="logout-text">&lt;&lt;{{tr("Back to Catalogue")}}</span>
+                    <!-- <img src="img/store-logout--.png" class="logo-logout"> -->
+                </div>
+            </div>
+            <div class="main">
+                <div class="h-80per nfc-config centered-content">
+                    <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @keyup.enter="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
+
+                </div>
+            </div>
+        </div>
+    </product-config-nfc>
     <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
         <div class="remote-configuration" id="product-preview-screen">
             <div class="remote-controller-main">
@@ -822,7 +854,7 @@
             </div>
         </div>
     </customer-edit-profile>
-    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.show_on_remote">
         <div class="remote-configuration" id="customer-login-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">

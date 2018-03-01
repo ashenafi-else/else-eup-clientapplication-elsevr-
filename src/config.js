@@ -50,19 +50,19 @@ window.config = {
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',
     'default_configuration': {
-        /* 'elsevr_men_1_1': [{
+        'elsevr_men_1_1': [{
             'component': '1',
             'structure': '1',
             'element': '0',
-            'active_material': 'calfskin',
-            'active_color': 'mat_leather_black-man'
-        }, {
+            'active_material': 'suede',
+            'active_color': 'mat_suede_blue-electric'
+        },{
             'component': '2',
             'structure': '1',
             'element': '0',
             'active_material': 'suede',
             'active_color': 'mat_suede_beige'
-        }], */
+        }]
     },
 
     'update_last_scan_interval': 15,
@@ -81,8 +81,12 @@ window.config = {
         'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
         'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
     },
-    'home_state': 'PRODUCT_LIST',
+    'home_state': 'COLLECTION',
     'render_quality': 'LOW',
-    'staff_login': false
+    'staff_login': false,
+    'show_nfc_input': {
+        'remotecontrol': true,
+        'mainscreen': true
+    },
 
 };

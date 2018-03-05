@@ -304,30 +304,40 @@
                                 </div>
                             </div>
                         </div>
-                     </div>
+                    </div>
                     <div class="monogram vertical-bar"
-                         v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
+                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="column_1 table-header">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
                             <div class="scroll-area">
-                                <input type="text"
-                                       v-model="data.active_structure.monogram.default_text"
-                                       class="monogram-text">
+                                <div>
+                                    <input type="text"
+                                       v-for="(letter, index) in data.active_structure.monogram.splitted_text"
+                                       v-model="data.active_structure.monogram.splitted_text[index]"
+                                       class="monogram-text"
+                                       maxlength="1">
+                                </div>
                                 <div class="monogram-option"
                                      v-for="(values, option) in data.active_structure.monogram.options"
                                      v-if="isArray(values)"
                                      :class="option">
-                                    <label :for="option">{{tr(option)}}</label>
-                                    <select :id="option"
-                                            v-model="data.active_structure.monogram.defaults[option]"
-                                            class="monogram-select">
-                                        <option v-for="value in values" :value="value">{{tr(value)}}</option>
-                                    </select>
+                                    <div>{{tr(option)}}</div>
+                                    <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]" 
+                                          v-for="value in values">
+                                        <label :for="option + '_' + value">{{tr(value)}}</label>
+                                        <input :id="option + '_' + value"
+                                                v-model="data.active_structure.monogram.defaults[option]"
+                                                class="monogram-select" 
+                                                :value="value"
+                                                type="radio"
+                                                style="display: none">
+                                    </span>
                                 </div>
                             </div>
                             <button class="btn-apply-monogram" @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
+                            <button class="btn-apply-monogram" @click="changeStructure(0)">{{tr('Delete')}}</button>
                         </div>
-                     </div>
+                    </div>
                 </div>
                 <div class="summary-footer" style="">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>

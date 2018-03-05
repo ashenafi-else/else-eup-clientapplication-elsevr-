@@ -135,16 +135,17 @@
                         <img src="img/store-logout--.png" class="logo-logout">
                     </div>
                 </div>
-                <div class="list-items">
-                    <div class="element"
+                <div class="collections">
+                    <h2 class="underline text-blue-bordered">{{tr("Select a collection")}}</h2>
+                    <div class=""
                          @click="setActive(collection.id)"
                          :class="[collection.active?'active':'', collection.name]"
                          :id="collection.id"
                          v-for="collection in states.collection_view.collections">
-                        <div class="name">
-                            <span>{{collection.name}}</span>
+                        <div class="">
+                            <h2>{{collection.name}}</h2>
                         </div>
-                        <img class="collection-img" :src="collection.image">
+                        <!-- <img class="collection-img" :src="collection.image"> -->
                     </div>
                 </div>
             </div>
@@ -521,8 +522,9 @@
             </div>
             <div class="main">
                 <div class="h-80per nfc-config centered-content">
+                    <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
+                    <img class="" src="img/nfc.png">
                     <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @keyup.enter="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
-
                 </div>
             </div>
         </div>

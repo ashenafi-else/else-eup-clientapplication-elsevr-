@@ -651,6 +651,9 @@ footer {
     left: 50%;
     z-index:9999;
 }
+#canvas_container_id.nfc_scanner_config{
+    z-index: -9999;
+}
 .material-name{
     color:#ffffff;
     width: 130px;

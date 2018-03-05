@@ -931,20 +931,19 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="total_user_profile">
                         <table id="user_profile_table">
                             <tbody>
-                                <tr>
-                                    <th>{{tr('Measure')}}</th>
-                                    <th>{{tr('Left Foot')}}</th>
-                                    <th>{{tr('Right Foot')}}</th>
-                                </tr>
-                                <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                    <td>{{tr(metric.name)}}</td>
-                                    <td v-for="value in metric.values">{{tr(value.value)}}</td>
-                                </tr>
+                            <tr>
+                                <th>{{tr('Measure')}}</th>
+                                <th>{{tr('Left Foot')}}</th>
+                                <th>{{tr('Right Foot')}}</th>
+                            </tr>
+                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                <td>{{tr(metric.name)}}</td>
+                                <td v-for="value in metric.values">{{tr(value.value)}}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -1028,11 +1027,138 @@
             </div>
         </div>
     </customer-edit-profile>
-    <!-- <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
-        <div id="customer-login-screen">
-            {{tr("no customer login on main screen")}}
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+        <div class="container page" id="customer-login-screen">
+            <header class="header vr-header acc-header stgallen-header mainscreen-header">
+                <div class="logo header-logo">
+                    <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                    <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
+                    <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
+                </div>
+                <div class="col header__col header__col--middle">
+                    <span class="stgallen-hidden vr-stylish-text">{{tr("User Profile")}}</span>
+                    <div class="logo header-logo">
+                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
+                        <span class="stgallen-title">
+                            <span class="hidden stgallen-show">{{tr('User Profile')}}</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col header__col header__col--end">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span class="user_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                        {{states.customer_profile_view.active_customer.lastname}}
+                        </span>
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
+                                        </span>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score"
+                                      :class="getFittingClass(states.customer_fitting_view.best_size.score)">{{states.customer_fitting_view.best_size.score}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
+                    </div>
+                </div>
+            </header>
+            <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
+                <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
+                    <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="user_info">
+                        <div class="hidden vr-show stgallen-show user_info_line username_profile">{{tr('Name')}}:
+                            <span id="user_profile_name">
+                                        {{getUserName()}}
+                                    </span>
+                        </div>
+                        <div class="info-section">
+                            <div class="user-info-section">
+                                <div class="user_info_line">
+                                    {{tr('Gender')}}:
+                                    <span id="user_profile_sex">
+                                    {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                                </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Size')}}:
+                                    <span id="user_profile_size">
+                                            {{states.customer_profile_view.active_customer.size}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Email')}}:
+                                    <span id="user_profile_email">
+                                            {{states.customer_profile_view.active_customer.email}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Phone')}}:
+                                    <span id="user_profile_phone">
+                                            {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Delivery address')}}:
+                                    <span id="user_profile_address">
+                                            {{states.customer_profile_view.active_customer.addresses[0].city}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    Notes:
+                                    <span>
+                                        {{states.customer_profile_view.active_customer.note}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="scan-section" v-if="states.customer_profile_view.active_scan">
+                                <div class="user_info_line">
+                                    {{tr('Current Scan ID')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.scan_id}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Scanning Date Time')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.created_date}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total_user_profile">
+                        <table id="user_profile_table">
+                            <tbody>
+                            <tr>
+                                <th>{{tr('Measure')}}</th>
+                                <th>{{tr('Left Foot')}}</th>
+                                <th>{{tr('Right Foot')}}</th>
+                            </tr>
+                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                <td>{{tr(metric.name)}}</td>
+                                <td v-for="value in metric.values">{{tr(value.value)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>  <!-- ./user-info end -->
+                <div class="user_profile_params">
+                    <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile stgallen-your-scans_profile vr-your-scans_profile">
+                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your Scans</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </customer-login> -->
+    </customer-login>
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" :preview_image="preview_image" inline-template>
         <div class="content mainscreen-app page" id="customer-order-screen">

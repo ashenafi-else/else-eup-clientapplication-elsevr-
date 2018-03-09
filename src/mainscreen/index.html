@@ -100,7 +100,7 @@
             <div class="main">
                 <div class="h-80per session-code centered-content">
                     <img class="hidden acc-show accenture-logo-img h-40per" src="img/accenture/logo_acin.png">
-                    <img class="hidden vr-show logo-chromium h-40per" src="img/chromium-else-logo.png"/>
+                    <img class="hidden vr-show logo-chromium h-40per" src="img/chromium_else.png"/>
                     <img class="hidden ac-show logo-altroconsumo-big h-40per" src="img/altroconsumo/big_block.png"/>
                     <img class="hidden stgallen-show stgallen-logo-img  h-50per" src="img/st-gallen/logos-block.png"/>
                     <span class="code">{{tr("Your session code")}}:{{session_code}}</span>
@@ -188,6 +188,8 @@
                          :class="[product.active?'active':'', product.name]"
                          :id="product.id"
                          v-for="product in states.product_list_view.products">
+
+
                         <div class="element-boot h-80per">
                             <!--<div class="product_fitt_score"-->
                             <!--:class="getFittingClass(getFittingValues().best_size.score)"-->
@@ -198,10 +200,13 @@
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
                                 <img class="collection-img" v-show="!product.active || !product.tour_360"
                                      :src="product.image" :alt="product.name"/>
+
                                 <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
                                     <img class="collection-img" v-show="img.active" :src="img.url"
                                          v-for="img in product.tour_360">
                                 </div>
+
+
                                 <div class="product_tour video-container" v-show="product.active" v-if="product.video">
                                     <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
                                 </div>
@@ -219,9 +224,13 @@
                             </div>
 
                         </div>
+
+
                         <button class="name">
                             <span>{{tr(product.name)}}</span>
                         </button>
+
+
                     </div>
                 </div>
             </div>

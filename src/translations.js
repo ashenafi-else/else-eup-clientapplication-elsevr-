@@ -424,6 +424,6 @@ window.translations = {
         'en': 'white'
     },
     'LARUSMIANI_1': {
-        'en': '_Home_'
+        'en': '_Slipper_'
     }
 };

@@ -122,37 +122,60 @@
     </session-code>
     <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
         <div class="page content page-mainscreen virtual-catalog" id="product-start-screen">
-
-            <div class="logo-section">
+             <!-- <div class="logo-section">
                 <img class="logo" src="img/logo.png">
                 <span class="logo-line"></span>
-            </div>
-            <div class="list-items">
-                <div class="element"
-                     @click="setActive(collection.id)"
-                     :class="[collection.active?'active':'', collection.name]"
-                     :id="collection.id"
-                     v-for="collection in states.collection_view.collections">
-                    <div class="name">
-                        <span>{{collection.name}}</span>
+            </div> -->
+            <div class="header mainscreen-header">
+                <div class="col header-col header-start">
+                    <div class="logo header-logo">
+                        <!-- <img class="hidden vr-show logo-else-neon" src="img/Logo_ELSE.png"/> -->
                     </div>
-                    <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
-                    <img class="collection-img" :src="collection.image"/> -->
-                    <button class="" @click="continueAction">{{tr('Continue')}}</button>
-                    <div class="description">
-                        <!-- <ul class="col-16">
-                            <ul id="description4" class="options">
-                                <li class="number-configurations">2601</li>
-                                <li class="number-elements">3</li>
-                                <li class="number-materials">6</li>
-                                <li class="number-colors">51</li>
-                            </ul>
-                        </ul> -->
+                </div>
+                <div class="col header-col header-end">
+                    <div class="logo header-logo">
+                        <img class="hidden ac-show logo-predit" src="img/pi-apparel/predit_logo_alpha_small.png"/>
+                        <!-- <img class="logo-micam" src="img/logo_mcpc.png"> -->
                     </div>
                 </div>
             </div>
+            <div class="main">
+                <div class="collections centered-content">
+                    <h2 class="underline text-blue-bordered">{{tr("Select a collection")}}</h2>
+                    <div class="element"
+                         @click="setActive(collection.id)"
+                         :class="[collection.active?'active':'', collection.name]"
+                         :id="collection.id"
+                         v-for="collection in states.collection_view.collections">
+                        <div class="">
+                            <h2>{{collection.name}}</h2>
+                        </div>
+                        <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
+                        <img class="collection-img" :src="collection.image"/> -->
+                        <!-- <button class="" @click="continueAction">{{tr('Continue')}}</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-panel">
+                <img class="hidden acc-show" src="img/accenture/logos.png"/>
+                <div class="hidden micam-show stylish-text">{{tr("3D Retail Revolution")}}</div>
+                <img class="hidden vr-show atom-logos" src="img/logos_atom.png">
+                <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif">
+            </div>
         </div>
     </product-start-screen>
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+        <div class="page" id="product-config-nfc">
+            <div class="main">
+                <div class="h-80per nfc-config centered-content">
+                    <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
+                    <img class="" src="img/nfc.png">
+                    <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
+                </div>
+            </div>
+
+        </div>
+    </product-config-nfc>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
         <div class="page page-mainscreen page-product-list" id="product-list-screen">
             <div class="header mainscreen-header stgallen-header">
@@ -251,7 +274,7 @@
                      :states="states"
                      :state="states.product_view"
                      :data="api2Data"
-                     v-if="states.product_view.active"
+                     v-if="states.product_view.show_on_main"
                      :preview_image="preview_image">
         <div class="page page-mainscreen" id="product-details-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -364,6 +387,27 @@
                                     </div>
                                 </div>
                             </div>
+                    </div>
+                    <div class="monogram vertical-bar"
+                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
+                        <div class="column_1 table-header">{{tr("Monogram")}}</div>
+                        <div class="monogram-area">
+                            <div class="scroll-area">
+                                <div class="monogram-text">
+                                    {{data.active_structure.monogram.default_text}}
+                                </div>
+                                <div class="monogram-option"
+                                     v-for="(values, option) in data.active_structure.monogram.options"
+                                     v-if="isArray(values)"
+                                     :class="option">
+                                    <div>{{tr(option)}}</div>
+                                    <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]" 
+                                          v-for="value in values">
+                                        {{tr(value)}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
@@ -917,20 +961,19 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="total_user_profile">
                         <table id="user_profile_table">
                             <tbody>
-                                <tr>
-                                    <th>{{tr('Measure')}}</th>
-                                    <th>{{tr('Left Foot')}}</th>
-                                    <th>{{tr('Right Foot')}}</th>
-                                </tr>
-                                <tr v-for="metric in states.customer_profile_view.mtm.metrics">
-                                    <td>{{tr(metric.name)}}</td>
-                                    <td v-for="value in metric.values">{{tr(value.value)}}</td>
-                                </tr>
+                            <tr>
+                                <th>{{tr('Measure')}}</th>
+                                <th>{{tr('Left Foot')}}</th>
+                                <th>{{tr('Right Foot')}}</th>
+                            </tr>
+                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                <td>{{tr(metric.name)}}</td>
+                                <td v-for="value in metric.values">{{tr(value.value)}}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -1014,9 +1057,136 @@
             </div>
         </div>
     </customer-edit-profile>
-    <customer-login v-if="states.customer_login_view.active" id="customer-login-screen">
-        <div id="customer-login-screen">
-            {{tr("no customer login on main screen")}}
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+        <div class="container page" id="customer-login-screen">
+            <header class="header vr-header acc-header stgallen-header mainscreen-header">
+                <div class="logo header-logo">
+                    <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                    <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
+                    <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
+                </div>
+                <div class="col header__col header__col--middle">
+                    <span class="stgallen-hidden vr-stylish-text">{{tr("User Profile")}}</span>
+                    <div class="logo header-logo">
+                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
+                        <span class="stgallen-title">
+                            <span class="hidden stgallen-show">{{tr('User Profile')}}</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col header__col header__col--end">
+                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                        <div class="go-account"></div>
+                        <span class="user_name">
+                                        {{states.customer_profile_view.active_customer.firstname}}
+                                        {{states.customer_profile_view.active_customer.lastname}}
+                        </span>
+                        <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
+                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
+                                        <span id="rec-size" class="fitting-size">
+                                            {{getFittingValues().best_size.size}}
+                                        </span>
+                                <span class="factor-text">fitting factor</span>
+                                <span class="factor-score"
+                                      :class="getFittingClass(states.customer_fitting_view.best_size.score)">{{states.customer_fitting_view.best_size.score}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo header-logo">
+                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
+                    </div>
+                </div>
+            </header>
+            <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
+                <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
+                    <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="user_info">
+                        <div class="hidden vr-show stgallen-show user_info_line username_profile">{{tr('Name')}}:
+                            <span id="user_profile_name">
+                                        {{getUserName()}}
+                                    </span>
+                        </div>
+                        <div class="info-section">
+                            <div class="user-info-section">
+                                <div class="user_info_line">
+                                    {{tr('Gender')}}:
+                                    <span id="user_profile_sex">
+                                    {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                                </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Size')}}:
+                                    <span id="user_profile_size">
+                                            {{states.customer_profile_view.active_customer.size}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Email')}}:
+                                    <span id="user_profile_email">
+                                            {{states.customer_profile_view.active_customer.email}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Phone')}}:
+                                    <span id="user_profile_phone">
+                                            {{states.customer_profile_view.active_customer.addresses[0].telephone}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Delivery address')}}:
+                                    <span id="user_profile_address">
+                                            {{states.customer_profile_view.active_customer.addresses[0].city}}
+                                        </span>
+                                </div>
+                                <div class="user_info_line">
+                                    Notes:
+                                    <span>
+                                        {{states.customer_profile_view.active_customer.note}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="scan-section" v-if="states.customer_profile_view.active_scan">
+                                <div class="user_info_line">
+                                    {{tr('Current Scan ID')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.scan_id}}
+                                    </span>
+                                </div>
+                                <div class="user_info_line">
+                                    {{tr('Scanning Date Time')}}:
+                                    <span>
+                                        {{states.customer_profile_view.active_scan.created_date}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total_user_profile">
+                        <table id="user_profile_table">
+                            <tbody>
+                            <tr>
+                                <th>{{tr('Measure')}}</th>
+                                <th>{{tr('Left Foot')}}</th>
+                                <th>{{tr('Right Foot')}}</th>
+                            </tr>
+                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                                <td>{{tr(metric.name)}}</td>
+                                <td v-for="value in metric.values">{{tr(value.value)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>  <!-- ./user-info end -->
+                <div class="user_profile_params">
+                    <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile stgallen-your-scans_profile vr-your-scans_profile">
+                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your Scans</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </customer-login>
     <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"

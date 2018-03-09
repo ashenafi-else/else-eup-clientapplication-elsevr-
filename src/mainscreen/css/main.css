@@ -121,13 +121,7 @@ ul ul.options{
     align-items: center;
     flex-direction: column;
 }
-.page-store-selection .logo-section .reyrey-logo,
-.store-password-screen .logo-section .reyrey-logo,
-.page-session-code .logo-section .reyrey-logo {
-    margin-top: 30px;
-    width: 530px;
-    height: 180px;
-}
+
 
 .logo-section .logo-line{
     content: '';
@@ -647,7 +641,7 @@ footer {
 #canvas_container_id.customer_order_view{
     width: 100%;
     left: 0;
-    /*top: -7%;*/
+    top: -7%;
 }
 
 #canvas_container_id.customer_edit_profile_view,
@@ -656,6 +650,9 @@ footer {
     width: 50%;
     left: 50%;
     z-index:9999;
+}
+#canvas_container_id.nfc_scanner_config{
+    z-index: -9999;
 }
 .material-name{
     color:#ffffff;

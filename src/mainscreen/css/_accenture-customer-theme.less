@@ -36,7 +36,7 @@
     background-color: white;
     background-size: cover;
   }
-  .page-session-code{
+  .page-session-code, #collection-screen{
     background-image: url(../img/accenture/bcgd-qr_code.png);
   }
   .code{
@@ -137,6 +137,22 @@
       display: none;
     }
   }
+  #collection-screen{
+    .bottom-panel{
+      img{
+        height: 50px;
+      }
+    }
+    .collections {
+      h2 {
+        color: black;
+        text-shadow: none;
+      }
+    }
+  }
+
+
+
   #product-list-screen {
     .element {
       .collection-img{
@@ -695,7 +711,17 @@
     }
   }
 
-  #canvas_container_id.product_view, #canvas_container_id.material_view, #canvas_container_id.part_view, #canvas_container_id.preview_view, #canvas_container_id.customer_order_view {
+  /* #canvas_container_id.product_view, #canvas_container_id.material_view, #canvas_container_id.part_view, #canvas_container_id.preview_view, #canvas_container_id.customer_order_view {
     top: 12%;
+  } */
+  #product-config-nfc{
+    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background-size: cover;
+    .nfc-config{
+      background: none;
+      color:black;
+    }
   }
+
+
 }

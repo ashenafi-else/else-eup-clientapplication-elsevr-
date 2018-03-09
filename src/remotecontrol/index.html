@@ -128,18 +128,24 @@
         <div class="container" id="product-start-screen">
             <div class="virtual-catalog">
                 <div class="logo-section">
-                    <img class="stgallen-hidden logo" src="img/logo.png">
+                    <img class="logo" src="img/chromium_else.png">
+                    <span>Collections</span>
+                    <div class="logout-block" @click="logOutFromTheStore()">
+                        <span class="logout-text">Logout from the store</span>
+                        <img src="img/store-logout--.png" class="logo-logout">
+                    </div>
                 </div>
-                <div class="list-items">
-                    <div class="element"
+                <div class="collections">
+                    <h2 class="underline text-blue-bordered">{{tr("Select a collection")}}</h2>
+                    <div class=""
                          @click="setActive(collection.id)"
                          :class="[collection.active?'active':'', collection.name]"
                          :id="collection.id"
                          v-for="collection in states.collection_view.collections">
-                        <div class="name">
-                            <span>{{collection.name}}</span>
+                        <div class="">
+                            <h2>{{collection.name}}</h2>
                         </div>
-                        <img class="collection-img" :src="collection.image">
+                        <!-- <img class="collection-img" :src="collection.image"> -->
                     </div>
                 </div>
             </div>
@@ -151,9 +157,13 @@
                 <div class="logo-section">
                     <img class="logo" src="img/else-shoes.png">
                     <span>Virtual catalogue</span>
-                    <div class="logout-block" @click="logOutFromTheStore()">
+                    <!-- <div class="logout-block" @click="logOutFromTheStore()">
                         <span class="logout-text">Logout from the store</span>
                         <img src="img/store-logout--.png" class="logo-logout">
+                    </div> -->
+                    <div class="logout-block" @click="back">
+                        <span class="logout-text">&lt;&lt;{{tr("Back to Collections")}}</span>
+                        <!-- <img src="img/store-logout--.png" class="logo-logout"> -->
                     </div>
                 </div>
                 <div class="list-items">
@@ -174,6 +184,7 @@
                     </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
+                <button class="continue-to-configurator" @click="goToNFC()">{{tr('Direct NFC Integration')}}</button>
             </div>
         </div>
     </product-list>
@@ -293,30 +304,40 @@
                                 </div>
                             </div>
                         </div>
-                     </div>
+                    </div>
                     <div class="monogram vertical-bar"
-                         v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
+                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="column_1 table-header">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
                             <div class="scroll-area">
-                                <input type="text"
-                                       v-model="data.active_structure.monogram.default_text"
-                                       class="monogram-text">
+                                <div>
+                                    <input type="text"
+                                       v-for="(letter, index) in data.active_structure.monogram.splitted_text"
+                                       v-model="data.active_structure.monogram.splitted_text[index]"
+                                       class="monogram-text"
+                                       maxlength="1">
+                                </div>
                                 <div class="monogram-option"
                                      v-for="(values, option) in data.active_structure.monogram.options"
                                      v-if="isArray(values)"
                                      :class="option">
-                                    <label :for="option">{{tr(option)}}</label>
-                                    <select :id="option"
-                                            v-model="data.active_structure.monogram.defaults[option]"
-                                            class="monogram-select">
-                                        <option v-for="value in values" :value="value">{{tr(value)}}</option>
-                                    </select>
+                                    <div>{{tr(option)}}</div>
+                                    <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]" 
+                                          v-for="value in values">
+                                        <label :for="option + '_' + value">{{tr(value)}}</label>
+                                        <input :id="option + '_' + value"
+                                                v-model="data.active_structure.monogram.defaults[option]"
+                                                class="monogram-select" 
+                                                :value="value"
+                                                type="radio"
+                                                style="display: none">
+                                    </span>
                                 </div>
                             </div>
                             <button class="btn-apply-monogram" @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
+                            <button class="btn-apply-monogram" @click="changeStructure(0)">{{tr('Delete')}}</button>
                         </div>
-                     </div>
+                    </div>
                 </div>
                 <div class="summary-footer" style="">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
@@ -485,6 +506,29 @@
             </main>
         </div>
     </product-config-qr-code>
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+        <div class="page" id="product-config-nfc">
+            <div class="logo-section">
+                <img class="logo" src="img/chromium_else.png">
+                <span>Direct NFC</span>
+                <!-- <div class="logout-block" @click="logOutFromTheStore()">
+                    <span class="logout-text">Logout from the store</span>
+                    <img src="img/store-logout--.png" class="logo-logout">
+                </div> -->
+                <div class="logout-block" @click="back">
+                    <span class="logout-text">&lt;&lt;{{tr("Back to Catalogue")}}</span>
+                    <!-- <img src="img/store-logout--.png" class="logo-logout"> -->
+                </div>
+            </div>
+            <div class="main">
+                <div class="h-80per nfc-config centered-content">
+                    <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
+                    <img class="" src="img/nfc.png">
+                    <!-- <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input"> -->
+                </div>
+            </div>
+        </div>
+    </product-config-nfc>
     <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
         <div class="remote-configuration" id="product-preview-screen">
             <div class="remote-controller-main">

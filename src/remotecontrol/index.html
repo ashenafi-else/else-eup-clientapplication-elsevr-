@@ -182,9 +182,14 @@
                             <img :src="product.image" :alt="product.name"/>
                         </div>
                     </div>
+                    <div class="element" @click="goToNFC()">
+                        <div class="name">
+                            <span>{{tr('Direct NFC Integration')}}</span>
+                        </div>
+                    </div>
                 </div>
                 <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
-                <button class="continue-to-configurator" @click="goToNFC()">{{tr('Direct NFC Integration')}}</button>
+                <!-- <button class="continue-to-configurator" @click="goToNFC()">{{tr('Direct NFC Integration')}}</button> -->
             </div>
         </div>
     </product-list>
@@ -524,7 +529,7 @@
                 <div class="h-80per nfc-config centered-content">
                     <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
                     <img class="" src="img/nfc.png">
-                    <!-- <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input"> -->
+                    <input type="hidden" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
                 </div>
             </div>
         </div>
@@ -550,7 +555,7 @@
                 </div>
                 <div class="summary-footer" style="">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -596,7 +601,7 @@
                 </div>
                 <div class="summary-footer" style="">
                     <div class="product-summary">{{tr('Your current configuration')}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -642,7 +647,7 @@
                 </div>
                 <div class="summary-footer" style="">
                     <div class="product-summary">{{tr('Your current configuration')}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -738,7 +743,7 @@
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -847,7 +852,7 @@
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -985,7 +990,7 @@
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -1130,7 +1135,7 @@
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -1208,7 +1213,7 @@
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{states.product_view.active_product.name}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>

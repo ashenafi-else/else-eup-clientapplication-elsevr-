@@ -11,6 +11,12 @@
     font-weight: 600;
   }
 
+  @font-face {
+    font-family: 'Verlag';
+    src: url(../img/accenture/fonts/Verlag-Book.ttf);
+    font-weight: normal;
+  }
+  font-family: Verlog;
   .component-name, .vr-stylish-text{
     color: white;
     font-size: 1.7rem;
@@ -37,7 +43,8 @@
     background-size: cover;
   }
   .page-session-code, #collection-screen{
-    background-image: url(../img/accenture/bcgd-qr_code.png);
+    //background-image: url(../img/accenture/bcgd-qr_code.png);
+    background: white;
   }
   .code{
      color: black;
@@ -90,6 +97,7 @@
       background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
       background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%); */
       &.acc-title{
+        text-align: center;
         width: 100%;
         border-radius: 0 !important;
         /* background: rgb(147,0,254);
@@ -204,11 +212,12 @@
     }
     .element.active{
       button.name{
-        background: rgb(147,0,254);
+        /* background: rgb(147,0,254);
         background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
         background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-        color: #00ff00;
+        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%); */
+        background-color: #002144;
+        color: white;
       }
     }
     .bottom-panel{
@@ -327,16 +336,17 @@
     }
   }
   .acc-stylish-title{
-    color: rebeccapurple;
+    color: #002144;
     font-family: "Lato", sans-serif;
     font-weight: 600;
     font-size: 2rem;
   }
   .acc-block-title{
-    background: rgb(147,0,254);
+    /* background: rgb(147,0,254);
     background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
     background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-    background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+    background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%); */
+    background: #002145;
     color: white;
     font-family: Lato, sans-serif;
     font-weight: 600;
@@ -363,7 +373,8 @@
   }
 
   #customer-order-screen{
-    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    //background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background: white;
     background-size: cover;
     .order-form{
       form{
@@ -721,13 +732,19 @@
     top: 12%;
   } */
   #product-config-nfc{
-    background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    //background: url(../img/accenture/bcgd-app.png) no-repeat center;
+    background: white;
     background-size: cover;
     .nfc-config{
       background: none;
       color:black;
     }
   }
+  .prices, .total-price{
+    display: none !important;
+  }
+
+
 
 
 }

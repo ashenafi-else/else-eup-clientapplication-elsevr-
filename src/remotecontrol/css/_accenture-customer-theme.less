@@ -1,6 +1,8 @@
 .store_25 {
+  font-family: Verlog;
   .session-code-screen, .page-staff-login, .page-session-code, #product-list-screen, #product-config-nfc, #product-start-screen {
-    background: url(../img/accenture/bcgd-app.png) !important;
+    //background: url(../img/accenture/bcgd-app.png) !important;
+    background-color: white;
     background-size: contain;
   }
   .page-session-code {
@@ -49,15 +51,16 @@
     }
   }
   .continue-to-configurator {
-    font-family: "Lato", sans-serif;
+    font-family: "Verlog","Lato", sans-serif;
     font-weight: 600;
-    background: white;
-    border: 5px solid black;
+    background: #002145;
+    border: none;
+    //border: 5px solid black;
     box-shadow: #00000045 0px 5px 22px;
-    color: black;
+    color: white;
   }
   .element.active {
-    box-shadow: inset 0 0 0 10px #9300fe;
+    box-shadow: inset 0 0 0 8px #00ffff;
   }
   #product-config-nfc {
     .nfc-config {
@@ -80,6 +83,31 @@
   #product-list-screen{
     .logout-block {
       background: none;
+    }
+  }
+  .remote-controller-menu{
+
+      .go-account, .go-order, .close{
+        color: white;
+        background-color: #002144;
+        box-shadow: none;
+
+    }
+  }
+  .register-block .register-button{
+    background-color: #002144;
+  }
+  .order-button-block{
+    .order{
+      background: #002144;
+    }
+  }
+  .save-changes, .button-logout, .foot_toggle label.active{
+    background-color: #002144 !important;
+  }
+  .page-session-code .session-code {
+    button,label,input{
+      font-family: Verlag;
     }
   }
 }

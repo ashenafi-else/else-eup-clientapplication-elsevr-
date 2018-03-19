@@ -99,7 +99,7 @@
             </div>
             <div class="main">
                 <div class="h-80per session-code centered-content">
-                    <img class="hidden acc-show accenture-logo-img h-40per" src="img/accenture/logo_acin.png">
+                    <img class="hidden acc-show accenture-logo-img h-40per" src="img/logo-transparent-black.png">
                     <img class="hidden vr-show logo-chromium h-40per" src="img/chromium_else.png"/>
                     <img class="hidden ac-show logo-altroconsumo-big h-40per" src="img/altroconsumo/big_block.png"/>
                     <img class="hidden stgallen-show stgallen-logo-img  h-50per" src="img/st-gallen/logos-block.png"/>
@@ -170,7 +170,7 @@
                 <div class="h-80per nfc-config centered-content">
                     <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
                     <img class="" src="img/nfc.png">
-                    <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
+                    <!-- <input type="text" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input"> -->
                 </div>
             </div>
 
@@ -193,7 +193,7 @@
                         <img class="hidden micam-show apparel-show vr-show logo-elsa-neon" src="img/elsa-small.png"/>
                         <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
                         <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
-                        <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/>
+                        <!-- <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -244,6 +244,15 @@
                                     <video src="./img/video/3D_Tour_Larusmiani.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
                                 </div>
 
+                                <!-- <div class="optional-video-container-men">
+                                    <img src="./img/video/3D_Tour_else.shoe_Man.gif" class="product_tour_video"/>
+                                </div>
+                                <div class="optional-video-container-women">
+                                    <img src="./img/video/3D_Tour_else.shoe_Woman.gif" class="product_tour_video"/>
+                                </div>
+                                <div class="optional-video-container-home">
+                                    <img src="./img/video/3D_Tour_Larusmiani.gif" class="product_tour_video"/>
+                                </div> -->
                             </div>
 
                         </div>
@@ -282,7 +291,6 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
@@ -299,7 +307,7 @@
                     </span>
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                     <span class="stgallen-title">
@@ -329,7 +337,7 @@
                         </div>
                     </div>
                     <div class="logo header-logo">
-                        <img class="logo-pwd-else" src="img/Powered_by_ELSE_transparent.gif"/>
+                        <img class="logo-pwd-else acc-hidden" src="img/Powered_by_ELSE_transparent.gif"/>
                     </div>
                 </div>
             </div>
@@ -675,7 +683,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
@@ -766,7 +774,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
@@ -857,7 +865,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
@@ -1060,25 +1068,24 @@
     <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
         <div class="container page" id="customer-login-screen">
             <header class="header vr-header acc-header stgallen-header mainscreen-header">
-                <div class="logo header-logo">
-                    <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                    <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
-                    <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                <div class="col header-col header-start">
+                    <img class="hidden acc-hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
+                    <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                     <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                     <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                 </div>
-                <div class="col header__col header__col--middle">
+                <div class="col header-col header-middle">
                     <span class="stgallen-hidden vr-stylish-text">{{tr("User Profile")}}</span>
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
                             <span class="hidden stgallen-show">{{tr('User Profile')}}</span>
                         </span>
                     </div>
                 </div>
-                <div class="col header__col header__col--end">
+                <div class="col header-col header-end">
                     <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
@@ -1101,7 +1108,7 @@
                     </div>
                 </div>
             </header>
-            <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
+            <div class="best-fit main" style="">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
                     <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
                     <div class="user_info">
@@ -1115,7 +1122,7 @@
                                 <div class="user_info_line">
                                     {{tr('Gender')}}:
                                     <span id="user_profile_sex">
-                                    {{tr('gender_' + states.customer_profile_view.active_customer.gender)}}
+                                        -
                                 </span>
                                 </div>
                                 <div class="user_info_line">
@@ -1173,10 +1180,120 @@
                                 <th>{{tr('Left Foot')}}</th>
                                 <th>{{tr('Right Foot')}}</th>
                             </tr>
-                            <tr v-for="metric in states.customer_profile_view.mtm.metrics">
+                            <tr>
+                                <td>Foot Length (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Position of 1st Metatarsal head (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Instep Girth (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Position of 5th Metatarsal head (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Instep to heel Girth (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Ball Position (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Heel Width (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Ball Angle (degrees)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Ball Girth (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Ball Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Medial Ball Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Lateral Ball Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Toes Position (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Ball Width (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Toes Angle (degrees)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Instep Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Toes Girth (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Instep Width (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Toes Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Navicular Position (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Toes Width (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Navicular Height (mm)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <!-- <tr v-for="metric in states.customer_profile_view.mtm.metrics">
                                 <td>{{tr(metric.name)}}</td>
                                 <td v-for="value in metric.values">{{tr(value.value)}}</td>
-                            </tr>
+                            </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -1196,8 +1313,8 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hiddem ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
@@ -1207,7 +1324,7 @@
                     <span class="stgallen-hidden screen-name vr-stylish-text">{{tr("Order")}}</span>
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden acc-show ac-logo-img" src="img/logo-transparent-white.png">
                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
                             <span class="hidden stgallen-show">{{tr('Order')}}</span>
@@ -1242,7 +1359,7 @@
                     <div class="elsa-container">
                         <img class="logo-elsa-neon" src="img/elsa-small.png"/>
                         <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
-                        <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/>
+                        <!-- <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/> -->
                     </div>
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
@@ -1432,7 +1549,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>

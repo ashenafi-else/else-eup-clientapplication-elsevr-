@@ -65,28 +65,28 @@ window.config = {
         }]
     },
 
-    'update_last_scan_interval': 15,
+'update_last_scan_interval': 15,
     'component_cameras': {
-        'elsevr_men_1_1': {
-            '11': 'camera-for-monogram'
-        },
-        /* '1': 'prod_1_1cameraBODY',
-        '2': 'prod_1_1cameraEMBROIDERY',
-        '4': 'prod_1_1cameraLINING',
-        '6': 'prod_1_1cameraOUTSOLE',
-        '3': 'prod_1_1cameraTRIM_INSOLE',
-        '5': 'prod_1_1cameraTRIM_INSOLE',*/
+    'elsevr_men_1_1': {
+        '11': 'camera-for-monogram'
     },
-    'cameras_initial_settings': {
-        'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
-        'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
-    },
+    /* '1': 'prod_1_1cameraBODY',
+     '2': 'prod_1_1cameraEMBROIDERY',
+     '4': 'prod_1_1cameraLINING',
+     '6': 'prod_1_1cameraOUTSOLE',
+     '3': 'prod_1_1cameraTRIM_INSOLE',
+     '5': 'prod_1_1cameraTRIM_INSOLE',*/
+},
+'cameras_initial_settings': {
+    'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
+    'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
+},
     'home_state': 'COLLECTION',
-    'render_quality': 'LOW',
+    'render_quality': 'AUTO',
     'staff_login': false,
     'show_nfc_input': {
         'remotecontrol': true,
         'mainscreen': true
-    },
+},
 
 };

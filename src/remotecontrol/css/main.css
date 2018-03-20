@@ -237,7 +237,7 @@ footer {
 }
 
 
-.configurator>.go-account, .configurator>.go-order, .close {
+.configurator>.go-order, .close {
     color: white ;
     background-color: #000000;
     box-shadow: none;

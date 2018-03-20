@@ -162,7 +162,7 @@
                         <img src="img/store-logout--.png" class="logo-logout">
                     </div> -->
                     <div class="logout-block" @click="back">
-                        <span class="logout-text">&lt;&lt;{{tr("Back to Collections")}}</span>
+                        <span class="back-to-collections">&lt;{{tr("Back")}}</span>
                         <!-- <img src="img/store-logout--.png" class="logo-logout"> -->
                     </div>
                 </div>
@@ -184,7 +184,10 @@
                     </div>
                     <div class="element" @click="goToNFC()">
                         <div class="name">
-                            <span>{{tr('Direct NFC Integration')}}</span>
+                            <span>{{tr('_NFC_')}}</span>
+                        </div>
+                        <div class="image-container">
+                            <img src="./img/nfc-icon-black.png" alt="NFC"/>
                         </div>
                     </div>
                 </div>
@@ -529,6 +532,11 @@
                 <div class="h-80per nfc-config centered-content">
                     <div class="nfc-text">{{tr("Place the shoe on the NFC platform to start configure")}}</div>
                     <img class="" src="img/nfc.png">
+                    <div class="default-config-block">
+                        <input type="button" class="btn-default-config" placeholder="Configuration#1" value="Configuration#1" @click="applyCode('apply_config;larusmiani_1;1,1:2,1:3,1:4,1:5,1:6,1:7,1;2,1,0,velvet,mat_velvet_191A1B,5,1,0,velvet,mat_velvet_191A1B')">
+                        <input type="button" class="btn-default-config" value="Configuration#2" @click="applyCode('apply_config;larusmiani_1;1,1:2,1:3,1:4,1:5,1:6,1:7,1;1,1,0,velvet,mat_velvet_002725')">
+                        <input type="button" class="btn-default-config" value="Configuration#3" @click="applyCode('apply_config;larusmiani_1;1,1:2,1:3,1:4,1:5,1:6,1:7,1;1,1,0,pattern-fabric,mat_pattern-fabric_EC2417')">
+                    </div>
                     <input type="hidden" name="nfc_code" v-model="nfc_code" v-show="show_input" @change="applyCode(nfc_code)" ref="nfc_input" id="nfc_input">
                 </div>
             </div>

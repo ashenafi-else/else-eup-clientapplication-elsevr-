@@ -53,6 +53,12 @@
     display: inline-block;
   }
   .bottom-panel{
+    .poweredby-accenture{
+      width: 20%;
+      position: absolute;
+      left: 1%;
+      bottom: 10px;
+    }
     .logo-altroconsumo, .logo-else-corp{
       position: absolute;
       bottom: 50px;
@@ -144,9 +150,12 @@
     width: 98%;
     height: 98%;
     box-shadow: #00000045 0 5px 22px;
-    img:not(.collection-img){
+    .blue-border-picture, .active-picture{
       display: none;
     }
+    /* img:not(.collection-img){
+      display: none;
+    } */
   }
   #collection-screen{
     .bottom-panel{
@@ -175,7 +184,7 @@
             display: block;
           }
         }
-        &._Women_ {
+        &._Decollete_ {
           .optional-video-container-women {
             display: block;
           }
@@ -380,17 +389,30 @@
       form{
         position: absolute;
         border-radius: 0;
-        right: 20px;
+        right: auto;
+        left: 15px;
         width: 320px;
-        padding: 35px;
+        padding: 20px;
         margin-top: 30px;
-        background: rgb(147,0,254);
+        border: 1px solid black;
+        background: white;
+        /*background: rgb(147,0,254);
         background: -moz-linear-gradient(left, rgb(147,0,254) 0%, rgb(76,0,160) 100%);
         background: -webkit-linear-gradient(left, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
-        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%);
+        background: linear-gradient(to right, rgb(147,0,254) 0%,rgb(76,0,160) 100%); */
+        .fullname-block{
+         .flex-container();
+        }
+        label, .label{
+          color: grey;
+          .notes{
+            height: 50px;
+          }
+        }
         input, select{
-          background-color: white;
-          color: black;
+          height: 25px;
+          background-color: #00214a70;
+          color: white;
         }
       }
     }
@@ -738,13 +760,29 @@
     .nfc-config{
       background: none;
       color:black;
+      .nfc-icon{
+        margin-top: 5%;
+        height: 20%;
+      }
     }
   }
-  .prices, .total-price{
+  .prices, .total-price, .delivery-time{
     display: none !important;
   }
 
+  .header + .main{
+    height: 90vh;
+  }
 
+  .price-block{
+    width: 12rem;
+    font-size: .8rem;
+    position: absolute;
+    right: 10px !important;
+    bottom: 10px;
+    left: auto !important;
+    color: #696969;
+  }
 
 
 }

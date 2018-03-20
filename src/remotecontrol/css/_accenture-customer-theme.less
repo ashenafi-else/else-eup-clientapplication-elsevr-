@@ -38,8 +38,18 @@
       background-size: 25px;
       background-repeat: no-repeat;
     }
-    span.logout-text {
-      margin-right: 33px;
+    span.back-to-collections {
+      width: 95%;
+      height: 55px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      width: 150px;
+      justify-content: center;
+      font-size: 1.2em;
+      color: white;
+      background-color: #002144;
     }
   }
   #product-start-screen {
@@ -64,6 +74,19 @@
   }
   #product-config-nfc {
     .nfc-config {
+      .default-config-block{
+        display: flex;
+        flex-direction: column;
+        .btn-default-config{
+          margin: 15px;
+          background-color: #002144;
+          color: white;
+          border-radius: 5px;
+          height: 50px;
+          font-size: 20px;
+          width: 300px;
+        }
+      }
       background: none;
       .nfc-text{
         display: flex;

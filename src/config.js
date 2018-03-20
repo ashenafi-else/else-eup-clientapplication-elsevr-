@@ -62,6 +62,19 @@ window.config = {
             'element': '0',
             'active_material': 'suede',
             'active_color': 'mat_suede_beige'
+        }],
+        'larusmiani_1': [{
+            'component': '1',
+            'structure': '1',
+            'element': '0',
+            'active_material': 'velvet',
+            'active_color': 'mat_velvet_191A1B'
+        },{
+            'component': '5',
+            'structure': '1',
+            'element': '0',
+            'active_material': 'velvet',
+            'active_color': 'mat_velvet_191A1B'
         }]
 
     },

@@ -95,9 +95,10 @@
         <div id="session-code-screen" class="page-session-code">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
-                    <div class="logo header-logo">
-                        <img class="stgallen-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
-                        <img class="dark-silver-logo" src="img/chromium_else.png"/>
+                    <div class="logo-section">
+                        <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
+                        <img class="acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                        <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                     </div>
                 </div>
                 <div class="col header-col header-end">
@@ -128,7 +129,9 @@
         <div class="container" id="product-start-screen">
             <div class="virtual-catalog">
                 <div class="logo-section">
-                    <img class="logo" src="img/chromium_else.png">
+                    <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
+                    <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                     <span>Collections</span>
                     <div class="logout-block" @click="logOutFromTheStore()">
                         <span class="logout-text">Logout from the store</span>
@@ -155,7 +158,9 @@
         <div class="container" id="product-list-screen">
             <div class="start-screen virtual-catalog">
                 <div class="logo-section">
-                    <img class="logo" src="img/else-shoes.png">
+                    <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
+                    <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                     <span>Virtual catalogue</span>
                     <!-- <div class="logout-block" @click="logOutFromTheStore()">
                         <span class="logout-text">Logout from the store</span>
@@ -517,7 +522,9 @@
     <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
         <div class="page" id="product-config-nfc">
             <div class="logo-section">
-                <img class="logo" src="img/chromium_else.png">
+                <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
+                <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                 <span>Direct NFC</span>
                 <!-- <div class="logout-block" @click="logOutFromTheStore()">
                     <span class="logout-text">Logout from the store</span>

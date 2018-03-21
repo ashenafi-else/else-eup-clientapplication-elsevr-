@@ -1,10 +1,12 @@
 .store_25 {
-  font-family: Verlog;
+  @font-face {
+    font-family: 'Verlag';
+    src: url(../../mainscreen/img/accenture/fonts/Verlag-Book.ttf);
+    font-weight: normal;
+  }
+  font-family: Verlag;
   .acc-hidden{
     display: none;
-  }
-  .acc-show{
-    display: inline-block;
   }
   .session-code-screen, .page-staff-login, .page-session-code, #product-list-screen, #product-config-nfc, #product-start-screen {
     //background: url(../img/accenture/bcgd-app.png) !important;
@@ -17,19 +19,20 @@
       text-shadow: none;
     }
     .dark-silver-logo {
-      display: block;
+      display: none;
     }
     .stgallen-hidden {
-      display: none;
+      display: block;
     }
   }
   .virtual-catalog {
     .logo-section span {
       color: BLACK;
       margin-left: 24px;
+      font-size: 24px;
     }
     .dark-silver-logo {
-      display: block;
+      display: none;
     }
     .stgallen-hidden {
       display: none;
@@ -157,5 +160,8 @@
   .edit-profile-form select,
   .edit-profile-form option{
     font-family: Verlag;
+  }
+  .acc-show{
+    display: inline-block;
   }
 }

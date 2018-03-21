@@ -1,5 +1,11 @@
 .store_25 {
   font-family: Verlog;
+  .acc-hidden{
+    display: none;
+  }
+  .acc-show{
+    display: inline-block;
+  }
   .session-code-screen, .page-staff-login, .page-session-code, #product-list-screen, #product-config-nfc, #product-start-screen {
     //background: url(../img/accenture/bcgd-app.png) !important;
     background-color: white;
@@ -132,5 +138,24 @@
     button,label,input{
       font-family: Verlag;
     }
+    button{
+      text-shadow: none;
+    }
+  }
+  .configurator-item{
+    font-family: Verlag;
+    font-size: 1rem;
+    .text{
+      font-family: Verlag;
+      font-size: 1rem;
+    }
+  }
+  .register-block input:not([type=radio]),
+  .register-block select,
+  .register-block option,
+  .edit-profile-form input:not([type=radio]),
+  .edit-profile-form select,
+  .edit-profile-form option{
+    font-family: Verlag;
   }
 }

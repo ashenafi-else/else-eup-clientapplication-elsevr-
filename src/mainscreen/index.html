@@ -194,7 +194,7 @@
     </product-config-nfc>
     <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
         <div class="page page-mainscreen page-product-list" id="product-list-screen">
-            <div class="header mainscreen-header stgallen-header">
+            <div class="header mainscreen-header acc-header stgallen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show logo-else-neon" src="img/Logo_ELSE.png"/>
@@ -203,8 +203,9 @@
                     </div>
                 </div>
                 <div class="col header-col header-middle">
-                    <span class="hidden acc-show acc-stylish-title">{{tr('Virtual Catalogue 3D')}}</span>
+                    <span class="hidden acc-show acc-hidden acc-stylish-title">{{tr('Virtual Catalogue 3D')}}</span>
                     <span class="hidden stgallen-show stgallen-title">{{tr('Virtual Catalogue 3D')}}</span>
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                     <div class="elsa-container">
                         <img class="hidden micam-show apparel-show vr-show logo-elsa-neon" src="img/elsa-small.png"/>
                         <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
@@ -307,7 +308,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
@@ -606,7 +607,7 @@
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/accenture/chromium_else.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
@@ -707,17 +708,18 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
 
                 </div>
                 <div class="col header-col header-middle">
-                    <span class="stgallen-hidden vr-stylish-text">{{tr("Material Preview")}}</span>
+                    <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("Material Preview")}}</span>
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
                             <span class="hidden stgallen-show">{{tr('Material Preview')}}</span>
@@ -895,17 +897,18 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
 
                 </div>
                 <div class="col header-col header-middle">
-                    <span class="stgallen-hidden vr-stylish-text">{{tr("User Profile")}}</span>
+                    <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("User Profile")}}</span>
                     <div class="logo header-logo">
                         <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
-                        <img class="hidden acc-show" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
+                        <img class="hidden acc-show" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
                             <span class="hidden stgallen-show">{{tr('User Profile')}}</span>

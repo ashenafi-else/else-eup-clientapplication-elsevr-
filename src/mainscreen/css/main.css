@@ -14,12 +14,6 @@ html, body{
     overflow: hidden;
 }
 
-/* HEADER */
-
-/*.header span.screen-name {*/
-/*margin-top: 20px;*/
-/*}*/
-
 .header{
     z-index: 9999;
 }
@@ -35,7 +29,7 @@ html, body{
     height: 50px;
 }
 .header-middle img{
-    width: 200px;
+    width: auto;
     height: 60px;
 }
 .vertical-line{
@@ -211,7 +205,6 @@ ul ul.options{
 
 
 /* REYREY - MAIN CONFIGURATION SCREEN */
-
 .wrapper {
     display: flex;
     flex-direction: column;

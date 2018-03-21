@@ -131,14 +131,14 @@
 
   .configurator-block{
     .component.active{
-      .active-item-rotating-green-round();
+      .active-item-rotating-round();
     }
     .component.control-active{
-      .active-item-rotating-green-round();
+      .active-item-rotating-round();
     }
   }
   .material-head.active {
-    .active-item-rotating-green-round();
+    .active-item-rotating-round();
   }
   .configurable-parts-block{
     margin-top: 20px;
@@ -271,9 +271,9 @@
       right: 137px;
       width: 13.2rem;
       .color.active {
-        border: solid #00ff00 !important;
-        animation: blink 1s linear infinite alternate;
-        box-shadow: 0 0 1px 1px #00ff00;
+       //border: solid #00ff00 !important;
+       //animation: blink 1s linear infinite alternate;
+        //box-shadow: 0 0 1px 1px #00ff00;
       }
     }
     .wl-elsa{
@@ -423,6 +423,8 @@
   }
 
   #customer-fitting-screen{
+    background: white;
+    background-size: cover;
     .user_profile_params{
       border-radius: 0;
       border: 2px solid black;
@@ -440,16 +442,16 @@
         color: black;
       }
       .username_profile{
-        color: #5f0095;
+        color: #002144;
       }
       .userscans{
-        color: #5f0095;
+        color: #002144;
         .box-shadow(none);
       }
     }
     .product_info{
       border-radius: 0;
-      color: #5f0095;
+      color: #002144;
       box-shadow: none;
       border: 2px solid black;
       background-color: white;
@@ -553,7 +555,7 @@
     height: 30px;
   }
   .total_user_profile tr:nth-of-type(odd){
-    background-color: #9de489 !important;
+    background-color:  #002144a7 !important;
     height: 30px;
     color: black !important;
   }
@@ -740,7 +742,8 @@
         background-image: url(../img/components/dark/h-outsole-dark.png);
       }
       &.logo {
-        background-image: url(../img/components/dark/h-outsole-dark.png);
+        display: none;
+        //background-image: url(../img/components/dark/h-outsole-dark.png);
       }
     }
   }
@@ -787,6 +790,17 @@
     left: auto !important;
     color: #696969;
   }
-
+  .account_info{
+    //display: none;
+  }
+  .non-configurable-parts-container{
+    justify-content: center;
+  }
+  .non-configurable-parts-block{
+    width: 17rem;
+  }
+  #canvas_container_id.product_view, #canvas_container_id.material_view, #canvas_container_id.part_view, #canvas_container_id.preview_view, #canvas_container_id.customer_order_view{
+    top: 0;
+  }
 
 }

@@ -41,13 +41,13 @@
       display: none;
     }
     .logout-block {
-      background: url("../img/store-logout.png");
+      //background: url("../img/store-logout.png");
       background-position-x: right;
       background-position-y: center;
       background-size: 25px;
       background-repeat: no-repeat;
     }
-    span.back-to-collections {
+    span.back-to-collections{
       width: 95%;
       height: 55px;
       border-radius: 4px;
@@ -70,7 +70,7 @@
     }
   }
   .continue-to-configurator {
-    font-family: "Verlog","Lato", sans-serif;
+    font-family: Verlag, "Lato", sans-serif;
     font-weight: 600;
     background: #002145;
     border: none;
@@ -82,6 +82,22 @@
     box-shadow: inset 0 0 0 8px #00ffff;
   }
   #product-config-nfc {
+    .logout-block{
+      .back-to-catalog{
+        width: 95%;
+        height: 55px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 150px;
+        justify-content: center;
+        font-size: 1.2em;
+        color: white;
+        background-color: #002144;
+      }
+    }
+
     .nfc-config {
       .default-config-block{
         display: flex;
@@ -143,15 +159,16 @@
       font-family: Verlag;
     }
     button{
+      background-color: #002144;
       text-shadow: none;
     }
   }
   .configurator-item{
     font-family: Verlag;
-    font-size: 1rem;
+    font-size: 1.2rem;
     .text{
       font-family: Verlag;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
   .register-block input:not([type=radio]),
@@ -164,5 +181,21 @@
   }
   .acc-show{
     display: inline-block;
+  }
+  #product-start-screen{
+    .logout-block{
+      height: 50px;
+      border-radius: 5px;
+      background-color: #002144;
+      .logo-logout {
+        display: block;
+      }
+      .logout-text{
+        font-size: 1.2em;
+        margin-left: 0px;
+        padding: 5px;
+        color: white;
+      }
+    }
   }
 }

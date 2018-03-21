@@ -27,10 +27,17 @@
     z-index: 99999999;
     color: #939598;
     background-color: white;
-    font-size: 30px;
     text-align: center;
     border: 1px solid black;
-    padding: 50px 100px;
-    width: 300px;
-    height: 100px;
+    padding: 75px 20px;
+    width: 325px;
+    height: 200px;
+    font-size: 22px;
+    box-shadow: #939598 0 0 20px;
+    span{
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        color: black;
+    }
 }

@@ -84,6 +84,9 @@ window.config = {
     'elsevr_men_1_1': {
         '11': 'camera-for-monogram'
     },
+    'larusmiani_1': {
+        '7': 'cameraBOTTOM'
+    }
     /* '1': 'prod_1_1cameraBODY',
      '2': 'prod_1_1cameraEMBROIDERY',
      '4': 'prod_1_1cameraLINING',
@@ -97,7 +100,7 @@ window.config = {
 },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',
-    'staff_login': false,
+    'staff_login': true,
     'show_nfc_input': {
         'remotecontrol': true,
         'mainscreen': true

@@ -121,16 +121,19 @@
         </div>
     </session-code>
     <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
-        <div class="page content page-mainscreen virtual-catalog" id="product-start-screen">
+        <div class="page content page-mainscreen" id="product-start-screen">
              <!-- <div class="logo-section">
                 <img class="logo" src="img/logo.png">
                 <span class="logo-line"></span>
             </div> -->
-            <div class="header mainscreen-header">
+            <div class="header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
                         <!-- <img class="hidden vr-show logo-else-neon" src="img/Logo_ELSE.png"/> -->
                     </div>
+                </div>
+                <div class="col header-col header-middle">
+                    <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                 </div>
                 <div class="col header-col header-end">
                     <div class="logo header-logo">
@@ -1356,11 +1359,10 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-hiddem ac-logo-img" src="img/logo-transparent-white.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>
-
                 </div>
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden screen-name vr-stylish-text">{{tr("Order")}}</span>
@@ -1716,7 +1718,7 @@
                     <div class="logo header-logo">
                         <img class="hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
                         <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
-                        <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
+                        <img class="hidden ac-show acc-hidden ac-logo-img" src="img/logo-transparent-white.png">
                         <img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>
                         <img class="hidden stgallen-show h-40per" src="img/st-gallen/st_gallen_logo.png"/>
                     </div>

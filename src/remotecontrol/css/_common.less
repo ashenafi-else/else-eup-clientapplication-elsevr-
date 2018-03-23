@@ -784,13 +784,16 @@ h6 {
 
 // --- ICONS --- ///
 
-.qr-icon, .fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
+.reset-icon,.qr-icon, .fitt-icon, .material-icon, .product-part-icon, .advanced-icon, .rotation-icon, .wishlist-icon {
   background: center center no-repeat;
   background-size: contain;
   width: 34px;
   height: 40px;
   margin-right: 10px;
   margin-left: 10px;
+}
+.reset-icon{
+  background-image: url("../img/update-scan.png");
 }
 .qr-icon{
   background-image: url("../img/options/qrcode.png");
@@ -819,7 +822,16 @@ h6 {
   height: 60px;
 }
 
+// --- NFC PART --- //
+.nfc-config {
+  .default-config-block {
+    display: flex;
+    flex-direction: column;
+    .btn-default-config {
 
+    }
+  }
+}
 // ---  H I D D E N  E L E M E N T S --- //
 
 .mat_suede_blue-man {

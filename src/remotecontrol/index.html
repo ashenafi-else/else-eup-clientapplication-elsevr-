@@ -131,7 +131,7 @@
             <div class="virtual-catalog">
                 <div class="logo-section">
                     <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
-                    <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
                     <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                     <span>Collections</span>
                     <div class="logout-block" @click="logOutFromTheStore()">
@@ -160,7 +160,7 @@
             <div class="start-screen virtual-catalog">
                 <div class="logo-section">
                     <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
-                    <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                    <img class="acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
                     <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                     <span>Virtual catalogue</span>
                     <!-- <div class="logout-block" @click="logOutFromTheStore()">
@@ -423,6 +423,10 @@
                         <span class="qr-icon"></span>
                         <span class="text">{{tr("Scan Configuration")}}</span>
                     </button>
+                    <button class="configurator-item" @click="resetConfiguration()">
+                        <span class="reset-icon"></span>
+                        <span class="text">{{tr("Default Configuration")}}</span>
+                    </button>
                    <!-- <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
                         <div class="stgallen-hidden add-to-wishlist wishlist-icon select" @click="showSaveWishForm()"></div>
                         <div id="go-wishlist" class="stgallen-hidden view-wishlist select" @click="showWishList(true)">
@@ -524,7 +528,7 @@
         <div class="page" id="product-config-nfc">
             <div class="logo-section">
                 <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
-                <img class="hidden acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
+                <img class="acc-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
                 <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>
                 <span>Direct NFC</span>
                 <!-- <div class="logout-block" @click="logOutFromTheStore()">

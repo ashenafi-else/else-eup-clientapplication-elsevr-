@@ -1740,6 +1740,15 @@
             </div>
         </div>
     </customer-order>
+    <!-- <notification-messages inline-template v-if="notification_messages.show_notify"
+                           id="notification-messages"
+                           :notification_messages="notification_messages">
+        <div id="notification-messages" class="container"
+             style="position: absolute; margin: 0; width:300px; background: #f4f5f4; top: 20px; left: 40%; z-index: 9999999;">
+            <label class="label"> {{tr(notification_messages.message)}}</label>
+            <button @click="closeNotify()">{{tr('Ok')}}</button>
+        </div>
+    </notification-messages> -->
     <customer-fitting v-if="states.customer_fitting_view.active"
                       class="customer-fitting"
                       id="customer-fitting-screen"
@@ -1979,7 +1988,7 @@
 <script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
-<!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<!-- <script src="https://localhost:10000/js/else.js.client.sdk.js"></script> -->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/mainscreen-ui-sdk.js"></script>
 <!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
 <div id="canvas_container_id"></div>

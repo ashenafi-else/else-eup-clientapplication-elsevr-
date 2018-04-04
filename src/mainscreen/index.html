@@ -417,27 +417,33 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="monogram vertical-bar"
+                    <div class="monogram-block vertical-bar"
                           v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
-                        <div class="column_1 table-header">{{tr("Monogram")}}</div>
+                        <div class="title vr-block-title ac-block-title w-80per">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
-                            <div class="scroll-area">
+                            <div class="block__container">
                                 <div class="monogram-text">
                                     {{data.active_structure.monogram.default_text}}
                                 </div>
+
                                 <div class="monogram-option"
                                      v-for="(values, option) in data.active_structure.monogram.options"
                                      v-if="isArray(values)"
                                      :class="option">
                                     <div>{{tr(option)}}</div>
-                                    <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]" 
+
+                                    <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]"
                                           v-for="value in values">
                                         {{tr(value)}}
                                     </span>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
                             <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>

@@ -100,6 +100,7 @@ window.config = {
 },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',
+    'order_level': 'PRODUCT',
     'staff_login': false,
     'show_nfc_input': {
         'remotecontrol': true,

@@ -1073,20 +1073,20 @@ X                                              v-for="value in values">
                     </div>
                 </div>
 
-                <div class="order-button-block" v-if="account_data">
+                <div class="order-button-block">
                     <form>
                         <div class="input-label">
                             <label class="label">{{tr("Full Name")}}</label>
-                            <input type="text" v-model.trim="account_data.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;">
-                            <input type="text" v-model.trim="account_data.lastname" @input="updateData" name="lastname" placeholder="Last Name" style="flex: 1 1 190px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.lastname" @input="updateData" name="lastname" placeholder="Last Name" style="flex: 1 1 190px;">
                         </div>
                         <div class="input-label">
                             <label for="email-order" class="label">{{tr("Email")}}</label>
-                            <input type="email" v-model.trim="account_data.email" @input="updateData" name="email" id="email-order">
+                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email" @input="updateData" name="email" id="email-order">
                         </div>
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Standard Size")}}</label>
-                            <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
+                            <select name="size" id="size" v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1120,7 +1120,7 @@ X                                              v-for="value in values">
                         </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
-                            <select name="size" id="fitted_size" v-model.trim="account_data.size" @input="updateData">
+                            <select name="size" id="fitted_size"  v-model.lazy="states.customer_order_view.customer_info.fitted_size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1154,20 +1154,20 @@ X                                              v-for="value in values">
                             </div>
                             <div class="input-label">
                                 <label class="label">{{tr("Delivery address")}}</label>
-                                    <input type="text" v-model.trim="account_data.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;">
-                                    <input type="text" v-model.trim="account_data.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;">
                                 <div style="display: flex; flex-direction: row; margin-left: 30%;">
-                                    <input type="text" v-model.trim="account_data.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
-                                    <input type="number" v-model.trim="account_data.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%; margin-top: 5px">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
+                                    <input type="number" v-model.trim="states.customer_order_view.customer_info.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%; margin-top: 5px">
                                 </div>
                             </div>
                             <div class="input-label">
                                 <label for="phone" class="label">{{tr("Phone number")}}</label>
-                                <input type="tel" v-model.trim="account_data.addresses[0].telephone" @input="updateData" name="phone" id="phone">
+                                <input type="tel" v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone" @input="updateData" name="phone" id="phone">
                             </div>
                             <div class="input-label">
                                 <label for="payment-type" class="label">{{tr("Payment type")}}</label>
-                                <select size="1" name="payment-type" id="payment-type">
+                                <select size="1" name="payment-type" id="payment-type" v-model.lazy="states.customer_order_view.customer_info.payment_type" @change="updateData">
                                     <option value="cash" selected="selected">{{tr("Cash")}}</option>
                                     <option value="creditCard">{{tr("Credit Card")}}</option>
                                     <option value="debitCard">{{tr("Debit Card")}}</option>
@@ -1176,7 +1176,7 @@ X                                              v-for="value in values">
                             </div>
                             <div class="input-label">
                                 <label for="notes" class="label">{{tr("Notes")}}</label>
-                                <input type="text" name="notes" id="notes">
+                                <input type="text" name="notes" id="notes" v-model.trim="states.customer_order_view.customer_info.note" @input="updateData">
                             </div>
                             <div class="order-button"></div>
                     </form>

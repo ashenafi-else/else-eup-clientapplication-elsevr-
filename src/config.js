@@ -19,7 +19,14 @@ window.config = {
         'material_view': {
             'default_on': true,
             'speed': 0.5
-        }
+        },
+        'components': [{
+            'product_sku': 'elsevr_men_1_1',
+            'component': '11',
+            'settings': {
+                'default_on': false
+            }
+        }],
     },
     'default_camera': 'cameraLEFTp',
     'default_material_camera': 'cameraLEFTp',

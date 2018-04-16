@@ -422,7 +422,7 @@
                         <div class="title vr-block-title ac-block-title w-80per">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
                             <div class="block__container">
-                                <div class="monogram-text">
+                                <div class="monogram-text" maxlength="4" >
                                     {{data.active_structure.monogram.default_text}}
                                 </div>
 
@@ -434,7 +434,13 @@
 
                                     <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]"
                                           v-for="value in values">
-                                        {{tr(value)}}
+                                        <label :for="option + '_' + value">{{tr(value)}}</label>
+                                        <input :id="option + '_' + value"
+                                               v-model="data.active_structure.monogram.defaults[option]"
+                                               class="monogram-select"
+                                               :value="value"
+                                               type="radio"
+                                               style="display: none">
                                     </span>
 
                                 </div>
@@ -684,7 +690,7 @@
                         <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                         <div class="accessories-summary"></div>
                     </div>
-                    <div class="prices">
+                    <div class="prices" v-if="states.product_view.current_configuration_price">
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
@@ -704,7 +710,9 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.current_configuration_price.total}},00 &#8364;</div>
+                    <div class="total-price" v-if="states.product_view.current_configuration_price">
+                        {{states.product_view.current_configuration_price.total}},00 &#8364;
+                    </div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -1540,6 +1548,10 @@
                                 {{tr("The order has failed")}}
                             </div>
                         </form>
+                    </div>
+                    <div v-show="visible.order_success" id="order-success-push">
+                        {{tr('Your order has been successfully completed')}}
+                        <span>x</span>
                     </div>
                     <div class="elsa-container">
                         <img class="logo-elsa-neon" src="img/elsa-small.png"/>

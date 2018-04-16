@@ -41,7 +41,7 @@ window.config = {
         '19': 'Dome000018',
         '20': 'Dome000018',
         '23': 'Dome000018',
-        '25': 'Dome000058',
+        '25': 'Dome000018',
         "22": 'Dome000018'
     },
     'product_tour_configuration': {
@@ -103,7 +103,7 @@ window.config = {
 },
 'cameras_initial_settings': {
     'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
-    'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
+    'camera-for-monogram':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 0}},
 },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',

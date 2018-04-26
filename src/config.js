@@ -100,7 +100,7 @@ window.config = {
 },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',
-    'staff_login': false,
+    'staff_login': true,
     'show_nfc_input': {
         'remotecontrol': true,
         'mainscreen': true

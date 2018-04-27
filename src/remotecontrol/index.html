@@ -440,14 +440,14 @@ X                                              v-for="value in values">
                         <span class="rotation-icon"></span>
                         <span class="text">{{tr("Rotate/Stop")}}</span>
                     </div>
-                    <div id="product-part" class="configurator-item select product-part" @click="partPreview">
+                    <!--  <div id="product-part" class="configurator-item select product-part" @click="partPreview">
                         <span class="product-part-icon"></span>
                         <span class="text">{{tr("Detail Preview")}}</span>
                     </div>
                     <div id="part-view" class="configurator-item select advanced-product" @click="detailPreview">
                         <span class="advanced-icon"></span>
                         <span class="text">{{tr("Product Preview")}}</span>
-                    </div>
+                    </div> -->
                     <div id="header-materials" class="configurator-item select header-materials" @click="materialPreview">
                         <span class="material-icon"></span>
                         <span class="text">{{tr("Material Preview")}}</span>
@@ -1278,7 +1278,7 @@ X                                              v-for="value in values">
                     <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div>
+                    </div>ss
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>

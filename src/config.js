@@ -103,10 +103,10 @@ window.config = {
 },
 'cameras_initial_settings': {
     'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
-    'camera-for-monogram':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 0}},
+    'camera-for-monogram':    {'scale': 0.9, 'rotate': {'phi': 45, 'theta': 0}},
 },
     'home_state': 'COLLECTION',
-    'render_quality': 'AUTO',
+    'render_quality': 'HIGH',
     'order_level': 'PRODUCT',
     'staff_login': false,
     'show_nfc_input': {

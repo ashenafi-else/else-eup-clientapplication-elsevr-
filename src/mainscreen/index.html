@@ -422,7 +422,7 @@
                         <div class="title vr-block-title ac-block-title w-80per">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
                             <div class="block__container">
-                                <div class="monogram-text">
+                                <div class="monogram-text" maxlength="4" >
                                     {{data.active_structure.monogram.default_text}}
                                 </div>
 
@@ -434,7 +434,13 @@
 
                                     <span :class="[(data.active_structure.monogram.defaults[option] == value) ? 'active' : '', value]"
                                           v-for="value in values">
-                                        {{tr(value)}}
+                                        <label :for="option + '_' + value">{{tr(value)}}</label>
+                                        <input :id="option + '_' + value"
+                                               v-model="data.active_structure.monogram.defaults[option]"
+                                               class="monogram-select"
+                                               :value="value"
+                                               type="radio"
+                                               style="display: none">
                                     </span>
 
                                 </div>
@@ -684,7 +690,7 @@
                         <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
                         <div class="accessories-summary"></div>
                     </div>
-                    <div class="prices">
+                    <div class="prices" v-if="states.product_view.current_configuration_price">
                         <div class="price">
                             <p class="base-mod-price">
                                 {{tr("Base model")}}: <span
@@ -704,7 +710,9 @@
                 </div>
                 <div class="delivery-time">
                     <div class="delivery"></div>
-                    <div class="total-price">{{states.product_view.current_configuration_price.total}},00 &#8364;</div>
+                    <div class="total-price" v-if="states.product_view.current_configuration_price">
+                        {{states.product_view.current_configuration_price.total}},00 &#8364;
+                    </div>
                 </div>
             </div>
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
@@ -1419,24 +1427,24 @@
             </div>
             <div class="main">
                 <div class="main-start">
-                    <div id="product-order" class="hidden acc-show order-form ac-configurator-block" v-show="states.customer_order_view.active">
+                    <div id="product-order" class="hidden vr-show acc-show order-form ac-configurator-block" v-show="states.customer_order_view.active">
                         <form>
                             <div class="input-label">
                                 <label class="label">{{tr('Full Name')}}</label>
                                 <div class="fullname-block">
-                                    <input type="text" :value="account_data.firstname" name="firstname"
+                                    <input type="text" :value="states.customer_order_view.customer_info.firstname" name="firstname"
                                            style="flex: 1 2 140px;width: 50%;"/>
-                                    <input type="text" :value="account_data.lastname" name="lastname"
+                                    <input type="text" :value="states.customer_order_view.customer_info.lastname" name="lastname"
                                            style="flex:2 1 115px;width: 50%;"/>
                                 </div>
                             </div>
                             <div class="input-label">
                                 <label class="label" for="email-order">{{tr('Email')}}</label>
-                                <input type="email" :value="account_data.email" name="email" id="email-order"/>
+                                <input type="email" :value="states.customer_order_view.customer_info.email" name="email" id="email-order"/>
                             </div>
                             <div class="input-label">
                                 <label class="label" for="size">{{tr('Standard Size')}}</label>
-                                <select size="1" :value="account_data.size" name="size" id="size">
+                                <select size="1" :value="states.customer_order_view.customer_info.size" name="size" id="size">
                                     <option value="34">{{tr('Size')}} 34</option>
                                     <option value="34.5">{{tr('Size')}} 34.5</option>
                                     <option value="35">{{tr('Size')}} 35</option>
@@ -1469,14 +1477,14 @@
                             </div>
                             <div class="input-label">
                                 <label class="label" for="fitted_size">{{tr('Fitted Size')}}</label>
-                                <select size="1" :value="account_data.size" name="size" id="fitted_size">
+                                <select size="1" :value="states.customer_order_view.customer_info.fitted_size" name="size" id="fitted_size">
                                     <option value="34">Size 34</option>
                                     <option value="34.5">Size 34.5</option>
                                     <option value="35">Size 35</option>
                                     <option value="35.5">Size 35.5</option>
                                     <option value="36">Size 36</option>
                                     <option value="36.5">Size 36.5</option>
-                                    <option value="37" selected>Size 37</option>
+                                    <option value="37">Size 37</option>
                                     <option value="37.5">Size 37.5</option>
                                     <option value="38">Size 38</option>
                                     <option value="38.5">{{tr('Size')}} 38.5</option>
@@ -1484,7 +1492,7 @@
                                     <option value="39.5">{{tr('Size')}} 39.5</option>
                                     <option value="40">{{tr('Size')}} 40</option>
                                     <option value="40.5">{{tr('Size')}} 40.5</option>
-                                    <option value="41">{{tr('Size')}} 41</option>
+                                    <option value="41" selected>{{tr('Size')}} 41</option>
                                     <option value="41.5">{{tr('Size')}} 41.5</option>
                                     <option value="42">{{tr('Size')}} 42</option>
                                     <option value="42.5">{{tr('Size')}} 42.5</option>
@@ -1502,26 +1510,26 @@
                             </div>
                             <div class="input-label">
                                 <div class="label">{{tr('Delivery address')}}</div>
-                                <input type="text" :value="account_data.addresses[0].street[0]" id="district"
+                                <input type="text" :value="states.customer_order_view.customer_info.addresses[0].street[0]" id="district"
                                        placeholder="District of the shop"/>
-                                <input type="text" :value="account_data.addresses[0].city" name="city" id="city"
+                                <input type="text" :value="states.customer_order_view.customer_info.addresses[0].city" name="city" id="city"
                                        placeholder="City"/>
                                 <div style="display: flex; flex-direction: row">
-                                    <input type="text" :value="account_data.addresses[0].countryId" name="country"
+                                    <input type="text" :value="states.customer_order_view.customer_info.addresses[0].countryId" name="country"
                                            id="country" placeholder="Country"
                                            style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
-                                    <input type="number" :value="account_data.addresses[0].postcode" name="zip-code"
+                                    <input type="number" :value="states.customer_order_view.customer_info.addresses[0].postcode" name="zip-code"
                                            id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;width: 100%;"/>
                                 </div>
                             </div>
 
                             <div class="input-label">
                                 <label class="label" for="phone">{{tr('Phone Number')}}</label>
-                                <input type="tel" :value="account_data.addresses[0].telephone" name="phone" id="phone"/>
+                                <input type="tel" :value="states.customer_order_view.customer_info.addresses[0].telephone" name="phone" id="phone"/>
                             </div>
                             <div class="input-label">
                                 <label class="label" for="payment-type">{{tr('Payment type')}}</label>
-                                <select size="1" name="payment-type" id="payment-type">
+                                <select size="1" name="payment-type" id="payment-type"  v-model.trim="states.customer_order_view.customer_info.payment_type">
                                     <option value="cash">{{tr("Cash")}}</option>
                                     <option value="creditCard">{{tr("Credit Card")}}</option>
                                     <option value="debitCard">{{tr("Debit Card")}}</option>
@@ -1531,7 +1539,7 @@
                             </div>
                             <div class="input-label">
                                 <label class="label" for="notes">{{tr('Notes')}}</label>
-                                <input class="notesfield" type="text" name="notes" :value="account_data.note" id="notes" notrequired="true"/>
+                                <input class="notesfield" type="text" name="notes" :value="states.customer_order_view.customer_info.note" id="notes" notrequired="true"/>
                             </div>
                             <div class="order-success" style="display:none;">
                                 {{tr("The order has been successfully completed!")}}
@@ -1540,6 +1548,10 @@
                                 {{tr("The order has failed")}}
                             </div>
                         </form>
+                    </div>
+                    <div v-show="visible.order_success" id="order-success-push">
+                        {{tr('Your order has been successfully completed')}}
+                        <span>x</span>
                     </div>
                     <div class="elsa-container">
                         <img class="logo-elsa-neon" src="img/elsa-small.png"/>

@@ -146,10 +146,11 @@
     }
     .go-account{
       text-align: center;
+      background-color: #002144 !important;
     }
     .go-account, .go-order, .close{
         color: white;
-        background-color: #002144;
+        background-color: #002144 !important;;
         box-shadow: none;
 
     }
@@ -222,7 +223,7 @@
   .order-button-block select, .scan-list, .register-block select, .edit-profile-form select{
     background: url(../img/arrowdown-light.png) center top no-repeat;
     background-color: #ebebeb;
-    background-position: calc(98%) 15px;
+    background-position: calc(98%) 12px;
     background-size: 30px;
   }
   .page-staff-login .staff-login {
@@ -271,4 +272,10 @@
   .remote-controller-main .signedupuser-block .edit-profile-form .register-input option{
     font-family: Verlag;
   }
+
+   #product-details-screen{
+     &.control-active{
+       box-shadow: inset 0 0 0 10px #00ffff;
+     }
+   }
 }

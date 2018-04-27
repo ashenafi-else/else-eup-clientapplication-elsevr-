@@ -19,7 +19,14 @@ window.config = {
         'material_view': {
             'default_on': true,
             'speed': 0.5
-        }
+        },
+        'components': [{
+            'product_sku': 'elsevr_men_1_1',
+            'component': '11',
+            'settings': {
+                'default_on': false
+            }
+        }],
     },
     'default_camera': 'cameraLEFTp',
     'default_material_camera': 'cameraLEFTp',
@@ -34,7 +41,7 @@ window.config = {
         '19': 'Dome000018',
         '20': 'Dome000018',
         '23': 'Dome000018',
-        '25': 'Dome000058',
+        '25': 'Dome000018',
         "22": 'Dome000018'
     },
     'product_tour_configuration': {
@@ -96,11 +103,16 @@ window.config = {
 },
 'cameras_initial_settings': {
     'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
-    'camera-for-monogram':    {'scale': 1, 'rotate': {'phi': 200, 'theta': 0}},
+    'camera-for-monogram':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 0}},
 },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',
+<<<<<<< HEAD
     'staff_login': true,
+=======
+    'order_level': 'PRODUCT',
+    'staff_login': false,
+>>>>>>> 7c0b63d6ab459c7ab6ad5fd5a591658b2e57e139
     'show_nfc_input': {
         'remotecontrol': true,
         'mainscreen': true

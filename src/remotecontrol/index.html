@@ -331,7 +331,7 @@
                                            v-model="data.active_structure.monogram.splitted_text[index]"
                                            class="monogram-text"
                                            @keyup="checkMonogramInput($event)"
-                                           maxlength="1">
+                                           maxlength="4">
                                 </div>
                                 <div v-else>
                                     <input type="text"
@@ -380,7 +380,7 @@ X                                              v-for="value in values">
 
                             </div>
                             <div class="btn-block-monogram">
-                                <button class="btn-apply-monogram" @click.stop="applyMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
+                                <button class="btn-apply-monogram" @click.stop="applyStructureMonogram(data.active_structure)">{{tr("Apply monogram")}}</button>
                                 <button class="btn-apply-monogram" @click="changeStructure(0)">{{tr('Delete')}}</button>
                             </div>
                         </div>
@@ -966,15 +966,15 @@ X                                              v-for="value in values">
                             <div class="register-input">
                                 <label class="label">{{tr("Full Name")}}*</label>
                                 <input type="text" v-model.trim="customer.firstname" name="firstname" placeholder="First Name" style="width: 250px;" v-validate="'required'">
-                                <label v-show="errors.has('firstname')">{{ errors.first('firstname') }}</label>
+                                <!-- <label class="text-required"  v-show="errors.has('firstname')">{{ errors.first('firstname') }}</label> -->
                                 <input type="text" v-model.trim="customer.lastname" name="lastname" placeholder="Last Name" style="width: 250px;" v-validate="'required'">
-                                <label v-show="errors.has('lastname')">{{ errors.first('lastname') }}</label>
+                                <!-- <label class="text-required"  v-show="errors.has('lastname')">{{ errors.first('lastname') }}</label> -->
                             </div>
                             <div class="register-input">
                                 <label for="register_email" class="label">{{tr("Email")}}*</label>
                                 <input type="email" v-model.trim="customer.email" placeholder="Email address" name="email" id="register_email" v-validate="'required|email'">
                             </div>
-                            <label v-show="errors.has('email')">{{ errors.first('email') }}</label>
+                            <label class="text-required" v-show="errors.has('email')">{{ errors.first('email') }}</label>
                             <div class="register-input">
                                 <label for="register_size" class="label">{{tr("Size")}}*</label>
                                 <select name="size" id="register_size" v-model.trim="customer.size" v-validate="'required'">
@@ -1008,7 +1008,7 @@ X                                              v-for="value in values">
                                 </select>
                                 <a class="dropdown-btn"></a>
                             </div>
-                            <label v-show="errors.has('size')">{{ errors.first('size') }}</label>
+                            <label class="text-required" v-show="errors.has('size')">{{ errors.first('size') }}</label>
                             <div class="register-input gender">
                                 <label class="label">{{tr("Gender")}}*</label>
                                 <input type="radio" id="register_female_gender" v-model="customer.gender" name="gender" value="0" selected="selected" v-validate="'required|in:0,1'">
@@ -1018,21 +1018,21 @@ X                                              v-for="value in values">
                                 <input type="radio" id="register_male_gender" v-model="customer.gender" name="gender" value="1">
                                 <label class="gender-label" for="register_male_gender"><span>{{tr("Male")}}</span></label>
                             </div>
-                            <label v-show="errors.has('gender')">{{ errors.first('gender') }}</label>
+                            <label class="text-required" v-show="errors.has('gender')">{{ errors.first('gender') }}</label>
                             <div class="register-input">
                                 <label for="register_phone" class="label">{{tr("Phone number")}}*</label>
                                 <input type="tel" placeholder="Phone Number" v-model.trim="customer.telephone" name="phone" id="register_phone"  v-validate="'required'"></div>
-                            <label v-show="errors.has('phone')">{{ errors.first('phone') }}</label>
+                            <label class="text-required" v-show="errors.has('phone')">{{ errors.first('phone') }}</label>
                             <div class="register-input"><label class="label">{{tr("Customer Address")}}*</label>
                                 <input type="text" v-model.trim="customer.city" name="city" id="register_city" v-validate="'required'">
-                                <label v-show="errors.has('city')">{{ errors.first('city') }}</label>
+                                <!-- <label class="text-required" v-show="errors.has('city')">{{ errors.first('city') }}</label> -->
                                 <input type="text" v-model.trim="customer.district" id="register_district" name="district" v-validate="'required'"></div>
-                            <label v-show="errors.has('district')">{{ errors.first('district') }}</label>
+                            <!-- label class="text-required" v-show="errors.has('district')">{{ errors.first('district') }}</label> -->
                             <div class="register-input">
                                 <label for="register_zip_code" class="label">{{tr("Zip Code")}}*</label>
                                 <input type="number" v-model.trim="customer.postcode" name="zip-code" id="register_zip_code" v-validate="'required'">
                             </div>
-                            <label v-show="errors.has('zip-code')">{{ errors.first('zip-code') }}</label>
+                            <label class="text-required" v-show="errors.has('zip-code')">{{ errors.first('zip-code') }}</label>
                             <div class="register-input">
                                 <label for="register_notes" class="label">{{tr("Notes")}}</label>
                                 <input type="text" name="notes" v-model.trim="customer.note" id="register_notes">
@@ -1073,20 +1073,20 @@ X                                              v-for="value in values">
                     </div>
                 </div>
 
-                <div class="order-button-block" v-if="account_data">
+                <div class="order-button-block">
                     <form>
                         <div class="input-label">
                             <label class="label">{{tr("Full Name")}}</label>
-                            <input type="text" v-model.trim="account_data.firstname" @input="updateData" name="firstname" placeholder="First Name" style="flex: 2 1 50px; margin-right: 5px;">
-                            <input type="text" v-model.trim="account_data.lastname" @input="updateData" name="lastname" placeholder="Last Name" style="flex: 1 1 190px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.firstname" @input="updateData" name="firstname" placeholder="Customer Name" style="flex: 2 1 50px; margin-right: 5px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.lastname" @input="updateData" name="lastname" placeholder="Customer Surname" style="flex: 1 1 190px;">
                         </div>
                         <div class="input-label">
                             <label for="email-order" class="label">{{tr("Email")}}</label>
-                            <input type="email" v-model.trim="account_data.email" @input="updateData" name="email" id="email-order">
+                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email" @input="updateData" name="email" id="email-order">
                         </div>
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Standard Size")}}</label>
-                            <select name="size" id="size" v-model.trim="account_data.size" @input="updateData">
+                            <select name="size" id="size" v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1120,7 +1120,7 @@ X                                              v-for="value in values">
                         </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
-                            <select name="size" id="fitted_size" v-model.trim="account_data.size" @input="updateData">
+                            <select name="size" id="fitted_size"  v-model.lazy="states.customer_order_view.customer_info.fitted_size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1154,20 +1154,20 @@ X                                              v-for="value in values">
                             </div>
                             <div class="input-label">
                                 <label class="label">{{tr("Delivery address")}}</label>
-                                    <input type="text" v-model.trim="account_data.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;">
-                                    <input type="text" v-model.trim="account_data.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 100px; margin-right: 5px;">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 150px;">
                                 <div style="display: flex; flex-direction: row; margin-left: 30%;">
-                                    <input type="text" v-model.trim="account_data.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
-                                    <input type="number" v-model.trim="account_data.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%; margin-top: 5px">
+                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
+                                    <input type="number" v-model.trim="states.customer_order_view.customer_info.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%; margin-top: 5px">
                                 </div>
                             </div>
                             <div class="input-label">
                                 <label for="phone" class="label">{{tr("Phone number")}}</label>
-                                <input type="tel" v-model.trim="account_data.addresses[0].telephone" @input="updateData" name="phone" id="phone">
+                                <input type="tel" v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone" @input="updateData" name="phone" id="phone">
                             </div>
                             <div class="input-label">
                                 <label for="payment-type" class="label">{{tr("Payment type")}}</label>
-                                <select size="1" name="payment-type" id="payment-type">
+                                <select size="1" name="payment-type" id="payment-type" v-model.lazy="states.customer_order_view.customer_info.payment_type" @change="updateData">
                                     <option value="cash" selected="selected">{{tr("Cash")}}</option>
                                     <option value="creditCard">{{tr("Credit Card")}}</option>
                                     <option value="debitCard">{{tr("Debit Card")}}</option>
@@ -1176,7 +1176,7 @@ X                                              v-for="value in values">
                             </div>
                             <div class="input-label">
                                 <label for="notes" class="label">{{tr("Notes")}}</label>
-                                <input type="text" name="notes" id="notes">
+                                <input type="text" name="notes" id="notes" v-model.trim="states.customer_order_view.customer_info.note" @input="updateData">
                             </div>
                             <div class="order-button"></div>
                     </form>
@@ -1296,8 +1296,8 @@ X                                              v-for="value in values">
 <!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/remotecontrol-ui-sdk.js"></script>
 <script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/detector.js"></script>
-<!-- <script src="https://localhost:9000/remotecontrol-ui-sdk.js"></script>
-<script src="https://localhost:9000/detector.js"></script> -->
+<!-- <script src="https://localhost:9000/remotecontrol-ui-sdk.js"></script> -->
+<!-- <script src="https://localhost:9000/detector.js"></script> -->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>
 </html>

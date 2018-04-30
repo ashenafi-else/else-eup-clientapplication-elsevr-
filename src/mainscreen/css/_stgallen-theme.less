@@ -174,6 +174,10 @@
     .stgalllen-block-title{
       padding: 0.4rem 1rem;
     }
+    .material-block  .mirror-patent{
+      height: 0px !important;
+      display: none !important;
+    }
   }
   .materials-color-block{
     .material-name{
@@ -238,6 +242,23 @@
   .price-block{
     .product-preview{
       margin: 0;
+    }
+    .diff-prices-container .prices .price{
+      p[class$='-price']{
+        justify-content: center;
+      }
+      text-align: center;
+      .price-span{
+        display: none !important;
+      }
+    }
+    .delivery-time{
+      .total-price{
+        display: none;
+      }
+      .delivery{
+        margin-left: 50px;
+      }
     }
   }
 

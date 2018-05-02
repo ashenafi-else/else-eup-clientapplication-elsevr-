@@ -8,6 +8,11 @@
   .back-to-config{
     .justify-content(flex-start);
   }
+  .session-code-screen, .page-staff-login, .page-session-code, #product-list-screen, #product-config-nfc, #product-start-screen {
+    //background: url(../img/accenture/bcgd-app.png) !important;
+    background-color: white;
+    background-size: contain;
+  }
   .page-session-code{
     background: white;
     .session-code{
@@ -28,6 +33,58 @@
       .flex-direction(column);
       .justify-content(center);
     }
+  }
+  .virtual-catalog {
+    .logo-section span {
+      color: black;
+      margin-left: 24px;
+      font-size: 24px;
+    }
+    .dark-silver-logo {
+      display: none;
+    }
+    .stgallen-hidden {
+      display: none;
+    }
+    .logo-logout {
+      display: none;
+    }
+    .logout-block {
+      //background: url("../img/store-logout.png");
+      background-position-x: right;
+      background-position-y: center;
+      background-size: 25px;
+      background-repeat: no-repeat;
+    }
+    span.back-to-collections{
+      width: 95%;
+      height: 55px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      width: 150px;
+      justify-content: center;
+      font-size: 1.2em;
+      color: white;
+      background-color: #0042a3;
+    }
+  }
+  #product-start-screen {
+    .collections {
+      h2 {
+        color: black;
+        text-shadow: none;
+      }
+    }
+  }
+  .continue-to-configurator {
+    font-weight: 600;
+    background: #0042a3;
+    border: none;
+    //border: 5px solid black;
+    box-shadow: #00000045 0px 5px 22px;
+    color: white;
   }
   .component {
       &.monogram{

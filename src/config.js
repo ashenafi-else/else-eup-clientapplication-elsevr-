@@ -35,14 +35,14 @@ window.config = {
     'default_fitting_camera': 'cameraLEFTp',
     'camera_animation_time': 0,
     'default_language': 'en',
-    'default_scanner': 'Dome000018',
+    'default_scanner': 'Dome000058',
     'default_scanners': {
         '18': 'Dome000058',
-        '19': 'Dome000018',
-        '20': 'Dome000018',
-        '23': 'Dome000018',
-        '25': 'Dome000018',
-        "22": 'Dome000018'
+        '19': 'Dome000058',
+        '20': 'Dome000058',
+        '23': 'Dome000058',
+        '25': 'Dome000058',
+        "22": 'Dome000058'
     },
     'product_tour_configuration': {
         'elsevr_men_1_1': {

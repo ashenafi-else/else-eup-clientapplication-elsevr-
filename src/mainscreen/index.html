@@ -346,13 +346,14 @@
                         <div class="go-account"></div>
                         <span class="user_name">{{getUserName()}}</span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
-                                        <span id="rec-size" class="fitting-size">
-                                            {{getFittingValues().best_size.size}}
+                            <div class="size-block-header" v-if="states.customer_fitting_view.active_comparision">
+                                         <span id="rec-size" class="fitting-size">
+                                            {{states.customer_fitting_view.best_size.RIGHT_FOOT.size}}
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
+                                      :class="getFittingClass(states.customer_fitting_view
+                                      .best_size.score)">{{states.customer_fitting_view.best_size.RIGHT_FOOT.score}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
@@ -960,13 +961,14 @@
                                         {{states.customer_profile_view.active_customer.lastname}}
                         </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
-                            <div class="size-block-header" v-if="getFittingValues().best_size != null">
+                            <div class="size-block-header" v-if="states.customer_fitting_view.best_size != null">
                                         <span id="rec-size" class="fitting-size">
-                                            {{getFittingValues().best_size.size}}
+                                            {{states.customer_fitting_view.best_size.RIGHT_FOOT.size}}
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass(states.customer_fitting_view.best_size.score)">{{states.customer_fitting_view.best_size.score}}</span>
+                                      :class="getFittingClass(states.customer_fitting_view
+                                      .best_size.score)">{{states.customer_fitting_view.best_size.RIGHT_FOOT.score}}</span>
                             </div>
                         </div>
                     </div>
@@ -1810,12 +1812,13 @@
                                     </span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
                             <div class="size-block-header" v-if="states.customer_fitting_view.active_comparision">
-                                        <span id="rec-size" class="fitting-size">
-                                            {{tr(states.customer_fitting_view.best_size.size)}}
+                                         <span id="rec-size" class="fitting-size">
+                                            {{states.customer_fitting_view.best_size.RIGHT_FOOT.size}}
                                         </span>
                                 <span class="factor-text">fitting factor</span>
                                 <span class="factor-score"
-                                      :class="getFittingClass(getFittingValues().best_size.score)">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                                      :class="getFittingClass(states.customer_fitting_view
+                                      .best_size.score)">{{states.customer_fitting_view.best_size.RIGHT_FOOT.score}}</span>
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"
@@ -1952,12 +1955,12 @@
                         </div>
                         <div class="comparision_size" v-if="states.customer_fitting_view.active_comparision">
                             <span>{{tr('Fitting size')}}</span>
-                            <span>{{tr(states.customer_fitting_view.active_comparision.size)}}</span>
+                            <span>{{states.customer_fitting_view.best_size.RIGHT_FOOT.size}}</span>
                         </div>
                         <div class="comparision_score" v-if="states.customer_fitting_view.active_comparision">
                             <span>{{tr('Fitting factor')}}</span>
                             <span class="factor-score"
-                                  :class="getFittingClass(getFittingValues().best_size.score)">{{tr(states.customer_fitting_view.active_comparision.score)}}</span>
+                                  :class="getFittingClass(getFittingValues().best_size.score)">{{states.customer_fitting_view.best_size.RIGHT_FOOT.score}}</span>
                         </div>
                     </div>
                 </div>

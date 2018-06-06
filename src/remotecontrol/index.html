@@ -42,7 +42,7 @@
             </div>
         </header>
     </header-component>
-    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
+    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.show_on_remote">
         <div class="page-store-selection" id="stores-screen">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -63,7 +63,7 @@
             </div>
         </div>
     </stores>
-    <login-screen inline-template :states="states" :visible="visible" v-if="states.staff_login_view.active">
+    <login-screen inline-template :states="states" :visible="visible" v-if="states.staff_login_view.show_on_remote">
         <div class="page-staff-login main">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -92,7 +92,7 @@
             </div>
         </div>
     </login-screen>
-    <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.active">
+    <qr-code-scanner inline-template :states="states" :visible="visible" v-if="states.login_view.show_on_remote">
         <div id="session-code-screen" class="page-session-code">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -126,7 +126,7 @@
             </div>
         </div>
     </qr-code-scanner>
-    <product-start-screen inline-template :visible="visible" :states="states" v-if="states.collection_view.active">
+    <product-start-screen inline-template :visible="visible" :states="states" v-if="states.collection_view.show_on_remote">
         <div class="container" id="product-start-screen">
             <div class="virtual-catalog">
                 <div class="logo-section">
@@ -155,7 +155,7 @@
             </div>
         </div>
     </product-start-screen>
-    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
+    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.show_on_remote">
         <div class="container" id="product-list-screen">
             <div class="start-screen virtual-catalog">
                 <div class="logo-section">
@@ -207,7 +207,7 @@
                      :states="states"
                      :state="states.product_view"
                      :data="api2Data"
-                     v-if="states.product_view.active">
+                     v-if="states.product_view.show_on_remote">
         <div class="remote-configuration" id="product-details-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -483,7 +483,7 @@ X                                              v-for="value in values">
         </div>
     </product-details>
     <product-det-qr-code inline-template :states="states" :visible="visible"
-                         v-if="states.qr_code_scanner_details.active">
+                         v-if="states.qr_code_scanner_details.show_on_remote">
         <div class="page page-remote-screen page--qr-scanner">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -508,7 +508,7 @@ X                                              v-for="value in values">
         </div>
     </product-det-qr-code>
     <product-color-qr-code inline-template :states="states" :visible="visible"
-                           v-if="states.qr_code_scanner_color.active">
+                           v-if="states.qr_code_scanner_color.show_on_remote">
         <div class="page page-remote-screen page--qr-scanner">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -533,7 +533,7 @@ X                                              v-for="value in values">
         </div>
     </product-color-qr-code>
     <product-config-qr-code inline-template :states="states" :visible="visible"
-                            v-if="states.qr_code_scanner_config.active">
+                            v-if="states.qr_code_scanner_config.show_on_remote">
         <div class="page page-remote-screen page--qr-scanner">
             <div class="header vr-header remote-screen-header">
                 <div class="col header-col header-start">
@@ -557,7 +557,7 @@ X                                              v-for="value in values">
             </main>
         </div>
     </product-config-qr-code>
-    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.show_on_remote">
         <div class="page" id="product-config-nfc">
             <div class="logo-section">
                 <img class="hidden stgallen-show acc-show" src="img/logo-else-shoes-black.png">
@@ -587,7 +587,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </product-config-nfc>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" :visible="visible" :states="states" inline-template>
+    <product-preview v-if="states.preview_view.show_on_remote" id="preview-screen" :visible="visible" :states="states" inline-template>
         <div class="remote-configuration" id="product-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -633,7 +633,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </product-preview>
-    <material-preview v-if="states.material_view.active" :states="states" id="material-screen" inline-template>
+    <material-preview v-if="states.material_view.show_on_remote" :states="states" id="material-screen" inline-template>
         <div class="remote-configuration" id="material-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -679,7 +679,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" :visible="visible" :states="states" inline-template>
+    <part-preview v-if="states.part_view.show_on_remote" id="part-preview" :visible="visible" :states="states" inline-template>
         <div class="remote-configuration" id="part-preview-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -725,7 +725,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </part-preview>
-    <total-look inline-template :visible="visible" :states="states" v-if="states.sets_view.active">
+    <total-look inline-template :visible="visible" :states="states" v-if="states.sets_view.show_on_remote">
         <div class="container" id="total-look-screen">
             <div class="total-look">
                 <div class="total-look-icons">
@@ -741,7 +741,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </total-look>
-    <customer-profile inline-template :visible="visible" :states="states" v-if="states.customer_profile_view.active">
+    <customer-profile inline-template :visible="visible" :states="states" v-if="states.customer_profile_view.show_on_remote">
         <div class="remote-configuration" id="customer-profile-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -760,7 +760,7 @@ X                                              v-for="value in values">
                     </div>
                     <hr>
                     <div class="scan_list_block">
-                        <select class="scan-list" 
+                        <select class="scan-list"
                                 v-model="states.customer_profile_view.active_scan"
                                 @change="changeActiveScan(states.customer_profile_view.active_scan.scan_id)">
                             <option v-for="scan in states.customer_profile_view.scans" :value="scan">
@@ -815,7 +815,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </customer-profile>
-    <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.active">
+    <customer-edit-profile inline-template :visible="visible" :states="states" v-if="states.customer_edit_profile_view.show_on_remote">
         <div class="remote-configuration" id="customer-edit-profile-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -924,7 +924,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </customer-edit-profile>
-    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.show_on_remote">
         <div class="remote-configuration" id="customer-login-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -937,12 +937,12 @@ X                                              v-for="value in values">
                     <ul class="nav profile-nav-tabs">
                         <li class="nav-tab"
                             :class="states.customer_login_view.show_search_results?'':'active'"
-                            @click="states.customer_login_view.show_search_results=false">
+                            @click="showSearchResult(false)">
                             <a id="to_create_account" class="open-tab">{{tr("Create an account")}}</a>
                         </li>
                         <li class="nav-tab"
                             :class="states.customer_login_view.show_search_results?'active':''"
-                            @click="states.customer_login_view.show_search_results=true">
+                            @click="showSearchResult(true)">
                             <a id="to_signin" class="open-tab">{{tr("Sign in")}}</a>
                         </li>
                     </ul>
@@ -1062,7 +1062,7 @@ X                                              v-for="value in values">
             </div>
         </div>
     </customer-login>
-    <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
+    <customer-order v-if="states.customer_order_view.show_on_remote" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" inline-template>
         <div class="remote-configuration" id="customer-order-screen">
             <div class="remote-controller-main">
@@ -1217,7 +1217,7 @@ X                                              v-for="value in values">
             <button @click="closeNotify()">{{tr('Ok')}}</button>
         </div>
     </notification-messages> -->
-    <customer-fitting v-if="states.customer_fitting_view.active"
+    <customer-fitting v-if="states.customer_fitting_view.show_on_remote"
                       id="customer-fitting-screen"
                       :visible="visible"
                       :states="states"
@@ -1239,6 +1239,26 @@ X                                              v-for="value in values">
                         </div>
                     </div>
                     <hr>
+                    <div class="foot-toggle">
+                        <input type="radio"
+                               id="fitting_left_foot_toggle"
+                               name="foot"
+                               :value="state.active_comparision.LEFT_FOOT.name"/>
+                        <label for="fitting_left_foot_toggle"
+                               :class="state.active_comparision.active_name == state.active_comparision.LEFT_FOOT.name ? 'active' : ''"
+                               @click="changeFoot(state.active_comparision.LEFT_FOOT.name)">
+                            <span>{{tr('Left Foot')}}</span>
+                        </label>
+                        <input type="radio"
+                               id="fitting_right_foot_toggle"
+                               name="foot"
+                               :value="state.active_comparision.RIGHT_FOOT.name"/>
+                        <label for="fitting_right_foot_toggle"
+                               :class="state.active_comparision.active_name == state.active_comparision.RIGHT_FOOT.name ? 'active' : ''"
+                               @click="changeFoot(state.active_comparision.RIGHT_FOOT.name)">
+                            <span>{{tr('Right Foot')}}</span>
+                        </label>
+                    </div>
                     <v-touch class="touch_area" @pinchstart="touchStartHandler" @pinchmove="touchMoveHandler" @pinchend="touchEndHandler"  @panstart="touchStartHandler" @panmove="touchMoveHandler" @panend="touchEndHandler"  v-bind:enabled="true"></v-touch>
                     <div class="default-cameras">
                         <div class="camera camera-view"
@@ -1285,7 +1305,7 @@ X                                              v-for="value in values">
                 </div>
             </div>
     </customer-fitting>
-    <material-library v-if="states.material_library_view.active" id="material-library-screen">
+    <material-library v-if="states.material_library_view.show_on_remote" id="material-library-screen">
         <div id="material-library-screen"></div>
     </material-library>
 </div>
@@ -1293,10 +1313,10 @@ X                                              v-for="value in values">
 <script id="brandId" value="13"></script>
 
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
-<!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/remotecontrol-ui-sdk.js"></script>
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/detector.js"></script>
-<!-- <script src="https://localhost:9000/remotecontrol-ui-sdk.js"></script> -->
+<!--<script src="https://localhost:10000/js/else.j/s.client.sdk.js"></script>-->
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0-beta/remotecontrol-ui-sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0-beta/detector.js"></script>
+ <!--<script src="https://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
 <!-- <script src="https://localhost:9000/detector.js"></script> -->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>
 </body>

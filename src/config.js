@@ -33,7 +33,7 @@ window.config = {
     'default_part_camera': 'cameraLEFTp',
     'default_preview_camera': 'cameraLEFTp',
     'default_fitting_camera': 'cameraLEFTp',
-    'camera_animation_time': 0,
+    'camera_animation_time': 10,
     'default_language': 'en',
     'default_scanner': 'Dome000058',
     'default_scanners': {
@@ -46,7 +46,7 @@ window.config = {
     },
     'product_tour_configuration': {
         'elsevr_men_1_1': {
-            'type':'video',
+            'type': 'video',
             'src': './img/video/1-3-test.mp4'
         },
         'elsevr_women_1_1': {
@@ -67,7 +67,7 @@ window.config = {
             'element': '0',
             'active_material': 'suede',
             'active_color': 'mat_suede_blue-electric'
-        },{
+        }, {
             'component': '2',
             'structure': '1',
             'element': '0',
@@ -80,7 +80,7 @@ window.config = {
             'element': '0',
             'active_material': 'velvet',
             'active_color': 'mat_velvet_191A1B'
-        },{
+        }, {
             'component': '5',
             'structure': '1',
             'element': '0',
@@ -90,25 +90,25 @@ window.config = {
 
     },
 
-'update_last_scan_interval': 15,
+    'update_last_scan_interval': 15,
     'component_cameras': {
-    'elsevr_men_1_1': {
-        '11': 'camera-for-monogram'
+        'elsevr_men_1_1': {
+            '11': 'camera-for-monogram'
+        },
+        'larusmiani_1': {
+            '7': 'cameraBOTTOM'
+        }
+        /* '1': 'prod_1_1cameraBODY',
+         '2': 'prod_1_1cameraEMBROIDERY',
+         '4': 'prod_1_1cameraLINING',
+         '6': 'prod_1_1cameraOUTSOLE',
+         '3': 'prod_1_1cameraTRIM_INSOLE',
+         '5': 'prod_1_1cameraTRIM_INSOLE',*/
     },
-    'larusmiani_1': {
-        '7': 'cameraBOTTOM'
-    }
-    /* '1': 'prod_1_1cameraBODY',
-     '2': 'prod_1_1cameraEMBROIDERY',
-     '4': 'prod_1_1cameraLINING',
-     '6': 'prod_1_1cameraOUTSOLE',
-     '3': 'prod_1_1cameraTRIM_INSOLE',
-     '5': 'prod_1_1cameraTRIM_INSOLE',*/
-},
-'cameras_initial_settings': {
-    'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
-    'camera-for-monogram':    {'scale': 0.9, 'rotate': {'phi': 45, 'theta': 0}},
-},
+    'cameras_initial_settings': {
+        'cameraTOP': {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
+        'camera-for-monogram': {'scale': 0.9, 'rotate': {'phi': 45, 'theta': 0}},
+    },
     'home_state': 'COLLECTION',
     'render_quality': 'AUTO',
     'order_level': 'PRODUCT',
@@ -116,6 +116,6 @@ window.config = {
     'show_nfc_input': {
         'remotecontrol': true,
         'mainscreen': true
-},
+    },
 
 };

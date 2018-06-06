@@ -53,7 +53,7 @@
             </div>
         </header>
     </header-component>
-    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.active">
+    <stores inline-template :states="states" :visible="visible" v-if="states.store_view.show_on_main">
         <div class="page page-mainscreen vr-page-mainscreen page-store-selection" id="stores-screen">
             <div class="header mainscreen-header">
                 <div class="col header-col header-start">
@@ -82,7 +82,7 @@
             </div>
         </div>
     </stores>
-    <session-code inline-template v-if="states.login_view.active">
+    <session-code inline-template v-if="states.login_view.show_on_main">
         <div class="page page-mainscreen vr-page-mainscreen page-session-code" id="session-code-screen">
             <div class="header mainscreen-header">
                 <div class="col header-col header-start">
@@ -120,7 +120,7 @@
             </div>
         </div>
     </session-code>
-    <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
+    <product-start-screen inline-template :states="states" v-if="states.collection_view.show_on_main" id="collection-screen">
         <div class="page content page-mainscreen" id="product-start-screen">
              <!-- <div class="logo-section">
                 <img class="logo" src="img/logo.png">
@@ -172,7 +172,7 @@
             </div>
         </div>
     </product-start-screen>
-    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.show_on_main">
         <div class="page" id="product-config-nfc">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -200,7 +200,7 @@
             </div>
         </div>
     </product-config-nfc>
-    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.active">
+    <product-list inline-template :visible="visible" :states="states" v-if="states.product_list_view.show_on_main">
         <div class="page page-mainscreen page-product-list" id="product-list-screen">
             <div class="header mainscreen-header acc-header stgallen-header">
                 <div class="col header-col header-start">
@@ -607,7 +607,7 @@
                                              {{tr(component.name)}}:{{component.path}}
                                         </div>
                                     </span>
-                                            
+
                                 </div>
                             </div>
                         </div>
@@ -621,7 +621,7 @@
             </div>
             </div>
     </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states" :preview_image="preview_image"
+    <product-preview v-if="states.preview_view.show_on_main" id="preview-screen" class="page" :visible="visible" :states="states" :preview_image="preview_image"
                      inline-template>
         <div id="product-preview-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -727,7 +727,7 @@
             </div>
         </div>
     </product-preview>
-    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" :preview_image="preview_image"
+    <material-preview v-if="states.material_view.show_on_main" id="material-screen" :visible="visible" :states="states" :preview_image="preview_image"
                       inline-template>
         <div id="material-preview-screen" class="page">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -828,7 +828,7 @@
             </div>
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" :preview_image="preview_image" :preview_image="preview_image" inline-template>
+    <part-preview v-if="states.part_view.show_on_main" id="part-preview" class="page" :visible="visible" :states="states" :preview_image="preview_image" :preview_image="preview_image" inline-template>
         <div id="part-preview-screen" class="page">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -927,7 +927,7 @@
             </div>
         </div>
     </part-preview>
-    <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.active"
+    <customer-profile inline-template :states="states" :visible="visible" v-if="states.customer_profile_view.show_on_main"
                       class="customer-profile">
         <div class="container page" id="customer-profile-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -1069,7 +1069,7 @@
         </div>
     </customer-profile>
     <customer-edit-profile inline-template :visible="visible" :states="states"
-                           v-if="states.customer_edit_profile_view.active">
+                           v-if="states.customer_edit_profile_view.show_on_main">
         <div class="remote-configuration page" id="customer-edit-profile-screen">
             <div class="header vr-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -1139,7 +1139,7 @@
             </div>
         </div>
     </customer-edit-profile>
-    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.active">
+    <customer-login inline-template :visible="visible" :states="states" v-if="states.customer_login_view.show_on_main">
         <div class="container page" id="customer-login-screen">
             <header class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -1385,7 +1385,7 @@
             </div>
         </div>
     </customer-login>
-    <customer-order v-if="states.customer_order_view.active" id="customer-order-screen" :visible="visible"
+    <customer-order v-if="states.customer_order_view.show_on_main" id="customer-order-screen" :visible="visible"
                     :states="states" :configurator="configuration" :preview_image="preview_image" inline-template>
         <div class="content mainscreen-app page" id="customer-order-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -1774,7 +1774,7 @@
             <button @click="closeNotify()">{{tr('Ok')}}</button>
         </div>
     </notification-messages> -->
-    <customer-fitting v-if="states.customer_fitting_view.active"
+    <customer-fitting v-if="states.customer_fitting_view.show_on_main"
                       class="customer-fitting"
                       id="customer-fitting-screen"
                       :visible="visible"
@@ -2007,7 +2007,7 @@
 
         </div>
     </customer-fitting>
-    <material-library v-if="states.material_library_view.active" id="material-library-screen">
+    <material-library v-if="states.material_library_view.show_on_main" id="material-library-screen">
         <div id="material-library-screen"></div>
     </material-library>
 </div>
@@ -2015,8 +2015,8 @@
 <script id="brandId" value="13"></script>
 <script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
 <!-- <script src="https://localhost:10000/js/else.js.client.sdk.js"></script> -->
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0/mainscreen-ui-sdk.js"></script>
-<!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0-beta/mainscreen-ui-sdk.js"></script>
+ <!--<script src="https://localhost:9000/mainscreen-ui-sdk.js"></script>-->
 <div id="canvas_container_id"></div>
 </body>
 </html>

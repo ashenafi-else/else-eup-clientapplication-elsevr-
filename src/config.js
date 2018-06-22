@@ -50,9 +50,13 @@ window.config = {
             'src': './img/video/1-3-test.mp4'
         },
         'elsevr_women_1_1': {
-            'type':'video',
-            'src': './img/video/1-2-test.mp4'
-        },
+            'type': 'video',
+            'src': './img/video/1-3-test.mp4',
+            '18': {
+                'type': 'video',
+                'src': './img/roboshoe_lady_high.mov'
+            }
+        }
     },
     'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
     'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',

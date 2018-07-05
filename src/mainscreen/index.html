@@ -659,9 +659,12 @@
                                         <span id="rec-size" class="fitting-size">
                                             {{getFittingValues().best_size.size}}
                                         </span>
-                                <span class="factor-text">fitting factor</span>
-                                <span class="factor-score"
-                                      :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
+                                <div>
+                                    <span class="factor-text">fitting factor</span>
+                                    <span class="factor-score"
+                                          :class="getFittingClass(getFittingValues().best_size.score)">{{getFittingValues().best_size.score}}</span>
+                                </div>
+
                             </div>
                             <!-- <span v-if="getFittingValues().best_style != null">{{tr('Best style')}}
                                 <span id="fitting-factor"

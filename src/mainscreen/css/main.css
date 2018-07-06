@@ -633,7 +633,7 @@ footer {
 #canvas_container_id.customer_order_view{
     width: 100%;
     left: 0;
-    top: -7%;
+    /*top: -7%;*/
 }
 
 #canvas_container_id.customer_edit_profile_view,

@@ -35,8 +35,10 @@
       color: white;
       .monogram-text{
         position: absolute;
-        right: 35px;
-        bottom: 45px;
+        //right: 35px;
+        //bottom: 45px;
+        right: 25px;
+        bottom: 95px;
         height: 60px;
         padding: 10px;
         border: 1px solid #fff;
@@ -80,6 +82,21 @@
             margin-bottom: 8px;
             font-size: .8em;
           }
+
+          //old
+          span[class*="ffffff"] {
+            background: #ffffff!important;
+          }
+          span[class*="FF0000"] {
+            background: #FF0000!important;
+          }
+          span[class*="0000FF"] {
+            background: #0000FF!important;
+          }
+          span[class*="8B008B"] {
+            background: #8B008B!important;
+          }
+
           span {
             display: block !important;
             background: wheat;
@@ -117,7 +134,7 @@
             background: #AA8C55!important;
           }
         }
-        .font_style{
+        .font_style, .font.style{
           position: absolute;
           left: 25px;
           bottom: 45px;
@@ -137,6 +154,9 @@
             &.bold{
               font-weight: 900;
             }
+            &.style_normal{
+              color: #ffffff;
+            }
             &.active{
               text-shadow: #00ffff 0 0 6px;
               background: url("../img/check-active.png");
@@ -146,7 +166,7 @@
             }
           }
         }
-        .font_family{
+        .font_family, .font.family{
           position: absolute;
           left: 25px;
           top: 55px;
@@ -154,10 +174,11 @@
             font-size: 1.8em;
           }
         }
-        .font_size{
+        .font_size, .size{
           position: absolute;
           left: 145px;
-          top: 55px;
+          //top: 55px;
+          top: 170px;
           span {
             font-size: 1.8em;
           }

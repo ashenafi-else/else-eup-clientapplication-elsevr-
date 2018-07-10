@@ -1,50 +1,193 @@
 .store_22{
-
-  .header-start{
-    .header-logo{
-      height: 80%;
-      margin-right: 10px;
-      padding: 7px;
-      flex: auto;
-      text-align: left;
+  @font-face {
+    font-family: 'LatoLight';
+    src: url(../img/st-gallen/fonts/Lato-Light.ttf);
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Lato';
+    src: url(../img/st-gallen/fonts/Lato-Regular.ttf);
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'LatoBlack';
+    src: url(../img/st-gallen/fonts/Lato-Black.ttf);
+    font-weight: 600;
+  }
+  .page{
+    background: url(../img/st-gallen/bcgd.png) no-repeat center;
+    background-size: cover;
+  }
+  .page-session-code{
+    background-image: url(../img/st-gallen/bcgd.png);
+  }
+  .stgallen-show{
+    display: inline-block !important;
+    margin: 10px;
+    //margin-top: 18px;
+    margin-left: 0;
+    &.h-40per{
+      margin: 10px;
+      margin-top: 0;
+      height: 81%;
     }
   }
 
-  .factor-score{
-    color: black;
+  .stgallen-hidden{
+    display: none;
   }
 
+
+
+//Header
+  .mainscreen-header{
+    height: 9vh;
+  }
+  .header-start{
+    width: 100vw;
+    .header-logo{
+      justify-content: center;
+      align-items: center;
+      img{
+        margin: 0 1vh;
+        height: auto;
+        max-height: 6vh;
+      }
+    }
+  }
+  .header-middle, .header-end{
+    display: none!important;
+  }
+
+
+// QR CODE
+  #session-code-screen{
+    font-family: "LatoLight", sans-serif;
+    .logo-chromium{
+      display: block!important;
+      width: 10vw;
+      height: auto;
+      margin-top: 7vh;
+    }
+    .collaboration{
+      font-size: 24px;
+      text-transform: capitalize;
+      margin: 6vh 0 0 0;
+    }
+    .stgallen-logo-img{
+      width: 31vw;
+      height: auto;
+      margin-top: 1vh;
+    }
+    span.code{
+      color: black;
+      margin-top: 8vh;
+      //&:before{
+      //  content: " ";
+      //  display: block;
+      //  position: absolute;
+      //  width: 37vw;
+      //  height: 1px;
+      //  margin: -8vh 0 0 -22vh;
+      //  border-bottom: 1px solid #000000;
+      //}
+    }
+    .qr-code{
+      width: 12vw;
+      height: auto;
+    }
+    .logo-else-corp.stgallen-show{
+      width: 100px;
+      height: auto;
+      margin-bottom: 2vh;
+      position: initial;
+    }
+  }
+
+
+//Collections
+  #collection-screen{
+    background: white;
+    color: black;
+    .collections {
+      h2{
+        font-family: "LatoLight", sans-serif;
+        color: black;
+        text-shadow: none;
+      }
+      .Demo.Collection{
+        font-size: 3rem;
+        margin: 0.5rem;
+      }
+    }
+    .logo-pwd-else{
+      width: 100px!important;
+      height: auto;
+      position: initial!important;
+      margin-bottom: 2vh;
+      margin-top: auto;
+    }
+  }
+
+
+// COLLECTIONS
   #product-list-screen {
-    button.name{
-      font-family: "Lato", sans-serif;
-      font-weight: 600;
-      margin: -4px auto 0 auto;
-      background: white;
-      border: 5px solid black;
-      box-shadow: #00000045 0px 5px 22px;
+    background: #e1e1e1;
+    .list-items{
+      .larusmiani_1{
+        display: none;
+      }
+      button.name{
+        border: 2px solid #253b5f;
+        border-radius: 4px;
+        box-shadow: 0 0 18px 0 #253b5f;
+        background: white;
+        padding-bottom: 8px;
+        margin-top: -10vh;
+        span{
+          font-family: "LatoLight", sans-serif;
+          font-size: 27px;
+          color: #253b5f;
+        }
+      }
     }
     .element {
+      margin-bottom: 13vh;
+      .element-border{
+        background: none;
+        box-shadow: none;
+      }
       .collection-img {
         max-height: 80%;
       }
       &.active {
         button.name{
-          background: #0042a3;
-          color: #ffffff;
+          border: 2px solid #5edeff;
+          background: #253b5f;
+          padding-bottom: 8px;
+          z-index: 99;
+          span{
+            font-family: "LatoLight", sans-serif;
+            font-size: 27px;
+            color: #5edeff;
+          }
         }
         &._Men_ {
           .optional-video-container-men {
             display: block;
+            width: 90%;
           }
         }
         &._Decollete_ {
           .optional-video-container-women {
             display: block;
+            width: 90%;
           }
         }
         &.larusmiani_1 {
           .optional-video-container-home {
             display: block;
+            width: 90%;
           }
         }
         video {
@@ -61,14 +204,11 @@
         }
       }
     }
-  }
-
-  #product-list-screen {
     .bottom-panel{
-      img{
-        height: 50px;
-      }
-    }
+       img{
+         height: 50px;
+       }
+     }
     .elsa-container{
       top: 150%;
       margin: 0;
@@ -76,7 +216,38 @@
   }
 
 
+// CONFIGURATOR
   #product-details-screen {
+    background: #e1e1e1;
+    .description-product{
+      display: none;
+    }
+    .title{
+      text-align: center;
+      height: 38px;
+    }
+    .non-configurable-parts-block{
+      display: none;
+    }
+    .configurable-parts-block{
+      position: absolute;
+      top: 14vh;
+      right: 1vw;
+      box-shadow: none;
+      width: 22vw;
+      .configurable-parts-container{
+        justify-content: center;
+        background-color: rgba(255,255,255,0.5);
+      }
+    }
+    .materials-color-block{
+      position: absolute;
+      top: 30vh;
+      right: 1vh;
+      width: 22vw;
+    }
+
+
     .structure-dropped {
       background-color: white !important;
       border: none;
@@ -90,52 +261,7 @@
     }
   }
 
-  @font-face {
-    font-family: 'Lato';
-    src: url(../img/accenture/fonts/Lato-Regular.ttf);
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: 'Lato';
-    src: url(../img/accenture/fonts/Lato-Black.ttf);
-    font-weight: 600;
-  }
-  .page{
-    background: url(../img/st-gallen/bcgd.png) no-repeat center;
-    background-size: cover;
-  }
-  .page-session-code{
-    background-image: url(../img/st-gallen/bcgd.png);
-  }
-  #collection-screen{
-    //background-image: url(../img/accenture/bcgd-qr_code.png);
-    background: white;
-    color: black;
-    .collections {
-      h2{
-        color: black;
-        text-shadow: none;
-      }
-    }
-  }
-  .code{
-    color: black;
-  }
-  .stgallen-show{
-    display: inline-block !important;
-    margin: 10px;
-    //margin-top: 18px;
-    margin-left: 0;
-    &.h-40per{
-      margin: 10px;
-      margin-top: 0px;
-      height: 81%;
-    }
-  }
 
-  .stgallen-hidden{
-    display: none;
-  }
   .stgallen-logo-img{
     margin-bottom: 1.2rem;
   }
@@ -150,7 +276,7 @@
   }
   .stgallen-header{
     background: #ffffff;
-    .box-shadow(inset 0 -6px 0 0 #0042a3);
+    .box-shadow(inset 0 -2px 0 0 #253b5f);
   }
   .header-start{
     .header-logo{
@@ -172,11 +298,11 @@
       width: 100% !important;
       color: white;
       border-radius: 0 !important;
-      background: #0042a3;
+      background: #253b5f;
       &.stgallen-title{
         width: 100%;
         border-radius: 0 !important;
-        background: #0042a3;
+        background: #253b5f;
         &.wl-title{
           border-bottom: none;
         }
@@ -186,7 +312,7 @@
       padding: 0.4rem 1rem;
     }
     .material-block  .mirror-patent{
-      height: 0px !important;
+      height: 0 !important;
       display: none !important;
     }
   }
@@ -305,7 +431,7 @@
           color: black;
         }
         input, select{
-          background-color: #0042a387;
+          background-color: #253b5f87;
           color: white;
         }
         .order-button{

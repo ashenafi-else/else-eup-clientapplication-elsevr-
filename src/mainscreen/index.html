@@ -568,30 +568,31 @@
                          v-for="element in data.active_structure.elements">
                         <div class="configurator-block vr-configurator-block ac-configurator-block materials-color-block">
                             <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span></div>
-                            <div class="material-block diff-prices-container"
-                                 :class="[state.active_product.name, material.name]"
-                                 v-for="material in data.active_element.colors">
-                                <div class="material-head"
-                                     :class="[material.name,(element.active_material == material.name)?'active':'']">
-                                    <div class="material-start">
-                                        <div class="material-icon big-active-material"
-                                             :class="[element.active_color]"
-                                             :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
+                            <span>
+                                <div class="material-block diff-prices-container"
+                                     :class="[state.active_product.name, material.name]"
+                                     v-for="material in data.active_element.colors">
+                                    <div class="material-head"
+                                         :class="[material.name,(element.active_material == material.name)?'active':'']">
+                                        <div class="material-start">
+                                            <div class="material-icon big-active-material"
+                                                 :class="[element.active_color]"
+                                                 :style="{backgroundImage: ['url(' + material.active_color_image + ')', 'center', 'center', 'no-repeat']}">
+                                            </div>
+                                            <div class="material-name">{{getMaterialName(material)}}</div>
                                         </div>
-                                        <div class="material-name">{{getMaterialName(material)}}</div>
-                                    </div>
-
-                                    <div class="mc configurator-block vr-configurator-block ac-configurator-block colors-block">
-                                        <div class="title vr-block-title ac-block-title color-title w-70per "><span>Colors</span></div>
-                                        <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
-                                        <div class="color"
-                                             :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                             :class="[color.name ,(element.active_color == color.name)?'active':'']"
-                                             v-for="color in material.colors">
+                                        <div class="mc configurator-block vr-configurator-block ac-configurator-block colors-block">
+                                            <div class="title vr-block-title ac-block-title color-title w-70per "><span>Colors</span></div>
+                                            <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
+                                            <div class="color"
+                                                 :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                 :class="[color.name ,(element.active_color == color.name)?'active':'']"
+                                                 v-for="color in material.colors">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </span>
                         </div>
                     </div>
                 </div>

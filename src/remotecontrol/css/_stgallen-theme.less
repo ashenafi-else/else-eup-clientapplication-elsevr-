@@ -15,8 +15,40 @@
   }
 
   #product-list-screen{
-    .larusmiani_1{
-      display: none;
+    .element{
+      width: 49%;
+      border-radius: 4px;
+      box-shadow: 0 0 18px 0 #253b5f;
+      background: white;
+      transition: 150ms;
+      &.active{
+        border: 8px solid #00ffff!important;
+        transition: 150ms;
+        .image-container{
+          max-width: 95%;
+          margin-bottom: 90px;
+        }
+      }
+      &.larusmiani_1, &.nfc{
+        display: none;
+      }
+      .name{
+        display: none;
+      }
+      .image-container{
+        max-width: 100%;
+        margin-bottom: 90px;
+      }
+    }
+    .continue-to-configurator{
+      border: 2px solid #5edeff;
+      background: #253b5f;
+      padding-bottom: 8px;
+      z-index: 99;
+      font-family: "LatoLight", sans-serif;
+      font-size: 27px;
+      color: #5edeff;
+      margin-bottom: 6vh;
     }
   }
   .page-session-code{

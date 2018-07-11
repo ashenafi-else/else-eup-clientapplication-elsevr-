@@ -220,6 +220,15 @@
 // CONFIGURATOR
   #product-details-screen {
     background: #e1e1e1;
+    .heels, .diff-prices-container, .delivery-time, .configurator-block, .materials-color-block{
+      background-color: rgba(255,255,255,0.5);
+      box-shadow: none;
+    }
+    .material-block{
+      background: none;
+    }
+
+
     .description-product{
       display: none;
     }
@@ -238,7 +247,6 @@
       width: 22vw;
       .configurable-parts-container{
         justify-content: center;
-        background-color: rgba(255,255,255,0.5);
       }
     }
     .configurator-block.heels{
@@ -246,12 +254,14 @@
       top: 50vh;
       left: 2vh;
       margin: 0;
+      z-index: 999;
     }
     .materials-color-block{
       position: absolute;
       top: 30vh;
       right: 1vh;
       width: 22vw;
+      z-index:999;
       span{
         display: flex;
         width: 100%;
@@ -259,6 +269,15 @@
         justify-content: space-around;
         .material-block{
           width: 100px;
+        }
+      }
+      .mc{
+        position: fixed;
+        top: 62vh;
+        right: 1vh;
+        width: 22vw;
+        .color{
+          margin: 0.5rem 0.7rem;
         }
       }
     }
@@ -279,12 +298,51 @@
       position: absolute;
       left: 2vh;
       top: 67vh;
+      z-index:999;
+      .product-preview{
+        overflow: hidden;
+        height:150px;
+        img{
+          width: 150%;
+          height: 150%;
+          min-width: 150%;
+          min-height: 150%;
+          margin-left: -25%;
+        }
+      }
       .delivery-time{
-        background-color: white;
         margin: 0;
         border: none;
         border-radius: 0;
+        padding: 0 15px;
+        .delivery{
+          background-image: url(../img/st-gallen/delivery-time.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          width: 100%;
+          margin: 0;
+        }
       }
+      .diff-prices-container{
+        min-height: 17vh;
+        height: 17vh;
+      }
+      .prices{
+        display: none;
+      }
+    }
+    .button-order{
+      display: block;
+      position: absolute;
+      top: 92vh;
+      font-family: "lato", sans-serif;
+      padding: 10px;
+      background-color: #5edeff;
+      width: 12vw;
+      text-align: center;
+      color: #253b5f;
+      left: 2vh;
+      z-index:999;
     }
   }
 
@@ -326,6 +384,8 @@
       color: white;
       border-radius: 0 !important;
       background: #253b5f;
+      font-size: 20px;
+      font-family: "LatoLight", sans-serif;
       &.stgallen-title{
         width: 100%;
         border-radius: 0 !important;
@@ -338,10 +398,10 @@
     .stgalllen-block-title{
       padding: 0.4rem 1rem;
     }
-    .material-block  .mirror-patent{
-      height: 0 !important;
-      display: none !important;
-    }
+    //.material-block  .mirror-patent{
+    //  height: 0 !important;
+    //  display: none !important;
+    //}
   }
   .materials-color-block{
     .material-name{
@@ -366,6 +426,7 @@
   }
   .configurable-parts-block{
     margin-top: 2px;
+    z-index:999;
   }
   .element-border{
     background: white;

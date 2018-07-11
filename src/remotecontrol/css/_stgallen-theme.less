@@ -21,6 +21,10 @@
       box-shadow: 0 0 18px 0 #253b5f;
       background: white;
       transition: 150ms;
+
+      border-radius: 4px;
+      box-shadow: 0 0 18px 0 #253b5f;
+      background: white;
       &.active{
         border: 8px solid #00ffff!important;
         transition: 150ms;
@@ -122,7 +126,7 @@
     background: #0042a3;
     border: none;
     //border: 5px solid black;
-    box-shadow: #00000045 0px 5px 22px;
+    box-shadow: #00000045 0 5px 22px;
     color: white;
   }
   .component {
@@ -153,7 +157,11 @@
     font-size: 24px;
     background-size: 90%;
   }
-  #mirror-patent{
-    display: none !important;
-  }
+  //#mirror-patent{
+  //  display: none !important;
+  //}
+}
+
+.configurator-item, .qr-back, .close, .back-to-config-button{
+  height: 14vh!important;
 }

@@ -62,6 +62,7 @@
 
 // QR CODE
   #session-code-screen{
+    background: white;
     font-family: "LatoLight", sans-serif;
     .logo-chromium{
       display: block!important;
@@ -240,11 +241,26 @@
         background-color: rgba(255,255,255,0.5);
       }
     }
+    .configurator-block.heels{
+      position: absolute;
+      top: 50vh;
+      left: 2vh;
+      margin: 0;
+    }
     .materials-color-block{
       position: absolute;
       top: 30vh;
       right: 1vh;
       width: 22vw;
+      span{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-around;
+        .material-block{
+          width: 100px;
+        }
+      }
     }
 
 
@@ -257,6 +273,17 @@
           box-shadow: none;
           .active-item-rotating-round();
         }
+      }
+    }
+    .price-block{
+      position: absolute;
+      left: 2vh;
+      top: 67vh;
+      .delivery-time{
+        background-color: white;
+        margin: 0;
+        border: none;
+        border-radius: 0;
       }
     }
   }

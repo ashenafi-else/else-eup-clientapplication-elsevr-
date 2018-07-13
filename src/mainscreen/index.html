@@ -496,6 +496,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="summary-block more_details">
+                        <div class="price-block" >
+                            <!--<div class="title fs-block-title">{{state.active_product.name}}</div>-->
+                            <div class="title fs-block-title">{{tr(states.product_view.active_product.name)}}</div>
+                            <div class="boot-img image-block">
+                                <img class="live-image" :src="preview_image">
+                            </div>
+                            <div class="detailed-price more_details">
+                                <table class="table table--product-summary price">
+                                    <tr class="base-mod-price">
+                                        <td>{{tr("Base model")}}:</td>
+                                        <td>{{states.product_view.current_configuration_price.base}} &#8364;</td>
+                                    </tr>
+                                    <tr class="extra-acc-price"   v-for="value, name in states.product_view.current_configuration_price.details">
+                                        <td>{{tr(name)}}:</td>
+                                        <td>{{tr(value)}} &#8364;</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="delivery-time">
+                                <div class="delivery">10</div>
+                                <div class="total-price">{{states.product_view.current_configuration_price.total}},00 &#8364;</span></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="description-product">
                         <!-- <img src="img/configurations.png"> -->
                         <ul class="col-16">

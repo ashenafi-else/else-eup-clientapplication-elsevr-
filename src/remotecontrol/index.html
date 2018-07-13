@@ -448,18 +448,36 @@ X                                              v-for="value in values">
                         <span class="advanced-icon"></span>
                         <span class="text">{{tr("Product Preview")}}</span>
                     </div> -->
-                    <div id="header-materials" class="configurator-item select header-materials" @click="materialPreview">
-                        <span class="material-icon"></span>
-                        <span class="text">{{tr("Material Preview")}}</span>
-                    </div>
-                    <button class="configurator-item" @click="qrScannerConfig">
-                        <span class="qr-icon"></span>
-                        <span class="text">{{tr("Scan Configuration")}}</span>
+                    <!--<div id="header-materials" class="configurator-item select header-materials" @click="materialPreview">-->
+                        <!--<span class="material-icon"></span>-->
+                        <!--<span class="text">{{tr("Material Preview")}}</span>-->
+                    <!--</div>-->
+                    <!--<button class="configurator-item" @click="qrScannerConfig">-->
+                        <!--<span class="qr-icon"></span>-->
+                        <!--<span class="text">{{tr("Scan Configuration")}}</span>-->
+                    <!--</button>-->
+
+                    <button class="configurator-item">
+                        <span class="summary"></span>
+                        <span class="text">{{tr("Product Summary")}}</span>
                     </button>
+
+                    <button class="configurator-item" @click="home()">
+                        <span class="go-home"></span>
+                        <span class="text">{{tr("Virtual Catalogue")}}</span>
+                    </button>
+
                     <button class="configurator-item" @click="resetConfiguration()">
                         <span class="reset-icon"></span>
                         <span class="text">{{tr("Default Configuration")}}</span>
                     </button>
+
+                    <div class="configurator-item hvr-ripple-out select" @click="toggleMoreDetails()">
+                        <span class="details-icon"></span>
+                        <span class="text"  v-if="!more_details">{{tr("More Details")}}</span>
+                        <span class="text" v-else>{{tr("Less Details")}}</span>
+                    </div>
+
                    <!-- <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
                         <div class="stgallen-hidden add-to-wishlist wishlist-icon select" @click="showSaveWishForm()"></div>
                         <div id="go-wishlist" class="stgallen-hidden view-wishlist select" @click="showWishList(true)">

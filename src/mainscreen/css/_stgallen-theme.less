@@ -41,7 +41,7 @@
 
 //Header
   .mainscreen-header{
-    height: 9vh;
+    height: 8vh;
   }
   .header-start{
     width: 100vw;
@@ -113,12 +113,14 @@
     .collections {
       h2{
         font-family: "LatoLight", sans-serif;
-        color: black;
+        color: #253b5f;
         text-shadow: none;
       }
       .Demo.Collection{
-        font-size: 3rem;
-        margin: 0.5rem;
+        h2{
+          font-size: 3rem;
+          margin: 0.5rem;
+        }
       }
     }
     .logo-pwd-else{
@@ -220,34 +222,48 @@
 // CONFIGURATOR
   #product-details-screen {
     background: #e1e1e1;
+    .main-start{
+      z-index: 9999;
+    }
     .heels, .diff-prices-container, .delivery-time, .configurator-block, .materials-color-block{
       background-color: rgba(255,255,255,0.5);
       box-shadow: none;
+      width:16vw;
+    }
+
+    .structure-dropped{
+      &:after {
+        z-index: 999;
+        opacity: 1;
+        content: '';
+        @keyframes rotating {
+          from {
+            .rotate(0deg);
+          }
+          to {
+            .rotate(360deg);
+          }
+        }
+        .animation(rotating, 3s, linear, infinite);
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        position: absolute;
+        min-width: 70px;
+        min-height: 70px;
+        background: url(../img/st-gallen/active-border.svg) no-repeat center;
+      }
     }
     .material-block{
       background: none;
     }
-
-
     .description-product{
       display: none;
     }
     .title{
       text-align: center;
       height: 38px;
-    }
-    .non-configurable-parts-block{
-      display: none;
-    }
-    .configurable-parts-block{
-      position: absolute;
-      top: 14vh;
-      right: 1vw;
-      box-shadow: none;
-      width: 22vw;
-      .configurable-parts-container{
-        justify-content: center;
-      }
     }
     .configurator-block.heels{
       position: absolute;
@@ -256,28 +272,94 @@
       margin: 0;
       z-index: 999;
     }
+    .component{
+      margin: .3rem;
+      height: 4.5rem;
+      width: 4.5rem;
+      .name{
+        color: #253b5f;
+      }
+    }
     .materials-color-block{
       position: absolute;
-      top: 30vh;
-      right: 1vh;
-      width: 22vw;
+      top: 27vh;
+      right: 2vh;
+      width: 16vw;
       z-index:999;
+      margin: 0;
+      padding-bottom: 0;
+      .colors-block{
+        //top: calc(~"8vh + 25px");
+        right: 132px;
+        height: auto;
+        width:16vw;;
+        .color{
+          border-radius: 15%;
+          width: 3rem;
+          height: 3rem;
+          box-shadow: none;
+          &.active {
+            border: solid #00ffff !important;
+            animation: blink 1s linear infinite alternate;
+            box-shadow: 0 0 1px 1px #00ffff;
+          }
+        }
+
+      }
+      .material-name{
+        color: black;
+      }
       span{
         display: flex;
         width: 100%;
         height: auto;
         justify-content: space-around;
         .material-block{
-          width: 100px;
+          width: 80px;
+          .material-start{
+            flex-direction: column!important;
+            width:80px;
+            height:80px;
+            .material-name{
+              width: auto;
+              color: #253b5f;
+            }
+            .material-icon{
+              width:80px;
+              height:80px;
+            }
+          }
         }
       }
       .mc{
         position: fixed;
-        top: 62vh;
-        right: 1vh;
-        width: 22vw;
-        .color{
-          margin: 0.5rem 0.7rem;
+        top: 53vh;
+        right: 2vh;
+        width: 16vw;
+        margin: 0;
+        span{
+          width: 16vw;
+          display: flex;
+          height: auto;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          .color{
+            margin: 0 0.9rem;
+            margin-bottom: 1.6rem;
+            width: 3.3rem;
+            height: 3.3rem;
+            span{
+              color: #253b5f;
+              position: relative;
+              top: 3.2rem;
+              font-size: .75rem;
+              width: 100%;
+              margin: 0;
+              line-height: .7rem;
+              text-align: center;
+            }
+          }
         }
       }
     }
@@ -287,11 +369,13 @@
       background-color: white !important;
       border: none;
       box-shadow: #00000050 2px 2px 32px;
+      z-index: 9999;
+      flex-direction: column;
       .structure-item {
-        &.active {
-          box-shadow: none;
-          .active-item-rotating-round();
-        }
+        //&.active {
+        //  box-shadow: none;
+        //  .active-item-rotating-round();
+        //}
       }
     }
     .price-block{
@@ -299,6 +383,9 @@
       left: 2vh;
       top: 67vh;
       z-index:999;
+      .summary-block{
+        display: none;
+      }
       .product-preview{
         overflow: hidden;
         height:150px;
@@ -319,7 +406,7 @@
           background-image: url(../img/st-gallen/delivery-time.png);
           background-size: 100%;
           background-repeat: no-repeat;
-          width: 100%;
+          width: 33%;
           margin: 0;
         }
       }
@@ -335,14 +422,37 @@
       display: block;
       position: absolute;
       top: 92vh;
-      font-family: "lato", sans-serif;
-      padding: 10px;
-      background-color: #5edeff;
-      width: 12vw;
+      padding: 17px;
+      width: 16vw;
       text-align: center;
-      color: #253b5f;
       left: 2vh;
-      z-index:999;
+      background: #253b5f;
+      z-index: 99;
+      font-family: "Lato", sans-serif;
+      font-size: 20px;
+      color: #5edeff;
+    }
+  }
+
+//Odrer
+  #customer-order-screen{
+    .price-block{
+      display: none;
+    }
+    #product-order{
+      display: block;
+    }
+    .order-form{
+      form{
+        background-color: rgba(255,255,255,0.5);
+        box-shadow: none;
+        padding: 24px;
+        .input-label{
+          input{
+            margin: 5px 0;
+          }
+        }
+      }
     }
   }
 
@@ -361,7 +471,7 @@
   }
   .stgallen-header{
     background: #ffffff;
-    .box-shadow(inset 0 -2px 0 0 #253b5f);
+    //.box-shadow(inset 0 -2px 0 0 #253b5f);
   }
   .header-start{
     .header-logo{
@@ -398,21 +508,11 @@
     .stgalllen-block-title{
       padding: 0.4rem 1rem;
     }
-    //.material-block  .mirror-patent{
-    //  height: 0 !important;
-    //  display: none !important;
-    //}
-  }
-  .materials-color-block{
-    .material-name{
-      color: black;
+    .material-block.mirror-patent{
+      display: none !important;
     }
   }
-  .colors-block{
-    top: calc(~"8vh + 25px");
-    right: 132px;
-    height: auto;
-  }
+
   .configurator-block{
     .component.active{
       .active-item-rotating-round();
@@ -424,9 +524,30 @@
   .material-head.active {
     .active-item-rotating-round();
   }
+  .non-configurable-parts-block{
+    display: none;
+  }
   .configurable-parts-block{
+    position: absolute;
+    top: 10vh;
+    right: 1vw;
+    box-shadow: none;
+    width: 16vw;
     margin-top: 2px;
     z-index:999;
+    .component:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 10px solid #5edfff;
+      border-right: 10px solid transparent;
+    }
+    .configurable-parts-container{
+      justify-content: center;
+    }
   }
   .element-border{
     background: white;
@@ -479,22 +600,21 @@
     }
     .delivery-time{
       .total-price{
-        display: none;
+        //display: none;
+        text-align: right;
+        color: #253b5f;
+        font-size: 14px;
+        width: 50%;
+        justify-content: flex-end;
       }
       .delivery{
         margin-left: 50px;
+        width: 33%;
       }
     }
   }
 
 
-  .colors-block{
-    .color.active {
-      border: solid #00ffff !important;
-      animation: blink 1s linear infinite alternate;
-      box-shadow: 0 0 1px 1px #00ffff;
-    }
-  }
   .logo-elsa-neon{
     display:none;
   }

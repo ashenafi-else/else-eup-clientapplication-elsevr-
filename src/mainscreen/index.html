@@ -584,11 +584,14 @@
                                         <div class="mc configurator-block vr-configurator-block ac-configurator-block colors-block">
                                             <div class="title vr-block-title ac-block-title color-title w-70per "><span>Colors</span></div>
                                             <!--:style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"-->
-                                            <div class="color"
-                                                 :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
-                                                 :class="[color.name ,(element.active_color == color.name)?'active':'']"
-                                                 v-for="color in material.colors">
-                                            </div>
+                                            <span>
+                                                <div class="color"
+                                                     :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     :class="[color.name ,(element.active_color == color.name)?'active':'']"
+                                                     v-for="color in material.colors">
+                                                    <span class="hidden stgallen-show">{{tr(color.name)}}</span>
+                                                </div>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

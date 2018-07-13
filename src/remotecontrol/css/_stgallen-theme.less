@@ -1,4 +1,14 @@
 .store_22{
+  @font-face {
+    font-family: 'LatoLight';
+    src: url(../img/st-gallen/fonts/Lato-Light.ttf);
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Lato';
+    src: url(../img/st-gallen/fonts/Lato-Regular.ttf);
+    font-weight: normal;
+  }
   .stgallen-hidden{
     display: none;
   }
@@ -21,15 +31,13 @@
       box-shadow: 0 0 18px 0 #253b5f;
       background: white;
       transition: 150ms;
-
-      border-radius: 4px;
-      box-shadow: 0 0 18px 0 #253b5f;
-      background: white;
+      border: 2px solid #253b5f;
       &.active{
-        border: 8px solid #00ffff!important;
+        border: 2px solid #5edfff;
+        box-shadow: 0 0 18px 0 #5edfff;
         transition: 150ms;
         .image-container{
-          max-width: 95%;
+          max-width: 100%;
           margin-bottom: 90px;
         }
       }
@@ -113,6 +121,7 @@
       padding: 0 15px;
     }
   }
+
   #product-start-screen {
     .collections {
       h2 {
@@ -128,14 +137,6 @@
     //border: 5px solid black;
     box-shadow: #00000045 0 5px 22px;
     color: white;
-  }
-  .component {
-      &.monogram{
-        display: none;
-      }
-      &.monogram {
-        display: none;
-      }
   }
   .order-icon {
     display: none;
@@ -157,11 +158,16 @@
     font-size: 24px;
     background-size: 90%;
   }
-  //#mirror-patent{
-  //  display: none !important;
-  //}
-}
-
-.configurator-item, .qr-back, .close, .back-to-config-button{
-  height: 14vh!important;
+  #mirror-patent{
+    display: none !important;
+  }
+  .monogram{
+    display: none;
+  }
+  .configurator-item, .qr-back, .close, .back-to-config-button{
+    height: 14vh!important;
+  }
+  .configurator-item.go-account{
+    display: none!important;
+  }
 }

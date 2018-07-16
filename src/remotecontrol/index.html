@@ -457,9 +457,10 @@ X                                              v-for="value in values">
                         <!--<span class="text">{{tr("Scan Configuration")}}</span>-->
                     <!--</button>-->
 
-                    <button class="configurator-item">
+                    <button class="configurator-item select" @click="toggleMoreDetails()">
                         <span class="summary"></span>
-                        <span class="text">{{tr("Product Summary")}}</span>
+                        <span class="text"  v-if="!more_details">{{tr("Product Summary")}}</span>
+                        <span class="text" v-else>{{tr("Product Summary")}}</span>
                     </button>
 
                     <button class="configurator-item" @click="home()">
@@ -471,12 +472,6 @@ X                                              v-for="value in values">
                         <span class="reset-icon"></span>
                         <span class="text">{{tr("Default Configuration")}}</span>
                     </button>
-
-                    <div class="configurator-item hvr-ripple-out select" @click="toggleMoreDetails()">
-                        <span class="details-icon"></span>
-                        <span class="text"  v-if="!more_details">{{tr("More Details")}}</span>
-                        <span class="text" v-else>{{tr("Less Details")}}</span>
-                    </div>
 
                    <!-- <div class="wishlist-item" v-show="states.customer_profile_view.active_customer.id">
                         <div class="stgallen-hidden add-to-wishlist wishlist-icon select" @click="showSaveWishForm()"></div>

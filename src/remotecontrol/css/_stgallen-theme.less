@@ -180,6 +180,7 @@
         background-color: #253b5f;
         border: none;
         color: #5edeff;
+        transition: 100ms;
         &.play-rotate span:first-child {
           background-image: url("../img/st-gallen/play.png");
           background-repeat: no-repeat;
@@ -206,7 +207,6 @@
           margin-right: 10px;
           margin-left: 10px;
           background-image: url("../img/st-gallen/catalogue.png");
-          background-repeat: no-repeat;
           background-position-x: 8%;
           background-position-y: 55%;
           background-size: 24px;
@@ -219,12 +219,51 @@
           margin-right: 10px;
           margin-left: 10px;
           background-image: url("../img/st-gallen/product-summary.png");
-          background-repeat: no-repeat;
           background-position-x: 8%;
           background-position-y: 55%;
           background-size: 24px;
         }
+        span.reset-icon {
+          background: url('../img/st-gallen/reset.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 34px;
+          height: 40px;
+          margin-right: 10px;
+          margin-left: 10px;
+          background-position-x: 8%;
+          background-position-y: 55%;
+          background-size: 24px;
+        }
+
+        &:hover, &:active, &:focus{
+          background-color: #5edeff;
+          color: #253b5f;
+          transition: 100ms;
+
+          span.go-home{
+            background-image: url("../img/st-gallen/catalogue-dark.png");
+          }
+          span.summary{
+            background-image: url("../img/st-gallen/product-summary-dark.png");
+          }
+          span.reset-icon {
+            background: url('../img/st-gallen/reset-dark.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 34px;
+            height: 40px;
+            margin-right: 10px;
+            margin-left: 10px;
+            background-position-x: 8%;
+            background-position-y: 55%;
+            background-size: 24px;
+          }
+        }
       }
+    }
+    .component.monogram{
+      display: none;
     }
   }
 }

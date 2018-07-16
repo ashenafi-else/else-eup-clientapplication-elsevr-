@@ -232,28 +232,28 @@
     }
 
     .structure-dropped{
-      &:after {
-        z-index: 999;
-        opacity: 1;
-        content: '';
-        @keyframes rotating {
-          from {
-            .rotate(0deg);
-          }
-          to {
-            .rotate(360deg);
-          }
-        }
-        .animation(rotating, 3s, linear, infinite);
-        top: -15px;
-        left: -15px;
-        right: -15px;
-        bottom: -15px;
-        position: absolute;
-        min-width: 70px;
-        min-height: 70px;
-        background: url(../img/st-gallen/active-border.svg) no-repeat center;
-      }
+      //&:after {
+      //  z-index: 999;
+      //  opacity: 1;
+      //  content: '';
+      //  @keyframes rotating {
+      //    from {
+      //      .rotate(0deg);
+      //    }
+      //    to {
+      //      .rotate(360deg);
+      //    }
+      //  }
+      //  .animation(rotating, 3s, linear, infinite);
+      //  top: -15px;
+      //  left: -15px;
+      //  right: -15px;
+      //  bottom: -15px;
+      //  position: absolute;
+      //  min-width: 70px;
+      //  min-height: 70px;
+      //  background: url(../img/st-gallen/active-border.svg) no-repeat center;
+      //}
     }
     .material-block{
       background: none;
@@ -370,12 +370,14 @@
       border: none;
       box-shadow: #00000050 2px 2px 32px;
       z-index: 9999;
-      flex-direction: column;
+      flex-direction: row-reverse;
+      left: initial;
+      right: -11px;
       .structure-item {
-        //&.active {
-        //  box-shadow: none;
-        //  .active-item-rotating-round();
-        //}
+        &.active {
+          box-shadow: none;
+          .active-item-rotating-stgallen-round()!important;
+        }
       }
     }
     .price-block{
@@ -443,16 +445,16 @@
       display: block;
     }
     .order-form{
-      form{
-        background-color: rgba(255,255,255,0.5);
-        box-shadow: none;
-        padding: 24px;
-        .input-label{
-          input{
-            margin: 5px 0;
-          }
-        }
-      }
+      //form{
+      //  background-color: rgba(255,255,255,0.5);
+      //  box-shadow: none;
+      //  padding: 24px;
+      //  .input-label{
+      //    input{
+      //      margin: 5px 0;
+      //    }
+      //  }
+      //}
     }
   }
 
@@ -515,14 +517,14 @@
 
   .configurator-block{
     .component.active{
-      .active-item-rotating-round();
+      .active-item-rotating-stgallen-round();
     }
     .component.control-active{
-      .active-item-rotating-round();
+      .active-item-rotating-stgallen-round();
     }
   }
   .material-head.active {
-    .active-item-rotating-round();
+    .active-item-rotating-stgallen-round();
   }
   .non-configurable-parts-block{
     display: none;
@@ -620,35 +622,35 @@
   }
 
   #customer-order-screen{
-    background: url(../img/st-gallen/bcgd.png) no-repeat center;
-    background-size: cover;
+    //background: url(../img/st-gallen/bcgd.png) no-repeat center;
+    //background-size: cover;
     .order-form{
-      form{
-        .fullname-block{
-          .flex-container();
-        }
-        .box-shadow(0px 0px 5px 2px #d9d9d9);
-        position: absolute;
-        border-radius: 0;
-        right: 20px;
-        width: 320px;
-        padding: 35px;
-        margin-top: 30px;
-        background: white;
-        label, .label{
-          color: black;
-        }
-        input, select{
-          background-color: #253b5f87;
-          color: white;
-        }
-        .order-button{
-          display: none;
-        }
-        .notesfield{
-          height: 80px;
-        }
-      }
+      //form{
+      //  .fullname-block{
+      //    .flex-container();
+      //  }
+      //  .box-shadow(0px 0px 5px 2px #d9d9d9);
+      //  position: absolute;
+      //  border-radius: 0;
+      //  right: 20px;
+      //  width: 320px;
+      //  padding: 35px;
+      //  margin-top: 30px;
+      //  background: white;
+      //  label, .label{
+      //    color: black;
+      //  }
+      //  input, select{
+      //    background-color: #253b5f87;
+      //    color: white;
+      //  }
+      //  .order-button{
+      //    display: none;
+      //  }
+      //  .notesfield{
+      //    height: 80px;
+      //  }
+      //}
     }
   }
 
@@ -966,5 +968,67 @@
     }
   }
 
+  #customer-order-screen{
+    background: #e1e1e1;
+    form{
+      padding: 0;
+      width: 47vw;
+      background: no-repeat;
+      box-shadow: none;
+      margin-top: 11vh;
+      padding-right: 2vw;
+      .input-label{
+        margin: 5px 0 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        position: relative;
+        .label{
+          width: 220px;
+          font-size: 22px;
+          color: black;
+          max-width: 220px;
+          min-width: 220px;
+          padding-top: 20px;
+        }
+        input, select{
+          margin: 5px 0;
+          height: 5vh;
+          background-color: rgba(255, 255, 255, 0.4);
+          border-radius: 8px;
+          width: 65vw;
+          max-width: 640px;
+        }
+        a.dropdown-btn{
+          position: relative;
+          bottom: -22px;
+          right: 30px;
+        }
+        .fullname-block{
+          width: 100%;
+          input{
+            flex: 1!important;
+            width: 100%!important;
+          }
+        }
+
+        .address-input{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          max-width: 640px!important;
+        }
+
+        &.notes{
+          display: none;
+        }
+      }
+    }
+
+  }
+  #canvas_container_id.customer_order_view{
+    left: -23%;
+  }
 }
 

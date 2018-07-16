@@ -427,6 +427,7 @@
                                 </div>
                             </div>
                     </div>
+
                     <div class="monogram-block vertical-bar"
                           v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="title vr-block-title ac-block-title w-80per">{{tr("Monogram")}}</div>
@@ -457,8 +458,6 @@
                             </div>
                         </div>
                     </div>
-
-
 
                     <div class="price-block">
                         <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
@@ -493,32 +492,6 @@
                             <div class="delivery"></div>
                             <div class="total-price" v-if="states.product_view.current_configuration_price">
                                 {{states.product_view.current_configuration_price.total}},00 &#8364;
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="summary-block more_details">
-                        <div class="price-block" >
-                            <!--<div class="title fs-block-title">{{state.active_product.name}}</div>-->
-                            <div class="title fs-block-title">{{tr(states.product_view.active_product.name)}}</div>
-                            <div class="boot-img image-block">
-                                <img class="live-image" :src="preview_image">
-                            </div>
-                            <div class="detailed-price more_details">
-                                <table class="table table--product-summary price">
-                                    <tr class="base-mod-price">
-                                        <td>{{tr("Base model")}}:</td>
-                                        <td>{{states.product_view.current_configuration_price.base}} &#8364;</td>
-                                    </tr>
-                                    <tr class="extra-acc-price"   v-for="value, name in states.product_view.current_configuration_price.details">
-                                        <td>{{tr(name)}}:</td>
-                                        <td>{{tr(value)}} &#8364;</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="delivery-time">
-                                <div class="delivery">10</div>
-                                <div class="total-price">{{states.product_view.current_configuration_price.total}},00 &#8364;</span></div>
                             </div>
                         </div>
                     </div>
@@ -1561,11 +1534,11 @@
                             </div>
                             <div class="input-label">
                                 <div class="label">{{tr('Delivery address')}}</div>
-                                <input type="text" :value="states.customer_order_view.customer_info.addresses[0].street[0]" id="district"
-                                       placeholder="District of the shop"/>
-                                <input type="text" :value="states.customer_order_view.customer_info.addresses[0].city" name="city" id="city"
-                                       placeholder="City"/>
-                                <div style="display: flex; flex-direction: row">
+                                <div class="address-input" style="display: flex; flex-direction: row">
+                                    <input type="text" :value="states.customer_order_view.customer_info.addresses[0].street[0]" id="district"
+                                           placeholder="District of the shop"/>
+                                    <input type="text" :value="states.customer_order_view.customer_info.addresses[0].city" name="city" id="city"
+                                           placeholder="City"/>
                                     <input type="text" :value="states.customer_order_view.customer_info.addresses[0].countryId" name="country"
                                            id="country" placeholder="Country"
                                            style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
@@ -1588,7 +1561,7 @@
                                 </select>
                                 <a class="dropdown-btn"></a>
                             </div>
-                            <div class="input-label">
+                            <div class="input-label notes">
                                 <label class="label" for="notes">{{tr('Notes')}}</label>
                                 <input class="notesfield" type="text" name="notes" :value="states.customer_order_view.customer_info.note" id="notes" notrequired="true"/>
                             </div>
@@ -1757,11 +1730,11 @@
                             </div>
                             <div class="input-label">
                                 <div class="label">{{tr('Delivery address')}}</div>
-                                <input type="text" :value="account_data.addresses[0].street[0]" id="district"
-                                       placeholder="District of the shop"/>
-                                <input type="text" :value="account_data.addresses[0].city" name="city" id="city"
-                                       placeholder="City"/>
-                                <div style="display: flex; flex-direction: row">
+                                <div class="address-input" style="display: flex; flex-direction: row">
+                                    <input type="text" :value="account_data.addresses[0].street[0]" id="district"
+                                           placeholder="District of the shop"/>
+                                    <input type="text" :value="account_data.addresses[0].city" name="city" id="city"
+                                           placeholder="City"/>
                                     <input type="text" :value="account_data.addresses[0].countryId" name="country"
                                            id="country" placeholder="Country"
                                            style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>

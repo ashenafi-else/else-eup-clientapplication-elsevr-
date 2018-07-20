@@ -207,7 +207,8 @@
                      :states="states"
                      :state="states.product_view"
                      :data="api2Data"
-                     v-if="states.product_view.active">
+                     v-if="states.product_view.active"
+                     :more_details="more_details">
         <div class="remote-configuration" id="product-details-screen">
             <div class="remote-controller-main">
                 <div class="controller-header">
@@ -457,11 +458,11 @@ X                                              v-for="value in values">
                         <!--<span class="text">{{tr("Scan Configuration")}}</span>-->
                     <!--</button>-->
 
-                    <button class="configurator-item select" @click="toggleMoreDetails()">
-                        <span class="summary"></span>
-                        <span class="text"  v-if="!more_details">{{tr("Product Summary")}}</span>
-                        <span class="text" v-else>{{tr("Product Summary")}}</span>
-                    </button>
+                    <!--<button class="configurator-item select" @click="toggleMoreDetails()">-->
+                        <!--<span class="summary"></span>-->
+                        <!--<span class="text"  v-if="!more_details">{{tr("Product Summary")}}</span>-->
+                        <!--<span class="text" v-else>{{tr("Product Summary")}}</span>-->
+                    <!--</button>-->
 
                     <button class="configurator-item" @click="home()">
                         <span class="go-home"></span>

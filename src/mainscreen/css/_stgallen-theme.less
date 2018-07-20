@@ -222,8 +222,20 @@
 // CONFIGURATOR
   #product-details-screen {
     background: #e1e1e1;
+    .configurator-block{
+      .title{
+        margin-top: 0;
+      }
+      &.colors-block{
+        .title{
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
     .main-start{
       z-index: 9999;
+      height: 92vh;
     }
     .heels, .diff-prices-container, .delivery-time, .configurator-block, .materials-color-block{
       background-color: rgba(255,255,255,0.5);
@@ -383,14 +395,61 @@
     .price-block{
       position: absolute;
       left: 2vh;
-      top: 67vh;
+      bottom: 11vh;
       z-index:999;
+      width: 16px;
+      &.more_details{
+        .configurator-block{
+          background-color: white;
+          .detailed-price{
+            padding: 10px;
+            .price-table-head{
+              width: 100%;
+              height: inherit;
+              color: #253b5f;
+              border: none!important;
+              background: none!important;
+              text-align: center;
+              text-transform: capitalize;
+              tr{
+                border: none;
+                td{
+                  width: 50%;
+                  border: none;
+                  padding: 4px;
+                  color: #253b5f;
+                  font-weight: 800;
+                }
+              }
+            }
+            .table--product-summary{
+              width: 100%;
+              height: inherit;
+              color: #253b5f;
+              border: none!important;
+              background: none!important;
+              text-align: center;
+              text-transform: capitalize;
+              tr{
+                border: none;
+                td{
+                  width: 50%;
+                  border: none;
+                  padding: 4px;
+                  color: #253b5f;
+                }
+              }
+            }
+          }
+        }
+      }
       .summary-block{
         display: none;
       }
       .product-preview{
         overflow: hidden;
         height:150px;
+        min-height: 150px;
         img{
           width: 150%;
           height: 150%;
@@ -414,7 +473,7 @@
       }
       .diff-prices-container{
         min-height: 17vh;
-        height: 17vh;
+        //height: 17vh;
       }
       .prices{
         display: none;
@@ -423,7 +482,7 @@
     .button-order{
       display: block;
       position: absolute;
-      top: 92vh;
+      bottom: 3vh;
       padding: 17px;
       width: 16vw;
       text-align: center;
@@ -433,6 +492,12 @@
       font-family: "Lato", sans-serif;
       font-size: 20px;
       color: #5edeff;
+    }
+    .material-start{
+      .big-active-material{
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
     }
   }
 

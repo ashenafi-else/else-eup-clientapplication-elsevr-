@@ -69,10 +69,10 @@ window.translations = {
         'en': 'Red'
     },
     'MAT_TURQUOISE_BLUESHADE': {
-        'en': 'Turquoise blue shade'
+        'en': 'Turquoise blue'
     },
     'MAT_TURQUOISE_GREENSHADE': {
-        'en': 'Turquoise green shade'
+        'en': 'Turquoise green'
     },
     'MAT_SUEDE_BLACK': {
         'en': 'Black'

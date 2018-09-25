@@ -219,18 +219,18 @@
             <div class="configuration-main">
                 <div class="product-config"
                      :class="[state.active_product.name, setClass(data.active_component_id, 'component'), setClass(data.active_structure_id, 'structure')]">
-                    <div class="products vertical-bar"
-                         :class="state.active_product.name"
-                         v-if="state.products.length > 1">
-                        <div class="column_1 table-header">{{tr("Model")}}</div>
-                        <div class="component"
-                             @click="changeProduct(product)"
-                             :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
-                             :id="'product-' + product.id"
-                             v-for="product in state.products">
-                            {{tr(product.name)}}
-                        </div>
-                    </div>
+                    <!--<div class="products vertical-bar"-->
+                         <!--:class="state.active_product.name"-->
+                         <!--v-if="state.products.length > 1">-->
+                        <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                        <!--<div class="component"-->
+                             <!--@click="changeProduct(product)"-->
+                             <!--:class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"-->
+                             <!--:id="'product-' + product.id"-->
+                             <!--v-for="product in state.products">-->
+                            <!--{{tr(product.name)}}-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="components vertical-bar"
                          :class="state.active_product.name">
                         <div class="column_1 table-header">{{tr("Component")}}</div>
@@ -430,10 +430,6 @@ X                                              v-for="value in values">
         </div> -->
         <div class="remote-controller-menu">
                 <div class="configurator">
-                    <div class="configurator-item go-account" @click="goAccount">
-                        <span class="profile-icon"></span>
-                        <span class="profile-name">{{getUserName()}}</span>
-                    </div>
                     <div class="configurator-item rotation"
                          :class="state.init_camera.auto_rotate?'pause-rotate':'play-rotate'"
                          @click="toggleRotation">
@@ -452,10 +448,6 @@ X                                              v-for="value in values">
                         <span class="material-icon"></span>
                         <span class="text">{{tr("Material Preview")}}</span>
                     </div>
-                    <button class="configurator-item" @click="qrScannerConfig">
-                        <span class="qr-icon"></span>
-                        <span class="text">{{tr("Scan Configuration")}}</span>
-                    </button>
                     <button class="configurator-item" @click="resetConfiguration()">
                         <span class="reset-icon"></span>
                         <span class="text">{{tr("Default Configuration")}}</span>
@@ -467,10 +459,6 @@ X                                              v-for="value in values">
                             <span class="text">{{tr("Wishlist")}}</span>
                         </div>
                     </div> -->
-                    <div id="go-fitt" class="configurator-item select go-fitt"  @click="fitting" v-show="states.customer_profile_view.active_customer.id">
-                        <span class="fitt-icon"></span>
-                        <span class="text">{{tr("Virtual Fitting")}}</span>
-                    </div>
                     <div class="stgallen-hidden acc-hidden elsa">
                         <img src="img/elsa-black-white.png">
                     </div>
@@ -1312,10 +1300,10 @@ X                                              v-for="value in values">
 <script src="../remotecontrol.bundle.js"></script>
 <script id="brandId" value="13"></script>
 
-<script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.client.sdk/4.3.0-lazy-loading/js/else.js.client.sdk.js"></script>
 <!--<script src="https://localhost:10000/js/else.j/s.client.sdk.js"></script>-->
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0-beta/remotecontrol-ui-sdk.js"></script>
-<script src="https://sdk.else.shoes/else.js.ui.sdk/1.1.0-beta/detector.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.2.0-lazy-loading/remotecontrol-ui-sdk.js"></script>
+<script src="https://sdk.else.shoes/else.js.ui.sdk/1.2.0-lazy-loading/detector.js"></script>
  <!--<script src="https://localhost:9000/remotecontrol-ui-sdk.js"></script>-->
 <!-- <script src="https://localhost:9000/detector.js"></script> -->
 <canvas id="qr-canvas" width="800" height="600" style="display: none;"></canvas>

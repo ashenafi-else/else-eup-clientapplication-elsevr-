@@ -70,7 +70,7 @@
                     <div class="logo-section">
                         <img class="hidden acc-show" src="img/logo-else-shoes-black.png">
                         <img class="acc-hidden stgallen-hidden logo-else-shoes" src="img/logo-else-shoes-blue.png"/>
-                        <img class="acc-hidden dark-silver-logo" src="img/chromium_else.png"/>                    </div>
+                        <img class="acc-hidden dark-silver-logo" src="img/logo.png"/>                    </div>
                 </div>
                 <div class="col header-col header-end">
                     <div class="logo header-logo">
@@ -464,7 +464,7 @@ X                                              v-for="value in values">
                         <!--<span class="text" v-else>{{tr("Product Summary")}}</span>-->
                     <!--</button>-->
 
-                    <button class="configurator-item" @click="home()">
+                    <button class="hidden stgallen-show configurator-item" @click="home()">
                         <span class="go-home"></span>
                         <span class="text">{{tr("Virtual Catalogue")}}</span>
                     </button>
@@ -1292,7 +1292,7 @@ X                                              v-for="value in values">
                     <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
-                    </div>ss
+                    </div>
                     <div class="heel-material-summary" v-if="states.product_view.active_material">
                         {{tr("Mat")}}: {{getMaterialName(states.product_view.active_material)}}
                     </div>

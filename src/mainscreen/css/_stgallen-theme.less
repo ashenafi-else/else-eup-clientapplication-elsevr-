@@ -222,8 +222,20 @@
 // CONFIGURATOR
   #product-details-screen {
     background: #e1e1e1;
+    .configurator-block{
+      .title{
+        margin-top: 0;
+      }
+      &.colors-block{
+        .title{
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
     .main-start{
       z-index: 9999;
+      height: 92vh;
     }
     .heels, .diff-prices-container, .delivery-time, .configurator-block, .materials-color-block{
       background-color: rgba(255,255,255,0.5);
@@ -374,23 +386,74 @@
       left: initial;
       right: -11px;
       .structure-item {
+        background-position: center;
         &.active {
           box-shadow: none;
           .active-item-rotating-stgallen-round()!important;
+        }
+        span.name{
+          margin-top: 70px;
         }
       }
     }
     .price-block{
       position: absolute;
       left: 2vh;
-      top: 67vh;
+      bottom: 2vh;
       z-index:999;
+      width: 16px;
+      &.more_details{
+        .configurator-block{
+          background-color: white;
+          .detailed-price{
+            padding: 10px;
+            .price-table-head{
+              width: 100%;
+              height: inherit;
+              color: #253b5f;
+              border: none!important;
+              background: none!important;
+              text-align: center;
+              text-transform: capitalize;
+              tr{
+                border: none;
+                td{
+                  width: 50%;
+                  border: none;
+                  padding: 4px;
+                  color: #253b5f;
+                  font-weight: 800;
+                }
+              }
+            }
+            .table--product-summary{
+              width: 100%;
+              height: inherit;
+              color: #253b5f;
+              border: none!important;
+              background: none!important;
+              text-align: center;
+              text-transform: capitalize;
+              tr{
+                border: none;
+                td{
+                  width: 50%;
+                  border: none;
+                  padding: 4px;
+                  color: #253b5f;
+                }
+              }
+            }
+          }
+        }
+      }
       .summary-block{
         display: none;
       }
       .product-preview{
         overflow: hidden;
         height:150px;
+        min-height: 150px;
         img{
           width: 150%;
           height: 150%;
@@ -414,16 +477,16 @@
       }
       .diff-prices-container{
         min-height: 17vh;
-        height: 17vh;
+        //height: 17vh;
       }
       .prices{
         display: none;
       }
     }
     .button-order{
-      display: block;
+      display: none;
       position: absolute;
-      top: 92vh;
+      bottom: 3vh;
       padding: 17px;
       width: 16vw;
       text-align: center;
@@ -433,6 +496,12 @@
       font-family: "Lato", sans-serif;
       font-size: 20px;
       color: #5edeff;
+    }
+    .material-start{
+      .big-active-material{
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
     }
   }
 
@@ -602,7 +671,7 @@
     }
     .delivery-time{
       .total-price{
-        //display: none;
+        display: none;
         text-align: right;
         color: #253b5f;
         font-size: 14px;
@@ -867,42 +936,54 @@
     &._Men_ {
       &.upper {
         background-image: url(../img/components/dark/m-upper-facing-dark.png);
+        order: 2;
       }
-      &.winged {
+      &.toecap {
         background-image: url(../img/components/dark/m-front-dark.png);
+        order: 0;
+        .perforated{
+          background-image: url(../img/components/dark/m-toe-2-dark.png);
+        }
+        .not.perforated{
+          background-image: url(../img/components/dark/m-toe-1-dark.png);
+        }
       }
       &.vamp {
         background-image: url(../img/components/dark/m-middle.png);
+        order: 1;
       }
       &.tongue {
         background-image: url(../img/components/dark/m-tongue-dark.png);
+        order: 4;
       }
       &.strap {
         background-image: url(../img/components/dark/m-back-strap-dark.png);
+        order: 3;
       }
-      &.monogram {
-        background-image: url(../img/components/dark/m-monogram-dark.png);
-      }
-      &.heel {
-        background-image: url(../img/components/dark/m-heel-dark.png);
-      }
-      &.lining {
-        background-image: url(../img/components/dark/m-lining-dark.png);
-      }
-      &.insole {
-        background-image: url(../img/components/dark/m-insole-dark.png);
-      }
-      &.outsole {
-        background-image: url(../img/components/dark/m-outsole-dark.png);
-      }
-      &.back {
-        background-image: url(../img/components/dark/m-back-strap-dark.png);
-      }
-      &#component-3 {
-        background-image: url(../img/components/dark/m-upper-facing-dark.png);
-      }
+      //&.monogram {
+      //  background-image: url(../img/components/dark/m-monogram-dark.png);
+      //}
+      //&.heel {
+      //  background-image: url(../img/components/dark/m-heel-dark.png);
+      //}
+      //&.lining {
+      //  background-image: url(../img/components/dark/m-lining-dark.png);
+      //}
+      //&.insole {
+      //  background-image: url(../img/components/dark/m-insole-dark.png);
+      //}
+      //&.outsole {
+      //  background-image: url(../img/components/dark/m-outsole-dark.png);
+      //}
+      //&.back {
+      //  background-image: url(../img/components/dark/m-back-strap-dark.png);
+      //}
+      //&#component-3 {
+      //  background-image: url(../img/components/dark/m-upper-facing-dark.png);
+      //}
       &.laces {
         background-image: url(../img/components/dark/laces_new-dark.png);
+        order: 5;
       }
       &.monogram{
         display: none;
@@ -912,41 +993,47 @@
       background-size: 80%;
       &.upper {
         background-image: url(../img/components/dark/w-upper-dark.png);
+        order: 0;
       }
       &.trim {
         background-image: url(../img/components/dark/w-trim-dark.png);
+        order: 3;
       }
       &.applique {
         background-image: url(../img/components/dark/w-application-dark.png);
+        order: 1;
       }
       &.strap {
         background-image: url(../img/components/dark/w-strap-dark.png);
+        order: 4;
       }
       &.heel {
         background-image: url(../img/components/dark/w-heel-dark.png);
+        order: 2;
       }
-      &.accessory {
-        background-image: url(../img/components/dark/w-accessory-dark.png);
-      }
+      //&.accessory {
+      //  background-image: url(../img/components/dark/w-accessory-dark.png);
+      //}
       &.crystal {
         background-image: url(../img/components/dark/w-transparent_crystal-dark.png);
+        order: 5;
       }
-      &.lining {
-        background-image: url(../img/components/dark/w-lining-dark.png);
-      }
-      &.insole {
-        background-image: url(../img/components/dark/w-insole-dark.png);
-      }
-      &.sole {
-        display: none;
-        //background-image: url(../img/components/w-insole.png);.material-summary, .color-summary
-      }
-      &.outsole{
-        background-image: url(../img/components/dark/w-outsole-dark.png);
-      }
-      &.outsole.crystal {
-        background-image: url(../img/components/dark/w-not_transparent_crystal-dark.png);
-      }
+      //&.lining {
+      //  background-image: url(../img/components/dark/w-lining-dark.png);
+      //}
+      //&.insole {
+      //  background-image: url(../img/components/dark/w-insole-dark.png);
+      //}
+      //&.sole {
+      //  display: none;
+      //  //background-image: url(../img/components/w-insole.png);.material-summary, .color-summary
+      //}
+      //&.outsole{
+      //  background-image: url(../img/components/dark/w-outsole-dark.png);
+      //}
+      //&.outsole.crystal {
+      //  background-image: url(../img/components/dark/w-not_transparent_crystal-dark.png);
+      //}
       &.monogram {
         display: none;
       }

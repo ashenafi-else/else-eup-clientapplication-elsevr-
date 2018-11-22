@@ -9,7 +9,7 @@ var isProd = process.env.NODE_ENV === 'production' ;
 var cssDev = ['style-loader', 'css-loader', 'less-loader'];
 var cssProd = ExtractTextPlugin.extract({
     fallback: 'style-loader',
-    loader: ['css-loader', 'less-loader'],
+    use: ['css-loader', 'less-loader'],
     publicPath: './'
 });
 var cssConfig = isProd ? cssProd : cssDev;
@@ -42,7 +42,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|otf|TTF)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader?name=fonts/[name].[ext]"
+                use: "file-loader?name=fonts/[name].[ext]"
             }
         ]
     },

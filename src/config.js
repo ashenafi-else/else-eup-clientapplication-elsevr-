@@ -110,7 +110,7 @@ window.config = {
     'camera-for-monogram':    {'scale': 0.9, 'rotate': {'phi': 45, 'theta': 0}},
 },
     'home_state': 'COLLECTION',
-    'render_quality': 'AUTO',
+    'render_quality': 'ULTRA',
     'order_level': 'PRODUCT',
     'staff_login': false,
     'show_nfc_input': {

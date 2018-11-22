@@ -227,7 +227,7 @@ footer {
 
 
 .go-home{
-    background-image: url('../img/logo_reyrey.png');
+    /* background-image: url('../img/logo_reyrey.png'); */
     background-position: center;
     background-repeat: no-repeat;
     width: 15%;
@@ -299,7 +299,9 @@ span.rotation-icon {
     background: white;
     background-image: none!important;
 }
-/*REYREY - PRODUCT PREVIEW */
+
+
+/*PRODUCT PREVIEW */
 .default-cameras{
     padding: 20px 10px;
     display: flex;

@@ -1556,16 +1556,17 @@
                             </div>
                             <div class="input-label">
                                 <div class="label">{{tr('Delivery address')}}</div>
-                                <div class="address-input" style="display: flex; flex-direction: row">
+                                <div class="address-input">
                                     <input type="text" :value="states.customer_order_view.customer_info.addresses[0].street[0]" id="district"
-                                           placeholder="District of the shop"/>
+                                           placeholder="Street, District"/>
                                     <input type="text" :value="states.customer_order_view.customer_info.addresses[0].city" name="city" id="city"
                                            placeholder="City"/>
-                                    <input type="text" :value="states.customer_order_view.customer_info.addresses[0].countryId" name="country"
-                                           id="country" placeholder="Country"
-                                           style="flex: 1 2 220px;width: 100%;margin-right: 5px;"/>
-                                    <input type="number" :value="states.customer_order_view.customer_info.addresses[0].postcode" name="zip-code"
-                                           id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;width: 100%;"/>
+                                </div>
+                                <div class="address-input">
+                                    <input type="text" :value="states.customer_order_view.customer_info.addresses[0].countryId"
+                                        name="country" id="country" placeholder="Country" style="flex: 1 2 220px;" />
+                                    <input type="number" :value="states.customer_order_view.customer_info.addresses[0].postcode"
+                                        name="zip-code" id="zip-code" placeholder="Zip Code" style="flex:2 1 115px;" />
                                 </div>
                             </div>
 
@@ -1754,7 +1755,7 @@
                                 <div class="label">{{tr('Delivery address')}}</div>
                                 <div class="address-input" style="display: flex; flex-direction: row">
                                     <input type="text" :value="account_data.addresses[0].street[0]" id="district"
-                                           placeholder="District of the shop"/>
+                                           placeholder="Street, District"/>
                                     <input type="text" :value="account_data.addresses[0].city" name="city" id="city"
                                            placeholder="City"/>
                                     <input type="text" :value="account_data.addresses[0].countryId" name="country"

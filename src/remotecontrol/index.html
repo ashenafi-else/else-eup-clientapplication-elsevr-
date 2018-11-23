@@ -304,7 +304,7 @@
                                      v-for="material in data.active_element.colors">
                                     {{tr(material.name)}}
                                     <div class="colors vertical-bar" v-if="data.active_element.active_material == material.name">
-                                        <div class="column_1 table-header">{{tr("Color")}}</div>
+                                        <div class="column_1 table-header table-header-color">{{tr("Color")}}</div>
                                         <div class="scroll-area">
                                             <div class="color"
                                                  @click.stop="changeColor(data.active_element, material, color)"
@@ -1096,11 +1096,11 @@ X                                              v-for="value in values">
                         </div>
                         <div class="input-label">
                             <label for="email-order" class="label">{{tr("Email")}}</label>
-                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email" @input="updateData" name="email" id="email-order">
+                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email" placeholder="Customer Email" @input="updateData" name="email" id="email-order">
                         </div>
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Standard Size")}}</label>
-                            <select name="size" id="size" v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
+                            <select name="size" id="size" placeholder="Choose your optimum size" v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1134,7 +1134,7 @@ X                                              v-for="value in values">
                         </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
-                            <select name="size" id="fitted_size"  v-model.lazy="states.customer_order_view.customer_info.fitted_size" @change="updateData">
+                            <select name="size" id="fitted_size" placeholder="Fitted size" v-model.lazy="states.customer_order_view.customer_info.fitted_size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1177,7 +1177,7 @@ X                                              v-for="value in values">
                             </div>
                             <div class="input-label">
                                 <label for="phone" class="label">{{tr("Phone number")}}</label>
-                                <input type="tel" v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone" @input="updateData" name="phone" id="phone">
+                                <input type="tel" placeholder="Format: (45) 123-456-7890 " v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone" @input="updateData" name="phone" id="phone">
                             </div>
                             <div class="input-label">
                                 <label for="payment-type" class="label">{{tr("Payment type")}}</label>
@@ -1198,7 +1198,7 @@ X                                              v-for="value in values">
                         <img src="../img/share.png">
                         {{tr("Share this configuration")}}
                     </div> -->
-                    <div class="button order" @click="sendOrder">{{tr("Order Now")}}</div>
+                    <div class="btn-order" @click="sendOrder">{{tr("Order Now")}}</div>
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>

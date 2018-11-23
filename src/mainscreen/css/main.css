@@ -337,7 +337,6 @@ span{
 
 
 
-/* REYREY - ORDER SCREEN */
 .order-form{
     z-index: 99999;
     display: flex;
@@ -416,13 +415,8 @@ span{
     background-size: contain;
 }
 
-/* REYREY - BEST FIT SCREEN */
 
-.user_scans,
-.left_scan,
-.right_scan {
-    display: inline-block;
-}
+
 
 .user_info{
     margin: 22px 30px;
@@ -439,7 +433,6 @@ span{
     justify-content: space-around;
 }
 .left_scan, .right_scan{
-    /*width: 40%;*/
     margin-top: -50px;
     text-align: center;
 }
@@ -471,8 +464,6 @@ span.user_profile_name {
 .username_profile::after{
     content: " ";
     display: block;
-    /* width: 100%; */
-    /* height: 1px; */
     margin: 7px -24px 7px;
     border-bottom: 1.5px dotted grey;
 }
@@ -484,7 +475,6 @@ span.user_profile_name {
     flex: 2;
     height: 100%;
     background-color: #fff;
-    /*padding: 16px;*/
     z-index: -1;
 }
 .personal-params h2,.fitting h2{

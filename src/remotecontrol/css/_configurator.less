@@ -407,6 +407,8 @@
         display: block;
         width: 100%;
         height: 20px;
+        color: black !important;
+        font-size: 17px;
     }
 
     .structures {
@@ -426,12 +428,16 @@
     }
     .qrscanner {
         height: auto;
-        color: black;
+        color: black !important;
         align-items: center;
         flex-direction: column;
         .qrcode {
             height: 90px;
             margin-top: 10px;
+        }
+        a{
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
     }
 
@@ -511,76 +517,84 @@
             background-size: 60px 60px;
         }
 
-        &.Upper, &.upper {
-            &:before {
-                background-image: url(../img/components/m-upper-facing-dark.png);
-            }
-            order: 2;
-        }
         &.winged.toe.cap {
             &:before {
                 background-image: url(../img/components/m-front-dark.png);
             }
-            order: 0;
+            order: 1;
         }
-        &.vamp, &.toecap {
+        &.toecap {
+            &:before {
+                background-image: url(../img/components/m-front-dark.png);
+            }
+            order: 1;
+        }
+        &.vamp {
             &:before {
                 background-image: url(../img/components/m-middle-dark.png);
             }
-            order: 1;
+            order: 2;
+        }
+        &.Upper, &.upper {
+            &:before {
+                background-image: url(../img/components/m-upper-facing-dark.png);
+            }
+            order: 3;
+        }
+        &.laces {
+            &:before {
+                background-image: url(../img/components/laces_new-dark.png);
+            }
+            order: 54;
         }
         &.tongue {
             &:before {
                 background-image: url(../img/components/m-tongue-dark.png);
             }
-            order: 4;
+            order: 5;
         }
         &.back.strap {
             &:before {
                 background-image: url(../img/components/m-back-strap-dark.png);
             }
-            order: 3;
-        }
-        //&.heel {
-        //    &:before {
-        //        background-image: url(../img/components/m-heel-dark.png);
-        //    }
-        //}
-        //&.lining {
-        //    display: none;
-        //    &:before {
-        //        background-image: url(../img/components/m-lining-dark.png);
-        //    }
-        //}
-        //&.insole {
-        //    display: none;
-        //    &:before {
-        //        background-image: url(../img/components/m-insole-dark.png);
-        //    }
-        //}
-        //&.outsole {
-        //    display: none;
-        //    &:before {
-        //        background-image: url(../img/components/m-outsole-dark.png);
-        //    }
-        //}
-        //&.back {
-        //    &:before {
-        //        background-image: url(../img/components/m-back-strap-dark.png);
-        //    }
-        //}
-        &.laces {
-            &:before {
-                background-image: url(../img/components/laces_new-dark.png);
-            }
-            order: 5;
+            order: 6;
         }
         &.monogram {
             &:before {
                 background-image: url(../img/components/m-monogram-dark.png);
                 //display: none;
             }
+            order: 7;
         }
+        &.heel {
+            &:before {
+                background-image: url(../img/components/m-heel-dark.png);
+            }
+        }
+        &.lining {
+            display: none;
+            &:before {
+                background-image: url(../img/components/m-lining-dark.png);
+            }
+        }
+        &.insole {
+            display: none;
+            &:before {
+                background-image: url(../img/components/m-insole-dark.png);
+            }
+        }
+        &.outsole {
+            display: none;
+            &:before {
+                background-image: url(../img/components/m-outsole-dark.png);
+            }
+        }
+        &.back {
+            &:before {
+                background-image: url(../img/components/m-back-strap-dark.png);
+            }
+        }
+        
 
     }
     [class*='larusmiani_1_component'][id*='component-'] {

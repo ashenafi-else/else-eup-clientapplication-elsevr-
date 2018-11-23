@@ -39,6 +39,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
     "hoek": "^6.0.3",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.8.1",

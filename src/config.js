@@ -37,12 +37,12 @@ window.config = {
     'default_language': 'en',
     'default_scanner': 'Dome000058',
     'default_scanners': {
-        '18': 'Dome000058',
-        '19': 'Dome000058',
-        '20': 'Dome000058',
-        '23': 'Dome000058',
-        '25': 'Dome000058',
-        "22": 'Dome000058'
+        '18': 'Dome000018',
+        '19': 'Dome000018',
+        '20': 'Dome000018',
+        '23': 'Dome000018',
+        '25': 'Dome000018',
+        "22": 'Dome000018'
     },
     'product_tour_configuration': {
         'elsevr_men_1_1': {
@@ -109,7 +109,7 @@ window.config = {
     'cameraTOP':    {'scale': 0, 'rotate': {'phi': 45, 'theta': 45}},
     'camera-for-monogram':    {'scale': 0.9, 'rotate': {'phi': 45, 'theta': 0}},
 },
-    'home_state': 'COLLECTION',
+    'home_state': 'COLLECTIONS',
     'render_quality': 'ULTRA',
     'order_level': 'PRODUCT',
     'staff_login': false,

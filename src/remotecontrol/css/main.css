@@ -16,7 +16,7 @@ input::selection, input::-moz-selection {
 
 
 /* HEADER */
-header {
+/* header {
     height: 100px;
     padding: 10px;
     background-color: #231f20;
@@ -28,7 +28,7 @@ header {
     flex-direction: row;
     align-items: stretch;
     height: 100%;
-}
+} */
 
 .logo {
     width: 10%;

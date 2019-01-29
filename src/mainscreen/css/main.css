@@ -421,7 +421,7 @@ span{
 .user_info{
     margin: 22px 30px;
     z-index: -1;
-    background: url(../img/elsa-white.png) no-repeat;
+    /* background: url(../img/elsa-white.png) no-repeat; */
     background-size: 17%;
     background-position-x: right;
     background-position-y: 120%;

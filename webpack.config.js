@@ -48,11 +48,11 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        port: 8000,
+        port: 8080,
         compress: true,
         hotOnly: true,
         inline: true,
-        https: true,
+        https: false,
         host: '0.0.0.0'
     },
     devtool: 'source-map',

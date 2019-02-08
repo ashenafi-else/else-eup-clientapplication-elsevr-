@@ -460,62 +460,62 @@
                         </div>
                     </div>
 
-                    <div class="price-block" :class="more_details?'more_details':'less_details'">
-                        <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                            <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>
-                            <div class="product-preview vr-product-preview ac-product-preview">
-                                <img class="live-image" :src="preview_image">
-                            </div>
+                    <!--<div class="price-block" :class="more_details?'more_details':'less_details'">-->
+                        <!--<div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">-->
+                            <!--<div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>-->
+                            <!--<div class="product-preview vr-product-preview ac-product-preview">-->
+                                <!--<img class="live-image" :src="preview_image">-->
+                            <!--</div>-->
 
-                            <div class="detailed-price" v-if="states.product_view.current_configuration_price && more_details ">
-                                <table class="price-table-head">
-                                    <tr>
-                                        <td>Part</td>
-                                        <td>Price</td>
-                                    </tr>
-                                </table>
-                                <table class="table table--product-summary price">
-                                    <tr class="base-mod-price">
-                                        <td>{{tr("Base model")}}:</td>
-                                        <td>{{states.product_view.current_configuration_price.base}} &#8364;</td>
-                                    </tr>
-                                    <tr class="extra-acc-price"
-                                        v-for="value, name in states.product_view.current_configuration_price.details">
-                                        <td>{{tr(name)}}:</td>
-                                        <td>{{tr(value)}} &#8364;</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="summary-block">
-                                <div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>
-                                <div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>
-                                <div class="accessories-summary"></div>
-                            </div>
-                            <div class="prices" v-if="states.product_view.current_configuration_price">
-                                <div class="price">
-                                    <p class="base-mod-price">
-                                        {{tr("Base model")}}: <span
-                                            class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;
-                                    </span>
-                                    </p>
-                                    <p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">
-                                        {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
-                                    </span>
-                                    </p>
-                                    <p class="extra-mat-price">
-                                        {{tr("Extra materials")}}: <span class="price-span">0,00 &#8364;
-                                    </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delivery-time">
-                            <div class="delivery"></div>
-                            <div class="total-price" v-if="states.product_view.current_configuration_price">
-                                {{states.product_view.current_configuration_price.total}},00 &#8364;
-                            </div>
-                        </div>
-                    </div>
+                            <!--<div class="detailed-price" v-if="states.product_view.current_configuration_price && more_details ">-->
+                                <!--<table class="price-table-head">-->
+                                    <!--<tr>-->
+                                        <!--<td>Part</td>-->
+                                        <!--<td>Price</td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                                <!--<table class="table table&#45;&#45;product-summary price">-->
+                                    <!--<tr class="base-mod-price">-->
+                                        <!--<td>{{tr("Base model")}}:</td>-->
+                                        <!--<td>{{states.product_view.current_configuration_price.base}} &#8364;</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr class="extra-acc-price"-->
+                                        <!--v-for="value, name in states.product_view.current_configuration_price.details">-->
+                                        <!--<td>{{tr(name)}}:</td>-->
+                                        <!--<td>{{tr(value)}} &#8364;</td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                            <!--<div class="summary-block">-->
+                                <!--<div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>-->
+                                <!--<div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>-->
+                                <!--<div class="accessories-summary"></div>-->
+                            <!--</div>-->
+                            <!--<div class="prices" v-if="states.product_view.current_configuration_price">-->
+                                <!--<div class="price">-->
+                                    <!--<p class="base-mod-price">-->
+                                        <!--{{tr("Base model")}}: <span-->
+                                            <!--class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;-->
+                                    <!--</span>-->
+                                    <!--</p>-->
+                                    <!--<p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">-->
+                                        <!--{{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;-->
+                                    <!--</span>-->
+                                    <!--</p>-->
+                                    <!--<p class="extra-mat-price">-->
+                                        <!--{{tr("Extra materials")}}: <span class="price-span">0,00 &#8364;-->
+                                    <!--</span>-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="delivery-time">-->
+                            <!--<div class="delivery"></div>-->
+                            <!--<div class="total-price" v-if="states.product_view.current_configuration_price">-->
+                                <!--{{states.product_view.current_configuration_price.total}},00 &#8364;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                     <!-- <div class="description-product">
                         <!-- <img src="img/configurations.png">
@@ -643,7 +643,7 @@
                     </div>
                 </div> -->
                 <div class="stgallen-hidden wl-elsa"></div>
-                <div class="button-order">Order</div>
+                <!--<div class="button-order">Order</div>-->
             </div>
             <div class="bottom-panel">
                 <img class="hidden acc-show poweredby-accenture" src="img/accenture/Powered_by_logos.png">

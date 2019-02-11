@@ -236,6 +236,7 @@
             <div class="main virtual-catalog">
                 <div class="list-items">
                     <div class="element"
+                         @click="setActiveProduct(product.id)"
                          :class="[product.active?'active':'', product.name]"
                          :id="product.id"
                          v-for="product in states.product_list_view.products">
@@ -293,6 +294,7 @@
 
                     </div>
                 </div>
+                <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
             </div>
             <div class="bottom-panel">
                 <img class="hidden acc-show" src="img/accenture/logos.png"/>
@@ -396,6 +398,7 @@
                                 <div class="title vr-block-title ac-block-title w-80per hidden stgallen-show">{{tr("Parts")}}</div>
                                 <div class="configurable-parts-container">
                                     <div class="component"
+                                         @click="changeComponent(component)"
                                          :class="[component.name, state.active_product.name, component.active?'active':'']"
                                          :id="'component-' + component.id"
                                          v-if="component.configurable"
@@ -405,6 +408,7 @@
 
                                         <div class="structure-dropped" v-if="component.active && moreThanOne(component.structures)">
                                             <div class="structure-item component-item"
+                                                 @click="changeStructure(structure)"
                                                  :class="[structure.name, structure.structure == data.active_structure.structure?'active':'']"
                                                  v-for="structure in component.structures">
                                                 <!--<img src="img/options/camera_active.png"/>-->
@@ -592,6 +596,7 @@
                             <span>
                                 <div class="material-block diff-prices-container"
                                      :class="[state.active_product.name, material.name]"
+                                     @click.stop="changeMaterial(data.active_element, material)"
                                      v-for="material in data.active_element.colors">
                                     <div class="material-head"
                                          :class="[material.name,(element.active_material == material.name)?'active':'']">
@@ -608,6 +613,7 @@
                                             <span>
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     @click.self="changeColor(data.active_element, material, color)"
                                                      :class="[color.name ,(element.active_color == color.name)?'active':'']"
                                                      v-for="color in material.colors">
                                                     <span class="hidden stgallen-show">{{tr(color.name)}}</span>

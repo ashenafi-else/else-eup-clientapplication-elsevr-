@@ -158,7 +158,7 @@
                          :id="collection.id"
                          v-for="collection in states.collection_view.collections">
                         <div class="">
-                            <h2>{{collection.name}}</h2>
+                            <h2>{{tr(collection.name)}}</h2>
                         </div>
                         <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
                         <img class="collection-img" :src="collection.image"/> -->
@@ -294,7 +294,9 @@
 
                     </div>
                 </div>
-                <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
+                <div class="button-container">
+                    <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
+                </div>
             </div>
             <div class="bottom-panel">
                 <img class="hidden acc-show" src="img/accenture/logos.png"/>
@@ -415,6 +417,20 @@
                                                 <span class="name">{{tr(structure.name)}}</span>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Elements block-->
+                            <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block"
+                                 v-show="data.configurable_elements_count > 1">
+                                <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">{{tr("Configurable elements")}}</div>
+                                <div class="configurable-parts-container">
+                                    <div class="component"
+                                         @click="changeElement(element)"
+                                         :class="[element.name, state.active_product.name, element.active?'active':'']"
+                                         v-if="element.configurable"
+                                         v-for="element in data.active_structure.elements">
+                                        <span class="name">{{tr(element.name)}}</span>
                                     </div>
                                 </div>
                             </div>

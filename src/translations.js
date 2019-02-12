@@ -425,5 +425,11 @@ window.translations = {
     },
     'LARUSMIANI_1': {
         'en': '_Slipper_'
+    },
+    'DEMO COLLECTION 2018': {
+        'en': 'MyStyle 3D'
+    },
+    'ELSE CORP LAB': {
+        'en': 'ATOMLab Milan'
     }
 };

@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var deployCdn = require('gulp-deploy-azure-cdn');
 var gutil = require('gulp-util');
 
-var containerName = 'elsevr';
+var containerName = 'demo';
 var container = 'appselse';
 var containerKey = 'gRlCuXTLExfKgOJy3oXGTUbVzBcYRXhWCJe6f9quDTD2mJTDzTBF0eU3MX0NFoUTZlfabryEG2uHx7hhBae+qw==';
 

@@ -250,7 +250,7 @@
                                 <img class="blue-border-picture" src="img/blue-border.svg"/>
                                 <img class="active-picture" src="img/active-border.svg"/>
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
-                                <img class="collection-img" v-show="!product.active || !product.tour_360"
+                                <img class="collection-img"
                                      :src="product.image" :alt="product.name"/>
 
                                 <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
@@ -263,25 +263,6 @@
                                     <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
                                 </div>
 
-                                <!--<div class="optional-video-container-men">
-                                    <video src="./img/video/3D_Tour_else.shoe_Man.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div>
-                                <div class="optional-video-container-women">
-                                    <video src="./img/video/3D_Tour_else.shoe_Woman.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div>
-                                <div class="optional-video-container-home">
-                                    <video src="./img/video/3D_Tour_Larusmiani.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div> -->
-
-                                <div class="optional-video-container-men">
-                                    <img src="./img/video/Man_Shoe_01.gif" class="product_tour_video stgallen-show"/>
-                                </div>
-                                <div class="optional-video-container-women">
-                                    <img src="./img/video/HH_01.gif" class="product_tour_video stgallen-show"/>
-                                </div>
-                                <div class="optional-video-container-home">
-                                    <img src="./img/video/Web_App_Larusmiani.gif" class="product_tour_video stgallen-show"/>
-                                </div>
                             </div>
 
                         </div>

@@ -379,7 +379,7 @@ span{
 
 .input-label input, .input-label textarea,.input-label select, .input-label select>option{
     border: none;
-    background-color: #42b3cb;
+    background-color: #F65F00;
     color: #feffff;
     padding: 3px 0 4px 10px;
     font-size: 15px;
@@ -630,6 +630,18 @@ footer {
     width: 50%;
     left: 50%;
     z-index:9999;
+}
+.order-button-block {
+    z-index: 9999999
+}
+
+.order-button {
+  background: url("../img/options/order.png") center no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
 }
 #canvas_container_id.nfc_scanner_config{
     z-index: -9999;

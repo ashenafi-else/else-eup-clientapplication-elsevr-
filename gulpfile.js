@@ -4,8 +4,8 @@ var deployCdn = require('gulp-deploy-azure-cdn');
 var gutil = require('gulp-util');
 
 var containerName = 'demo';
-var container = 'appselse';
-var containerKey = 'gRlCuXTLExfKgOJy3oXGTUbVzBcYRXhWCJe6f9quDTD2mJTDzTBF0eU3MX0NFoUTZlfabryEG2uHx7hhBae+qw==';
+var container = 'elsedevstore';
+var containerKey = 'W8V+kYa/x6LNBJ89TApHJXtr8O0auDvN8wXvaMEfWz5DSyHipHalbH7sFlTBhOwE8l8oTKFE4Q030sPaS2hgQA==';
 
 var dist_dir = 'dist';
 

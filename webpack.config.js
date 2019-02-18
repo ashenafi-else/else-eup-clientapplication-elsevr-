@@ -17,8 +17,8 @@ var cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        mainscreen: './mainscreen/app.js',
-        remotecontrol: './remotecontrol/app.js'
+        // remotecontrol: './remotecontrol/app.js',
+        mainscreen: './mainscreen/app.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -52,7 +52,7 @@ module.exports = {
         compress: true,
         hotOnly: true,
         inline: true,
-        https: true,
+        https: false,
         host: '0.0.0.0'
     },
     devtool: 'source-map',
@@ -68,10 +68,11 @@ module.exports = {
             [{
                 from: path.resolve(__dirname, './src/mainscreen/'),
                 to: path.resolve(__dirname, './dist/mainscreen')
-            }, {
-                from: path.resolve(__dirname, './src/remotecontrol/'),
-                to: path.resolve(__dirname, './dist/remotecontrol')
             }],
+            //     {
+            //     from: path.resolve(__dirname, './src/remotecontrol/'),
+            //     to: path.resolve(__dirname, './dist/remotecontrol')
+            // }
             { ignore: ['*.js', '*.less']}
         ),
         new CaseSensitivePathsPlugin()

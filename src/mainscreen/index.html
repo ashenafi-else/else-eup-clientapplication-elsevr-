@@ -158,7 +158,7 @@
                          :id="collection.id"
                          v-for="collection in states.collection_view.collections">
                         <div class="">
-                            <h2>{{collection.name}}</h2>
+                            <h2>{{tr(collection.name)}}</h2>
                         </div>
                         <!-- <video src="/src/mainscreen/img/accenture/1-2.mp4" autoplay="autoplay" loop="loop" class="menvideo"></video>
                         <img class="collection-img" :src="collection.image"/> -->
@@ -236,6 +236,7 @@
             <div class="main virtual-catalog">
                 <div class="list-items">
                     <div class="element"
+                         @click="setActiveProduct(product.id)"
                          :class="[product.active?'active':'', product.name]"
                          :id="product.id"
                          v-for="product in states.product_list_view.products">
@@ -249,7 +250,7 @@
                                 <img class="blue-border-picture" src="img/blue-border.svg"/>
                                 <img class="active-picture" src="img/active-border.svg"/>
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
-                                <img class="collection-img" v-show="!product.active || !product.tour_360"
+                                <img class="collection-img"
                                      :src="product.image" :alt="product.name"/>
 
                                 <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
@@ -262,25 +263,6 @@
                                     <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
                                 </div>
 
-                                <!--<div class="optional-video-container-men">
-                                    <video src="./img/video/3D_Tour_else.shoe_Man.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div>
-                                <div class="optional-video-container-women">
-                                    <video src="./img/video/3D_Tour_else.shoe_Woman.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div>
-                                <div class="optional-video-container-home">
-                                    <video src="./img/video/3D_Tour_Larusmiani.mp4" autoplay="autoplay" loop="loop" class="product_tour_video"/>
-                                </div> -->
-
-                                <div class="optional-video-container-men">
-                                    <img src="./img/video/Man_Shoe_01.gif" class="product_tour_video stgallen-show"/>
-                                </div>
-                                <div class="optional-video-container-women">
-                                    <img src="./img/video/HH_01.gif" class="product_tour_video stgallen-show"/>
-                                </div>
-                                <div class="optional-video-container-home">
-                                    <img src="./img/video/Web_App_Larusmiani.gif" class="product_tour_video stgallen-show"/>
-                                </div>
                             </div>
 
                         </div>
@@ -292,6 +274,9 @@
 
 
                     </div>
+                </div>
+                <div class="button-container">
+                    <button class="continue-to-configurator" @click="continueAction">{{tr('Continue')}}</button>
                 </div>
             </div>
             <div class="bottom-panel">
@@ -396,6 +381,7 @@
                                 <div class="title vr-block-title ac-block-title w-80per hidden stgallen-show">{{tr("Parts")}}</div>
                                 <div class="configurable-parts-container">
                                     <div class="component"
+                                         @click="changeComponent(component)"
                                          :class="[component.name, state.active_product.name, component.active?'active':'']"
                                          :id="'component-' + component.id"
                                          v-if="component.configurable"
@@ -405,12 +391,27 @@
 
                                         <div class="structure-dropped" v-if="component.active && moreThanOne(component.structures)">
                                             <div class="structure-item component-item"
+                                                 @click="changeStructure(structure)"
                                                  :class="[structure.name, structure.structure == data.active_structure.structure?'active':'']"
                                                  v-for="structure in component.structures">
                                                 <!--<img src="img/options/camera_active.png"/>-->
                                                 <span class="name">{{tr(structure.name)}}</span>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Elements block-->
+                            <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block"
+                                 v-show="data.configurable_elements_count > 1">
+                                <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">{{tr("Configurable elements")}}</div>
+                                <div class="configurable-parts-container">
+                                    <div class="component"
+                                         @click="changeElement(element)"
+                                         :class="[element.name, state.active_product.name, element.active?'active':'']"
+                                         v-if="element.configurable"
+                                         v-for="element in data.active_structure.elements">
+                                        <span class="name">{{tr(element.name)}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -592,6 +593,7 @@
                             <span>
                                 <div class="material-block diff-prices-container"
                                      :class="[state.active_product.name, material.name]"
+                                     @click.stop="changeMaterial(data.active_element, material)"
                                      v-for="material in data.active_element.colors">
                                     <div class="material-head"
                                          :class="[material.name,(element.active_material == material.name)?'active':'']">
@@ -608,6 +610,7 @@
                                             <span>
                                                 <div class="color"
                                                      :style="{backgroundImage: ['url(' + color.image + ')', 'center', 'center', 'no-repeat']}"
+                                                     @click.self="changeColor(data.active_element, material, color)"
                                                      :class="[color.name ,(element.active_color == color.name)?'active':'']"
                                                      v-for="color in material.colors">
                                                     <span class="hidden stgallen-show">{{tr(color.name)}}</span>
@@ -2053,10 +2056,10 @@
 </div>
 <script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
-<script src="https://elsejssdkstor.blob.core.windows.net/web/else.js.client.sdk/4.3.0/js/else.js.client.sdk.js"></script>
-<!--<script src="https://localhost:10000/js/else.js.client.sdk.js"></script>-->
-<script src="https://elseuijssdkstor.blob.core.windows.net/web/else.js.ui.sdk/1.2.0/mainscreen-ui-sdk.js"></script>
-<!-- <script src="https://localhost:9000/mainscreen-ui-sdk.js"></script> -->
+<script src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>
+ <!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<script src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>
+ <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
 <div id="canvas_container_id"></div>
 </body>
 </html>

@@ -236,7 +236,7 @@
             <div class="main virtual-catalog">
                 <div class="list-items">
                     <div class="element"
-                         @click="setActiveProduct(product.id)"
+                         @click="setActiveProduct(product.uuid)"
                          :class="[product.active?'active':'', product.name]"
                          :id="product.id"
                          v-for="product in states.product_list_view.products">
@@ -251,17 +251,14 @@
                                 <img class="active-picture" src="img/active-border.svg"/>
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
                                 <img class="collection-img"
-                                     :src="product.image" :alt="product.name"/>
+                                     v-show="!product.active || !product.gif"
+                                     :src="product.img"
+                                     :alt="product.name"/>
 
-                                <div class="product_tour image-container" v-show="product.active" v-if="product.tour_360">
-                                    <img class="collection-img" v-show="img.active" :src="img.url"
-                                         v-for="img in product.tour_360">
-                                </div>
-
-
-                                <div class="product_tour video-container" v-show="product.active" v-if="product.video">
-                                    <video class="product_tour_video" :class="product.name" :src="product.video" autoplay loop/>
-                                </div>
+                                <img class="collection-img"
+                                     v-show="product.active && product.gif"
+                                     :src="product.gif"
+                                     :alt="product.name"/>
 
                             </div>
 
@@ -1877,6 +1874,7 @@
 </div>
 <script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
+<script id="brandUUID" value="1aa7c0d5-8ba6-4030-bfba-abb1f981b1fe"></script>
 <!--<script src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>-->
  <script src="http://localhost:10000/js/else.js.client.sdk.js"></script>
 <!--<script src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>-->

@@ -267,14 +267,12 @@
                                     <!--<img class="collection-img"-->
                                          <!--:src="product.img"-->
                                          <!--:alt="product.name"/>-->
-                                <div v-show="product.active" class="collection-img" :class="product.name.replace('-', '_')">
+                                <div class="collection-img" :class="[product.name.replace('-', '_'), product.active?'active':'']">
                                     <!--<img-->
                                          <!--:alt=""/>-->
                                 </div>
                                 <!--<div >-->
-                                    <img v-show="!product.active" class="collection-img"
-                                         :src="product.img"
-                                         :alt="product.name"/>
+
                                 <!--</div>-->
                             </div>
 

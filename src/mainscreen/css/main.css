@@ -594,6 +594,8 @@ footer {
     text-align: center;
 }
 
+
+
 .virtual-catalog .go-else video,
 .store-password-screen .go-else video,
 .page-store-selection .go-else video,
@@ -634,7 +636,12 @@ footer {
 .order-button-block {
     z-index: 9999999
 }
-
+.ELSEVR19._.Sneaker.Model{
+    /*content: url(../img/elsa-small.png);*/
+}
+.ELSEVR19._.High.Heel.Model{
+    /*content: url(../img/elsa-small.png);*/
+}
 .order-button {
   background: url("../img/options/order.png") center no-repeat;
   background-size: contain;

@@ -218,9 +218,9 @@
                     <span class="hidden stgallen-show stgallen-title">{{tr('Virtual Catalogue 3D')}}</span>
                     <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                     <div class="elsa-container">
-                        <img class="hidden micam-show apparel-show vr-show logo-elsa-neon" src="img/elsa-small.png"/>
+                        <!--<img class="hidden micam-show apparel-show vr-show logo-elsa-neon" src="img/elsa-small.png"/>-->
                         <img class="hidden apparel-show micam-show vr-show else-shoes-neon" src="img/neon-logo.png">
-                        <img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>
+                        <!--<img class="hidden ac-show logo-elsa-ac" src="img/altroconsumo/elsa.png"/>-->
                         <!-- <img class="hidden acc-show logo-elsa-ac" src="img/accenture/elsa-green.png"/> -->
                     </div>
                 </div>
@@ -250,16 +250,32 @@
                                 <img class="blue-border-picture" src="img/blue-border.svg"/>
                                 <img class="active-picture" src="img/active-border.svg"/>
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
-                                <img class="collection-img"
-                                     v-show="!product.active || !product.gif"
-                                     :src="product.img"
-                                     :alt="product.name"/>
+                                <!--<img class="collection-img"-->
+                                     <!--v-show="!product.active || !product.gif"-->
+                                     <!--:src="product.img"-->
+                                     <!--:alt="product.name"/>-->
 
-                                <img class="collection-img"
-                                     v-show="product.active && product.gif"
-                                     :src="product.gif"
-                                     :alt="product.name"/>
-
+                                <!--<img class="collection-img"-->
+                                     <!--v-show="product.active && product.gif"-->
+                                     <!--:src="product.gif"-->
+                                     <!--:alt="product.name"/>-->
+                                <!--<div v-show="product.active">-->
+                                    <!--<img class="collection-img"-->
+                                         <!--:alt="product.name"/>-->
+                                <!--</div>-->
+                                <!--<div v-show="!product.active">-->
+                                    <!--<img class="collection-img"-->
+                                         <!--:src="product.img"-->
+                                         <!--:alt="product.name"/>-->
+                                <div v-show="product.active" class="collection-img" :class="product.name.replace('-', '_')">
+                                    <!--<img-->
+                                         <!--:alt=""/>-->
+                                </div>
+                                <!--<div >-->
+                                    <img v-show="!product.active" class="collection-img"
+                                         :src="product.img"
+                                         :alt="product.name"/>
+                                <!--</div>-->
                             </div>
 
                         </div>
@@ -1612,9 +1628,12 @@
                     </div>
                 </div>
             </div>
-            <div v-show="visible.order_success" id="order-success-push">
+            <div v-show="visible.order_success" id="order-success-push" @click="goHomeAfterSuccess()">
                 {{tr('Your order has been successfully completed')}}
             </div>
+                 <!--<div class="button-container" v-show="visible.order_success" id="order-success-push">-->
+                    <!--<button class="continue-to-configurator" @click="continueAction">{{tr('Your order has been successfully completed')}}</button>-->
+                <!--</div>-->
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
             <div class="bottom-panel">
                 <img class="hidden acc-show poweredby-accenture" src="img/accenture/Powered_by_logos.png">
@@ -1875,10 +1894,10 @@
 <script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
 <script id="brandUUID" value="1aa7c0d5-8ba6-4030-bfba-abb1f981b1fe"></script>
-<!--<script src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>-->
- <script src="http://localhost:10000/js/else.js.client.sdk.js"></script>
-<!--<script src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>-->
- <script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>
+<script src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>
+ <!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<script src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>
+ <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
 <div id="canvas_container_id"></div>
 </body>
 </html>

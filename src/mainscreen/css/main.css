@@ -643,10 +643,10 @@ footer {
     content: url(https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON/c10376d6-b069-4e3c-bd10-c2ff167a36dd/frame_0001.png);
 }
 .ELSEVR19._.Sneaker.Model.active{
-    content: url(https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON/cc969370-1892-4585-8cb3-25ac66cb08f6/frames.gif);
+    content: url(../img/tour.gif);
 }
 .ELSEVR19._.High.Heel.Model.active{
-    content: url(https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON/cc969370-1892-4585-8cb3-25ac66cb08f6/frames.gif);
+    content: url(../img/high_heel_tour.gif);
 }
 .order-button {
   background: url("../img/options/order.png") center no-repeat;

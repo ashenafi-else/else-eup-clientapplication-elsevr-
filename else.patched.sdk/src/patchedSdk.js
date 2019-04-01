@@ -80,7 +80,7 @@ const interval = setInterval(() => {
 
             return sdk.product_list.loadProductList();
         };
-
+        sdk.product_configurator.getConfiguration = uuid => Promise.resolve(window.configuration);
         sdk.fitting.updateFittngValues = () => Promise.resolve();
         sdk.product_configurator.updatePrice = () => Promise.resolve(100);
         sdk.stores.setActiveStore = function() {

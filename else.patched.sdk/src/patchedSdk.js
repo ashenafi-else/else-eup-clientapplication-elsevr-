@@ -10,6 +10,7 @@ const stores = [{
 const collections = [{
     active: true,
     id: window.collectionUUID,
+    uuid: window.collectionUUID,
     image: undefined,
     name: "",
 }];
@@ -42,7 +43,12 @@ const interval = setInterval(() => {
 
         let state = sdk.getState(sdk.states.PRODUCT_LIST);
         state.products = products;
+        sdk.getElseSdk().getProductUrl = uuid => {
+            let confPath = window.configuration.structure.config.default_configuration_path;
+            let variant = _.find(window.configuration.structure.variants, {path: confPath});
 
+            return Promise.resolve({asset_link: variant.url});
+        };
         sdk.product_list._getProducts = function () {
             console.log("run prdoicts list");
             this.set_products_list(products);
@@ -60,6 +66,7 @@ const interval = setInterval(() => {
             let collections = sdk.collections.setActiveCollection(collectionId);
             let state = sdk.getState(sdk.states.COLLECTION);
             state.collections = collections;
+            state.collections[0].active = true;
 
             return sdk.product_list.loadProductList();
         };

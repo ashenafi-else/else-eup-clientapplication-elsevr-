@@ -1,10 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var webpack = require('webpack');
 var path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-var isProd = process.env.NODE_ENV === 'production' ;
 
 module.exports = {
     context: path.resolve(__dirname, './src'),
@@ -13,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js',
+        filename: 'patchedSdk.js',
         publicPath: '/'
     },
     module: {
@@ -32,24 +29,10 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         port: 9001,
-        compress: true,
-        hotOnly: true,
-        inline: true,
-        https: false,
-        host: '0.0.0.0',
-        publicPath: '/'
+        compress: true
     },
     devtool: 'source-map',
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new CopyWebpackPlugin(
-            [{
-                from: path.resolve(__dirname, './src/'),
-                to: path.resolve(__dirname, './dist/')
-            }],
-            { ignore: ['*.js']}
-        ),
-        new CaseSensitivePathsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

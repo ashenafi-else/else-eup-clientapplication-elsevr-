@@ -123,10 +123,10 @@
     </session-code>
     <product-start-screen inline-template :states="states" v-if="states.collection_view.active" id="collection-screen">
         <div class="page content page-mainscreen" id="product-start-screen">
-             <!-- <div class="logo-section">
-                <img class="logo" src="img/logo.png">
-                <span class="logo-line"></span>
-            </div> -->
+            <!-- <div class="logo-section">
+               <img class="logo" src="img/logo.png">
+               <span class="logo-line"></span>
+           </div> -->
             <div class="header stgallen-header acc-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
@@ -174,7 +174,8 @@
             </div>
         </div>
     </product-start-screen>
-    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config" v-if="states.nfc_scanner_config.active">
+    <product-config-nfc inline-template :states="states" :visible="visible" :state="states.nfc_scanner_config"
+                        v-if="states.nfc_scanner_config.active">
         <div class="page" id="product-config-nfc">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -251,25 +252,26 @@
                                 <img class="active-picture" src="img/active-border.svg"/>
                                 <img class="circle-shadow-pic" src="img/circle-shadow.png"/>
                                 <!--<img class="collection-img"-->
-                                     <!--v-show="!product.active || !product.gif"-->
-                                     <!--:src="product.img"-->
-                                     <!--:alt="product.name"/>-->
+                                <!--v-show="!product.active || !product.gif"-->
+                                <!--:src="product.img"-->
+                                <!--:alt="product.name"/>-->
 
                                 <!--<img class="collection-img"-->
-                                     <!--v-show="product.active && product.gif"-->
-                                     <!--:src="product.gif"-->
-                                     <!--:alt="product.name"/>-->
+                                <!--v-show="product.active && product.gif"-->
+                                <!--:src="product.gif"-->
+                                <!--:alt="product.name"/>-->
                                 <!--<div v-show="product.active">-->
-                                    <!--<img class="collection-img"-->
-                                         <!--:alt="product.name"/>-->
+                                <!--<img class="collection-img"-->
+                                <!--:alt="product.name"/>-->
                                 <!--</div>-->
                                 <!--<div v-show="!product.active">-->
-                                    <!--<img class="collection-img"-->
-                                         <!--:src="product.img"-->
-                                         <!--:alt="product.name"/>-->
-                                <div class="collection-img" :class="[product.name.replace('-', '_'), product.active?'active':'']">
+                                <!--<img class="collection-img"-->
+                                <!--:src="product.img"-->
+                                <!--:alt="product.name"/>-->
+                                <div class="collection-img"
+                                     :class="[product.name.replace('-', '_'), product.active?'active':'']">
                                     <!--<img-->
-                                         <!--:alt=""/>-->
+                                    <!--:alt=""/>-->
                                 </div>
                                 <!--<div >-->
 
@@ -333,7 +335,8 @@
                         <span class="hidden ac-show">{{tr('3D Virtual Boutique')}}</span>
                     </span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
@@ -343,7 +346,8 @@
                     </span>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">{{getUserName()}}</span>
                         <div class="account_info" v-if="getFittingValues().best_style || getFittingValues().best_size">
@@ -371,94 +375,101 @@
             </div>
             <div class="main">
                 <div class="main-start">
-                        <div class="components-block">
-                            <div class="configurator-block ac-configurator-block vr-configurator-block heels"
-                                 :class="state.active_product.name"
-                                 v-if="state.products.length > 1">
-                                <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
-                                <div class="title vr-block-title ac-block-title w-80per">{{tr("Heel type")}}</div>
-                                <div class="heels-list">
-                                    <div class="component heel-height"
-                                         @click="changeProduct(product)"
-                                         :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
-                                         :id="'product-' + product.id"
-                                         v-for="product in state.products">
-                                        <span class="name">{{tr(product.name)}}</span>
-                                    </div>
+                    <div class="components-block">
+                        <div class="configurator-block ac-configurator-block vr-configurator-block heels"
+                             :class="state.active_product.name"
+                             v-if="state.products.length > 1">
+                            <!--<div class="column_1 table-header">{{tr("Model")}}</div>-->
+                            <div class="title vr-block-title ac-block-title w-80per">{{tr("Heel type")}}</div>
+                            <div class="heels-list">
+                                <div class="component heel-height"
+                                     @click="changeProduct(product)"
+                                     :class="[product.name, setClass(product.id, 'product'), product.active?'control-active':'']"
+                                     :id="'product-' + product.id"
+                                     v-for="product in state.products">
+                                    <span class="name">{{tr(product.name)}}</span>
                                 </div>
                             </div>
-                            <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block">
-                                <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">{{tr("Configurable parts")}}</div>
-                                <div class="title vr-block-title ac-block-title w-80per hidden stgallen-show">{{tr("Parts")}}</div>
-                                <div class="configurable-parts-container">
-                                    <div class="component"
-                                         @click="changeComponent(component)"
-                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                         :id="'component-' + component.id"
-                                         v-if="component.configurable"
-                                         v-for="component in data.components">
-                                        <span class="name">{{tr(component.name)}}</span>
-                                        <div class="structure"></div>
+                        </div>
+                        <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block">
+                            <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">
+                                {{tr("Configurable parts")}}
+                            </div>
+                            <div class="title vr-block-title ac-block-title w-80per hidden stgallen-show">
+                                {{tr("Parts")}}
+                            </div>
+                            <div class="configurable-parts-container">
+                                <div class="component"
+                                     @click="changeComponent(component)"
+                                     :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                     :id="'component-' + component.id"
+                                     v-if="component.configurable"
+                                     v-for="component in data.components">
+                                    <span class="name">{{tr(component.name)}}</span>
+                                    <div class="structure"></div>
 
-                                        <div class="structure-dropped" v-if="component.active && moreThanOne(component.structures)">
-                                            <div class="structure-item component-item"
-                                                 @click="changeStructure(structure)"
-                                                 :class="[structure.name, structure.structure == data.active_structure.structure?'active':'']"
-                                                 v-for="structure in component.structures">
-                                                <!--<img src="img/options/camera_active.png"/>-->
-                                                <span class="name">{{tr(structure.name)}}</span>
-                                            </div>
+                                    <div class="structure-dropped"
+                                         v-if="component.active && moreThanOne(component.structures)">
+                                        <div class="structure-item component-item"
+                                             @click="changeStructure(structure)"
+                                             :class="[structure.name, structure.structure == data.active_structure.structure?'active':'']"
+                                             v-for="structure in component.structures">
+                                            <!--<img src="img/options/camera_active.png"/>-->
+                                            <span class="name">{{tr(structure.name)}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Elements block-->
-                            <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block"
-                                 v-show="data.configurable_elements_count > 1">
-                                <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">{{tr("Configurable elements")}}</div>
-                                <div class="configurable-parts-container">
-                                    <div class="component"
-                                         @click="changeElement(element)"
-                                         :class="[element.name, state.active_product.name, element.active?'active':'']"
-                                         v-if="element.configurable"
-                                         v-for="element in data.active_structure.elements">
-                                        <span class="name">{{tr(element.name)}}</span>
-                                    </div>
+                        </div>
+                        <!--Elements block-->
+                        <div class="configurator-block ac-configurator-block vr-configurator-block configurable-parts-block"
+                             v-show="data.configurable_elements_count > 1">
+                            <div class="title vr-block-title ac-block-title w-80per hidden ac-show acc-show apparel-show micam-show vr-show vr-logo-img">
+                                {{tr("Configurable elements")}}
+                            </div>
+                            <div class="configurable-parts-container">
+                                <div class="component"
+                                     @click="changeElement(element)"
+                                     :class="[element.name, state.active_product.name, element.active?'active':'']"
+                                     v-if="element.configurable"
+                                     v-for="element in data.active_structure.elements">
+                                    <span class="name">{{tr(element.name)}}</span>
                                 </div>
                             </div>
-                            <!--<div class="configurator-item go-account" @click="goAccount">-->
-                                <!--<span class="profile-icon"></span>-->
-                                <!--<span class="profile-name">Register/Login</span>-->
-                            <!--</div>-->
-                            <!--<div class="configurator-item go-order" @click="order">-->
+                        </div>
+                        <!--<div class="configurator-item go-account" @click="goAccount">-->
+                        <!--<span class="profile-icon"></span>-->
+                        <!--<span class="profile-name">Register/Login</span>-->
+                        <!--</div>-->
+                        <!--<div class="configurator-item go-order" @click="order">-->
                         <!--<span class="order-icon"></span>-->
                         <!--<span class="text">{{tr("Order")}}</span>-->
 
-                <div class="button-container">
-                    <button class="create-order-button" @click="order">{{tr('Order')}}</button>
-                </div>
-                    <!--</div>-->
-                            <!-- <div class="configurator-block ac-configurator-block vr-configurator-block non-configurable-parts-block">
-                                <div class="title vr-block-title ac-block-title w-80per">{{tr("Non configurable parts")}}</div>
-                                <div class="non-configurable-parts-container">
-                                    <div class="component"
-                                         :class="[component.name, state.active_product.name, component.active?'active':'']"
-                                         :id="'component-' + component.id"
-                                         v-if="!component.configurable"
-                                         v-for="component in data.components">
-                                        <span class="name">{{tr(component.name)}}</span>
-                                        <div class="structure"></div>
-                                    </div>
+                        <div class="button-container">
+                            <button class="create-order-button" @click="order">{{tr('Order')}}</button>
+                        </div>
+                        <!--</div>-->
+                        <!-- <div class="configurator-block ac-configurator-block vr-configurator-block non-configurable-parts-block">
+                            <div class="title vr-block-title ac-block-title w-80per">{{tr("Non configurable parts")}}</div>
+                            <div class="non-configurable-parts-container">
+                                <div class="component"
+                                     :class="[component.name, state.active_product.name, component.active?'active':'']"
+                                     :id="'component-' + component.id"
+                                     v-if="!component.configurable"
+                                     v-for="component in data.components">
+                                    <span class="name">{{tr(component.name)}}</span>
+                                    <div class="structure"></div>
                                 </div>
-                            </div> -->
+                            </div>
+                        </div> -->
                     </div>
 
                     <div class="monogram-block vertical-bar"
-                          v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
+                         v-if="data.active_structure.monogram && data.active_structure.monogram.enabled">
                         <div class="title vr-block-title ac-block-title w-80per">{{tr("Monogram")}}</div>
                         <div class="monogram-area">
                             <div class="block__container">
-                                <div class="monogram-text" maxlength="4" >
+                                <div class="monogram-text" maxlength="4">
                                     {{data.active_structure.monogram.default_text}}
                                 </div>
 
@@ -485,60 +496,60 @@
                     </div>
 
                     <!--<div class="price-block" :class="more_details?'more_details':'less_details'">-->
-                        <!--<div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">-->
-                            <!--<div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>-->
-                            <!--<div class="product-preview vr-product-preview ac-product-preview">-->
-                                <!--<img class="live-image" :src="preview_image">-->
-                            <!--</div>-->
+                    <!--<div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">-->
+                    <!--<div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(state.active_product.name)}}</span></div>-->
+                    <!--<div class="product-preview vr-product-preview ac-product-preview">-->
+                    <!--<img class="live-image" :src="preview_image">-->
+                    <!--</div>-->
 
-                            <!--<div class="detailed-price" v-if="states.product_view.current_configuration_price && more_details ">-->
-                                <!--<table class="price-table-head">-->
-                                    <!--<tr>-->
-                                        <!--<td>Part</td>-->
-                                        <!--<td>Price</td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                                <!--<table class="table table&#45;&#45;product-summary price">-->
-                                    <!--<tr class="base-mod-price">-->
-                                        <!--<td>{{tr("Base model")}}:</td>-->
-                                        <!--<td>{{states.product_view.current_configuration_price.base}} &#8364;</td>-->
-                                    <!--</tr>-->
-                                    <!--<tr class="extra-acc-price"-->
-                                        <!--v-for="value, name in states.product_view.current_configuration_price.details">-->
-                                        <!--<td>{{tr(name)}}:</td>-->
-                                        <!--<td>{{tr(value)}} &#8364;</td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                            <!--</div>-->
-                            <!--<div class="summary-block">-->
-                                <!--<div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>-->
-                                <!--<div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>-->
-                                <!--<div class="accessories-summary"></div>-->
-                            <!--</div>-->
-                            <!--<div class="prices" v-if="states.product_view.current_configuration_price">-->
-                                <!--<div class="price">-->
-                                    <!--<p class="base-mod-price">-->
-                                        <!--{{tr("Base model")}}: <span-->
-                                            <!--class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;-->
-                                    <!--</span>-->
-                                    <!--</p>-->
-                                    <!--<p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">-->
-                                        <!--{{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;-->
-                                    <!--</span>-->
-                                    <!--</p>-->
-                                    <!--<p class="extra-mat-price">-->
-                                        <!--{{tr("Extra materials")}}: <span class="price-span">0,00 &#8364;-->
-                                    <!--</span>-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="delivery-time">-->
-                            <!--<div class="delivery"></div>-->
-                            <!--<div class="total-price" v-if="states.product_view.current_configuration_price">-->
-                                <!--{{states.product_view.current_configuration_price.total}},00 &#8364;-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    <!--<div class="detailed-price" v-if="states.product_view.current_configuration_price && more_details ">-->
+                    <!--<table class="price-table-head">-->
+                    <!--<tr>-->
+                    <!--<td>Part</td>-->
+                    <!--<td>Price</td>-->
+                    <!--</tr>-->
+                    <!--</table>-->
+                    <!--<table class="table table&#45;&#45;product-summary price">-->
+                    <!--<tr class="base-mod-price">-->
+                    <!--<td>{{tr("Base model")}}:</td>-->
+                    <!--<td>{{states.product_view.current_configuration_price.base}} &#8364;</td>-->
+                    <!--</tr>-->
+                    <!--<tr class="extra-acc-price"-->
+                    <!--v-for="value, name in states.product_view.current_configuration_price.details">-->
+                    <!--<td>{{tr(name)}}:</td>-->
+                    <!--<td>{{tr(value)}} &#8364;</td>-->
+                    <!--</tr>-->
+                    <!--</table>-->
+                    <!--</div>-->
+                    <!--<div class="summary-block">-->
+                    <!--<div class="material-summary">{{tr("Material")}}: <span>Suede</span></div>-->
+                    <!--<div class="color-summary">{{tr("Color")}}: <span>Signal Red</span></div>-->
+                    <!--<div class="accessories-summary"></div>-->
+                    <!--</div>-->
+                    <!--<div class="prices" v-if="states.product_view.current_configuration_price">-->
+                    <!--<div class="price">-->
+                    <!--<p class="base-mod-price">-->
+                    <!--{{tr("Base model")}}: <span-->
+                    <!--class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;-->
+                    <!--</span>-->
+                    <!--</p>-->
+                    <!--<p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">-->
+                    <!--{{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;-->
+                    <!--</span>-->
+                    <!--</p>-->
+                    <!--<p class="extra-mat-price">-->
+                    <!--{{tr("Extra materials")}}: <span class="price-span">0,00 &#8364;-->
+                    <!--</span>-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="delivery-time">-->
+                    <!--<div class="delivery"></div>-->
+                    <!--<div class="total-price" v-if="states.product_view.current_configuration_price">-->
+                    <!--{{states.product_view.current_configuration_price.total}},00 &#8364;-->
+                    <!--</div>-->
+                    <!--</div>-->
                     <!--</div>-->
 
                     <!-- <div class="description-product">
@@ -594,7 +605,8 @@
                                     <img src="img/components/Crystal_Base.png">
                                     <span class="name">Base</span>
                                 </div>
-                            </div>scan-section
+                            </div>
+                            scan-section
                         </div>
                     </div>
                 </div>
@@ -612,7 +624,8 @@
                          v-if="data.active_component.configurable && element.configurable"
                          v-for="element in data.active_structure.elements">
                         <div class="configurator-block vr-configurator-block ac-configurator-block materials-color-block">
-                            <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span></div>
+                            <div class="title vr-block-title ac-block-title acc-title"><span>{{tr("Materials")}}</span>
+                            </div>
                             <span>
                                 <div class="material-block diff-prices-container"
                                      :class="[state.active_product.name, material.name]"
@@ -675,9 +688,10 @@
             <div class="bottom-panel">
                 <img class="hidden acc-show poweredby-accenture" src="img/accenture/Powered_by_logos.png">
             </div>
-            </div>
+        </div>
     </product-details>
-    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible" :states="states" :preview_image="preview_image"
+    <product-preview v-if="states.preview_view.active" id="preview-screen" class="page" :visible="visible"
+                     :states="states" :preview_image="preview_image"
                      inline-template>
         <div id="product-preview-screen">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -695,7 +709,8 @@
                 <div class="col header-col header-middle">
                     <span class="acc-hidden vr-stylish-text">{{tr("Product Preview")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
                         <img class="hidden acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
@@ -705,9 +720,10 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
-                                <span class="user_name">
+                        <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
                                     {{states.customer_profile_view.active_customer.lastname}}
                                 </span>
@@ -747,7 +763,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span>
+                    </div>
                     <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image" :src="preview_image">
                     </div>
@@ -763,7 +780,8 @@
                                     class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;
                                     </span>
                             </p>
-                            <p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">
+                            <p class="extra-acc-price"
+                               v-for="value, name in states.product_view.current_configuration_price.details">
                                 {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
                                     </span>
                             </p>
@@ -787,7 +805,8 @@
             </div>
         </div>
     </product-preview>
-    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states" :preview_image="preview_image"
+    <material-preview v-if="states.material_view.active" id="material-screen" :visible="visible" :states="states"
+                      :preview_image="preview_image"
                       inline-template>
         <div id="material-preview-screen" class="page">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
@@ -805,7 +824,8 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("Material Preview")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
@@ -815,7 +835,8 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -849,7 +870,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span>
+                    </div>
                     <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image" :src="preview_image">
                     </div>
@@ -865,7 +887,8 @@
                                     class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;
                                     </span>
                             </p>
-                            <p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">
+                            <p class="extra-acc-price"
+                               v-for="value, name in states.product_view.current_configuration_price.details">
                                 {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
                                     </span>
                             </p>
@@ -889,7 +912,8 @@
             </div>
         </div>
     </material-preview>
-    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states" :preview_image="preview_image" :preview_image="preview_image" inline-template>
+    <part-preview v-if="states.part_view.active" id="part-preview" class="page" :visible="visible" :states="states"
+                  :preview_image="preview_image" :preview_image="preview_image" inline-template>
         <div id="part-preview-screen" class="page">
             <div class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
@@ -906,7 +930,8 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("Detail Preview")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
@@ -916,7 +941,8 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -949,7 +975,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="vr-model-name title vr-block-title ac-block-title"><span>{{tr(states.product_view.active_product.name)}}</span>
+                    </div>
                     <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image" :src="preview_image">
                     </div>
@@ -965,7 +992,8 @@
                                     class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;
                                     </span>
                             </p>
-                            <p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">
+                            <p class="extra-acc-price"
+                               v-for="value, name in states.product_view.current_configuration_price.details">
                                 {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
                                     </span>
                             </p>
@@ -1007,7 +1035,8 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("User Profile")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-hidden" src="img/accenture/accenture_white.png"/>
                         <img class="hidden acc-show" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
@@ -1017,7 +1046,8 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1042,7 +1072,10 @@
             </div>
             <div class="best-fit main" style="" v-if="states.customer_profile_view.active_customer.id">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
-                    <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="hidden title ac-block-title vr-block-title acc-block-title">
+                        {{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}}
+                        {{states.customer_profile_view.active_customer.lastname}}
+                    </div>
                     <div class="user_info">
                         <div class="hidden vr-show stgallen-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -1122,7 +1155,9 @@
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
                     <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile stgallen-your-scans_profile vr-your-scans_profile">
-                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your Scans</div>
+                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your
+                            Scans
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1143,7 +1178,8 @@
                 <div class="col header-col header-middle">
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -1179,7 +1215,8 @@
                         </div>
                         <div class="prices">
                             <div class="price">
-                                <p class="base-mod-price">{{tr('Base model')}}: <span class="price-span">0,00 &#8364; </span></p>
+                                <p class="base-mod-price">{{tr('Base model')}}: <span
+                                        class="price-span">0,00 &#8364; </span></p>
                                 <p class="extra-acc-price">{{tr('Extra accessories')}}: <span class="price-span"><span
                                         class="euro"></span>0,00 &#8364;</span></p>
                                 <p class="extra-mat-price">{{tr('Extra materials')}}: <span class="price-span"><span
@@ -1207,7 +1244,8 @@
             <header class="header vr-header acc-header stgallen-header mainscreen-header">
                 <div class="col header-col header-start">
                     <div class="logo header-logo">
-                        <img class="hidden acc-hidden apparel-show micam-show vr-show vr-logo-img" src="img/neon-logo.png">
+                        <img class="hidden acc-hidden apparel-show micam-show vr-show vr-logo-img"
+                             src="img/neon-logo.png">
                         <img class="hidden ac-show acc-hidden ac-logo-img" src="img/accenture/chromium_else.png">
                         <!--<img class="hidden stgallen-show" src="img/st-gallen/logo-else-corp.png"/>-->
                         <img class="hidden stgallen-show logo-chromium" src="img/chromium_else.png"/>
@@ -1217,7 +1255,8 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden vr-stylish-text">{{tr("User Profile")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden ac-show acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
@@ -1226,7 +1265,8 @@
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1250,7 +1290,10 @@
             </header>
             <div class="best-fit main" style="">
                 <div class="user_profile_params vr-user_profile_params ac-user_profile_params acc-user_profile_params stgallen-user_profile_params">
-                    <div class="hidden title ac-block-title vr-block-title acc-block-title">{{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}} {{states.customer_profile_view.active_customer.lastname}}</div>
+                    <div class="hidden title ac-block-title vr-block-title acc-block-title">
+                        {{tr('Name')}}:{{states.customer_profile_view.active_customer.firstname}}
+                        {{states.customer_profile_view.active_customer.lastname}}
+                    </div>
                     <div class="user_info">
                         <div class="hidden vr-show stgallen-show user_info_line username_profile">{{tr('Name')}}:
                             <span id="user_profile_name">
@@ -1440,7 +1483,9 @@
                 </div>  <!-- ./user-info end -->
                 <div class="user_profile_params">
                     <div class="your-scans_profile ac-your-scans_profile acc-your-scans_profile stgallen-your-scans_profile vr-your-scans_profile">
-                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your Scans</div>
+                        <div class="title ac-block-title vr-block-title acc-block-title stgallen-block-title">Your
+                            Scans
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1466,16 +1511,18 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden screen-name vr-stylish-text">{{tr("Order")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show ac-logo-img" src="img/logo-transparent-white.png">
-                       <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
+                        <!-- <img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                         <span class="stgallen-title">
                             <span class="hidden stgallen-show">{{tr('Order')}}</span>
                         </span>
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                     {{states.customer_profile_view.active_customer.firstname}}
@@ -1498,20 +1545,26 @@
                 </div>
             </div>
             <div class="main">
-                 <div class="order-button-block">
+                <div class="order-button-block">
                     <form>
                         <div class="input-label">
                             <label class="label">{{tr("Full Name")}}</label>
-                            <input type="text" v-model.trim="states.customer_order_view.customer_info.firstname" @input="updateData" name="firstname" placeholder="Customer Name" style="flex: 2 1 50px; margin-right: 5px;">
-                            <input type="text" v-model.trim="states.customer_order_view.customer_info.lastname" @input="updateData" name="lastname" placeholder="Customer Surname" style="flex: 1 1 50px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.firstname"
+                                   @input="updateData" name="firstname" placeholder="Customer Name"
+                                   style="flex: 2 1 50px; margin-right: 5px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.lastname"
+                                   @input="updateData" name="lastname" placeholder="Customer Surname"
+                                   style="flex: 1 1 50px;">
                         </div>
                         <div class="input-label">
                             <label for="email-order" class="label">{{tr("Email")}}</label>
-                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email" placeholder="Customer Email" @input="updateData" name="email" id="email-order">
+                            <input type="email" v-model.trim="states.customer_order_view.customer_info.email"
+                                   placeholder="Customer Email" @input="updateData" name="email" id="email-order">
                         </div>
                         <div class="input-label">
                             <label for="size" class="label">{{tr("Standard Size")}}</label>
-                            <select name="size" id="size" placeholder="Choose your optimum size" v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
+                            <select name="size" id="size" placeholder="Choose your optimum size"
+                                    v-model.lazy="states.customer_order_view.customer_info.size" @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1545,7 +1598,9 @@
                         </div>
                         <div class="input-label">
                             <label for="fitted_size" class="label">{{tr("Fitted Size")}}</label>
-                            <select name="size" id="fitted_size" placeholder="Fitted size" v-model.lazy="states.customer_order_view.customer_info.fitted_size" @change="updateData">
+                            <select name="size" id="fitted_size" placeholder="Fitted size"
+                                    v-model.lazy="states.customer_order_view.customer_info.fitted_size"
+                                    @change="updateData">
                                 <option value="34">{{tr("Size 34")}}</option>
                                 <option value="34.5">{{tr("Size 34.5")}}</option>
                                 <option value="35">{{tr("Size 35")}}</option>
@@ -1576,34 +1631,50 @@
 
                             </select>
                             <a class="dropdown-btn"></a>
+                        </div>
+                        <div class="input-label">
+                            <label class="label">{{tr("Delivery address")}}</label>
+                            <input type="text"
+                                   v-model.trim="states.customer_order_view.customer_info.addresses[0].street[0]"
+                                   @input="updateData" id="district" placeholder="District of the shop"
+                                   style="flex: 2 1 50px; margin-right: 5px;">
+                            <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].city"
+                                   @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 50px;">
+                            <div style="display: flex; flex-direction: row; margin-left: 30%;">
+                                <input type="text"
+                                       v-model.trim="states.customer_order_view.customer_info.addresses[0].countryId"
+                                       @input="updateData" name="country" id="country" placeholder="Country"
+                                       style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
+                                <input type="number"
+                                       v-model.trim="states.customer_order_view.customer_info.addresses[0].postcode"
+                                       @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code"
+                                       style="flex: 1 1 150px; width: 100%; margin-top: 5px">
                             </div>
-                            <div class="input-label">
-                                <label class="label">{{tr("Delivery address")}}</label>
-                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].street[0]" @input="updateData" id="district" placeholder="District of the shop" style="flex: 2 1 50px; margin-right: 5px;">
-                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].city" @input="updateData" name="city" id="city" placeholder="City" style="flex: 1 1 50px;">
-                                <div style="display: flex; flex-direction: row; margin-left: 30%;">
-                                    <input type="text" v-model.trim="states.customer_order_view.customer_info.addresses[0].countryId" @input="updateData" name="country" id="country" placeholder="Country" style="flex: 2 1 100px; width: 100%; margin-left: 30px; margin-top: 5px">
-                                    <input type="number" v-model.trim="states.customer_order_view.customer_info.addresses[0].postcode" @input="updateData" name="zip-code" id="zip-code" placeholder="Zip Code" style="flex: 1 1 150px; width: 100%; margin-top: 5px">
-                                </div>
-                            </div>
-                            <div class="input-label">
-                                <label for="phone" class="label">{{tr("Phone number")}}</label>
-                                <input type="tel" placeholder="Format: (45) 123-456-7890 " v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone" @input="updateData" name="phone" id="phone">
-                            </div>
-                            <div class="input-label">
-                                <label for="payment-type" class="label">{{tr("Payment type")}}</label>
-                                <select size="1" name="payment-type" id="payment-type" v-model.lazy="states.customer_order_view.customer_info.payment_type" @change="updateData">
-                                    <option value="cash" selected="selected">{{tr("Cash")}}</option>
-                                    <option value="creditCard">{{tr("Credit Card")}}</option>
-                                    <option value="debitCard">{{tr("Debit Card")}}</option>
-                                    <option value="other">{{tr("Other")}}</option></select>
-                                <a class="dropdown-btn"></a>
-                            </div>
-                            <div class="input-label">
-                                <label for="notes" class="label">{{tr("Notes")}}</label>
-                                <input type="text" name="notes" id="notes" v-model.trim="states.customer_order_view.customer_info.note" @input="updateData">
-                            </div>
-                            <div class="order-button"></div>
+                        </div>
+                        <div class="input-label">
+                            <label for="phone" class="label">{{tr("Phone number")}}</label>
+                            <input type="tel" placeholder="Format: (45) 123-456-7890 "
+                                   v-model.trim="states.customer_order_view.customer_info.addresses[0].telephone"
+                                   @input="updateData" name="phone" id="phone">
+                        </div>
+                        <div class="input-label">
+                            <label for="payment-type" class="label">{{tr("Payment type")}}</label>
+                            <select size="1" name="payment-type" id="payment-type"
+                                    v-model.lazy="states.customer_order_view.customer_info.payment_type"
+                                    @change="updateData">
+                                <option value="cash" selected="selected">{{tr("Cash")}}</option>
+                                <option value="creditCard">{{tr("Credit Card")}}</option>
+                                <option value="debitCard">{{tr("Debit Card")}}</option>
+                                <option value="other">{{tr("Other")}}</option>
+                            </select>
+                            <a class="dropdown-btn"></a>
+                        </div>
+                        <div class="input-label">
+                            <label for="notes" class="label">{{tr("Notes")}}</label>
+                            <input type="text" name="notes" id="notes"
+                                   v-model.trim="states.customer_order_view.customer_info.note" @input="updateData">
+                        </div>
+                        <div class="order-button"></div>
                     </form>
                     <!-- <div class="button share-conf">
                         <img src="../img/share.png">
@@ -1611,13 +1682,14 @@
                     </div> -->
                     <!--<div class="btn-order" @click="sendOrder">{{tr("Order Now")}}</div>-->
 
-                <div class="button-container">
-                    <button class="do-order-button" @click="sendOrder">{{tr('Order Now')}}</button>
-                </div>
+                    <div class="button-container">
+                        <button class="do-order-button" @click="sendOrder">{{tr('Order Now')}}</button>
+                    </div>
                 </div>
                 <div class="summary-footer">
                     <div class="product-summary">{{tr("Your current configuration")}} -</div>
-                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}</div>
+                    <div class="collection-summary">{{tr("Model")}}: {{tr(states.product_view.active_product.name)}}
+                    </div>
                     <div class="heel-color-summary" v-if="states.product_view.active_color">
                         {{tr("Color")}}: {{getColorName(states.product_view.active_color)}}
                     </div>
@@ -1629,9 +1701,9 @@
             <div v-show="visible.order_success" id="order-success-push" @click="goHomeAfterSuccess()">
                 {{tr('Your order has been successfully completed')}}
             </div>
-                 <!--<div class="button-container" v-show="visible.order_success" id="order-success-push">-->
-                    <!--<button class="continue-to-configurator" @click="continueAction">{{tr('Your order has been successfully completed')}}</button>-->
-                <!--</div>-->
+            <!--<div class="button-container" v-show="visible.order_success" id="order-success-push">-->
+            <!--<button class="continue-to-configurator" @click="continueAction">{{tr('Your order has been successfully completed')}}</button>-->
+            <!--</div>-->
             <!--<div class="diy"><span>Ask ELSA</span></div>-->
             <div class="bottom-panel">
                 <img class="hidden acc-show poweredby-accenture" src="img/accenture/Powered_by_logos.png">
@@ -1672,13 +1744,15 @@
                 <div class="col header-col header-middle">
                     <span class="stgallen-hidden acc-hidden screen-name vr-stylish-text">{{tr("Virtual Fitting")}}</span>
                     <div class="logo header-logo">
-                        <img class="hidden ac-show logo-altroconsumo h-40per" src="img/altroconsumo/logo-altroconsumo.png"/>
+                        <img class="hidden ac-show logo-altroconsumo h-40per"
+                             src="img/altroconsumo/logo-altroconsumo.png"/>
                         <img class="hidden acc-show ac-logo-img" src="img/logo-transparent-white.png">
                         <!--<img id="mcpc_sm" class="" src="img/logo_mcpc.png"/> -->
                     </div>
                 </div>
                 <div class="col header-col header-end">
-                    <div class="login vr-login ac-login acc-login stgallen-login" v-if="states.customer_profile_view.active_customer.id">
+                    <div class="login vr-login ac-login acc-login stgallen-login"
+                         v-if="states.customer_profile_view.active_customer.id">
                         <div class="go-account"></div>
                         <span class="user_name">
                                         {{states.customer_profile_view.active_customer.firstname}}
@@ -1841,7 +1915,8 @@
             </div>
             <div class="price-block">
                 <div class="configurator-block vr-configurator-block ac-configurator-block diff-prices-container">
-                    <div class="vr-model-name title vr-block-title ac-block-title stgallen-block-title"><span>{{tr(states.product_view.active_product.name)}}</span></div>
+                    <div class="vr-model-name title vr-block-title ac-block-title stgallen-block-title"><span>{{tr(states.product_view.active_product.name)}}</span>
+                    </div>
                     <div class="product-preview vr-product-preview ac-product-preview">
                         <img class="live-image" :src="preview_image">
                     </div>
@@ -1857,7 +1932,8 @@
                                     class="price-span">{{states.product_view.current_configuration_price.base}},00 &#8364;
                                     </span>
                             </p>
-                            <p class="extra-acc-price"  v-for="value, name in states.product_view.current_configuration_price.details">
+                            <p class="extra-acc-price"
+                               v-for="value, name in states.product_view.current_configuration_price.details">
                                 {{tr(name)}}: <span class="price-span">{{tr(value)}},00 &#8364;
                                     </span>
                             </p>
@@ -1884,19 +1960,21 @@
     <material-library v-if="states.material_library_view.active" id="material-library-screen">
         <div id="material-library-screen"></div>
     </material-library>
-           <!--<div class="configurator-item go-order" @click="order">-->
-                        <!--<span class="order-icon"></span>-->
-                        <!--<span class="text">{{tr("Order")}}</span>-->
-                    <!--</div>-->
+    <!--<div class="configurator-item go-order" @click="order">-->
+    <!--<span class="order-icon"></span>-->
+    <!--<span class="text">{{tr("Order")}}</span>-->
+    <!--</div>-->
 </div>
-<script src="../mainscreen.bundle.js"></script>
 <script id="brandId" value="13"></script>
 <script id="brandUUID" value="1aa7c0d5-8ba6-4030-bfba-abb1f981b1fe"></script>
-<script src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>
- <!--<script src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
-<script src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>
- <!--<script src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
-<!--<script src="http://localhost:9001/patchedSdk.js"></script>-->
+<script defer
+        src="https://elsejssdkstor.blob.core.windows.net/demo/else.js.client.sdk/0.2.0/js/else.js.client.sdk.js"></script>
+<!--<script defer src="http://localhost:10000/js/else.js.client.sdk.js"></script>-->
+<script defer
+        src="https://elseuijssdkstor.blob.core.windows.net/demo/else.js.ui.sdk/0.2.0/mainscreen-ui-sdk.js"></script>
+<!--<script defer src="http://localhost:9000/mainscreen-ui-sdk.js"></script>-->
+<!--<script defer src="http://localhost:9001/patchedSdk.js"></script>-->
+<script defer src="../mainscreen.bundle.js"></script>
 <div id="canvas_container_id"></div>
 </body>
 </html>

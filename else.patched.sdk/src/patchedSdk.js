@@ -17,6 +17,7 @@ const collections = [{
 const products = [
     {
         uuid: window.productUUID,
+        id: window.productUUID,
         name: "",
         gif: "https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON/0e2042a2-f457-4f60-9822-45c8f18a7707/frames.gif",
         img: "https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON/4f9a566a-7636-4676-8717-b27bebc6a149/frame_0001.png",
@@ -24,6 +25,8 @@ const products = [
         fit_score: null,
         tour_360: null,
         video: null,
+        active: true,
+        configuration: {},
     }
 ];
 
@@ -54,12 +57,14 @@ const interval = setInterval(() => {
             this.set_products_list(products);
             let product = products[0];
 
-            return sdk.product_list.setActiveProduct(product.uuid)
-                .then(() => {
-                    const res = Promise.all(products.map(sdk.product_list._getProductOptions));
-                    console.log(res);
-                    return res;
-                });
+            return sdk.product_list.setActiveProduct(product.uuid).then(() => {
+                console.log('debug start');
+                return Promise.all(products);
+            }).then(res => {
+                console.log(res);
+                console.log('debug end');
+                return res;
+            });
         };
 
         sdk.collections.setActive = function (collectionId) {

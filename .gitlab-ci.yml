@@ -1,0 +1,35 @@
+image: node:8.9
+
+stages:
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install --unsafe-perm --silent
+  - apt update
+  - echo y | apt install python-dev unzip
+  - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+  - unzip awscli-bundle.zip
+  - ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+deploy_prod:
+  stage: deploy
+  only:
+    - tags
+  environment:
+    name: prod
+  artifacts:
+    paths:
+      - dist
+  script:
+    - DEPLOY_SERVER="${CI_ENVIRONMENT_URL/'https://'}"
+    - npm run build
+    - echo $DEPLOY_SERVER
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 rm s3://$DEPLOY_SERVER/elsevr/ --recursive --exclude "*" --include "*.css" --include "*.js" --include "*.json" --include "*.html" --include "*.xml" --include "*.txt"
+    - aws s3 sync dist/ s3://$DEPLOY_SERVER/elsevr/ --no-progress --delete --size-only --acl public-read
+    - aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths /*.html /*.xml /*.txt /*.json

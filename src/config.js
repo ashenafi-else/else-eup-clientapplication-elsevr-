@@ -59,8 +59,8 @@ window.config = {
         }
     },
     // 'default_product_image_prefix': 'https://crm.else.shoes/pub/media/catalog/product',
-    'default_product_image_prefix': 'https://elsedamstor.blob.core.windows.net/elsedefaultprivatestorage/private/BLEND4WB_JSON',
-    'default_collection_image_prefix': 'https://crm.else.shoes/pub/media/catalog/category/',
+    'default_product_image_prefix': 'http://51.144.232.102/pub/media/catalog/product/',
+    'default_collection_image_prefix': 'http://51.144.232.102/pub/media/catalog/category/',
     'default_configuration': {
         'elsevr_men_1_1': [{
             'component': '1',

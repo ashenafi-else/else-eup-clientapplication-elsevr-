@@ -17,7 +17,7 @@ var cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        // remotecontrol: './remotecontrol/app.js',
+        remotecontrol: './remotecontrol/app.js',
         mainscreen: './mainscreen/app.js'
     },
     output: {
@@ -68,11 +68,11 @@ module.exports = {
             [{
                 from: path.resolve(__dirname, './src/mainscreen/'),
                 to: path.resolve(__dirname, './dist/mainscreen')
+            },
+            {
+                from: path.resolve(__dirname, './src/remotecontrol/'),
+                to: path.resolve(__dirname, './dist/remotecontrol')
             }],
-            //     {
-            //     from: path.resolve(__dirname, './src/remotecontrol/'),
-            //     to: path.resolve(__dirname, './dist/remotecontrol')
-            // }
             { ignore: ['*.js', '*.less']}
         ),
         new CaseSensitivePathsPlugin()
